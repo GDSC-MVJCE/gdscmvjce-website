@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 export const HeroSectionContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bgPrimary};
