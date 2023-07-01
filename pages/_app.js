@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <main className={myFont.className}>
-        <Navbar></Navbar>
+        <Navbar />
         <Component {...pageProps} />
       </main>
     </ThemeProvider>

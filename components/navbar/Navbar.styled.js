@@ -10,7 +10,6 @@ export const MainContainer = styled.div`
 export const NavbarContainer = styled.nav`
   width: 90%;
   height: 80px;
-  /* border: 2px solid black; */
   margin: 20px 20px;
   background-color: #fff;
   display: flex;
