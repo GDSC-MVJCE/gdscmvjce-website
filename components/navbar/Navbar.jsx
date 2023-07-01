@@ -7,7 +7,7 @@ function Navbar() {
         <NavbarContainer>
             <NavbarInnerContainer>
                 <LeftContainer>
-                    <Logo></Logo>
+                    <Logo />
                 </LeftContainer>
                 <RightContainer>
                     <NavbarLinkContainer>
