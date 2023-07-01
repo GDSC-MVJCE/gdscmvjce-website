@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-
+import { keyframes } from 'styled-components';
 export const HeroSectionContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   height: 200vh;
@@ -56,18 +56,35 @@ export const HeroBackgroundContainer = styled.div`
   }
 `;
 
-export const HeroBackgroundTextSpan = styled.span`
-  font-size: 30px;
+const move = keyframes`
+0%, 100% {
+  transform: translateY(0) translateX(0);
+}
+50% {
+  transform: translateY(-20px) translateX(20px);
+}
+75% {
+  transform: translateY(-10px) translateX(-10px);
+}
+25% {
+  transform: translateY(10px) translateX(10px);
+}
+`;
+
+export const HeroBackgroundTextSpan = styled.div`
+  font-size: 26px;
   font-weight: 400;
-  width: 100%;
   z-index: -1;
+  padding: 5px 5px;
   position: absolute;
+  color: ${({ color }) => (color ? color : '#FFF06C')};
   top: ${({ top }) => top}%;
   left: ${({ left }) => left}%;
-  transition: top 5s ease-in-out, left 5s ease-in-out, font-size 0.4s ease-in-out;
+  transition: top 5s ease-in-out, left 5s ease-in-out, scale 0.4s ease-in-out;
   ${({ isHighlighted }) =>
     isHighlighted &&
     `
-    font-size: 36px;
-  `}} 
+    scale: 1.2;
+  `}
+  animation: ${move} 5s ${({ delay }) => delay}s ease-in-out infinite;
 `;
