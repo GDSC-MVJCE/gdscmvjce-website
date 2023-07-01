@@ -4,9 +4,7 @@ export const Container = styled.div`
 	width: 100%;
 	min-height: 100svh;
 	height: 100%;
-	padding: 2em;
-	padding-inline: 10em;
-	/* background-color: gray; */
+	padding: 2em 10em;
 `;
 
 export const Title = styled.div`
