@@ -14,7 +14,7 @@ function Navbar() {
                         <NavLink href={'/'}>Home</NavLink>
                         <NavLink href={'/Events'}>Events</NavLink>
                         <NavLink href={'/Team'}>Team</NavLink>
-                        <NavLink href={'/Newsletter'}>NewsLetter</NavLink>
+                        <NavLink href={'/Newsletter'}>Newsletter</NavLink>
                     </NavbarLinkContainer>
                 </RightContainer>
             </NavbarInnerContainer>
