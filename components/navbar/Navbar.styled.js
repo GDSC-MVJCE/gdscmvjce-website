@@ -18,6 +18,8 @@ export const NavbarContainer = styled.nav`
   -moz-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
+  top: 0px;
+  position: fixed;
 `;
 
 export const LeftContainer = styled.div`

@@ -4,8 +4,6 @@ import { lightTheme } from "@/constants/theme";
 
 import localFont from "next/font/local";
 
-import Navbar from "@/components/navbar/Navbar";
-
 const myFont = localFont({
   src: [
     {
@@ -26,7 +24,6 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <main className={myFont.className}>
-        <Navbar />
         <Component {...pageProps} />
       </main>
     </ThemeProvider>

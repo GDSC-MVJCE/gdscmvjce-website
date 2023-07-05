@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -7,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         border: none;
         outline: none;
-        font-family: var(--font-manrope);
     }
     
     html {
