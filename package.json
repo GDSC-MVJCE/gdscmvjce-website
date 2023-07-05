@@ -15,8 +15,12 @@
         "framer-motion": "^10.12.18",
         "next": "13.4.7",
         "react": "18.2.0",
+        "react-scroll-motion": "^0.3.2",
         "react-dom": "18.2.0",
         "react-xarrows": "^2.0.2",
         "styled-components": "^6.0.1"
+
     }
 }
+
+

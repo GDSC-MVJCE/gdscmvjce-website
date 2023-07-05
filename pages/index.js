@@ -1,8 +1,8 @@
-import Hero from "@/components/hero/Hero";
+import Hero from '@/components/hero/Hero';
 
 import Intro from "@/components/intro/Intro";
 import Navbar from "@/components/navbar/Navbar";
-import Head from "next/head";
+import Head from 'next/head';
 
 export default function Home() {
   return (

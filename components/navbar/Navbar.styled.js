@@ -1,11 +1,13 @@
-import styled from "styled-components";
-import Link from "next/link";
+import styled from 'styled-components';
+import Link from 'next/link';
 
 export const MainContainer = styled.div`
   width: 100%;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 `;
 export const NavbarContainer = styled.nav`
   width: 90%;
