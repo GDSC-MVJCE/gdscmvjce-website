@@ -1,11 +1,14 @@
 import React from "react";
 import {
+  BooleanField,
   Datagrid,
   DateField,
   DeleteButton,
   EditButton,
+  ImageField,
   List,
   TextField,
+  UrlField,
 } from "react-admin";
 
 const EventList = (props) => {
@@ -13,10 +16,14 @@ const EventList = (props) => {
     <List {...props}>
       <Datagrid>
         <TextField source="id" />
+        <ImageField source="image" />
         <TextField source="title" />
-        <DateField source="publishedAt" />
-        <EditButton basePath="/events" />
-        <DeleteButton basePath="/events" />
+        <TextField source="shortDescritption" />
+        <TextField source="description" />
+        <DateField source="date" />
+        <BooleanField source="isUpcoming" />
+        <EditButton basePath="/event" />
+        <DeleteButton basePath="/event" />
       </Datagrid>
     </List>
   );

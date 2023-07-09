@@ -1,6 +1,6 @@
 import Hero from "@/components/hero/Hero";
+
 import Head from "next/head";
-import App from "../admin/App";
 
 export default function Home() {
   return (
@@ -13,7 +13,6 @@ export default function Home() {
       </Head>
       <main>
         <Hero />
-        <App />
       </main>
     </>
   );

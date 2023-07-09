@@ -44,7 +44,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   incidents     Incident[]
-  isadmin       Boolean    @default(false)
+  isAdmin       Boolean    @default(false)
 }
 
 model VerificationToken {
