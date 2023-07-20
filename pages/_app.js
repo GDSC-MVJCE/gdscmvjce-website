@@ -3,6 +3,7 @@ import { lightTheme } from "@/constants/theme";
 import { ThemeProvider } from "styled-components";
 
 import AuthProvider from "@/components/AuthProvider";
+import Navbar from "@/components/navbar/Navbar";
 import localFont from "next/font/local";
 
 const myFont = localFont({
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider theme={lightTheme}>
         <GlobalStyles />
         <main className={myFont.className}>
+          <Navbar />
           <Component {...pageProps} />
         </main>
       </ThemeProvider>
