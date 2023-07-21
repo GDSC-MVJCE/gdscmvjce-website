@@ -7,30 +7,29 @@ import Navbar from "@/components/navbar/Navbar";
 import localFont from "next/font/local";
 
 const myFont = localFont({
-  src: [
-    {
-      path: "../public/fonts/GoogleSans-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/GoogleSans-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+	src: [
+		{
+			path: "../public/fonts/GoogleSans-Regular.ttf",
+			weight: "400",
+			style: "normal"
+		},
+		{
+			path: "../public/fonts/GoogleSans-Bold.ttf",
+			weight: "700",
+			style: "normal"
+		}
+	]
 });
 
 export default function App({ Component, pageProps }) {
-  return (
+	return (
     <AuthProvider>
-      <ThemeProvider theme={lightTheme}>
-        <GlobalStyles />
-        <main className={myFont.className}>
-          <Navbar />
-          <Component {...pageProps} />
-        </main>
-      </ThemeProvider>
+  		<ThemeProvider theme={lightTheme}>
+  			<GlobalStyles />
+  			<main className={myFont.className}>
+    				<Component {...pageProps} />
+  			</main>
+  		</ThemeProvider>
     </AuthProvider>
-  );
+	);
 }
