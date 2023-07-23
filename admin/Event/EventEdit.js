@@ -6,12 +6,11 @@ import {
   ImageInput,
   SimpleForm,
   TextInput,
-  UrlInput,
 } from "react-admin";
 
 const EventEdit = (props) => {
   return (
-    <Edit title="Create an Event" {...props}>
+    <Edit title="Edit Event" {...props}>
       <SimpleForm>
         <TextInput source="title" />
         <ImageInput source="image" />
