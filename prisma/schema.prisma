@@ -67,98 +67,55 @@ model Incident {
   @@index([authorId])
 }
 
-// Individual Event Schema
-model IndividualEvent {
-  id               Int      @id @default(autoincrement())
-  title            String
-  image            String
-  date             DateTime
-  shortDescription String
-  description      String
-  isUpcoming       Boolean  @default(true)
-}
-
 // Profile Schema
 model Profile {
-  id          Int           @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   name        String
   title       String
   description String?
   about       String?
-  teamHistory TeamHistory[]
-  social      Social[]
+  teamHistory Json
+  social      Json
   profileLink String?
-  core        Teams         @relation("coreMembers", fields: [coreId], references: [id])
+  core        Team    @relation("core", fields: [coreId], references: [id])
   coreId      String
-  member      Teams         @relation("members", fields: [memberId], references: [id])
+  member      Team    @relation("member", fields: [memberId], references: [id])
   memberId    String
-  lead        Teams         @relation("lead", fields: [leadId], references: [id])
-  leadId      String        @unique
-}
-
-model TeamHistory {
-  id            Int     @id @default(autoincrement())
-  team          String?
-  role          String?
-  profile       Profile @relation(fields: [teamHistoryId], references: [id], onDelete: Cascade)
-  teamHistoryId Int
-}
-
-model Social {
-  id       Int     @id @default(autoincrement())
-  name     String?
-  url      String?
-  profile  Profile @relation(fields: [socialId], references: [id], onDelete: Cascade)
-  socialId Int
+  lead        Team    @relation("lead", fields: [leadId], references: [id])
+  leadId      String  @unique
 }
 
 // Teams Schema
-model Teams {
+model Team {
   id      String    @id
   name    String
   lead    Profile?  @relation("lead")
-  core    Profile[] @relation("coreMembers")
-  members Profile[] @relation("members")
+  core    Profile[] @relation("core")
+  members Profile[] @relation("member")
   userId  String
 }
 
 // Events Schema
-model Events {
-  eventId          Int        @id @default(autoincrement())
+model Event {
+  eventId          Int       @id @default(autoincrement())
   bannerImage      String
   title            String
   description      String
-  schedule         Schedule[]
-  speakers         Speakers[]
+  schedule         Json
+  speakers         Speaker[]
   date             String
   venue            String
   registrations    String
   registrationLink String
 }
 
-model Schedule {
-  id          Int    @id @default(autoincrement())
-  time        Time?
-  sessionName String
-  sessionDate String
-  events      Events @relation(fields: [scheduleId], references: [eventId], onDelete: Cascade)
-  scheduleId  Int    @unique
-}
-
-model Time {
-  start    DateTime
-  end      DateTime
-  schedule Schedule @relation(fields: [timeId], references: [scheduleId], onDelete: Cascade)
-  timeId   Int      @unique
-}
-
-model Speakers {
+model Speaker {
   id          Int     @id @default(autoincrement())
   name        String
   title       String?
   description String?
   profileLink String
-  events      Events  @relation(fields: [speakerId], references: [eventId], onDelete: Cascade)
+  events      Event   @relation(fields: [speakerId], references: [eventId], onDelete: Cascade)
   speakerId   Int
 }
 
@@ -170,10 +127,10 @@ model Blog {
   author      String
   bannerImage String
   article     String
-  tags        Tags[]
+  tags        Tag[]
 }
 
-model Tags {
+model Tag {
   tag   String
   blog  Blog   @relation(fields: [tagId], references: [id], onDelete: Cascade)
   tagId Int    @unique
