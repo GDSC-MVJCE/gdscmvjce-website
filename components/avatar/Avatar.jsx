@@ -9,6 +9,7 @@ const Avatar = ({ size = 'sm', url, borderWidth, borderColor, className }) => {
       className={className}
       borderWidth={borderWidth}
       borderColor={borderColor}
+
     />
   );
 };
