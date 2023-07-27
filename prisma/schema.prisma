@@ -97,7 +97,7 @@ model Team {
 
 // Events Schema
 model Event {
-  eventId          Int          @id @default(autoincrement())
+  eventId          Int        @id @default(autoincrement())
   bannerImage      String?
   title            String
   description      String
@@ -107,13 +107,13 @@ model Event {
   venue            String
   status           String
   registrationLink String
-  tags             ArticleTag[]
+  tags             EventTag[]
 }
 
 model Speaker {
   id          Int     @id @default(autoincrement())
   name        String
-  image String?
+  image       String?
   title       String?
   description String?
   profileLink String
@@ -123,17 +123,17 @@ model Speaker {
 
 // Blog Schema
 model Blog {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   title       String
-  date        DateTime @default(now())
+  date        DateTime  @default(now())
   author      String
   bannerImage String?
   article     String
   slug        String
-  tags        Tag[]
+  tags        BlogTag[]
 }
 
-model Tag {
+model BlogTag {
   label   String
   slug    String
   tagId   Int    @unique
@@ -141,7 +141,7 @@ model Tag {
   blogId  Int?
 }
 
-model ArticleTag {
+model EventTag {
   label    String
   slug     String
   tagId    Int    @unique
