@@ -14,6 +14,11 @@ const myFont = localFont({
 			style: "normal"
 		},
 		{
+			path: "../public/fonts/GoogleSans-Medium.ttf",
+			weight: "500",
+			style: "normal"
+		},
+		{
 			path: "../public/fonts/GoogleSans-Bold.ttf",
 			weight: "700",
 			style: "normal"
@@ -23,13 +28,13 @@ const myFont = localFont({
 
 export default function App({ Component, pageProps }) {
 	return (
-    <AuthProvider>
-  		<ThemeProvider theme={lightTheme}>
-  			<GlobalStyles />
-  			<main className={myFont.className}>
-    				<Component {...pageProps} />
-  			</main>
-  		</ThemeProvider>
-    </AuthProvider>
+		<AuthProvider>
+			<ThemeProvider theme={lightTheme}>
+				<GlobalStyles />
+				<main className={myFont.className}>
+					<Component {...pageProps} />
+				</main>
+			</ThemeProvider>
+		</AuthProvider>
 	);
 }
