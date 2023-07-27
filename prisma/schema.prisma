@@ -133,15 +133,17 @@ model Blog {
 }
 
 model Tag {
-  label String
-  slug  String
-  blog  Blog   @relation(fields: [tagId], references: [id], onDelete: Cascade)
-  tagId Int    @unique
+  label  String
+  slug   String
+  tagId  Int    @unique
+  blogTag   Blog?  @relation(fields: [blogId], references: [id])
+  blogId Int?
 }
 
 model ArticleTag {
-  label String
-  slug  String
-  event Event  @relation(fields: [tagId], references: [eventId], onDelete: Cascade)
-  tagId Int    @unique
+  label        String
+  slug         String
+  tagId        Int    @unique
+  eventTag        Event? @relation(fields: [eventId], references: [eventId])
+  eventId Int?
 }
