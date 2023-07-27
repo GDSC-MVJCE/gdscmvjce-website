@@ -113,6 +113,7 @@ model Event {
 model Speaker {
   id          Int     @id @default(autoincrement())
   name        String
+  image String?
   title       String?
   description String?
   profileLink String
@@ -126,24 +127,24 @@ model Blog {
   title       String
   date        DateTime @default(now())
   author      String
-  bannerImage String
+  bannerImage String?
   article     String
   slug        String
   tags        Tag[]
 }
 
 model Tag {
-  label  String
-  slug   String
-  tagId  Int    @unique
-  blogTag   Blog?  @relation(fields: [blogId], references: [id])
-  blogId Int?
+  label   String
+  slug    String
+  tagId   Int    @unique
+  blogTag Blog?  @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId  Int?
 }
 
 model ArticleTag {
-  label        String
-  slug         String
-  tagId        Int    @unique
-  eventTag        Event? @relation(fields: [eventId], references: [eventId])
-  eventId Int?
+  label    String
+  slug     String
+  tagId    Int    @unique
+  eventTag Event? @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
+  eventId  Int?
 }
