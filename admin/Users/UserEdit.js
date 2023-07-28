@@ -3,7 +3,7 @@ import { BooleanInput, Edit } from "react-admin";
 
 const UserEdit = (props) => {
   return (
-    <Edit title="Create an Event" {...props}>
+    <Edit title="Edit admin access" {...props}>
       <SimpleForm>
         <BooleanInput source="isAdmin" />
       </SimpleForm>
