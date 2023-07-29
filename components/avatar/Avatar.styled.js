@@ -2,6 +2,11 @@ import { css, styled } from "styled-components";
 
 export const AvatarWrapper = styled.div`
   ${({ size }) =>
+    (size === "xs" &&
+      css`
+        width: 32px;
+        height: 32px;
+      `) ||
     (size === "sm" &&
       css`
         width: 47px;

@@ -1,4 +1,4 @@
-import MeetTeam from "@/components/meetTeam/MeetTeam";
+import BlogSection from "@/components/blogSection/BlogSection";
 import EventsSection from "@/components/display/eventsSection/EventsSection";
 import FaqSection from "@/components/display/faqSection/FaqSection";
 import OfferSection from "@/components/display/offerSection/OfferSection";
@@ -19,7 +19,6 @@ export default function Home() {
         <Navbar />
         <Hero />
         <OfferSection />
-        <MeetTeam />
         <EventsSection />
         <FaqSection />
       </main>

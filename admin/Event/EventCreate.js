@@ -6,7 +6,6 @@ import {
   ImageInput,
   SimpleForm,
   TextInput,
-  UrlInput,
 } from "react-admin";
 
 const EventCreate = (props) => {
@@ -14,7 +13,7 @@ const EventCreate = (props) => {
     <Create title="Create an Event" {...props}>
       <SimpleForm>
         <TextInput source="title" />
-        <ImageField source="image" />
+        <ImageInput source="image" />
         <TextInput multiline source="shortDescritption" />
         <TextInput multiline source="description" />
         <DateInput label="On" source="date" />
