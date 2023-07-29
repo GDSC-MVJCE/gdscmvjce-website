@@ -5,7 +5,6 @@ import {
   DateField,
   DeleteButton,
   EditButton,
-  ImageField,
   List,
   TextField,
   UrlField,
@@ -15,13 +14,12 @@ const EventList = (props) => {
   return (
     <List {...props}>
       <Datagrid>
-        <TextField source="id" />
-        <ImageField source="image" />
+        <UrlField source="coverPhoto" />
         <TextField source="title" />
-        <TextField source="shortDescritption" />
         <TextField source="description" />
-        <DateField source="date" />
-        <BooleanField source="isUpcoming" />
+        <TextField source="venue" />
+        <TextField source="status" />
+        <UrlField source="registrationLink" />
         <EditButton basePath="/event" />
         <DeleteButton basePath="/event" />
       </Datagrid>

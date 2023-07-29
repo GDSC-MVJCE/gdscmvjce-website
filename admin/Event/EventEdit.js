@@ -3,21 +3,22 @@ import {
   BooleanInput,
   DateInput,
   Edit,
-  ImageInput,
   SimpleForm,
   TextInput,
 } from "react-admin";
+import ScheduleInput from "./ScheduleInput";
 
 const EventEdit = (props) => {
   return (
     <Edit title="Edit Event" {...props}>
       <SimpleForm>
+        <TextInput source="coverPhoto" />
         <TextInput source="title" />
-        <ImageInput source="image" />
-        <TextInput multiline source="shortDescritption" />
-        <TextInput multiline source="description" />
-        <DateInput label="On" source="date" />
-        <BooleanInput source="isUpcoming" />
+        <TextInput source="description" />
+        <TextInput source="venue" />
+        <TextInput source="status" />
+        <TextInput source="registrationLink" />
+        <ScheduleInput source="schedule" />
       </SimpleForm>
     </Edit>
   );
