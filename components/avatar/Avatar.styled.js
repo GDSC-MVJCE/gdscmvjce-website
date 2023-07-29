@@ -17,11 +17,6 @@ export const AvatarWrapper = styled.div`
         width: 75px;
         height: 75px;
       `) ||
-    (size === "lg" &&
-      css`
-        width: 100px;
-        height: 100px;
-      `) ||
     (size === "xl" &&
       css`
         width: 232px;
@@ -35,4 +30,20 @@ export const AvatarWrapper = styled.div`
   border-style: solid;
   border-radius: 50%;
   cursor: pointer;
+
+  &.first {
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+  }
+  &.second {
+    z-index: 3;
+    position: absolute;
+    left: 150px;
+  }
+  &.third {
+    z-index: 2;
+    position: absolute;
+    left: 300px;
+  }
 `;
