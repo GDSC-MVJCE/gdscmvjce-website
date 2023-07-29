@@ -61,7 +61,7 @@ function BlogSection() {
     const theme = useTheme()
 
     const blogElements = blogs.map((blog, index) => (
-        <BlogCard>
+        <BlogCard key={index}>
             <TopContainer>
                 <Image
                     src={blog.image}
