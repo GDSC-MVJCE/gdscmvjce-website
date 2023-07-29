@@ -1,30 +1,8 @@
 import React from 'react'
 import { MainContainer, LeftContainer, RightContainer, LeftInnerContainer, HeadingContainer, } from './Intro.styled'
-import { motion, easeInOut } from 'framer-motion'
 import IntroImage from '@public/images/intro.svg'
 import Typography from '../display/typography/Typography';
 
-const svgVariants = {
-    hidden: {
-        opacity: 0,
-        pathLenght: 0
-    },
-    visible: {
-        opactiy: 1,
-        pathLength: 1,
-        transition: {
-            duration: 1,
-            ease: easeInOut,
-        }
-    }
-}
-export const ImageContainer = () => (
-    <motion.div
-        variants={svgVariants}
-        initial="hidden"
-        animate="visible"
-    />
-)
 
 
 function Intro() {
