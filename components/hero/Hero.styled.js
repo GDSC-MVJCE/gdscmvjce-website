@@ -1,5 +1,5 @@
-import { styled } from 'styled-components';
-import { keyframes } from 'styled-components';
+import { styled, keyframes } from "styled-components";
+
 export const HeroSectionContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   width: 100%;
@@ -43,7 +43,7 @@ export const HeroTextSpan = styled.span`
   cursor: pointer;
   &:hover {
     font-size: 100px;
-    color: ${({ color }) => (color ? color : '#FFF06C')};
+    color: ${({ color }) => (color ? color : "#FFF06C")};
   }
   @media (max-width: 768px) {
     font-size: 60px;
@@ -94,7 +94,7 @@ export const HeroBackgroundTextSpan = styled.div`
   z-index: -1;
   padding: 5px 5px;
   position: absolute;
-  color: ${({ color }) => (color ? color : '#FFF06C')};
+  color: ${({ color }) => (color ? color : "#FFF06C")};
   top: ${({ top }) => top}%;
   left: ${({ left }) => left}%;
   transition: top 5s ease-in-out, left 5s ease-in-out, scale 0.4s ease-in-out;

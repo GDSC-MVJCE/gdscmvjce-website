@@ -9,6 +9,7 @@ export const lightTheme = {
     bgSecondary: "#E9E9E9",
     bgTertiary: "#e9e9e9",
     contentPrimary: "#131313",
+		contentSecondary: "#6e6e6e",
   },
 };
 

@@ -1,0 +1,150 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @unique
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String   @unique
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String     @id @default(cuid())
+  name          String?
+  email         String?    @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  incidents     Incident[]
+  isAdmin       Boolean    @default(false)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Incident {
+  id        Int      @id @default(autoincrement())
+  event     String   @db.Text()
+  createdAt DateTime @default(now())
+  yearsAgo  Int
+  country   String
+  user      User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+
+  @@index([authorId])
+}
+
+// Profile Schema
+model Profile {
+  id          Int     @id @default(autoincrement())
+  name        String
+  title       String
+  description String?
+  about       String?
+  teamHistory Json
+  social      Json
+  profileLink String?
+  core        Team    @relation("core", fields: [coreId], references: [id])
+  coreId      String
+  member      Team    @relation("member", fields: [memberId], references: [id])
+  memberId    String
+  lead        Team    @relation("lead", fields: [leadId], references: [id])
+  leadId      String  @unique
+}
+
+// Teams Schema
+model Team {
+  id      String    @id
+  name    String
+  lead    Profile?  @relation("lead")
+  core    Profile[] @relation("core")
+  members Profile[] @relation("member")
+  userId  String
+}
+
+// Events Schema
+model Event {
+  eventId          Int        @id @default(autoincrement())
+  bannerImage      String?
+  title            String
+  description      String
+  schedule         Json
+  speakers         Speaker[]
+  date             Json
+  venue            String
+  status           String
+  registrationLink String
+  tags             EventTag[]
+}
+
+model Speaker {
+  id          Int     @id @default(autoincrement())
+  name        String
+  image       String?
+  title       String?
+  description String?
+  profileLink String
+  events      Event   @relation(fields: [speakerId], references: [eventId], onDelete: Cascade)
+  speakerId   Int
+}
+
+// Blog Schema
+model Blog {
+  id          Int       @id @default(autoincrement())
+  title       String
+  date        DateTime  @default(now())
+  author      String
+  bannerImage String?
+  article     String
+  slug        String
+  tags        BlogTag[]
+}
+
+model BlogTag {
+  label   String
+  slug    String
+  tagId   Int    @unique
+  blogTag Blog?  @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId  Int?
+}
+
+model EventTag {
+  label    String
+  slug     String
+  tagId    Int    @unique
+  eventTag Event? @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
+  eventId  Int?
+}
