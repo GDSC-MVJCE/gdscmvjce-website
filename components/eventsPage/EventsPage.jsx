@@ -1,6 +1,5 @@
 import Image from "next/image.js";
 import {
-	EventContent,
 	EventInfo,
 	EventTags,
 	EventsCard,
@@ -14,38 +13,71 @@ import {
 } from "./EventsPage.styled";
 import useSWR from "swr";
 import Typography from "../display/typography/Typography.jsx";
-import axios from "axios";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useRouter } from "next/router";
+import capitalize from "@/utils/capitalize";
+import fetcher from "@/utils/fetcher";
 
 const filters = [
-	"All",
-	"Web",
-	"Flutter",
-	"TailwindCSS",
-	"Kotlin",
-	"Tensorflow",
-	"Git"
+	"all",
+	"web",
+	"flutter",
+	"tailwindCSS",
+	"kotlin",
+	"tensorflow",
+	"git"
 ];
 
 function EventsPage() {
-	async function fetcher(url) {
-		return axios.get(url).then((res) => res.data);
-	}
-	const {
-		data: eventsData,
-		error,
-		isLoading
-	} = useSWR(`/api/events`, fetcher, {
-		revalidateIfStale: false,
-		revalidateOnFocus: false,
-		revalidateOnReconnect: false
-	});
-
 	const theme = useTheme();
-	const [isActive, setIsActive] = useState("All");
+	const router = useRouter();
+	const { type } = router.query;
+	const { pathname, query } = router;
+
+	const [isActive, setIsActive] = useState(type ? type : "all");
+	const [pageNumber, setPageNumber] = useState(1);
+	const [hasMore, setHasMore] = useState(true);
+	const [eventsData, setEventsData] = useState([]);
+
+	useEffect(() => {
+		setIsActive(type ? type : "all");
+	}, [type]);
+
+	function handleFilterChange(filter) {
+		if (filter === "all") {
+			delete router.query.type;
+			router.replace({ pathname, query }, undefined, { shallow: true });
+		} else router.push(`/events?type=${filter}`);
+	}
+
+	const { data, error, isLoading } = useSWR(
+		`/api/events?page=${pageNumber}`,
+		fetcher,
+		{
+			revalidateIfStale: false,
+			revalidateOnFocus: false,
+			revalidateOnReconnect: false
+		}
+	);
+
+	useEffect(() => {
+		if (data) {
+			setEventsData((prevData) => [...prevData, ...data]);
+		}
+		if (data && data.length < 3) {
+			setHasMore(false);
+		}
+	}, [data]);
+
+	const fetchMoreData = () => {
+		setTimeout(() => {
+			setPageNumber((prevPageNumber) => prevPageNumber + 1);
+		}, 2000);
+	};
 
 	const arrowMotion = {
 		initial: { x: 0 },
@@ -60,7 +92,7 @@ function EventsPage() {
 	const filterElements = filters.map((filter, index) => (
 		<FilterCard
 			key={index}
-			onClick={() => setIsActive(filter)}
+			onClick={() => handleFilterChange(filter)}
 			initial="initial"
 			animate="initial"
 			whileHover="hover"
@@ -71,7 +103,7 @@ function EventsPage() {
 					isActive === filter ? theme?.colors.brandBlue : "inherit"
 				}
 			>
-				{filter}
+				{capitalize(filter)}
 			</Typography>
 			<motion.span variants={arrowMotion}>
 				<Typography
@@ -88,47 +120,6 @@ function EventsPage() {
 		</FilterCard>
 	));
 
-	const eventsCardElements =
-		eventsData &&
-		eventsData.map((event, index) => {
-			const eventTagsElements = event.tags.map((tag, index) => (
-				<Typography variant="body" subdued key={index}>
-					{tag.label}
-					&nbsp;{index < event.tags.length - 1 && " | "}&nbsp;
-				</Typography>
-			));
-			return (
-				<EventsCard
-					key={index}
-					initial="initial"
-					animate="initial"
-					whileHover="hover"
-				>
-					<ImageContainer variants={coverImageMotion}>
-						<Image
-							src={
-								"https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,h_540,q_auto:good,w_720/v1/gcs/platform-data-dsc/event_wrapup/DSC_0027_kDjlj78.JPG"
-							}
-							alt={"EventsCard1"}
-							fill="responsive"
-							style={{
-								borderRadius: "inherit",
-								objectFit: "cover"
-							}}
-						/>
-					</ImageContainer>
-					<EventInfo>
-						<EventTags>{eventTagsElements}</EventTags>
-						<Typography variant="h3">{event.title}</Typography>
-						<Typography variant="body">
-							{moment(event.date.start).format("MMM D, YYYY")} -{" "}
-							{event.shortDescription}
-						</Typography>
-					</EventInfo>
-				</EventsCard>
-			);
-		});
-
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
@@ -139,9 +130,77 @@ function EventsPage() {
 		<>
 			{eventsData && (
 				<EventsPageContainer>
-					<Typography variant="h1">{isActive} Events</Typography>
+					<Typography variant="h1">
+						{capitalize(isActive)} Events
+					</Typography>
 					<EventsContainer>
-						<LeftContainer>{eventsCardElements}</LeftContainer>
+						<LeftContainer>
+							<InfiniteScroll
+								dataLength={eventsData.length}
+								next={fetchMoreData}
+								hasMore={hasMore}
+								loader={<h4>Loading...</h4>}
+							>
+								{eventsData.map((event, index) => {
+									const eventTagsElements = event.tags.map(
+										(tag, index) => (
+											<Typography
+												variant="body"
+												subdued
+												key={index}
+											>
+												{tag.label}
+												&nbsp;
+												{index <
+													event.tags.length - 1 &&
+													" | "}
+												&nbsp;
+											</Typography>
+										)
+									);
+									return (
+										<EventsCard
+											key={index}
+											initial="initial"
+											animate="initial"
+											whileHover="hover"
+										>
+											<ImageContainer
+												variants={coverImageMotion}
+											>
+												<Image
+													src={
+														"https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,h_540,q_auto:good,w_720/v1/gcs/platform-data-dsc/event_wrapup/DSC_0027_kDjlj78.JPG"
+													}
+													alt={"EventsCard1"}
+													fill="responsive"
+													style={{
+														borderRadius: "inherit",
+														objectFit: "cover"
+													}}
+												/>
+											</ImageContainer>
+											<EventInfo>
+												<EventTags>
+													{eventTagsElements}
+												</EventTags>
+												<Typography variant="h3">
+													{event.title}
+												</Typography>
+												<Typography variant="body">
+													{moment(
+														event.date.start
+													).format(
+														"MMM D, YYYY"
+													)}{" "}
+													- {event.shortDescription}
+												</Typography>
+											</EventInfo>
+										</EventsCard>
+									);
+								})}
+							</InfiniteScroll>
+						</LeftContainer>
 						<RightContainer>
 							<Typography variant="h2">Tags</Typography>
 							<FilterContainer>{filterElements}</FilterContainer>
