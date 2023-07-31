@@ -21,6 +21,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useRouter } from "next/router";
 import capitalize from "@/utils/capitalize";
 import fetcher from "@/utils/fetcher";
+import Link from "next/link";
 
 const filters = [
 	"all",
@@ -159,44 +160,53 @@ function EventsPage() {
 										)
 									);
 									return (
-										<EventsCard
+										<Link
+											href={
+												pathname + "/" + event.eventId
+											}
 											key={index}
-											initial="initial"
-											animate="initial"
-											whileHover="hover"
+											style={{ textDecoration: "none" }}
 										>
-											<ImageContainer
-												variants={coverImageMotion}
+											<EventsCard
+												initial="initial"
+												animate="initial"
+												whileHover="hover"
 											>
-												<Image
-													src={
-														"https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,h_540,q_auto:good,w_720/v1/gcs/platform-data-dsc/event_wrapup/DSC_0027_kDjlj78.JPG"
-													}
-													alt={"EventsCard1"}
-													fill="responsive"
-													style={{
-														borderRadius: "inherit",
-														objectFit: "cover"
-													}}
-												/>
-											</ImageContainer>
-											<EventInfo>
-												<EventTags>
-													{eventTagsElements}
-												</EventTags>
-												<Typography variant="h3">
-													{event.title}
-												</Typography>
-												<Typography variant="body">
-													{moment(
-														event.date.start
-													).format(
-														"MMM D, YYYY"
-													)}{" "}
-													- {event.shortDescription}
-												</Typography>
-											</EventInfo>
-										</EventsCard>
+												<ImageContainer
+													variants={coverImageMotion}
+												>
+													<Image
+														src={
+															"https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,h_540,q_auto:good,w_720/v1/gcs/platform-data-dsc/event_wrapup/DSC_0027_kDjlj78.JPG"
+														}
+														alt={"EventsCard1"}
+														fill="responsive"
+														style={{
+															borderRadius:
+																"inherit",
+															objectFit: "cover"
+														}}
+													/>
+												</ImageContainer>
+												<EventInfo>
+													<EventTags>
+														{eventTagsElements}
+													</EventTags>
+													<Typography variant="h3">
+														{event.title}
+													</Typography>
+													<Typography variant="body">
+														{moment(
+															event.date.start
+														).format(
+															"MMM D, YYYY"
+														)}{" "}
+														-{" "}
+														{event.shortDescription}
+													</Typography>
+												</EventInfo>
+											</EventsCard>
+										</Link>
 									);
 								})}
 							</InfiniteScroll>
