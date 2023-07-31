@@ -6,10 +6,14 @@ export const EventsPageContainer = styled.div`
 	flex-direction: column;
 	padding: 1em 5em;
 	gap: 1em;
+	height: 100%;
+	width: 100%;
 `;
 
 export const EventsContainer = styled.div`
 	display: flex;
+	height: 100%;
+	width: 100%;
 `;
 
 export const LeftContainer = styled.div`
@@ -17,14 +21,19 @@ export const LeftContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+	overflow: hidden;
 `;
 
 export const RightContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 30%;
+	height: 100%;
 	padding: 0 2em;
 	gap: 1.5em;
+	position: sticky;
+	top: 20px;
+	right: 0;
 `;
 
 export const EventsCard = styled(motion.div)`
@@ -33,6 +42,7 @@ export const EventsCard = styled(motion.div)`
 	height: 300px;
 	box-shadow: 0px 4px 20px -2px rgba(0, 0, 0, 0.16);
 	border-radius: 10px;
+	margin-bottom: 1em;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
 	overflow: hidden;
