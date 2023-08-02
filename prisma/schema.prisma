@@ -76,3 +76,4 @@ model Event {
   description      String
   isUpcoming       Boolean  @default(true)
 }
+
