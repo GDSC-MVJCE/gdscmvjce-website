@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
     }
     body {
         background-color: ${({ theme }) => theme.colors.bgPrimary};
+        color: ${({ theme }) => theme.colors.contentPrimary};
     }
 `;
 
