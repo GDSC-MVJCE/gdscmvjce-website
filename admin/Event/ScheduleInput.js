@@ -1,37 +1,82 @@
 import { Form } from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv8";
-import { useInput } from "react-admin";
+import get from "lodash/get";
+import { useEffect, useState } from "react";
+import {
+  useFormGroupContext,
+  useFormGroups,
+  useInput,
+  useRecordContext,
+} from "react-admin";
+import { useController } from "react-hook-form";
 
-const ScheduleInput = ({ source }) => {
-  const { field, id } = useInput({ source });
-  const schema = {
-    title: "Schedule",
-    type: "object",
-    properties: {
-      sessionName: {
-        type: "string",
-      },
-      sessionDate: {
-        type: "string",
-        format: "date",
-      },
-      time: {
-        type: "object",
-        properties: {
-          start: {
-            type: "string",
-            format: "time",
-          },
-          end: {
-            type: "string",
-            format: "time",
-          },
+const schema = {
+  title: "Schedule",
+  type: "object",
+  properties: {
+    sessionName: {
+      type: "string",
+    },
+    sessionDate: {
+      type: "string",
+      format: "date",
+    },
+    time: {
+      type: "object",
+      properties: {
+        start: {
+          type: "string",
+          format: "time",
+        },
+        end: {
+          type: "string",
+          format: "time",
         },
       },
     },
-  };
+  },
+};
 
-  return <Form schema={schema} validator={validator} id={id}></Form>;
+const ScheduleInput = ({ source, defaultValue }) => {
+  const formGroupName = useFormGroupContext();
+  const formGroups = useFormGroups();
+
+  const record = useRecordContext();
+  useEffect(() => {
+    if (!formGroups || formGroupName == null) {
+      return;
+    }
+
+    formGroups.registerField(source, formGroupName);
+
+    return () => {
+      formGroups.unregisterField(source, formGroupName);
+    };
+  }, [formGroups, formGroupName, source]);
+
+  const {
+    field: controllerField,
+    fieldState,
+    formState,
+  } = useController({
+    name: source,
+    defaultValue: get(record, source, defaultValue),
+  });
+
+  return (
+    <Form
+      schema={schema}
+      onChange={(e) => controllerField.onChange(JSON.stringify(e.formData))}
+      validator={validator}
+      formData={
+        controllerField.value === "" || null || undefined
+          ? "" || null || undefined
+          : JSON.parse(controllerField.value)
+      }
+    >
+      <button type="submit"></button>
+    </Form>
+  );
 };
 
 export default ScheduleInput;

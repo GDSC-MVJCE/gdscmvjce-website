@@ -104,13 +104,15 @@ model Event {
   coverPhoto       String?
   title            String
   description      String
-  schedule         Json
+  schedule         String     @db.Text()
   speakers         Speaker[]
-  date             Json
+  startDate        DateTime
+  endDate          DateTime
   venue            String
   status           String
   registrationLink String
   tags             EventTag[]
+  gallery          Gallery[]
 }
 
 model Speaker {
@@ -151,4 +153,14 @@ model EventTag {
   tagId    Int     @unique @default(autoincrement())
   eventTag Event?  @relation(fields: [eventId], references: [id], onDelete: Cascade)
   eventId  String?
+}
+
+// Gallery Schema
+model Gallery {
+  id      Int      @id @default(autoincrement())
+  url     String
+  date    DateTime
+  title   String
+  event   Event?   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId String?
 }

@@ -20,19 +20,18 @@
     "eslint": "8.43.0",
     "eslint-config-next": "^12.0.4",
     "html-react-parser": "^4.2.0",
-        "moment": "^2.29.4",
+    "moment": "^2.29.4",
     "next": "13.4.7",
     "next-auth": "^4.22.1",
     "ra-data-simple-prisma": "^2.3.2",
     "ra-data-simple-rest": "^4.11.4",
     "react": "18.2.0",
     "react-admin": "^4.11.4",
-        "react-dom": "18.2.0",
-        "react-intersection-observer": "^9.5.2",
-        "react-scroll-motion": "^0.3.2",
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.5.2",
+    "react-scroll-motion": "^0.3.2",
     "react-xarrows": "^2.0.2",
     "styled-components": "^6.0.1",
     "swr": "^2.2.0"
-
   }
 }
