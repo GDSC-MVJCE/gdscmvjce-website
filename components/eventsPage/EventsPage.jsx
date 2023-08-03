@@ -75,6 +75,7 @@ function EventsPage() {
 	}, [data]);
 
 	const fetchMoreData = () => {
+		// Temporarily setTimeout to simulate loading
 		setTimeout(() => {
 			setPageNumber((prevPageNumber) => prevPageNumber + 1);
 		}, 2000);
