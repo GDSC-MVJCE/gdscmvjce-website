@@ -1,3 +1,5 @@
+import OfferSection from '@/components/display/offerSection/OfferSection';
+import TeamIntro from '@/components/display/teamIntro/TeamIntro';
 import Hero from '@/components/hero/Hero';
 import Head from 'next/head';
 
@@ -12,6 +14,8 @@ export default function Home() {
       </Head>
       <main>
         <Hero />
+        <OfferSection />
+        <TeamIntro />
       </main>
     </>
   );
