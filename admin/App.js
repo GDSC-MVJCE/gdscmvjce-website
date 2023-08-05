@@ -1,5 +1,6 @@
 import {
   Event,
+  Label,
   People,
   PeopleAlt,
   PeopleAltOutlined,
@@ -8,9 +9,15 @@ import { dataProvider } from "ra-data-simple-prisma";
 import React from "react";
 import { Admin, Resource } from "react-admin";
 
+import BlogTagCreate from "./BlogTag/BlogTagCreate";
+import BlogTagEdit from "./BlogTag/BlogTagEdit";
+import BlogTagList from "./BlogTag/BlogTagList";
 import EventCreate from "./Event/EventCreate";
 import EventEdit from "./Event/EventEdit";
 import EventList from "./Event/EventList";
+import EventTagCreate from "./EventTag/EventTagCreate";
+import EventTagEdit from "./EventTag/EventTagEdit";
+import EventTagList from "./EventTag/EventTagList";
 import { MenuLayout } from "./MenuLayout";
 import SpeakerCreate from "./Speaker/SpeakerCreate";
 import SpeakerEdit from "./Speaker/SpeakerEdit";
@@ -45,6 +52,20 @@ const App = () => {
         list={TeamList}
         create={TeamCreate}
         edit={TeamEdit}
+      />
+      <Resource
+        name="eventTag"
+        icon={Label}
+        list={EventTagList}
+        create={EventTagCreate}
+        edit={EventTagEdit}
+      />
+      <Resource
+        name="blogTag"
+        icon={Label}
+        list={BlogTagList}
+        create={BlogTagCreate}
+        edit={BlogTagEdit}
       />
     </Admin>
   );
