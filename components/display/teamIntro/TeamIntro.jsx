@@ -11,6 +11,7 @@ import Terminal from './subcomponents/terminal/Terminal';
 import MLIntro from './subcomponents/mlSection/MLIntro';
 import DesignSection from './subcomponents/designSection/DesignSection';
 import ContentSection from './subcomponents/contentSection/ContentSection';
+import CommunitySection from './subcomponents/communitySection/CommunitySection';
 
 const TeamIntro = () => {
   const [activeTeam, setActiveTeam] = useState('tech');
@@ -56,6 +57,7 @@ const TeamIntro = () => {
           {activeTeam === 'android' && <MLIntro />}
           {activeTeam === 'design' && <DesignSection />}
           {activeTeam === 'content' && <ContentSection />}
+          {activeTeam === 'community' && <CommunitySection />}
         </TeamDescriptionSection>
       </TeamIntroSectionWrapper>
     </TeamIntroContainer>
