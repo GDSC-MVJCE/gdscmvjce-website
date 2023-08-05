@@ -60,25 +60,26 @@ function FaqSection() {
 	];
 
 	const buttonElements = buttonData.map((button, index) => (
-		<Button
-			key={index}
-			bgcolor={button.bgColor}
-			inView={
-				index === 0
-					? inView0
-					: index === 1
-					? inView1
-					: index === 2
-					? inView2
-					: index === 3
-					? inView3
-					: index === 4
-					? inView4
-					: null
-			}
-		>
-			{button.label}
-		</Button>
+		<a href={`/#faq-card${index}`} key={index}>
+			<Button
+				bgcolor={button.bgColor}
+				inView={
+					index === 0
+						? inView0
+						: index === 1
+						? inView1
+						: index === 2
+						? inView2
+						: index === 3
+						? inView3
+						: index === 4
+						? inView4
+						: null
+				}
+			>
+				{button.label}
+			</Button>
+		</a>
 	));
 
 	const cardContents = buttonData.map((card, index) => {
@@ -98,6 +99,7 @@ function FaqSection() {
 						? ref4
 						: null
 				}
+				id={`faq-card${index}`}
 			>
 				<CardTitleContainer bgcolor={card.bgColor}>
 					<Typography variant="h1">{card.label}</Typography>
