@@ -6,8 +6,7 @@ export const TerminalContainer = styled.div`
   max-width: 600px;
   width: 100%;
   min-width: 300px;
-  min-height: 400px;
-  height: 100%;
+  height: 70%;
   border-radius: 13px;
   background: #171717;
 `;

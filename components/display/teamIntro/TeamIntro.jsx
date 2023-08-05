@@ -8,6 +8,7 @@ import {
 } from './TeamIntro.styled';
 import Typography from '../typography/Typography';
 import Terminal from './subcomponents/terminal/Terminal';
+import MLIntro from './subcomponents/mlSection/MLIntro';
 
 const TeamIntro = () => {
   const [activeTeam, setActiveTeam] = useState('tech');
@@ -27,7 +28,7 @@ const TeamIntro = () => {
             onClick={() => setActiveTeam('android')}
             isSelected={activeTeam === 'android'}
           >
-            Machine Learning & Android
+            ML & Android
           </TeamButton>
           <TeamButton
             onClick={() => setActiveTeam('design')}
@@ -50,6 +51,7 @@ const TeamIntro = () => {
         </TeamTitlesSection>
         <TeamDescriptionSection>
           {activeTeam === 'tech' && <Terminal />}
+          {activeTeam === 'android' && <MLIntro />}
         </TeamDescriptionSection>
       </TeamIntroSectionWrapper>
     </TeamIntroContainer>

@@ -5,9 +5,10 @@ export const TeamIntroContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
+  height: 90vh;
+  max-height: 100vh;
   width: 100%;
-  gap: 4rem;
+  gap: 3rem;
   padding: 2rem 2rem;
 `;
 
@@ -17,6 +18,7 @@ export const TeamIntroSectionWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
   gap: 2rem;
 `;
 
@@ -34,6 +36,7 @@ export const TeamDescriptionSection = styled.div`
   align-items: center;
   gap: 1rem;
   flex-basis: 50%;
+  height: 70vh;
 `;
 
 export const TeamButton = styled.button`
