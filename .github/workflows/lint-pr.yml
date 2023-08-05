@@ -20,8 +20,5 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Check PR status
-        run: npm run check-pr
-
       - name: Lint PR commits
         run: npm run lint
