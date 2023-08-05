@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "check-pr": "git fetch origin && git diff --quiet origin/dev || (echo 'Your PR is not up-to-date with main branch!' && exit 1)"
     },
     "dependencies": {
         "@mui/icons-material": "^5.11.16",
