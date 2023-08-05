@@ -5,6 +5,7 @@ export const DesignSectionContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   position: relative;
 
@@ -21,13 +22,14 @@ export const DesignSectionContainer = styled.div`
 
   .canvas-bound {
     position: absolute;
-    top: 49%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    height: 72%;
+    height: 67%;
     overflow: hidden;
     z-index: 2;
+    border: 1px solid blue;
   }
 
   .draggable {

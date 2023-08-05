@@ -25,6 +25,7 @@ export const TeamIntroSectionWrapper = styled.div`
 export const TeamTitlesSection = styled.div`
   display: flex;
   flex-direction: column;
+  self-align: flex-start;
   gap: 1rem;
   flex-basis: 30%;
 `;
@@ -37,6 +38,7 @@ export const TeamDescriptionSection = styled.div`
   gap: 1rem;
   flex-basis: 50%;
   height: 70vh;
+  width: 100%;
 `;
 
 export const TeamButton = styled.button`
