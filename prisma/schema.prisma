@@ -67,13 +67,85 @@ model Incident {
   @@index([authorId])
 }
 
+// Profile Schema
+model Profile {
+  id          Int     @id @default(autoincrement())
+  name        String
+  title       String
+  description String?
+  about       String?
+  teamHistory Json
+  social      Json
+  profileLink String?
+  core        Team    @relation("core", fields: [coreId], references: [id])
+  coreId      String
+  member      Team    @relation("member", fields: [memberId], references: [id])
+  memberId    String
+  lead        Team    @relation("lead", fields: [leadId], references: [id])
+  leadId      String  @unique
+}
+
+// Teams Schema
+model Team {
+  id      String    @id
+  name    String
+  lead    Profile?  @relation("lead")
+  core    Profile[] @relation("core")
+  members Profile[] @relation("member")
+  userId  String
+}
+
+// Events Schema
 model Event {
-  id               Int      @id @default(autoincrement())
+  eventId          Int        @id @default(autoincrement())
+  bannerImage      String?
   title            String
-  image            String
-  date             DateTime
-  shortDescription String
   description      String
-  isUpcoming       Boolean  @default(true)
+  schedule         Json
+  speakers         Speaker[]
+  date             Json
+  venue            String
+  status           String
+  registrationLink String
+  tags             EventTag[]
+}
+
+model Speaker {
+  id          Int     @id @default(autoincrement())
+  name        String
+  image       String?
+  title       String?
+  description String?
+  profileLink String
+  events      Event   @relation(fields: [speakerId], references: [eventId], onDelete: Cascade)
+  speakerId   Int
+}
+
+// Blog Schema
+model Blog {
+  id          Int       @id @default(autoincrement())
+  title       String
+  date        DateTime  @default(now())
+  author      String
+  bannerImage String?
+  article     String
+  slug        String
+  tags        BlogTag[]
+}
+
+model BlogTag {
+  label   String
+  slug    String
+  tagId   Int    @unique
+  blogTag Blog?  @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId  Int?
+}
+
+model EventTag {
+  label    String
+  slug     String
+  tagId    Int    @unique
+  eventTag Event? @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
+  eventId  Int?
 }
 

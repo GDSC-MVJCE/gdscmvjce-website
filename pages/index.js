@@ -1,7 +1,9 @@
+import BlogSection from "@/components/blogSection/BlogSection";
 import EventsSection from "@/components/display/eventsSection/EventsSection";
 import FaqSection from "@/components/display/faqSection/FaqSection";
 import OfferSection from "@/components/display/offerSection/OfferSection";
 import Hero from "@/components/hero/Hero";
+import MeetTeam from "@/components/meetTeam/MeetTeam";
 import Navbar from "@/components/navbar/Navbar";
 import Head from "next/head";
 
@@ -18,8 +20,10 @@ export default function Home() {
         <Navbar />
         <Hero />
         <OfferSection />
+        <MeetTeam />
         <EventsSection />
         <FaqSection />
+        <BlogSection />
       </main>
     </>
   );
