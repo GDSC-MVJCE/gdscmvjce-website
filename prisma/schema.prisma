@@ -122,8 +122,8 @@ model Speaker {
   title       String?
   description String?
   profileLink String
-  events      Event   @relation(fields: [speakerId], references: [id], onDelete: Cascade)
-  speakerId   String
+  events      Event?  @relation(fields: [speakerId], references: [id], onDelete: Cascade)
+  speakerId   String?
 }
 
 // Blog Schema
