@@ -37,12 +37,15 @@ export const OptionContainer = styled.div`
 
 export const Button = styled.button`
 	padding: 0.8em 1.4em;
+	color: ${({ color, theme }) =>
+		color ? color : theme.colors.contentPrimary};
 	font-size: 1.4rem;
 	border-radius: 50px;
 	border: 2px solid ${({ theme }) => theme.colors.contentPrimary};
 	width: fit-content;
 	cursor: pointer;
-	background: ${({ inView, bgcolor }) => inView && bgcolor};
+	background: ${({ inView, bgcolor, theme }) =>
+		inView ? bgcolor : theme.colors.bgPrimary};
 	font-weight: 500;
 `;
 
