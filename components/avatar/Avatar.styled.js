@@ -27,12 +27,24 @@ export const AvatarWrapper = styled.div`
 				width: 232px;
 				height: 232px;
 			`)};
-	border-width: ${({ borderWidth }) => (borderWidth ? borderWidth : "3px")};
-	border-color: ${({ borderColor, theme }) =>
-		borderColor ? borderColor : theme.colors.bgPrimary};
+	${({ blur }) =>
+		blur
+			? css`
+					box-shadow: ${({ borderColor, theme }) =>
+						borderColor
+							? `0px 0px 30px 10px ${borderColor}`
+							: `0px 0px 30px 10px ${theme.colors.bgPrimary}`};
+			  `
+			: css`
+					border-width: ${({ borderWidth }) =>
+						borderWidth ? borderWidth : "3px"};
+					border-color: ${({ borderColor, theme }) =>
+						borderColor ? borderColor : theme.colors.bgPrimary};
+					border-style: solid;
+			  `}
+
 	background: url(${({ url }) => url}) no-repeat center center;
 	background-size: cover;
-	border-style: solid;
 	border-radius: 50%;
 	cursor: pointer;
 
