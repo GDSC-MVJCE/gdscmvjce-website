@@ -9,6 +9,7 @@ import {
 import Typography from '../typography/Typography';
 import Terminal from './subcomponents/terminal/Terminal';
 import MLIntro from './subcomponents/mlSection/MLIntro';
+import DesignSection from './subcomponents/designSection/DesignSection';
 
 const TeamIntro = () => {
   const [activeTeam, setActiveTeam] = useState('tech');
@@ -52,6 +53,7 @@ const TeamIntro = () => {
         <TeamDescriptionSection>
           {activeTeam === 'tech' && <Terminal />}
           {activeTeam === 'android' && <MLIntro />}
+          {activeTeam === 'design' && <DesignSection />}
         </TeamDescriptionSection>
       </TeamIntroSectionWrapper>
     </TeamIntroContainer>
