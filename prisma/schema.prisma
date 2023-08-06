@@ -71,43 +71,50 @@ model Incident {
 model Profile {
   id          Int     @id @default(autoincrement())
   name        String
+  username    String
   title       String
   description String?
   about       String?
-  teamHistory Json
-  social      Json
+  teamHistory Json?
+  social      Json?
+  image       String
+  coverPhoto  String?
   profileLink String?
   core        Team    @relation("core", fields: [coreId], references: [id])
-  coreId      String
+  coreId      Int
   member      Team    @relation("member", fields: [memberId], references: [id])
-  memberId    String
-  lead        Team    @relation("lead", fields: [leadId], references: [id])
-  leadId      String  @unique
+  memberId    Int
+  lead        Team?   @relation("lead", fields: [leadId], references: [id])
+  leadId      Int?
+  Blog        Blog[]
+
+  @@unique([leadId])
 }
 
 // Teams Schema
 model Team {
-  id      String    @id
+  id      Int       @id @default(autoincrement())
   name    String
   lead    Profile?  @relation("lead")
   core    Profile[] @relation("core")
   members Profile[] @relation("member")
-  userId  String
 }
 
 // Events Schema
 model Event {
-  eventId          Int        @id @default(autoincrement())
-  bannerImage      String?
+  id               String     @id @default(cuid())
+  coverPhoto       String?
   title            String
   description      String
-  schedule         Json
+  schedule         String     @db.Text()
   speakers         Speaker[]
-  date             Json
+  startDate        DateTime
+  endDate          DateTime
   venue            String
   status           String
   registrationLink String
   tags             EventTag[]
+  gallery          Gallery[]
 }
 
 model Speaker {
@@ -117,34 +124,45 @@ model Speaker {
   title       String?
   description String?
   profileLink String
-  events      Event   @relation(fields: [speakerId], references: [eventId], onDelete: Cascade)
-  speakerId   Int
+  events      Event?  @relation(fields: [speakerId], references: [id], onDelete: Cascade)
+  speakerId   String?
 }
 
 // Blog Schema
 model Blog {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(cuid())
   title       String
   date        DateTime  @default(now())
-  author      String
+  author      Profile   @relation(references: [id], fields: [authorId])
+  authorId    Int
   bannerImage String?
   article     String
-  slug        String
+  slug        String?
   tags        BlogTag[]
 }
 
 model BlogTag {
   label   String
-  slug    String
-  tagId   Int    @unique
-  blogTag Blog?  @relation(fields: [blogId], references: [id], onDelete: Cascade)
-  blogId  Int?
+  slug    String?
+  id      Int     @unique @default(autoincrement())
+  blogTag Blog?   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId  String
 }
 
 model EventTag {
   label    String
-  slug     String
-  tagId    Int    @unique
-  eventTag Event? @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-  eventId  Int?
+  slug     String?
+  id       Int     @unique @default(autoincrement())
+  eventTag Event?  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId  String?
+}
+
+// Gallery Schema
+model Gallery {
+  id      Int      @id @default(autoincrement())
+  url     String
+  date    DateTime
+  title   String
+  event   Event?   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId String?
 }
