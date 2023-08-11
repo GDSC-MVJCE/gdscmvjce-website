@@ -89,6 +89,8 @@ model Profile {
   Blog        Blog[]
 
   @@unique([leadId])
+  @@index([coreId])
+  @@index([memberId])
 }
 
 // Teams Schema
@@ -126,6 +128,8 @@ model Speaker {
   profileLink String
   events      Event?  @relation(fields: [speakerId], references: [id], onDelete: Cascade)
   speakerId   String?
+
+  @@index([speakerId])
 }
 
 // Blog Schema
@@ -139,6 +143,8 @@ model Blog {
   article     String
   slug        String?
   tags        BlogTag[]
+
+  @@index([authorId])
 }
 
 model BlogTag {
@@ -147,6 +153,8 @@ model BlogTag {
   id      Int     @unique @default(autoincrement())
   blogTag Blog?   @relation(fields: [blogId], references: [id], onDelete: Cascade)
   blogId  String
+
+  @@index([blogId])
 }
 
 model EventTag {
@@ -155,6 +163,8 @@ model EventTag {
   id       Int     @unique @default(autoincrement())
   eventTag Event?  @relation(fields: [eventId], references: [id], onDelete: Cascade)
   eventId  String?
+
+  @@index([eventId])
 }
 
 // Gallery Schema
@@ -165,4 +175,6 @@ model Gallery {
   title   String
   event   Event?   @relation(fields: [eventId], references: [id], onDelete: Cascade)
   eventId String?
+
+  @@index([eventId])
 }
