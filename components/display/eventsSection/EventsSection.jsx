@@ -10,6 +10,7 @@ import {
 	ExploreButton
 } from "./EventsSection.styled";
 import { useTheme } from "styled-components";
+import Tilt from "react-parallax-tilt";
 
 const events = [
 	{
@@ -46,38 +47,44 @@ function EventsSection() {
 	const theme = useTheme();
 
 	const cardsElement = events.map((event, index) => (
-		<EventCard key={index}>
-			<Top>
-				<Image
-					src={event.image}
-					width={350}
-					height={350}
-					alt="Event poster"
-					style={{
-						borderRadius: "8px",
-						display: "block",
-						margin: "0 auto"
-					}}
-				/>
-				<DateLine>
-					<Typography variant="bodySmall">{event.date}</Typography>
-					{event.isUpcoming && (
-						<Typography
-							variant="bodySmall"
-							color={theme?.colors.brandGreen}
-						>
-							Upcoming
+		<Tilt key={index}>
+			<EventCard>
+				<Top>
+					<Image
+						src={event.image}
+						width={350}
+						height={350}
+						alt="Event poster"
+						style={{
+							borderRadius: "8px",
+							display: "block",
+							margin: "0 auto"
+						}}
+					/>
+					<DateLine>
+						<Typography variant="bodySmall">
+							{event.date}
 						</Typography>
-					)}
-				</DateLine>
-				<Typography variant="h5">{event.title}</Typography>
-				<br />
-				<Typography variant="bodySmall">
-					{event.shortDescription}
-				</Typography>
-			</Top>
-			<Button>{event.isUpcoming ? "Register Now" : "Learn More"}</Button>
-		</EventCard>
+						{event.isUpcoming && (
+							<Typography
+								variant="bodySmall"
+								color={theme?.colors.brandGreen}
+							>
+								Upcoming
+							</Typography>
+						)}
+					</DateLine>
+					<Typography variant="h5">{event.title}</Typography>
+					<br />
+					<Typography variant="bodySmall">
+						{event.shortDescription}
+					</Typography>
+				</Top>
+				<Button>
+					{event.isUpcoming ? "Register Now" : "Learn More"}
+				</Button>
+			</EventCard>
+		</Tilt>
 	));
 
 	return (
