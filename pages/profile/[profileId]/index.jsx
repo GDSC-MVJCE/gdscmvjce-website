@@ -35,7 +35,7 @@ const ProfilePage = () => {
           <ProfileBannerAvatar>
             <Avatar
               url="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=2000"
-              size="pfp"
+              size="xl"
             />
           </ProfileBannerAvatar>
         </ProfileBanner>
