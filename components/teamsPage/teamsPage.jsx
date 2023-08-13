@@ -75,6 +75,64 @@ function teamsPage() {
 
     },]
 
+    const sub = [{
+        name: 'Shivam Sharma',
+        role: 'Tech Lead',
+        size: 'xl',
+        url: "https://avatars.githubusercontent.com/u/111264028?v=4",
+        borderColor: theme?.colors.brandBlue,
+        blur: false,
+        borderWidth: '10px'
+
+    },
+    {
+        name: 'Shivam Sharma',
+        role: 'Tech Lead',
+        size: 'xl',
+        url: "https://avatars.githubusercontent.com/u/111264028?v=4",
+        borderColor: theme?.colors.brandBlue,
+        blur: false,
+        borderWidth: '10px'
+
+    }, {
+        name: 'Shivam Sharma',
+        role: 'Tech Lead',
+        size: 'xl',
+        url: "https://avatars.githubusercontent.com/u/111264028?v=4",
+        borderColor: theme?.colors.brandBlue,
+        blur: false,
+        borderWidth: '10px'
+
+    }, {
+        name: 'Shivam Sharma',
+        role: 'Tech Lead',
+        size: 'xl',
+        url: "https://avatars.githubusercontent.com/u/111264028?v=4",
+        borderColor: theme?.colors.brandBlue,
+        blur: false,
+        borderWidth: '10px'
+
+    }, {
+        name: 'Shivam Sharma',
+        role: 'Tech Lead',
+        size: 'xl',
+        url: "https://avatars.githubusercontent.com/u/111264028?v=4",
+        borderColor: theme?.colors.brandBlue,
+        blur: false,
+        borderWidth: '10px'
+
+    },
+    {
+        name: 'Shivam Sharma',
+        role: 'Tech Lead',
+        size: 'xl',
+        url: "https://avatars.githubusercontent.com/u/111264028?v=4",
+        borderColor: theme?.colors.brandBlue,
+        blur: false,
+        borderWidth: '10px'
+
+    },]
+
     return <MainContainer>
         <Heading> <Typography variant='h1' color={theme?.colors.brandBlue} style="margin-bottom: 2em ">GDSC TEAM 2023-24</Typography></Heading>
 
@@ -104,12 +162,12 @@ function teamsPage() {
         <SubMainContainer>
             <Typography variant='h2'>Sub-Team Members</Typography>
             <SubSubContainer>
-                {core.map((coreMember, index) => (
-                    <AvatarCard name={coreMember.name} role={coreMember.role} size={coreMember.size}
-                        url={coreMember.url}
-                        borderColor={coreMember.borderColor}
-                        blur={coreMember.blur}
-                        borderWidth={coreMember.borderWidth} />
+                {sub.map((subMember, index) => (
+                    <AvatarCard key={index} name={subMember.name} role={subMember.role} size={subMember.size}
+                        url={subMember.url}
+                        borderColor={subMember.borderColor}
+                        blur={subMember.blur}
+                        borderWidth={subMember.borderWidth} />
                 ))}
 
             </SubSubContainer>
