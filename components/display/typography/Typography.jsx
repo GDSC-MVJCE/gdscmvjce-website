@@ -1,7 +1,7 @@
-import React from 'react';
-import { TypographyWrapper } from './Typography.styled';
+import React from "react";
+import { TypographyWrapper } from "./Typography.styled";
 
-function Typography({ variant = 'body', children, color, subdued, className }) {
+function Typography({ variant = "body", children, color, subdued, className }) {
   return (
     <TypographyWrapper
       variant={variant}
