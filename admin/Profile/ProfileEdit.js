@@ -1,15 +1,16 @@
 import React from 'react';
 import {
-  Create,
   DeleteButton,
+  Edit,
   EditButton,
   SimpleForm,
   TextInput,
 } from 'react-admin';
+import EditorActions from '../EditorActions';
 
-const ProfileCreate = (props) => {
+const ProfileEdit = (props) => {
   return (
-    <Create title='Create a Profile' {...props}>
+    <Edit title='Edit Profile' {...props} actions={<EditorActions />}>
       <SimpleForm>
         <TextInput source='name' label='Name' />
         <TextInput source='username' label='Username' />
@@ -29,8 +30,8 @@ const ProfileCreate = (props) => {
         <EditButton basePath='/profile' />
         <DeleteButton basePath='/profile' />
       </SimpleForm>
-    </Create>
+    </Edit>
   );
 };
 
-export default ProfileCreate;
+export default ProfileEdit;

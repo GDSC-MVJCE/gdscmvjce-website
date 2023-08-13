@@ -31,7 +31,9 @@ import ProfileList from './Profile/ProfileList';
 import ProfileCreate from './Profile/ProfileCreate';
 import TeamMemberList from './TeamMember/TeamMemberList';
 import TeamMemberCreate from './TeamMember/TeamMemberCreate';
-import TeamMemberEdit from './TeamMember/TeamEdit';
+import TeamMemberEdit from './TeamMember/TeamMemberEdit';
+import ProfileEdit from './Profile/ProfileEdit';
+import BlogCreate from './Blog/BlogCreate';
 
 const App = () => {
   return (
@@ -42,20 +44,33 @@ const App = () => {
         list={EventList}
         create={EventCreate}
         edit={EventEdit}
+        recordRepresentation={(record) => `${record.title}`}
       />
+      <Resource
+        name='blog'
+        icon={Event}
+        // list={EventList}
+        create={BlogCreate}
+        //edit={EventEdit}
+        recordRepresentation={(record) => `${record.title}`}
+      />
+
       <Resource
         name='profile'
         icon={People}
         list={ProfileList}
+        edit={ProfileEdit}
         create={ProfileCreate}
+        recordRepresentation={(record) => `${record.name}`}
       />
-      <Resource name='user' icon={People} list={UserList} edit={UserEdit} />
+
       <Resource
         name='speaker'
         icon={PeopleAltOutlined}
         list={SpeakerList}
         create={SpeakerCreate}
         edit={SpeakerEdit}
+        recordRepresentation={(record) => `${record.name}`}
       />
       <Resource
         name='team'
@@ -63,10 +78,14 @@ const App = () => {
         list={TeamList}
         create={TeamCreate}
         edit={TeamEdit}
+        recordRepresentation={(record) => `${record.name}`}
       />
       <Resource
         name='teamMember'
         icon={PeopleAlt}
+        options={{
+          label: 'Team Members',
+        }}
         list={TeamMemberList}
         create={TeamMemberCreate}
         edit={TeamMemberEdit}
@@ -90,6 +109,16 @@ const App = () => {
         list={BlogTagList}
         create={BlogTagCreate}
         edit={BlogTagEdit}
+        recordRepresentation={(record) => `${record.label}`}
+      />
+      <Resource
+        options={{
+          label: 'Admin Users',
+        }}
+        name='user'
+        icon={People}
+        list={UserList}
+        edit={UserEdit}
       />
     </Admin>
   );

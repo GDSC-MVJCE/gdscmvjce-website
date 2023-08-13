@@ -16,7 +16,15 @@ const TeamMemberCreate = (props) => {
         <ReferenceInput source='teamId' reference='team' />
         <ReferenceInput source='profileId' reference='profile' />
         <TextInput source='role' />
-        <SelectInput source='type' choices={['Core', 'Member', 'Lead']} />
+        <SelectInput
+          source='type'
+          defaultValue={'member'}
+          choices={[
+            { id: 'member', name: 'Member' },
+            { id: 'lead', name: 'Lead' },
+            { id: 'core', name: 'Core Team' },
+          ]}
+        />
       </SimpleForm>
     </Create>
   );

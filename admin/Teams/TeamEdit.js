@@ -16,7 +16,6 @@ const TeamEdit = (props) => {
     <Edit title='Edit Team' {...props}>
       <SimpleForm>
         <TextInput source='name' />
-        <SimpleFormIterator></SimpleFormIterator>
       </SimpleForm>
     </Edit>
   );

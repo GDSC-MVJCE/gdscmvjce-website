@@ -90,22 +90,16 @@ model Team {
 }
 
 model TeamMember {
-  id        String     @id @default(cuid())
-  team      Team       @relation(fields: [teamId], references: [id])
+  id        String  @id @default(cuid())
+  team      Team    @relation(fields: [teamId], references: [id])
   teamId    Int
-  profile   Profile    @relation(fields: [profileId], references: [id])
+  profile   Profile @relation(fields: [profileId], references: [id])
   profileId Int
   role      String
-  type      MemberType @default(Member)
+  type      String  @default("member")
 
   @@index([profileId])
   @@index([teamId])
-}
-
-enum MemberType {
-  Core
-  Member
-  Lead
 }
 
 // Events Schema
@@ -145,8 +139,9 @@ model Blog {
   date        DateTime  @default(now())
   author      Profile   @relation(references: [id], fields: [authorId])
   authorId    Int
+  thumbnail   String?
   bannerImage String?
-  article     String
+  content     String
   slug        String?
   tags        BlogTag[]
 
