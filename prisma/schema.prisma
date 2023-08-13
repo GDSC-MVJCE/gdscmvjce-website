@@ -69,35 +69,37 @@ model Incident {
 
 // Profile Schema
 model Profile {
-  id          Int     @id @default(autoincrement())
+  id          Int          @id @default(autoincrement())
   name        String
   username    String
-  title       String
-  description String?
+  bio         String?
   about       String?
-  teamHistory Json?
   social      Json?
-  image       String
+  image       String?
   coverPhoto  String?
   profileLink String?
-  core        Team    @relation("core", fields: [coreId], references: [id])
-  coreId      Int
-  member      Team    @relation("member", fields: [memberId], references: [id])
-  memberId    Int
-  lead        Team?   @relation("lead", fields: [leadId], references: [id])
-  leadId      Int?
-  Blog        Blog[]
-
-  @@unique([leadId])
+  blog        Blog[]
+  teams       TeamMember[]
 }
 
 // Teams Schema
 model Team {
-  id      Int       @id @default(autoincrement())
+  id      Int          @id @default(autoincrement())
   name    String
-  lead    Profile?  @relation("lead")
-  core    Profile[] @relation("core")
-  members Profile[] @relation("member")
+  members TeamMember[]
+}
+
+model TeamMember {
+  id        String  @id @default(cuid())
+  team      Team    @relation(fields: [teamId], references: [id])
+  teamId    Int
+  profile   Profile @relation(fields: [profileId], references: [id])
+  profileId Int
+  role      String
+  type      String  @default("member")
+
+  @@index([profileId])
+  @@index([teamId])
 }
 
 // Events Schema
@@ -125,6 +127,9 @@ model Speaker {
   description String?
   profileLink String
   events      Event[]
+  speakerId   String?
+
+  @@index([speakerId])
 }
 
 // Blog Schema
@@ -134,24 +139,33 @@ model Blog {
   date        DateTime  @default(now())
   author      Profile   @relation(references: [id], fields: [authorId])
   authorId    Int
+  thumbnail   String?
   bannerImage String?
-  article     String
+  content     String
   slug        String?
   tags        BlogTag[]
+
+  @@index([authorId])
 }
 
 model BlogTag {
-  id    Int     @id @default(autoincrement())
-  label String
-  slug  String?
-  blog  Blog[]
+  id     Int     @id @default(autoincrement())
+  label  String
+  slug   String?
+  blog   Blog[]
+  blogId String?
+
+  @@index([blogId])
 }
 
 model EventTag {
-  label String
-  slug  String?
-  id    Int     @id @default(autoincrement())
-  event Event[]
+  label   String
+  slug    String?
+  id      Int     @id @default(autoincrement())
+  event   Event[]
+  eventId String?
+
+  @@index([eventId])
 }
 
 // Gallery Schema
@@ -162,4 +176,6 @@ model Gallery {
   title   String
   event   Event?   @relation(fields: [eventId], references: [id], onDelete: Cascade)
   eventId String?
+
+  @@index([eventId])
 }

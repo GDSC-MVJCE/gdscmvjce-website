@@ -6,28 +6,29 @@ import {
   DeleteButton,
   EditButton,
   List,
+  ReferenceField,
   TextField,
 } from 'react-admin';
 
-const EventList = (props) => {
+const GalleryList = (props) => {
   return (
     <List {...props}>
       <Datagrid>
         <TextField source='title' />
-        <TextField source='description' />
+        <ReferenceField source='eventId' reference='event' />
         <DateField
-          source='startDate'
+          source='date'
           options={{
             year: 'numeric',
             month: 'long',
             day: 'numeric',
           }}
         />
-        <EditButton basePath='/event' />
-        <DeleteButton basePath='/event' />
+        <EditButton basePath='/gallery' />
+        <DeleteButton basePath='/gallery' />
       </Datagrid>
     </List>
   );
 };
 
-export default EventList;
+export default GalleryList;
