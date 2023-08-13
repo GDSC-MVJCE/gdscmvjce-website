@@ -4,9 +4,10 @@ import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
 const getBlogs = async (req, res) => {
   const { type, page } = req.query;
-  const pageNo = Number(page);
+  const pageNo = page ? Number(page) : 1;
+  const blogPerPage = 3;
   try {
-    const events = await prisma.blog.findMany({
+    const blogs = await prisma.blog.findMany({
       where: {
         tags: {
           some: {
@@ -14,7 +15,32 @@ const getBlogs = async (req, res) => {
           },
         },
       },
-      skip: (pageNo - 1) * 3,
+      include: {
+        author: {
+          select: {
+            id: true,
+            name: true,
+            username: true,
+            title: true,
+            description: true,
+            about: true,
+            teamHistory: true,
+            social: true,
+            image: true,
+            coverPhoto: true,
+            profileLink: true,
+          },
+        },
+        tags: {
+          select: {
+            id: true,
+            label: true,
+            slug: true,
+          },
+        },
+      },
+      skip: (pageNo - 1) * blogPerPage,
+      take: blogPerPage,
     });
     return res.status(StatusCodes.OK).json({ blogs });
   } catch (error) {

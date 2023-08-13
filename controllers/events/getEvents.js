@@ -4,7 +4,8 @@ import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
 const getEvents = async (req, res) => {
   const { type, page } = req.query;
-  const pageNo = Number(page);
+  const pageNo = page ? Number(page) : 1;
+  const eventPerPage = 3;
   try {
     const events = await prisma.event.findMany({
       where: {
@@ -41,7 +42,8 @@ const getEvents = async (req, res) => {
           },
         },
       },
-      skip: (pageNo - 1) * 3,
+      skip: (pageNo - 1) * eventPerPage,
+      take: eventPerPage,
     });
     return res.status(StatusCodes.OK).json({ events });
   } catch (error) {
