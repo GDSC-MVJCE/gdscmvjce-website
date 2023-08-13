@@ -13,7 +13,7 @@ export const Article = styled.div`
   }
 `;
 
-export const ArticleTitle = styled.h1`
+export const ArticleTitle = styled.div`
   font-size: 60px;
   font-weight: 700;
 
@@ -33,10 +33,10 @@ export const ArticleMetaContainer = styled.div`
   }
 `;
 
-export const ArticleDate = styled.p`
+export const ArticleDate = styled.div`
   font-size: 20px;
   font-weight: 400;
-  color: #a0a0a0;
+  color: ${({ theme }) => theme.colors.contentSecondary};
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -53,10 +53,10 @@ export const ArticleAuthorContainer = styled.div`
   }
 `;
 
-export const ArticleAuthor = styled.p`
+export const ArticleAuthor = styled.div`
   font-size: 20px;
   font-weight: 400;
-  color: #000;
+  color: ${({ theme }) => theme.colors.contentPrimary};
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -95,10 +95,10 @@ export const ArticleImg = styled.img`
   }
 `;
 
-export const ArticleContent = styled.p`
+export const ArticleContent = styled.div`
   font-size: 20px;
   font-weight: 400;
-  color: #000;
+  color: ${({ theme }) => theme.colors.contentPrimary};
   line-height: 1.5;
 
   @media (max-width: 768px) {
@@ -129,43 +129,11 @@ export const FooterContainer = styled.div`
   }
 `;
 
-export const FooterTitle = styled.h2`
+export const FooterTitle = styled.div`
   font-size: 40px;
   font-weight: 700;
 
   @media (max-width: 768px) {
     font-size: 30px;
-  }
-`;
-
-export const FooterContent = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-export const FooterImg = styled.img`
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-
-  @media (max-width: 768px) {
-    height: 250px;
-  }
-`;
-
-export const FooterText = styled.p`
-  font-size: 20px;
-  font-weight: 400;
-  color: #000;
-  line-height: 1.5;
-
-  @media (max-width: 768px) {
-    font-size: 16px;
   }
 `;

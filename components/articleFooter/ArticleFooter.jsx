@@ -2,6 +2,7 @@ import React from "react";
 import {
   ArticleFooterContentContainer,
   ArticleFooterImg,
+  ArticleFooterImgDiv,
   ArticleFooterTextContainer,
   ArticleFooterTitle,
 } from "./ArticleFooter.styled";
@@ -13,13 +14,20 @@ import {
 } from "@/pages/blogs/[slug]/blogarticle.styled";
 import Avatar from "../avatar/Avatar";
 import { article } from "@/constants/blogData";
+import Image from "next/image";
+import Typography from "../display/typography/Typography";
 
 const ArticleFooter = () => {
   return (
     <ArticleFooterContentContainer>
-      <ArticleFooterImg src="/images/blogimg.png" />
+      <ArticleFooterImgDiv>
+        <Image src="/images/blogimg.png" width={200} height={200} alt="" />
+        {/* Please fix the image's properties accordingly. Hardcoded 200 for now */}
+      </ArticleFooterImgDiv>
       <ArticleFooterTextContainer>
-        <ArticleFooterTitle>{article.title}</ArticleFooterTitle>
+        <ArticleFooterTitle>
+          <Typography variant="h2">{article.title}</Typography>
+        </ArticleFooterTitle>
         <ArticleMetaContainer>
           <ArticleDate>{article.publishedDate}</ArticleDate>
           <ArticleAuthorContainer>

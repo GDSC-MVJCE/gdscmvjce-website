@@ -1,7 +1,8 @@
 export const article = {
+  author: "Varun Panyam",
   title: "Getting Started in Android Development in 2023",
   authorName: "Varun Panyam",
-  publishedDate: "September 1, 202322",
+  publishedDate: "September 1, 2023",
   tags: [
     {
       label: "Android",
