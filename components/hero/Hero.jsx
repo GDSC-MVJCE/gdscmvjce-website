@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import debounce from "lodash.debounce";
 
 import dynamic from "next/dynamic";
 const Animator = dynamic(
@@ -97,6 +98,8 @@ const Hero = () => {
   const [isTextHighlighted, setIsTextHighlighted] = useState(false);
   const [isAvatarHighlighted, setIsAvatarHighlighted] = useState(false);
 
+  const updatedXArrows = useXarrow();
+  const handleUpdateXArrows = debounce(updatedXArrows, 100);
   const refsById = useMemo(() => {
     const refs = {};
     heroTextElements.forEach((item) => {
@@ -108,9 +111,16 @@ const Hero = () => {
     return refs;
   }, [heroAvatarElements, heroTextElements]);
 
+  useEffect(() => {
+    if (refsById != null) {
+      handleUpdateXArrows();
+    }
+    console.log("HI");
+  }, [refsById]);
+
   return (
     <HeroSectionContainer>
-      <ScrollContainer snap="mandatory">
+      <ScrollContainer snap="none">
         <ScrollPage>
           <Animator animation={batch(Fade(0, 1), Sticky(), Zoom(8, 1))}>
             <LogoContainer>
