@@ -1,12 +1,12 @@
 {
-	"compilerOptions": {
-		"paths": {
-			"@/*": ["./*"],
-			"@components/*": ["./src/components/*"],
-			"@lib/*": ["./src/lib/*"],
-			"@public/*": ["./public/*"],
-			"@icons/*": ["./public/icons/*"],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"],
+      "@components/*": ["./src/components/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@public/*": ["./public/*"],
+      "@icons/*": ["./public/icons/*"],
       "@logos/*": ["./public/logos/*"]
-		}
-	}
+    }
+  }
 }

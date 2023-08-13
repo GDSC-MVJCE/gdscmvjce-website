@@ -1,8 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma } from "@prisma/client";
+import { ReasonPhrases, StatusCodes } from "http-status-codes";
+import prisma from "../../lib/prisma";
 
-const prisma = new PrismaClient();
-
-const eventGet = async (req, res) => {
+const getSingleEvent = async (req, res) => {
   const { eventId } = req.query;
   try {
     const events = await prisma.event.findUnique({
@@ -37,13 +37,16 @@ const eventGet = async (req, res) => {
         },
       },
     });
-    return res.status(200).json({ events: events });
+    return res.status(StatusCodes.OK).json({ events: events });
   } catch (error) {
-    console.error(error);
+    if (error instanceof Prisma.PrismaClientKnownRequestError)
+      console.error(error);
   } finally {
     await prisma.$disconnect();
   }
-  res.status(400).json({ message: "data not found" });
+  res
+    .status(StatusCodes.NOT_FOUND)
+    .json({ status: StatusCodes.NOT_FOUND, error: ReasonPhrases.NOT_FOUND });
 };
 
-export default eventGet;
+export default getSingleEvent;
