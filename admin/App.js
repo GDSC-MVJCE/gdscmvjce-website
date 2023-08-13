@@ -27,6 +27,11 @@ import TeamEdit from './Teams/TeamEdit';
 import TeamList from './Teams/TeamList';
 import UserEdit from './Users/UserEdit';
 import UserList from './Users/UserList';
+import ProfileList from './Profile/ProfileList';
+import ProfileCreate from './Profile/ProfileCreate';
+import TeamMemberList from './TeamMember/TeamMemberList';
+import TeamMemberCreate from './TeamMember/TeamMemberCreate';
+import TeamMemberEdit from './TeamMember/TeamEdit';
 
 const App = () => {
   return (
@@ -37,6 +42,12 @@ const App = () => {
         list={EventList}
         create={EventCreate}
         edit={EventEdit}
+      />
+      <Resource
+        name='profile'
+        icon={People}
+        list={ProfileList}
+        create={ProfileCreate}
       />
       <Resource name='user' icon={People} list={UserList} edit={UserEdit} />
       <Resource
@@ -52,6 +63,13 @@ const App = () => {
         list={TeamList}
         create={TeamCreate}
         edit={TeamEdit}
+      />
+      <Resource
+        name='teamMember'
+        icon={PeopleAlt}
+        list={TeamMemberList}
+        create={TeamMemberCreate}
+        edit={TeamMemberEdit}
       />
       <Resource
         name='eventTag'

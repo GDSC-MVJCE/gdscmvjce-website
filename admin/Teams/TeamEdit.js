@@ -1,32 +1,22 @@
-import React from "react";
+import React from 'react';
 import {
+  ArrayInput,
   Edit,
   ReferenceArrayInput,
   ReferenceInput,
   SelectArrayInput,
   SelectInput,
   SimpleForm,
+  SimpleFormIterator,
   TextInput,
-} from "react-admin";
+} from 'react-admin';
 
 const TeamEdit = (props) => {
   return (
-    <Edit title="Edit Team" {...props}>
+    <Edit title='Edit Team' {...props}>
       <SimpleForm>
-        <TextInput source="name" />
-        <ReferenceInput label="LEAD" source="leadId" reference="profile">
-          <SelectInput optionText="name" />
-        </ReferenceInput>
-        <ReferenceArrayInput label="CORE" source="coreId" reference="profile">
-          <SelectArrayInput optionText="name" />
-        </ReferenceArrayInput>
-        <ReferenceArrayInput
-          label="MEMBERS"
-          source="memberId"
-          reference="profile"
-        >
-          <SelectArrayInput optionText="name" />
-        </ReferenceArrayInput>
+        <TextInput source='name' />
+        <SimpleFormIterator></SimpleFormIterator>
       </SimpleForm>
     </Edit>
   );

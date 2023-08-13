@@ -69,37 +69,43 @@ model Incident {
 
 // Profile Schema
 model Profile {
-  id          Int     @id @default(autoincrement())
+  id          Int          @id @default(autoincrement())
   name        String
   username    String
-  title       String
-  description String?
+  bio         String?
   about       String?
-  teamHistory Json?
   social      Json?
-  image       String
+  image       String?
   coverPhoto  String?
   profileLink String?
-  core        Team    @relation("core", fields: [coreId], references: [id])
-  coreId      Int
-  member      Team    @relation("member", fields: [memberId], references: [id])
-  memberId    Int
-  lead        Team?   @relation("lead", fields: [leadId], references: [id])
-  leadId      Int?
-  Blog        Blog[]
-
-  @@unique([leadId])
-  @@index([coreId])
-  @@index([memberId])
+  blog        Blog[]
+  teams       TeamMember[]
 }
 
 // Teams Schema
 model Team {
-  id      Int       @id @default(autoincrement())
+  id      Int          @id @default(autoincrement())
   name    String
-  lead    Profile?  @relation("lead")
-  core    Profile[] @relation("core")
-  members Profile[] @relation("member")
+  members TeamMember[]
+}
+
+model TeamMember {
+  id        String     @id @default(cuid())
+  team      Team       @relation(fields: [teamId], references: [id])
+  teamId    Int
+  profile   Profile    @relation(fields: [profileId], references: [id])
+  profileId Int
+  role      String
+  type      MemberType @default(Member)
+
+  @@index([profileId])
+  @@index([teamId])
+}
+
+enum MemberType {
+  Core
+  Member
+  Lead
 }
 
 // Events Schema

@@ -14,11 +14,14 @@ import {
   TextField,
 } from 'react-admin';
 
-const TeamList = (props) => {
+const TeamMemberList = (props) => {
   return (
     <List {...props}>
       <Datagrid>
-        <TextField label='NAME' source='name' />
+        <ReferenceField label='Name' source='profileId' reference='profile' />
+        <ReferenceField label='Team' source='teamId' reference='team' />
+        <TextField source='role' />
+        <TextField source='type' />
         <EditButton name='Edit' />
         <DeleteButton name='Delete' />
       </Datagrid>
@@ -26,4 +29,4 @@ const TeamList = (props) => {
   );
 };
 
-export default TeamList;
+export default TeamMemberList;
