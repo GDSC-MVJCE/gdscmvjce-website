@@ -30,7 +30,9 @@ const BlogArticle = ({}) => {
       <Article>
         <ArticleTitle>{article.title}</ArticleTitle>
         <ArticleMetaContainer>
-          <ArticleDate>{article.publishedDate}</ArticleDate>
+          <ArticleDate>
+            <Typography color="success">{article.publishedDate}</Typography>
+          </ArticleDate>
           <ArticleAuthorContainer>
             <Avatar url="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=2000" />
             <ArticleAuthor>

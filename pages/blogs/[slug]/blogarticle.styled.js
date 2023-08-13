@@ -34,8 +34,6 @@ export const ArticleMetaContainer = styled.div`
 `;
 
 export const ArticleDate = styled.div`
-  font-size: 20px;
-  font-weight: 400;
   color: ${({ theme }) => theme.colors.contentSecondary};
 
   @media (max-width: 768px) {
@@ -54,8 +52,6 @@ export const ArticleAuthorContainer = styled.div`
 `;
 
 export const ArticleAuthor = styled.div`
-  font-size: 20px;
-  font-weight: 400;
   color: ${({ theme }) => theme.colors.contentPrimary};
 
   @media (max-width: 768px) {
