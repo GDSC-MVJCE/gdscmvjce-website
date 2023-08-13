@@ -124,8 +124,7 @@ model Speaker {
   title       String?
   description String?
   profileLink String
-  events      Event?  @relation(fields: [speakerId], references: [id], onDelete: Cascade)
-  speakerId   String?
+  events      Event[]
 }
 
 // Blog Schema
@@ -142,19 +141,17 @@ model Blog {
 }
 
 model BlogTag {
-  label   String
-  slug    String?
-  id      Int     @unique @default(autoincrement())
-  blogTag Blog?   @relation(fields: [blogId], references: [id], onDelete: Cascade)
-  blogId  String
+  id    Int     @id @default(autoincrement())
+  label String
+  slug  String?
+  blog  Blog[]
 }
 
 model EventTag {
-  label    String
-  slug     String?
-  id       Int     @unique @default(autoincrement())
-  eventTag Event?  @relation(fields: [eventId], references: [id], onDelete: Cascade)
-  eventId  String?
+  label String
+  slug  String?
+  id    Int     @id @default(autoincrement())
+  event Event[]
 }
 
 // Gallery Schema
