@@ -12,6 +12,7 @@ import {
 	Author,
 	Date
 } from "./BlogSection.styled";
+import Tilt from "react-parallax-tilt";
 
 const blogs = [
 	{
@@ -57,38 +58,40 @@ function BlogSection() {
 	const theme = useTheme();
 
 	const blogElements = blogs.map((blog, index) => (
-		<BlogCard key={index}>
-			<TopContainer>
-				<Image
-					src={blog.image}
-					width={290}
-					height={290}
-					style={{
-						borderRadius: "6px",
-						margin: "0 auto"
-					}}
-					alt="blog image"
-				/>
-				<Typography variant="h5">{blog.title}</Typography>
-			</TopContainer>
-			<BottomContainer>
-				<Author>
-					<Avatar
-						url={blog.author.image}
-						size="xs"
-						borderColor={theme?.colors.brandBlue}
-						borderWidth={2}
-						blur={false}
+		<Tilt key={index}>
+			<BlogCard>
+				<TopContainer>
+					<Image
+						src={blog.image}
+						width={290}
+						height={290}
+						style={{
+							borderRadius: "6px",
+							margin: "0 auto"
+						}}
+						alt="blog image"
 					/>
-					<Typography variant="bodySmall">
-						{blog.author.name}
-					</Typography>
-				</Author>
-				<Date>
-					<Typography variant="bodySmall">{blog.date}</Typography>
-				</Date>
-			</BottomContainer>
-		</BlogCard>
+					<Typography variant="h5">{blog.title}</Typography>
+				</TopContainer>
+				<BottomContainer>
+					<Author>
+						<Avatar
+							url={blog.author.image}
+							size="xs"
+							borderColor={theme?.colors.brandBlue}
+							borderWidth={2}
+							blur={false}
+						/>
+						<Typography variant="bodySmall">
+							{blog.author.name}
+						</Typography>
+					</Author>
+					<Date>
+						<Typography variant="bodySmall">{blog.date}</Typography>
+					</Date>
+				</BottomContainer>
+			</BlogCard>
+		</Tilt>
 	));
 
 	return (

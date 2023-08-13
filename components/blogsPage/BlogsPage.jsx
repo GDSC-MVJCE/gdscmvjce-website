@@ -1,16 +1,16 @@
 import Image from "next/image.js";
 import {
-	EventInfo,
-	EventTags,
-	EventsCard,
-	EventsContainer,
-	EventsPageContainer,
+	BlogInfo,
+	BlogTags,
+	BlogsCard,
+	BlogsContainer,
+	BlogsPageContainer,
 	FilterCard,
 	FilterContainer,
 	ImageContainer,
 	LeftContainer,
 	RightContainer
-} from "./EventsPage.styled";
+} from "./BlogsPage.styled";
 import useSWR from "swr";
 import Typography from "../display/typography/Typography.jsx";
 import moment from "moment";
@@ -33,7 +33,7 @@ const filters = [
 	"git"
 ];
 
-function EventsPage() {
+function BlogsPage() {
 	const theme = useTheme();
 	const router = useRouter();
 	const { type } = router.query;
@@ -42,7 +42,7 @@ function EventsPage() {
 	const [isActive, setIsActive] = useState(type ? type : "all");
 	const [pageNumber, setPageNumber] = useState(1);
 	const [hasMore, setHasMore] = useState(true);
-	const [eventsData, setEventsData] = useState([]);
+	const [blogsData, setBlogsData] = useState([]);
 
 	useEffect(() => {
 		setIsActive(type ? type : "all");
@@ -67,7 +67,7 @@ function EventsPage() {
 
 	useEffect(() => {
 		if (data) {
-			setEventsData((prevData) => [...prevData, ...data]);
+			setBlogsData((prevData) => [...prevData, ...data]);
 		}
 		if (data && data.length < 3) {
 			setHasMore(false);
@@ -130,22 +130,26 @@ function EventsPage() {
 
 	return (
 		<>
-			{eventsData && (
-				<EventsPageContainer>
+			{blogsData && (
+				<BlogsPageContainer>
 					<Typography variant="h1">
-						{capitalize(isActive)} Events
+						{capitalize(isActive)} Blogs
 					</Typography>
-					<EventsContainer>
+					<BlogsContainer>
 						<LeftContainer>
+							<Typography variant="h2">Tags</Typography>
+							<FilterContainer>{filterElements}</FilterContainer>
+						</LeftContainer>
+						<RightContainer>
 							<InfiniteScroll
-								dataLength={eventsData.length}
+								dataLength={blogsData.length}
 								next={fetchMoreData}
 								hasMore={hasMore}
 								loader={<h4>Loading...</h4>}
 								style={{ padding: "2rem" }}
 							>
-								{eventsData.map((event, index) => {
-									const eventTagsElements = event.tags.map(
+								{blogsData.map((blog, index) => {
+									const blogTagsElements = blog.tags.map(
 										(tag, index) => (
 											<Typography
 												variant="body"
@@ -154,8 +158,7 @@ function EventsPage() {
 											>
 												{tag.label}
 												&nbsp;
-												{index <
-													event.tags.length - 1 &&
+												{index < blog.tags.length - 1 &&
 													" | "}
 												&nbsp;
 											</Typography>
@@ -163,13 +166,11 @@ function EventsPage() {
 									);
 									return (
 										<Link
-											href={
-												pathname + "/" + event.eventId
-											}
+											href={pathname + "/" + blog.eventId}
 											key={index}
 											style={{ textDecoration: "none" }}
 										>
-											<EventsCard
+											<BlogsCard
 												initial="initial"
 												animate="initial"
 												whileHover="hover"
@@ -181,7 +182,7 @@ function EventsPage() {
 														src={
 															"https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,h_540,q_auto:good,w_720/v1/gcs/platform-data-dsc/event_wrapup/DSC_0027_kDjlj78.JPG"
 														}
-														alt={"EventsCard1"}
+														alt={"BlogsCard1"}
 														fill="responsive"
 														style={{
 															borderRadius:
@@ -190,38 +191,34 @@ function EventsPage() {
 														}}
 													/>
 												</ImageContainer>
-												<EventInfo>
-													<EventTags>
-														{eventTagsElements}
-													</EventTags>
+												<BlogInfo>
+													<BlogTags>
+														{blogTagsElements}
+													</BlogTags>
 													<Typography variant="h3">
-														{event.title}
+														{blog.title}
 													</Typography>
 													<Typography variant="body">
 														{moment(
-															event.date.start
+															blog.date.start
 														).format(
 															"MMM D, YYYY"
 														)}{" "}
 														-{" "}
-														{event.shortDescription}
+														{blog.shortDescription}
 													</Typography>
-												</EventInfo>
-											</EventsCard>
+												</BlogInfo>
+											</BlogsCard>
 										</Link>
 									);
 								})}
 							</InfiniteScroll>
-						</LeftContainer>
-						<RightContainer>
-							<Typography variant="h2">Tags</Typography>
-							<FilterContainer>{filterElements}</FilterContainer>
 						</RightContainer>
-					</EventsContainer>
-				</EventsPageContainer>
+					</BlogsContainer>
+				</BlogsPageContainer>
 			)}
 		</>
 	);
 }
 
-export default EventsPage;
+export default BlogsPage;

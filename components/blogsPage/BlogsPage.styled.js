@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const EventsPageContainer = styled.div`
+export const BlogsPageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 1em 5em;
@@ -10,13 +10,13 @@ export const EventsPageContainer = styled.div`
 	width: 100%;
 `;
 
-export const EventsContainer = styled.div`
+export const BlogsContainer = styled.div`
 	display: flex;
 	height: 100%;
 	width: 100%;
 `;
 
-export const LeftContainer = styled.div`
+export const RightContainer = styled.div`
 	width: 70%;
 	display: flex;
 	flex-direction: column;
@@ -24,7 +24,7 @@ export const LeftContainer = styled.div`
 	overflow: hidden;
 `;
 
-export const RightContainer = styled.div`
+export const LeftContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 30%;
@@ -36,7 +36,7 @@ export const RightContainer = styled.div`
 	right: 0;
 `;
 
-export const EventsCard = styled(motion.div)`
+export const BlogsCard = styled(motion.div)`
 	display: flex;
 	width: 100%;
 	height: 300px;
@@ -77,7 +77,7 @@ export const ImageContainer = styled(motion.div)`
 	border-radius: 10px 0 0 10px;
 `;
 
-export const EventInfo = styled.div`
+export const BlogInfo = styled.div`
 	width: 70%;
 	height: 100%;
 	display: flex;
@@ -95,7 +95,7 @@ export const EventInfo = styled.div`
 	-webkit-backface-visibility: hidden;
 `;
 
-export const EventTags = styled.div`
+export const BlogTags = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 `;
