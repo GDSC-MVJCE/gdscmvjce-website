@@ -4,6 +4,8 @@ import {
   People,
   PeopleAlt,
   PeopleAltOutlined,
+  Collections,
+  FeedIcon,
 } from '@mui/icons-material';
 import { dataProvider } from 'ra-data-simple-prisma';
 import React from 'react';
@@ -34,6 +36,11 @@ import TeamMemberCreate from './TeamMember/TeamMemberCreate';
 import TeamMemberEdit from './TeamMember/TeamMemberEdit';
 import ProfileEdit from './Profile/ProfileEdit';
 import BlogCreate from './Blog/BlogCreate';
+import GalleryList from './Gallery/GalleryList';
+import GalleryCreate from './Gallery/GalleryCreate';
+import GalleryEdit from './Gallery/GalleryEdit';
+import BlogList from './Blog/BlogList';
+import BlogEdit from './Blog/BlogEdit';
 
 const App = () => {
   return (
@@ -48,10 +55,10 @@ const App = () => {
       />
       <Resource
         name='blog'
-        icon={Event}
-        // list={EventList}
+        icon={FeedIcon}
+        list={BlogList}
         create={BlogCreate}
-        //edit={EventEdit}
+        edit={BlogEdit}
         recordRepresentation={(record) => `${record.title}`}
       />
 
@@ -110,6 +117,17 @@ const App = () => {
         create={BlogTagCreate}
         edit={BlogTagEdit}
         recordRepresentation={(record) => `${record.label}`}
+      />
+      <Resource
+        name='gallery'
+        icon={Collections}
+        options={{
+          label: 'Gallery',
+        }}
+        list={GalleryList}
+        create={GalleryCreate}
+        edit={GalleryEdit}
+        recordRepresentation={(record) => `${record.title}`}
       />
       <Resource
         options={{
