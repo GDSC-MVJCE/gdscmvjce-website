@@ -6,7 +6,7 @@ export const ArticleFooterContentContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 245px;
-  gap: 50px;
+  gap: 70px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   padding: 20px;
