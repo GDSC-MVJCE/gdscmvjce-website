@@ -3,7 +3,6 @@ import { lightTheme } from "@/constants/theme";
 import { ThemeProvider } from "styled-components";
 
 import AuthProvider from "@/components/AuthProvider";
-import Navbar from "@/components/navbar/Navbar";
 import localFont from "next/font/local";
 
 const myFont = localFont({

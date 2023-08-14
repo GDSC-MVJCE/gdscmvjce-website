@@ -2,6 +2,7 @@ import BlogSection from "@/components/blogSection/BlogSection";
 import EventsSection from "@/components/display/eventsSection/EventsSection";
 import FaqSection from "@/components/display/faqSection/FaqSection";
 import OfferSection from "@/components/display/offerSection/OfferSection";
+import TeamIntro from "@/components/display/teamIntro/TeamIntro";
 import Intro from "@/components/intro/Intro";
 import Hero from "@/components/hero/Hero";
 import MeetTeam from "@/components/meetTeam/MeetTeam";
@@ -22,10 +23,11 @@ export default function Home() {
         <Hero />
         <Intro />
         <OfferSection />
+        <TeamIntro />
         <MeetTeam />
         <EventsSection />
-        <FaqSection />
         <BlogSection />
+        <FaqSection />
       </main>
     </>
   );
