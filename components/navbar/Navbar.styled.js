@@ -1,19 +1,23 @@
-import styled from 'styled-components';
-import Link from 'next/link';
+import styled from "styled-components";
+import Link from "next/link";
 
 export const MainContainer = styled.div`
   width: 100%;
   max-width: 100vw;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
+  z-index: 10;
+  background-color: ${({ theme }) => theme.colors.bgPrimary};
 `;
+
 export const NavbarContainer = styled.nav`
   width: 90%;
   height: 80px;
   margin: 20px 20px;
-  background-color: #fff;
+  background-color: inherit;
   display: flex;
   flex-direction: column;
   -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
