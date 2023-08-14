@@ -68,11 +68,13 @@ const ScheduleInput = ({ source, defaultValue }) => {
       schema={schema}
       onChange={(e) => controllerField.onChange(JSON.stringify(e.formData))}
       validator={validator}
-      formData={
-        controllerField.value === "" || null || undefined
-          ? "" || null || undefined
-          : JSON.parse(controllerField.value)
-      }
+      formData={() => {
+        try {
+          return JSON.parse(controllerField.value);
+        } catch (e) {
+          return {};
+        }
+      }}
     >
       <button type="submit"></button>
     </Form>
