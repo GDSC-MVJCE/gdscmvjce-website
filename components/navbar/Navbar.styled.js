@@ -4,6 +4,7 @@ import Link from "next/link";
 export const MainContainer = styled.div`
   width: 100%;
   max-width: 100vw;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +32,6 @@ export const LeftContainer = styled.div`
   justify-content: start;
   align-items: center;
   padding: 1rem 1rem;
-  background-color: inherit;
 `;
 
 export const RightContainer = styled.div`
@@ -39,14 +39,12 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  background-color: inherit;
 `;
 
 export const NavbarInnerContainer = styled.div`
   width: 100%;
   height: 80px;
   display: flex;
-  background-color: inherit;
 `;
 
 export const NavbarLinkContainer = styled.div`
@@ -55,7 +53,6 @@ export const NavbarLinkContainer = styled.div`
   justify-content: end;
   margin-right: 2rem;
   align-items: center;
-  background-color: inherit;
 `;
 
 export const NavLink = styled(Link)`
