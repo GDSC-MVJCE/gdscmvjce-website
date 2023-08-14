@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import debounce from "lodash.debounce";
-
 import dynamic from "next/dynamic";
 const Animator = dynamic(
   import("react-scroll-motion").then((it) => it.Animator),
@@ -11,17 +10,9 @@ import {
   ScrollPage,
   batch,
   Fade,
-  FadeIn,
-  FadeOut,
-  Move,
   MoveIn,
-  MoveOut,
   Sticky,
-  StickyIn,
-  StickyOut,
   Zoom,
-  ZoomIn,
-  ZoomOut,
 } from "react-scroll-motion";
 import {
   HeroAvatarWrapper,
@@ -115,7 +106,6 @@ const Hero = () => {
     if (refsById != null) {
       handleUpdateXArrows();
     }
-    console.log("HI");
   }, [refsById]);
 
   return (
@@ -217,24 +207,6 @@ const Hero = () => {
                   tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
                   lineColor={isAvatarHighlighted ? "#4285F4" : "#F1F1F1"}
                 />
-                {/* <Xarrow
-                  start={refsById['a2']}
-                  end={refsById['a3']}
-                  showHead={false}
-                  showTail={false}
-                  startAnchor={'middle'}
-                  endAnchor={'middle'}
-                  headShape={'circle'}
-                  tailShape={'circle'}
-                  tailSize={3}
-                  headSize={3}
-                  curveness={0}
-                  strokeWidth={2}
-                  zIndex={-2}
-                  headColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                  tailColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                  lineColor={isAvatarHighlighted ? '#4285F4' : '#F1F1F1'}
-                /> */}
                 <Xarrow
                   start={refsById["a1"]}
                   end={refsById["a3"]}
@@ -253,20 +225,7 @@ const Hero = () => {
                   tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
                   lineColor={isAvatarHighlighted ? "#4285F4" : "#F1F1F1"}
                 />
-                {/* <Xarrow
-                  start={refsById['firebase']}
-                  end={refsById['web']}
-                  showHead={true}
-                  showTail={true}
-                  headShape={'circle'}
-                  tailShape={'circle'}
-                  tailSize={3}
-                  headSize={3}
-                  curveness={0}
-                  strokeWidth={2}
-                  zIndex={-2}
-                  color='#F1F1F1'
-                /> */}
+
                 <Xarrow
                   start="flutter"
                   end="web"
@@ -283,38 +242,7 @@ const Hero = () => {
                   tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
                   lineColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
                 />
-                {/* <Xarrow
-                  start='flutter'
-                  end='tensorflow'
-                  showHead={true}
-                  showTail={true}
-                  headShape={'circle'}
-                  tailShape={'circle'}
-                  tailSize={3}
-                  headSize={3}
-                  curveness={0}
-                  zIndex={-2}
-                  strokeWidth={2}
-                  headColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                  tailColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                  lineColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                /> */}
-                {/* <Xarrow
-                  start='flutter'
-                  end='android'
-                  showHead={true}
-                  showTail={true}
-                  headShape={'circle'}
-                  tailShape={'circle'}
-                  tailSize={3}
-                  headSize={3}
-                  curveness={0}
-                  zIndex={-2}
-                  strokeWidth={2}
-                  headColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                  tailColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                  lineColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                /> */}
+
                 <Xarrow
                   start="tensorflow"
                   end="web"
@@ -331,20 +259,7 @@ const Hero = () => {
                   tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
                   lineColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
                 />
-                {/* <Xarrow
-                  start='tensorflow'
-                  end='firebase'
-                  showHead={true}
-                  showTail={true}
-                  headShape={'circle'}
-                  tailShape={'circle'}
-                  tailSize={3}
-                  headSize={3}
-                  curveness={0}
-                  zIndex={-2}
-                  strokeWidth={2}
-                  lineColor={isTextHighlighted ? '#EA4335' : '#F1F1F1'}
-                /> */}
+
                 <Xarrow
                   start="tensorflow"
                   end="android"
