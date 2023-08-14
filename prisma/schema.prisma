@@ -107,8 +107,8 @@ model Event {
   id               String     @id @default(cuid())
   coverPhoto       String?
   title            String
-  description      String
-  schedule         String     @db.Text()
+  description      String     @db.Text()
+  // schedule         String?    @db.Text()
   speakers         Speaker[]
   startDate        DateTime
   endDate          DateTime
@@ -159,13 +159,10 @@ model BlogTag {
 }
 
 model EventTag {
-  label   String
-  slug    String?
-  id      Int     @id @default(autoincrement())
-  event   Event[]
-  eventId String?
-
-  @@index([eventId])
+  label  String
+  slug   String?
+  id     Int     @id @default(autoincrement())
+  events Event[]
 }
 
 // Gallery Schema

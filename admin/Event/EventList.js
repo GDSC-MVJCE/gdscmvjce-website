@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   ChipField,
   Datagrid,
@@ -7,24 +7,24 @@ import {
   EditButton,
   List,
   TextField,
-} from 'react-admin';
+} from "react-admin";
 
 const EventList = (props) => {
   return (
     <List {...props}>
       <Datagrid>
-        <TextField source='title' />
-        <TextField source='description' />
+        <TextField source="title" />
+        <TextField source="description" />
         <DateField
-          source='startDate'
+          source="startDate"
           options={{
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
+            year: "numeric",
+            month: "long",
+            day: "numeric",
           }}
         />
-        <EditButton basePath='/event' />
-        <DeleteButton basePath='/event' />
+        <EditButton basePath="/event" />
+        <DeleteButton basePath="/event" />
       </Datagrid>
     </List>
   );
