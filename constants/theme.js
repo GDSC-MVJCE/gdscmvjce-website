@@ -9,7 +9,7 @@ export const lightTheme = {
     bgSecondary: "#E9E9E9",
     bgTertiary: "#e9e9e9",
     contentPrimary: "#131313",
-    contentSecondary: "#6e6e6e",
+	contentSecondary: "#6e6e6e"
   },
 };
 
@@ -24,7 +24,7 @@ export const darkTheme = {
     bgSecondary: "#292929",
     bgTertiary: "#e9e9e9",
     contentPrimary: "#FFFFFF",
-    contentSecondary: "#858585",
+    contentSecondary: "#858585"
   },
 };
 

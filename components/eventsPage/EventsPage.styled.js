@@ -37,35 +37,35 @@ export const RightContainer = styled.div`
 `;
 
 export const EventsCard = styled(motion.div)`
-  display: flex;
-  width: 100%;
-  height: 300px;
-  box-shadow: 0px 4px 20px -2px rgba(0, 0, 0, 0.16);
-  border-radius: 10px;
-  margin-bottom: 1em;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
+	display: flex;
+	width: 100%;
+	height: 300px;
+	box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
+	border-radius: 10px;
+	margin-bottom: 1em;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	overflow: hidden;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-webkit-font-smoothing: antialiased;
 
-  &:hover {
-    box-shadow: 0px 4px 44px -2px rgba(0, 0, 0, 0.16);
-    transform: scale(1.01);
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
+	&:hover {
+		box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);
+		transform: scale(1.01);
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
 `;
 
 export const ImageContainer = styled(motion.div)`

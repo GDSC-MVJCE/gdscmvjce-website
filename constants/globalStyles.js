@@ -8,7 +8,6 @@ const GlobalStyles = createGlobalStyle`
         border: none;
         outline: none;
         font-family: var(--font-manrope);
-        
     }
     
     html {

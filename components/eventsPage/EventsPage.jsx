@@ -142,6 +142,7 @@ function EventsPage() {
 								next={fetchMoreData}
 								hasMore={hasMore}
 								loader={<h4>Loading...</h4>}
+								style={{ padding: "2rem" }}
 							>
 								{eventsData.map((event, index) => {
 									const eventTagsElements = event.tags.map(

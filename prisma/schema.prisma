@@ -69,45 +69,54 @@ model Incident {
 
 // Profile Schema
 model Profile {
-  id          Int     @id @default(autoincrement())
+  id          Int          @id @default(autoincrement())
   name        String
-  title       String
-  description String?
+  username    String
+  bio         String?
   about       String?
-  teamHistory Json
-  social      Json
+  social      Json?
+  image       String?
+  coverPhoto  String?
   profileLink String?
-  core        Team    @relation("core", fields: [coreId], references: [id])
-  coreId      String
-  member      Team    @relation("member", fields: [memberId], references: [id])
-  memberId    String
-  lead        Team    @relation("lead", fields: [leadId], references: [id])
-  leadId      String  @unique
+  blog        Blog[]
+  teams       TeamMember[]
 }
 
 // Teams Schema
 model Team {
-  id      String    @id
+  id      Int          @id @default(autoincrement())
   name    String
-  lead    Profile?  @relation("lead")
-  core    Profile[] @relation("core")
-  members Profile[] @relation("member")
-  userId  String
+  members TeamMember[]
+}
+
+model TeamMember {
+  id        String  @id @default(cuid())
+  team      Team    @relation(fields: [teamId], references: [id])
+  teamId    Int
+  profile   Profile @relation(fields: [profileId], references: [id])
+  profileId Int
+  role      String
+  type      String  @default("member")
+
+  @@index([profileId])
+  @@index([teamId])
 }
 
 // Events Schema
 model Event {
-  eventId          Int        @id @default(autoincrement())
-  bannerImage      String?
+  id               String     @id @default(cuid())
+  coverPhoto       String?
   title            String
   description      String
-  schedule         Json
+  schedule         String     @db.Text()
   speakers         Speaker[]
-  date             Json
+  startDate        DateTime
+  endDate          DateTime
   venue            String
   status           String
   registrationLink String
   tags             EventTag[]
+  gallery          Gallery[]
 }
 
 model Speaker {
@@ -117,35 +126,57 @@ model Speaker {
   title       String?
   description String?
   profileLink String
-  events      Event   @relation(fields: [speakerId], references: [eventId], onDelete: Cascade)
-  speakerId   Int
+  events      Event[]
+  speakerId   String?
+
+  @@index([speakerId])
 }
 
 // Blog Schema
 model Blog {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(cuid())
   title       String
   date        DateTime  @default(now())
-  author      String
+  author      Profile   @relation(references: [id], fields: [authorId])
+  authorId    Int
+  thumbnail   String?
   bannerImage String?
-  article     String
-  slug        String
+  content     String
+  slug        String?
   tags        BlogTag[]
+
+  @@index([authorId])
 }
 
 model BlogTag {
-  label   String
-  slug    String
-  tagId   Int    @unique
-  blogTag Blog?  @relation(fields: [blogId], references: [id], onDelete: Cascade)
-  blogId  Int?
+  id     Int     @id @default(autoincrement())
+  label  String
+  slug   String?
+  blog   Blog[]
+  blogId String?
+
+  @@index([blogId])
 }
 
 model EventTag {
-  label    String
-  slug     String
-  tagId    Int    @unique
-  eventTag Event? @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-  eventId  Int?
+  label   String
+  slug    String?
+  id      Int     @id @default(autoincrement())
+  event   Event[]
+  eventId String?
+
+  @@index([eventId])
+}
+
+// Gallery Schema
+model Gallery {
+  id      Int      @id @default(autoincrement())
+  url     String
+  date    DateTime
+  title   String
+  event   Event?   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId String?
+
+  @@index([eventId])
 }
 
