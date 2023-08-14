@@ -1,19 +1,13 @@
-import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
+import prisma from "../../lib/prisma";
 
-const getBlogs = async (req, res) => {
-  const { type, page } = req.query;
-  const pageNo = page ? Number(page) : 1;
-  const blogPerPage = 3;
+const getSingleBlog = async (req, res) => {
+  const { blogId } = req.query;
   try {
-    const blogs = await prisma.blog.findMany({
+    const blogs = await prisma.blog.findUnique({
       where: {
-        tags: {
-          some: {
-            label: type,
-          },
-        },
+        id: blogId,
       },
       include: {
         author: {
@@ -32,10 +26,8 @@ const getBlogs = async (req, res) => {
           },
         },
       },
-      skip: (pageNo - 1) * blogPerPage,
-      take: blogPerPage,
     });
-    return res.status(StatusCodes.OK).json(blogs);
+    return res.status(StatusCodes.OK).json({ blogs: blogs });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError)
       console.error(error);
@@ -47,4 +39,4 @@ const getBlogs = async (req, res) => {
     .json({ status: StatusCodes.NOT_FOUND, error: ReasonPhrases.NOT_FOUND });
 };
 
-export default getBlogs;
+export default getSingleBlog;
