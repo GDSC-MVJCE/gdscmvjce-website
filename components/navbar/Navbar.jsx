@@ -23,7 +23,7 @@ function Navbar() {
 						<NavbarLinkContainer>
 							<NavLink href={"/"}>Home</NavLink>
 							<NavLink href={"/events"}>Events</NavLink>
-							<NavLink href={"/team"}>Team</NavLink>
+							<NavLink href={"/teams"}>Team</NavLink>
 							<NavLink href={"/blogs"}>Blogs</NavLink>
 						</NavbarLinkContainer>
 					</RightContainer>
