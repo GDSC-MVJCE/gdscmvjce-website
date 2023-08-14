@@ -1,15 +1,14 @@
-import React from 'react'
-import Navbar from '@/components/navbar/Navbar'
-import TeamsPage from '@/components/teamsPage/teamsPage'
+import React from "react";
+import Navbar from "@/components/navbar/Navbar";
+import TeamsPage from "@/components/teamsPage/teamsPage";
 
-function teams() {
-    return (
-        <>
-            <Navbar />
-            <TeamsPage />
-        </>
-    )
-
+function Teams() {
+	return (
+		<>
+			<Navbar />
+			<TeamsPage />
+		</>
+	);
 }
 
-export default teams
+export default Teams;
