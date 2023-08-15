@@ -1,16 +1,24 @@
 import styled, { keyframes } from "styled-components";
-import Avatar from "../avatar/Avatar";
 import { motion } from "framer-motion";
+import { devices } from "@/constants/theme";
 
-export const MainContainer = styled.div`
+export const IntroContainer = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 80vh;
+  min-height: 80svh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 40px 80px;
+
+  @media screen and (${devices.lg}) {
+    flex-direction: column-reverse;
+    padding: 10px 20px;
+  }
+
+  @media screen and (${devices.sm}) {
+    padding: 10px 10px;
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -19,6 +27,11 @@ export const LeftContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 40px 40px;
+
+  @media screen and (${devices.lg}) {
+    width: 100%;
+    padding: 0px 40px;
+  }
 `;
 
 export const LeftInnerContainer = styled.div`
@@ -36,6 +49,12 @@ export const HeadingContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+
+  @media screen and (${devices.sm}) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
 `;
 
 export const RightContainer = styled.div`
@@ -44,15 +63,34 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (${devices.lg}) {
+    width: 100%;
+  }
+
+  @media screen and (${devices.sm}) {
+    height: 450px;
+  }
 `;
 
 export const AvatarContainer = styled.div`
-  width: 100%;
+  width: 50%;
+  max-width: 80%;
   height: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (${devices.lg}) {
+    width: 60%;
+    height: 80%;
+  }
+
+  @media screen and (${devices.sm}) {
+    width: 100%;
+    height: 60%;
+  }
 `;
 
 export const move = keyframes`
@@ -76,18 +114,6 @@ export const move = keyframes`
     }
 `;
 
-export const CustomAvatar = styled.div`
-  width: 150px;
-  height: 150px;
-  background: url(${({ url }) => url}) no-repeat center center;
-  background-size: cover;
-  border-radius: 50%;
-  position: absolute;
-  top: ${({ top }) => top}px;
-  left: ${({ left }) => left}px;
-  animation: ${move} 5s ${({ delay }) => delay}s ease infinite;
-`;
-
 export const IntersectingPoint = styled.div`
   width: 10px;
   height: 10px;
@@ -97,6 +123,11 @@ export const IntersectingPoint = styled.div`
   background-color: "transparent";
   position: absolute;
   animation: ${move} 5s ${({ delay }) => delay}s ease infinite;
+
+  @media screen and (${devices.sm}) {
+    top: 170px;
+    left: 120px;
+  }
 `;
 
 export const Span = styled.span`
