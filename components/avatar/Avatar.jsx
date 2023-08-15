@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { AvatarWrapper } from "./Avatar.styled";
 
 const Avatar = ({
@@ -8,6 +7,7 @@ const Avatar = ({
   borderWidth,
   borderColor,
   className,
+  ref,
 }) => {
   return (
     <AvatarWrapper
@@ -17,6 +17,7 @@ const Avatar = ({
       className={className}
       borderWidth={borderWidth}
       borderColor={borderColor}
+      ref={ref}
     />
   );
 };
