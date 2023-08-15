@@ -9,7 +9,7 @@ export const lightTheme = {
     bgSecondary: "#E9E9E9",
     bgTertiary: "#e9e9e9",
     contentPrimary: "#131313",
-	contentSecondary: "#6e6e6e"
+    contentSecondary: "#6e6e6e",
   },
 };
 
@@ -24,7 +24,7 @@ export const darkTheme = {
     bgSecondary: "#292929",
     bgTertiary: "#e9e9e9",
     contentPrimary: "#FFFFFF",
-    contentSecondary: "#858585"
+    contentSecondary: "#858585",
   },
 };
 
@@ -50,12 +50,12 @@ export const typography = {
     lineHeight: "33px",
   },
   h5: {
-    fontWeight: "600",
+    fontWeight: "500",
     fontSize: "20px",
     lineHeight: "27px",
   },
-  h6: {
-    fontWeight: "600",
+  h5: {
+    fontWeight: "500",
     fontSize: "16px",
     lineHeight: "22px",
   },
@@ -83,4 +83,22 @@ export const typography = {
     fontSize: "10px",
     lineHeight: "14px",
   },
+};
+
+export const breakpoints = {
+  xs: "320px",
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px",
+};
+
+export const devices = {
+  xs: `(max-width: ${breakpoints.xs})`,
+  sm: `(max-width: ${breakpoints.sm})`,
+  md: `(max-width: ${breakpoints.md})`,
+  lg: `(max-width: ${breakpoints.lg})`,
+  xl: `(max-width: ${breakpoints.xl})`,
+  "2xl": `(max-width: ${breakpoints["2xl"]})`,
 };

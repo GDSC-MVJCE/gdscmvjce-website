@@ -231,6 +231,8 @@ const Hero = () => {
                   end="web"
                   showHead={true}
                   showTail={true}
+                  startAnchor={"top"}
+                  endAnchor={"right"}
                   headShape={"circle"}
                   tailShape={"circle"}
                   tailSize={3}
@@ -248,6 +250,8 @@ const Hero = () => {
                   end="web"
                   showHead={true}
                   showTail={true}
+                  startAnchor={"right"}
+                  endAnchor={"left"}
                   headShape={"circle"}
                   tailShape={"circle"}
                   tailSize={3}
@@ -265,6 +269,8 @@ const Hero = () => {
                   end="android"
                   showHead={true}
                   showTail={true}
+                  startAnchor={"left"}
+                  endAnchor={"bottom"}
                   headShape={"circle"}
                   tailShape={"circle"}
                   tailSize={3}
