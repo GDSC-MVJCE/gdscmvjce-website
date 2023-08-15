@@ -6,6 +6,7 @@ import OfferSection from "@/components/display/offerSection/OfferSection";
 import TeamIntro from "@/components/display/teamIntro/TeamIntro";
 import GalleryCarousel from "@/components/galleryCarousel/GalleryCarousel";
 import Hero from "@/components/hero/Hero";
+import Intro from "@/components/intro/Intro";
 import MeetTeam from "@/components/meetTeam/MeetTeam";
 import Navbar from "@/components/navbar/Navbar";
 import Head from "next/head";
@@ -22,7 +23,15 @@ export default function Home() {
 
       <main>
         <Navbar />
+        <Hero />
+        <Intro />
+        <OfferSection />
+        <TeamIntro />
+        <MeetTeam />
+        <EventsSection />
         <GalleryCarousel />
+        <BlogSection />
+        <FaqSection />
         <Footer />
       </main>
     </>
