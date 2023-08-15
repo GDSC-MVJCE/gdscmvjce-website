@@ -37,8 +37,8 @@ export const AvatarWrapper = styled.div`
       ? css`
           box-shadow: ${({ borderColor, theme }) =>
             borderColor
-              ? `0px 0px 30px 10px ${borderColor}`
-              : `0px 0px 30px 10px ${theme.colors.bgPrimary}`};
+              ? `0px 0px 15px 5px ${borderColor}`
+              : `0px 0px 15px 5px ${theme.colors.bgPrimary}`};
         `
       : css`
           border-width: ${({ borderWidth }) =>
