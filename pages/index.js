@@ -1,6 +1,7 @@
 import BlogSection from "@/components/blogSection/BlogSection";
 import EventsSection from "@/components/display/eventsSection/EventsSection";
 import FaqSection from "@/components/display/faqSection/FaqSection";
+import Footer from "@/components/display/footer/Footer";
 import OfferSection from "@/components/display/offerSection/OfferSection";
 import TeamIntro from "@/components/display/teamIntro/TeamIntro";
 import GalleryCarousel from "@/components/galleryCarousel/GalleryCarousel";
@@ -31,6 +32,7 @@ export default function Home() {
         <GalleryCarousel />
         <BlogSection />
         <FaqSection />
+        <Footer />
       </main>
     </>
   );
