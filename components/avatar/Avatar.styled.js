@@ -22,16 +22,16 @@ export const AvatarWrapper = styled.div`
         width: 100px;
         height: 100px;
       `) ||
-    (size === "xxl" &&
-      css`
-        width: 232px;
-        height: 232px;
-      `) ||
     (size === "xl" &&
       css`
         width: 150px;
         height: 150px;
-      `)};
+      `) ||
+    (size === "xxl" &&
+      css`
+        width: 232px;
+        height: 232px;
+      `)}
   ${({ blur }) =>
     blur
       ? css`
