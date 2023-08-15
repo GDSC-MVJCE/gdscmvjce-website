@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Xarrow, { useXarrow, Xwrapper } from "react-xarrows";
+import debounce from "lodash.debounce";
 
 import {
-  MainContainer,
+  IntroContainer,
   LeftContainer,
   RightContainer,
   LeftInnerContainer,
@@ -17,39 +18,62 @@ import Typography from "../display/typography/Typography";
 import { useTheme } from "styled-components";
 import FloatingLabel from "../display/typography/floatingLabel/FloatingLabel";
 import FloatingAvatar from "../avatar/floatingAvatar/FloatingAvatar";
+import { devices } from "@/constants/theme";
 
 function Intro() {
   const theme = useTheme();
   const updateXarrow = useXarrow();
+  const handleXarrowUpdate = debounce(updateXarrow, 0.5);
   const ref0 = useRef();
   const ref1 = useRef();
   const ref2 = useRef();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    updateXarrow();
-  }, [ref0, ref1, ref2, updateXarrow]);
+    const mediaQuery = window.matchMedia(devices.sm);
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (
+      ref0.current !== undefined &&
+      ref1.current !== undefined &&
+      ref2.current !== undefined
+    )
+      return handleXarrowUpdate();
+  }, [handleXarrowUpdate, ref0, ref1, ref2]);
 
   const avatarData = [
     {
       url: "../../images/events/Event1.jpg",
-      alt: "Aishwarya B S",
+      alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandBlue,
       x: 0,
       y: 30,
     },
     {
       url: "../../images/events/Event2.png",
-      alt: "Aishwarya B S",
+      alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandGreen,
-      x: 250,
+      x: isMobile ? 190 : 250,
       y: 100,
     },
     {
       url: "../../images/events/Event3.jpg",
-      alt: "Aishwarya B S",
+      alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandYellow,
       x: 50,
-      y: 260,
+      y: isMobile ? 210 : 260,
     },
   ];
 
@@ -57,21 +81,21 @@ function Intro() {
     {
       label: "Study Jams",
       color: theme.colors.brandBlue,
-      x: -50,
-      y: 210,
+      x: isMobile ? -20 : -50,
+      y: isMobile ? 150 : 210,
     },
 
     {
       label: "Hackathons",
       color: theme.colors.brandRed,
-      x: 200,
+      x: isMobile ? 150 : 200,
       y: 30,
     },
     {
       label: "Workshops",
       color: theme.colors.brandGreen,
-      x: 250,
-      y: 280,
+      x: isMobile ? 180 : 250,
+      y: isMobile ? 260 : 280,
     },
   ];
 
@@ -82,7 +106,7 @@ function Intro() {
         id={`avatar-${index}`}
         url={avatar.url}
         alt={avatar.alt}
-        size="xl"
+        size={isMobile ? "lg" : "xl"}
         borderColor={avatar.borderColor}
         top={avatar.y}
         left={avatar.x}
@@ -112,7 +136,7 @@ function Intro() {
   });
 
   return (
-    <MainContainer>
+    <IntroContainer>
       <LeftContainer>
         <LeftInnerContainer>
           <HeadingContainer>
@@ -201,7 +225,7 @@ function Intro() {
           </Xwrapper>
         </AvatarContainer>
       </RightContainer>
-    </MainContainer>
+    </IntroContainer>
   );
 }
 
