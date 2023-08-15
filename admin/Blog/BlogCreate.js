@@ -1,4 +1,5 @@
-import React from 'react';
+import { RichTextInput } from "ra-input-rich-text";
+import React from "react";
 import {
   Create,
   DateTimeInput,
@@ -8,41 +9,40 @@ import {
   ReferenceInput,
   SimpleForm,
   TextInput,
-} from 'react-admin';
-import { RichTextInput } from 'ra-input-rich-text';
+} from "react-admin";
 
 const BlogCreate = (props) => {
   return (
-    <Create title='Post a blog' {...props}>
+    <Create title="Post a blog" {...props}>
       <SimpleForm>
-        <TextInput source='title' label='Title' />
+        <TextInput source="title" label="Title" />
         <DateTimeInput
-          source='date'
-          label='Date & Time'
-          defaultValue={Date.now()}
+          source="date"
+          label="Date & Time"
+          defaultValue={new Date()}
         />
-        <ReferenceInput source='authorId' reference='profile' label='Author' />
+        <ReferenceInput source="authorId" reference="profile" label="Author" />
         <TextInput
-          source='thumbnail'
-          type='url'
-          label='Blog Thumbnail Image'
-          helperText='Provide Direct Image Address/URL'
+          source="thumbnail"
+          type="url"
+          label="Blog Thumbnail Image"
+          helperText="Provide Direct Image Address/URL"
         />
         <TextInput
-          source='bannerImage'
-          type='url'
-          label='Blog Banner Image'
-          helperText='Provide Direct Image Address/URL'
+          source="bannerImage"
+          type="url"
+          label="Blog Banner Image"
+          helperText="Provide Direct Image Address/URL"
         />
-        <RichTextInput source='content' label='Content' />
-        <ReferenceArrayInput source='tags' reference='blogTag' label='Tags' />
+        <RichTextInput source="content" label="Content" />
+        <ReferenceArrayInput source="tags" reference="blogTag" label="Tags" />
         <TextInput
-          source='slug'
-          label='Slug URL'
-          helperText='gdsc.mvjce.in/blogs/yourslughere'
+          source="slug"
+          label="Slug URL"
+          helperText="gdsc.mvjce.in/blogs/yourslughere"
         />
-        <EditButton basePath='/blog' />
-        <DeleteButton basePath='/blog' />
+        <EditButton basePath="/blog" />
+        <DeleteButton basePath="/blog" />
       </SimpleForm>
     </Create>
   );

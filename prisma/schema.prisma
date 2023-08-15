@@ -109,6 +109,8 @@ model Event {
   title            String
   description      String     @db.Text()
   // schedule         String?    @db.Text()
+  shortDescription String?    @db.Text()
+  thumbnail        String?
   speakers         Speaker[]
   startDate        DateTime
   endDate          DateTime
@@ -149,13 +151,10 @@ model Blog {
 }
 
 model BlogTag {
-  id     Int     @id @default(autoincrement())
-  label  String
-  slug   String?
-  blog   Blog[]
-  blogId String?
-
-  @@index([blogId])
+  id    Int     @id @default(autoincrement())
+  label String
+  slug  String?
+  blog  Blog[]
 }
 
 model EventTag {
@@ -176,4 +175,3 @@ model Gallery {
 
   @@index([eventId])
 }
-
