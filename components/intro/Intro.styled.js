@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { devices } from "@/constants/theme";
 
-export const IntroContainer = styled.div`
+export const IntroContainer = styled.section`
   width: 100%;
   height: 100%;
   min-height: 80vh;
@@ -34,7 +34,7 @@ export const LeftContainer = styled.div`
   }
 `;
 
-export const LeftInnerContainer = styled.div`
+export const LeftInnerContainer = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
