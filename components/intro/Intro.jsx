@@ -23,7 +23,7 @@ import { devices } from "@/constants/theme";
 function Intro() {
   const theme = useTheme();
   const updateXarrow = useXarrow();
-  const handleXarrowUpdate = debounce(updateXarrow, 0.5);
+  const handleXarrowUpdate = debounce(updateXarrow, 0.1);
   const ref0 = useRef();
   const ref1 = useRef();
   const ref2 = useRef();
