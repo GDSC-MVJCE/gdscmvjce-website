@@ -65,10 +65,11 @@ export const RightContainer = styled.div`
   align-items: center;
 
   @media screen and (${devices.lg}) {
-    width: 100%;
+    width: 90%;
   }
 
   @media screen and (${devices.sm}) {
+    width: 100%;
     height: 450px;
   }
 `;
@@ -88,8 +89,12 @@ export const AvatarContainer = styled.div`
   }
 
   @media screen and (${devices.sm}) {
-    width: 100%;
+    width: 65%;
     height: 60%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
   }
 `;
 
