@@ -5,19 +5,19 @@ import { devices } from "@/constants/theme";
 export const IntroContainer = styled.section`
   width: 100%;
   height: 100%;
-  min-height: 80vh;
-  min-height: 80svh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: 40px 80px;
+  padding: 0px 80px;
 
   @media screen and (${devices.lg}) {
     flex-direction: column-reverse;
-    padding: 10px 20px;
+    padding: 0px 20px;
   }
 
   @media screen and (${devices.sm}) {
-    padding: 10px 10px;
+    padding: 0px 10px;
   }
 `;
 
@@ -29,8 +29,12 @@ export const LeftContainer = styled.div`
   padding: 40px 40px;
 
   @media screen and (${devices.lg}) {
+    width: 80%;
+  }
+
+  @media screen and (${devices.sm}) {
     width: 100%;
-    padding: 0px 40px;
+    padding: 10px 40px;
   }
 `;
 
@@ -71,12 +75,12 @@ export const RightContainer = styled.div`
   @media screen and (${devices.sm}) {
     width: 100%;
     height: 450px;
+    margin-top: -6em;
   }
 `;
 
 export const AvatarContainer = styled.div`
   width: 50%;
-  max-width: 80%;
   height: 100%;
   position: relative;
   display: flex;
