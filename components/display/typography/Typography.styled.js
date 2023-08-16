@@ -43,6 +43,8 @@ export const TypographyWrapper = styled.span`
         return typography.bodySmall;
       case "bodySmallEmphasized":
         return typography.bodySmallEmphasized;
+      case "displayLarge":
+        return typography.displayLarge;
       case "caption":
         return typography.caption;
       default:

@@ -9,8 +9,8 @@ export const lightTheme = {
     bgSecondary: "#E9E9E9",
     bgTertiary: "#e9e9e9",
     contentPrimary: "#131313",
-    contentSecondary: "#6e6e6e",
-  },
+    contentSecondary: "#6e6e6e"
+  }
 };
 
 export const darkTheme = {
@@ -24,65 +24,69 @@ export const darkTheme = {
     bgSecondary: "#292929",
     bgTertiary: "#e9e9e9",
     contentPrimary: "#FFFFFF",
-    contentSecondary: "#858585",
-  },
+    contentSecondary: "#858585"
+  }
 };
 
 export const typography = {
   h1: {
     fontWeight: "700",
     fontSize: "40px",
-    lineHeight: "55px",
+    lineHeight: "55px"
   },
   h2: {
     fontWeight: "600",
     fontSize: "32px",
-    lineHeight: "44px",
+    lineHeight: "44px"
   },
   h3: {
     fontWeight: "600",
     fontSize: "28px",
-    lineHeight: "38px",
+    lineHeight: "38px"
   },
   h4: {
     fontWeight: "600",
     fontSize: "24px",
-    lineHeight: "33px",
+    lineHeight: "33px"
   },
   h5: {
     fontWeight: "500",
     fontSize: "20px",
-    lineHeight: "27px",
+    lineHeight: "27px"
   },
   h5: {
     fontWeight: "500",
     fontSize: "16px",
-    lineHeight: "22px",
+    lineHeight: "22px"
   },
   body: {
     fontWeight: "400",
     fontSize: "18px",
-    lineHeight: "25px",
+    lineHeight: "25px"
   },
   bodyEmphasized: {
     fontWeight: "500",
     fontSize: "18px",
-    lineHeight: "25px",
+    lineHeight: "25px"
   },
   bodySmall: {
     fontWeight: "400",
     fontSize: "14px",
-    lineHeight: "19px",
+    lineHeight: "19px"
   },
   bodySmallEmphasized: {
     fontSize: "16px",
-    fontWeight: "600",
+    fontWeight: "600"
   },
   caption: {
     fontWeight: "400",
     fontSize: "10px",
-    lineHeight: "14px",
+    lineHeight: "14px"
   },
+  displayLarge: {
+    fontWeight: "700",
+    fontSize: "56px"
+  }
 };
 
 export const breakpoints = {
@@ -91,7 +95,7 @@ export const breakpoints = {
   md: "768px",
   lg: "1024px",
   xl: "1280px",
-  "2xl": "1536px",
+  "2xl": "1536px"
 };
 
 export const devices = {
@@ -100,5 +104,5 @@ export const devices = {
   md: `(max-width: ${breakpoints.md})`,
   lg: `(max-width: ${breakpoints.lg})`,
   xl: `(max-width: ${breakpoints.xl})`,
-  "2xl": `(max-width: ${breakpoints["2xl"]})`,
+  "2xl": `(max-width: ${breakpoints["2xl"]})`
 };
