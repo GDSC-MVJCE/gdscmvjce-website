@@ -1,4 +1,5 @@
 import BlogSection from "@/components/blogSection/BlogSection";
+import AboutSection from "@/components/display/aboutSection/AboutSection";
 import EventsSection from "@/components/display/eventsSection/EventsSection";
 import FaqSection from "@/components/display/faqSection/FaqSection";
 import Footer from "@/components/display/footer/Footer";
@@ -24,6 +25,7 @@ export default function Home() {
       <main>
         <Navbar />
         <Hero />
+        <AboutSection />
         <Intro />
         <OfferSection />
         <TeamIntro />
