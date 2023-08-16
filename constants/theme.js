@@ -89,6 +89,67 @@ export const typography = {
   }
 };
 
+export const mobileTypography = {
+  h1: {
+    fontWeight: "700",
+    fontSize: "28px",
+    lineHeight: "38px"
+  },
+  h2: {
+    fontWeight: "600",
+    fontSize: "24px",
+    lineHeight: "33px"
+  },
+  h3: {
+    fontWeight: "600",
+    fontSize: "20px",
+    lineHeight: "27px"
+  },
+  h4: {
+    fontWeight: "600",
+    fontSize: "18px",
+    lineHeight: "25px"
+  },
+  h5: {
+    fontWeight: "500",
+    fontSize: "16px",
+    lineHeight: "22px"
+  },
+  h5: {
+    fontWeight: "500",
+    fontSize: "14px",
+    lineHeight: "19px"
+  },
+  body: {
+    fontWeight: "400",
+    fontSize: "16px",
+    lineHeight: "19px"
+  },
+  bodyEmphasized: {
+    fontWeight: "500",
+    fontSize: "16px",
+    lineHeight: "22px"
+  },
+  bodySmall: {
+    fontWeight: "400",
+    fontSize: "12px",
+    lineHeight: "16px"
+  },
+  bodySmallEmphasized: {
+    fontSize: "14px",
+    fontWeight: "600"
+  },
+  caption: {
+    fontWeight: "400",
+    fontSize: "8px",
+    lineHeight: "12px"
+  },
+  displayLarge: {
+    fontWeight: "700",
+    fontSize: "30px"
+  }
+};
+
 export const breakpoints = {
   xs: "320px",
   sm: "640px",
