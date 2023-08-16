@@ -16,8 +16,8 @@ export const TypographyWrapper = styled.span`
   color: ${({ color, theme, subdued }) =>
     subdued
       ? theme.colors.contentSecondary
-      : (color === "error" && theme.colors.utilRed) ||
-        (color === "success" && theme.colors.utilGreen) ||
+      : (color === "error" && theme.colors.brandRed) ||
+        (color === "success" && theme.colors.brandGreen) ||
         color ||
         theme.colors.contentPrimary};
 
@@ -47,10 +47,10 @@ export const TypographyWrapper = styled.span`
         return typography.caption;
       default:
         return `
-                    font-weight: 400;
-                    font-size: 18px;
-                    line-height: 25px;
-                    `;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 25px;
+                `;
     }
   }}
 `;
