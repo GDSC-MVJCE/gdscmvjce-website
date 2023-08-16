@@ -1,0 +1,119 @@
+import { Suspense, useEffect, useLayoutEffect, useState } from "react";
+import * as THREE from "three";
+import {
+  Preload,
+  useGLTF,
+  OrbitControls,
+  PerspectiveCamera,
+  CubeCamera,
+  RandomizedLight,
+  Environment
+} from "@react-three/drei";
+import { useTheme } from "styled-components";
+import { RGBELoader } from "three-stdlib";
+import { useLoader } from "@react-three/fiber";
+
+import CanvasLoader from "../loaders/CanvasLoader";
+import { StyledCanvas } from "./GDSCLogo.styled";
+
+const modelPath = "/models/gdsc_model.gltf";
+const envPath = "/models/environment/acoustical_shell_1k.hdr";
+
+function Logo() {
+  const { scene, materials } = useGLTF(modelPath);
+  const texture = useLoader(RGBELoader, envPath);
+  console.log(materials);
+
+  useLayoutEffect(() => {
+    for (let i = 0; i < 8; i++) {
+      materials[`mat${i}`].blending = THREE.MultiplyBlending;
+      materials[`mat${i}`].side = THREE.FrontSide;
+      materials[`mat${i}`].emissiveIntensity = 0;
+      materials[`mat${i}`].roughness = 0;
+      materials[`mat${i}`].metalness = 1;
+    }
+  }, [materials]);
+
+  return (
+    <CubeCamera resolution={256} frames={1} envMap={texture}>
+      {(texture) => (
+        <mesh castShadow receiveShadow>
+          <primitive
+            object={scene}
+            scale={0.4}
+            position={[0, 0, 0]}
+            receiveShadow
+            castShadow
+            envMap={texture}
+            resolution={1024}
+          />
+        </mesh>
+      )}
+    </CubeCamera>
+  );
+}
+
+function LogoCanvas() {
+  const theme = useTheme();
+
+  return (
+    <StyledCanvas
+      frameloop="demand"
+      shadows
+      dpr={[1, 2]}
+      gl={{
+        antialias: true,
+        toneMappingExposure: 0.7,
+        outputEncoding: THREE.sRGBEncoding
+      }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <color attach="background" args={[theme.colors.bgPrimary]} />
+        <ambientLight intensity={0.5} />
+        <spotLight position={[5, 5, -10]} angle={0.15} penumbra={1} />
+        <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={35} />
+        <RandomizedLight
+          amount={8}
+          radius={10}
+          ambient={0.5}
+          intensity={9}
+          position={[5, 5, -10]}
+          bias={0.001}
+        />
+        <Environment files={envPath} />
+        <OrbitControls
+          makeDefault
+          autoRotate
+          minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2}
+          enableZoom={false}
+          enableDamping={true}
+          dampingFactor={0.05}
+          enablePan={false}
+        />
+        <gridHelper
+          args={[
+            18,
+            5,
+            theme.colors.contentSecondary,
+            theme.colors.contentSecondary
+          ]}
+          position={[0, 3.4, 0]}
+        />
+        <gridHelper
+          args={[
+            18,
+            5,
+            theme.colors.contentSecondary,
+            theme.colors.contentSecondary
+          ]}
+          position={[0, -3.4, 0]}
+        />
+        <Logo />
+      </Suspense>
+      <Preload all />
+    </StyledCanvas>
+  );
+}
+
+export default LogoCanvas;
