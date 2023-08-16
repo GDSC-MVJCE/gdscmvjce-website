@@ -35,10 +35,9 @@ const RegistrationPage = () => {
       <TitleContainer>
         <Typography variant="displayLarge">Join our amazing Team</Typography>
 
-        <Typography variant="bodyLarge" className="descriptionText">
-          {`Passionate about tech, innovation, and community? Join GDSC MVJCE! Be
-          part of an energetic team shaping tech's future in your college. Join
-          now!`}
+        <Typography variant="body" className="descriptionText">
+          {`Passionate about tech, innovation, and community? Be
+          part of an energetic team.`}
         </Typography>
       </TitleContainer>
       <Pulse>
@@ -85,11 +84,10 @@ const RegistrationPage = () => {
         <Image src="/images/gdsc-team.svg" fill={true} />
       </TeamImageContainer>
       <ApplyNowContainer>
-        <Typography variant="displayLarge">
-          What are you waiting for?
-        </Typography>
-        <Typography variant="bodyLarge" className="applyDescription">
-          {`If you're excited to learn, collaborate, and push boundaries, don't wait – apply now and embark on a journey of growth and possibilities!`}
+        <Typography variant="h2">What are you waiting for?</Typography>
+        <Typography variant="body" className="applyDescription">
+          {`If you're excited to learn, collaborate, and push boundaries, don't wait.
+          Apply now and embark on a journey of growth and possibilities!`}
         </Typography>
         <ActionsContainer>
           <Link

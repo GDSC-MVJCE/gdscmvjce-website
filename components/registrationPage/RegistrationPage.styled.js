@@ -1,3 +1,4 @@
+import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
 
 export const RegistrationPageContainer = styled.div`
@@ -7,6 +8,11 @@ export const RegistrationPageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 90px;
+
+  @media ${devices.md} {
+    padding: 15px 20px;
+    gap: 40px;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -19,6 +25,9 @@ export const TitleContainer = styled.div`
   .descriptionText {
     text-align: center;
     max-width: 600px;
+  }
+  @media ${devices.md} {
+    padding: 40px 0px;
   }
 `;
 
@@ -37,6 +46,10 @@ export const BannerImageContainer = styled.div`
     border-color: ${({ theme }) => theme.colors.brandBlue};
     scale: 1.05;
   }
+  @media ${devices.md} {
+    margin-top: -50px;
+    width: 340px;
+  }
 `;
 
 export const ProceduresContainer = styled.div`
@@ -49,12 +62,16 @@ export const ProceduresContainer = styled.div`
 
   .card-1 {
     align-self: flex-start;
+    margin-top: -20px;
   }
   .card-2 {
     align-self: center;
   }
   .card-3 {
     align-self: flex-end;
+  }
+  @media ${devices.md} {
+    gap: 50px;
   }
 `;
 
@@ -116,6 +133,9 @@ export const ApplyButton = styled.button`
     color: #ffffff;
     transform: scale(1.05);
   }
+  @media ${devices.md} {
+    width: 100%;
+  }
 `;
 
 export const FAQButton = styled.button`
@@ -131,6 +151,9 @@ export const FAQButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  @media ${devices.md} {
+    width: 100%;
+  }
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.bgSecondary};
@@ -146,12 +169,21 @@ export const TeamImageContainer = styled.div`
   object-fit: cover;
   overflow: hidden;
   border-radius: 8px;
+  @media ${devices.md} {
+    width: 340px;
+    height: 170px;
+  }
 `;
 
 export const ActionsContainer = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  @media ${devices.md} {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
