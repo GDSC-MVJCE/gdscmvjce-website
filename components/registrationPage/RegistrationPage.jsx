@@ -18,8 +18,6 @@ import ApplicationIcon from "@public/icons/application.svg";
 import ClipboardIcon from "@public/icons/clipboard.svg";
 import UserIcon from "@public/icons/user.svg";
 import Link from "next/link";
-import Pulse from "react-reveal/Pulse";
-import { Fade } from "react-reveal";
 
 const applicationData = {
   isOpen: true,
@@ -40,11 +38,11 @@ const RegistrationPage = () => {
           part of an energetic team.`}
         </Typography>
       </TitleContainer>
-      <Pulse>
-        <BannerImageContainer>
-          <Image src="/images/group-photo.png" fill={true} />
-        </BannerImageContainer>
-      </Pulse>
+
+      <BannerImageContainer>
+        <Image src="/images/group-photo.png" fill={true} />
+      </BannerImageContainer>
+
       <ProceduresContainer>
         <Typography variant="h2">Application Process</Typography>
 
@@ -65,19 +63,17 @@ const RegistrationPage = () => {
               Take the interview
             </Typography>
           </ProcessCard>
-          <Fade left>
-            <Xarrow
-              start={ref1}
-              end={ref2}
-              headShape={"circle"}
-              arrowHeadProps={{
-                r: "20px"
-              }}
-            />
-          </Fade>
-          <Fade left>
-            <Xarrow start={ref2} end={ref3} headShape={"circle"} />
-          </Fade>
+
+          <Xarrow
+            start={ref1}
+            end={ref2}
+            headShape={"circle"}
+            arrowHeadProps={{
+              r: "20px"
+            }}
+          />
+
+          <Xarrow start={ref2} end={ref3} headShape={"circle"} />
         </Xwrapper>
       </ProceduresContainer>
       <TeamImageContainer>

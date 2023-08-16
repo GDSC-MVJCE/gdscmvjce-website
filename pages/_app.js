@@ -4,9 +4,6 @@ import { ThemeProvider } from "styled-components";
 
 import AuthProvider from "@/components/AuthProvider";
 import localFont from "next/font/local";
-import config from "react-reveal/globals";
-
-config({ ssrFadeout: true });
 
 const myFont = localFont({
   src: [
