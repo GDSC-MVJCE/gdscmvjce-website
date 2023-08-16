@@ -7,7 +7,8 @@ import {
   ClubName,
   HeadingContainer,
   LeftContainer,
-  RightContainer
+  RightContainer,
+  Span
 } from "./AboutSection.styled";
 import LogoCanvas from "@/components/canvas/GDSCLogo";
 
@@ -33,7 +34,11 @@ function AboutSection() {
                 animate={{ y: 0 }}
                 whileHover={{ y: -10 }}
               >
-                &nbsp;GDSC?
+                &nbsp;
+                <Span color={theme.colors.brandRed}>G</Span>
+                <Span color={theme.colors.brandBlue}>D</Span>
+                <Span color={theme.colors.brandGreen}>S</Span>
+                <Span color={theme.colors.brandYellow}>C</Span>?
               </ClubName>
             </Typography>
           </Link>
