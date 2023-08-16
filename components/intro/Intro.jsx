@@ -12,7 +12,7 @@ import {
   AvatarContainer,
   IntersectingPoint,
   Span,
-  ClubName,
+  ClubName
 } from "./Intro.styled";
 import Typography from "../display/typography/Typography";
 import { useTheme } from "styled-components";
@@ -59,22 +59,22 @@ function Intro() {
       alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandBlue,
       x: 0,
-      y: 30,
+      y: 30
     },
     {
       url: "../../images/events/Event2.png",
       alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandGreen,
       x: isMobile ? 190 : 250,
-      y: 100,
+      y: 100
     },
     {
       url: "../../images/events/Event3.jpg",
       alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandYellow,
       x: 50,
-      y: isMobile ? 210 : 260,
-    },
+      y: isMobile ? 210 : 260
+    }
   ];
 
   const floatingLabelData = [
@@ -82,21 +82,21 @@ function Intro() {
       label: "Study Jams",
       color: theme.colors.brandBlue,
       x: isMobile ? -20 : -50,
-      y: isMobile ? 150 : 210,
+      y: isMobile ? 150 : 210
     },
 
     {
       label: "Hackathons",
       color: theme.colors.brandRed,
       x: isMobile ? 150 : 200,
-      y: 30,
+      y: 30
     },
     {
       label: "Workshops",
       color: theme.colors.brandGreen,
       x: isMobile ? 180 : 250,
-      y: isMobile ? 260 : 280,
-    },
+      y: isMobile ? 260 : 280
+    }
   ];
 
   const avatarElements = avatarData.map((avatar, index) => {
