@@ -16,10 +16,10 @@ import {
   OptionContainer,
   RightContainer,
   Title
-} from "./FaqSection.styled";
-import Typography from "../typography/Typography";
+} from "./FaqPage.styled";
+import Typography from "../display/typography/Typography";
 
-function FaqSection() {
+function FaqPage() {
   const theme = useTheme();
   const [isMobile, setIsMobile] = useState(false);
 
@@ -148,4 +148,4 @@ function FaqSection() {
   );
 }
 
-export default FaqSection;
+export default FaqPage;
