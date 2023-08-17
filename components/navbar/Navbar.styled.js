@@ -10,7 +10,6 @@ export const MainContainer = styled.div`
   align-items: center;
   overflow-x: hidden;
   z-index: 10;
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
 `;
 
 export const NavbarContainer = styled.nav`
