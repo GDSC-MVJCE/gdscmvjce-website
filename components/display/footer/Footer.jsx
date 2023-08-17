@@ -5,9 +5,7 @@ import {
   FooterMeta,
   FooterSocialIcons,
   FooterSocials,
-  LogoContainer,
-  LogoDiv,
-  LogoText
+  LogoContainer
 } from "./Footer.styled";
 import Logo from "../../../public/logo.svg";
 import Typography from "../typography/Typography";
@@ -34,13 +32,21 @@ const Footer = () => {
           Follow us on Social Media
         </Typography>
         <FooterSocialIcons>
-          <Link href="https://www.linkedin.com/company/gdsc-mvjce">
+          <Link
+            href="https://www.linkedin.com/company/gdsc-mvjce"
+            target="_blank"
+            style={{ color: "gray" }}
+          >
             <LinkedInIcon />
           </Link>
-          <Link href="https://www.instagram.com/gdscmvjce/">
+          <Link
+            href="https://www.instagram.com/gdscmvjce/"
+            target="_blank"
+            style={{ color: "gray" }}
+          >
             <InstagramIcon />
           </Link>
-          <Link href="">
+          <Link href="" target="_blank" style={{ color: "gray" }}>
             <TwitterIcon />
           </Link>
         </FooterSocialIcons>
@@ -50,7 +56,11 @@ const Footer = () => {
           Made with &lt;3 by GDSC Tech and ML Team 2023
         </Typography>
         <FooterGithub>
-          <Link href="https://github.com/GDSC-MVJCE/gdscmvjce-website">
+          <Link
+            href="https://github.com/GDSC-MVJCE/gdscmvjce-website"
+            target="_blank"
+            style={{ color: "gray" }}
+          >
             <GitHubIcon />
           </Link>
           <Typography variant="bodySmall">View source code</Typography>
