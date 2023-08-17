@@ -5,32 +5,31 @@ import {
   createHandler,
   defaultHandler,
   getOneHandler,
-  updateHandler,
+  updateHandler
 } from "ra-data-simple-prisma";
 
 export default async function handler(req, res) {
-  console.log(req.body.method);
   switch (req.body.method) {
     case "create":
       await createHandler(req, res, prisma["blog"], {
         connect: {
-          tags: "id",
-        },
+          tags: "id"
+        }
       });
       break;
     case "update":
       await updateHandler(req, res, prisma["blog"], {
         connect: {
-          tags: "id",
-        },
+          tags: "id"
+        }
       });
       break;
     case "getOne":
       console.log(req.body.method);
       await getOneHandler(req, res, prisma["blog"], {
         connect: {
-          tags: "id",
-        },
+          tags: "id"
+        }
       });
 
     default: // <= fall back on default handler
