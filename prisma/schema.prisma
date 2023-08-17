@@ -110,13 +110,13 @@ model Event {
   description      String     @db.Text()
   // schedule         String?    @db.Text()
   shortDescription String?    @db.Text()
-  thumbnail        String?
+  thumbnail        String?    @db.Text()
   speakers         Speaker[]
-  startDate        DateTime
-  endDate          DateTime
+  startDate        DateTime?
+  endDate          DateTime?
   venue            String
   status           String
-  registrationLink String
+  registrationLink String?
   tags             EventTag[]
   gallery          Gallery[]
 }
@@ -126,8 +126,8 @@ model Speaker {
   name        String
   image       String?
   title       String?
-  description String?
-  profileLink String
+  description String? @db.Text()
+  profileLink String  @db.Text()
   events      Event[]
   speakerId   String?
 
