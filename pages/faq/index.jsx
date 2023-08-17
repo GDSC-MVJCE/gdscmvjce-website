@@ -1,12 +1,12 @@
-import FaqSection from "@/components/display/faqSection/FaqSection";
 import Footer from "@/components/display/footer/Footer";
+import FaqPage from "@/components/faqPage/FaqPage";
 import Navbar from "@/components/navbar/Navbar";
 
 function FAQ() {
   return (
     <>
       <Navbar />
-      <FaqSection />
+      <FaqPage />
       <Footer />
     </>
   );
