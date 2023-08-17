@@ -27,6 +27,7 @@ export const FooterSocialIcons = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
+  color: ${({ theme }) => theme.colors.bodyPrimary};
 `;
 
 export const FooterMeta = styled.div`
