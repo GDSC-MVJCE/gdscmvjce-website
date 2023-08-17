@@ -22,23 +22,23 @@ export const AvatarWrapper = styled.div`
         width: 100px;
         height: 100px;
       `) ||
-    (size === "xxl" &&
-      css`
-        width: 232px;
-        height: 232px;
-      `) ||
     (size === "xl" &&
       css`
         width: 150px;
         height: 150px;
-      `)};
+      `) ||
+    (size === "xxl" &&
+      css`
+        width: 232px;
+        height: 232px;
+      `)}
   ${({ blur }) =>
     blur
       ? css`
           box-shadow: ${({ borderColor, theme }) =>
             borderColor
-              ? `0px 0px 30px 10px ${borderColor}`
-              : `0px 0px 30px 10px ${theme.colors.bgPrimary}`};
+              ? `0px 0px 15px 5px ${borderColor}`
+              : `0px 0px 15px 5px ${theme.colors.bgPrimary}`};
         `
       : css`
           border-width: ${({ borderWidth }) =>
