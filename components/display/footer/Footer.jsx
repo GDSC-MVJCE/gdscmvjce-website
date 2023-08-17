@@ -5,9 +5,7 @@ import {
   FooterMeta,
   FooterSocialIcons,
   FooterSocials,
-  LogoContainer,
-  LogoDiv,
-  LogoText,
+  LogoContainer
 } from "./Footer.styled";
 import Logo from "../../../public/logo.svg";
 import Typography from "../typography/Typography";
@@ -15,6 +13,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -33,9 +32,23 @@ const Footer = () => {
           Follow us on Social Media
         </Typography>
         <FooterSocialIcons>
-          <InstagramIcon />
-          <LinkedInIcon />
-          <TwitterIcon />
+          <Link
+            href="https://www.linkedin.com/company/gdsc-mvjce"
+            target="_blank"
+            style={{ color: "gray" }}
+          >
+            <LinkedInIcon />
+          </Link>
+          <Link
+            href="https://www.instagram.com/gdscmvjce/"
+            target="_blank"
+            style={{ color: "gray" }}
+          >
+            <InstagramIcon />
+          </Link>
+          <Link href="" target="_blank" style={{ color: "gray" }}>
+            <TwitterIcon />
+          </Link>
         </FooterSocialIcons>
       </FooterSocials>
       <FooterMeta>
@@ -43,12 +56,17 @@ const Footer = () => {
           Made with &lt;3 by GDSC Tech and ML Team 2023
         </Typography>
         <FooterGithub>
-          <GitHubIcon />
+          <Link
+            href="https://github.com/GDSC-MVJCE/gdscmvjce-website"
+            target="_blank"
+            style={{ color: "gray" }}
+          >
+            <GitHubIcon />
+          </Link>
           <Typography variant="bodySmall">View source code</Typography>
         </FooterGithub>
       </FooterMeta>
     </FooterContainer>
-    // Footer Social links not yet clickable.
   );
 };
 
