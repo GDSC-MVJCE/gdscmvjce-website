@@ -14,7 +14,7 @@ import {
   ArticleTitle,
   FooterContainer,
   FooterTitle,
-  HorizontalLine,
+  HorizontalLine
 } from "./blogarticle.styled";
 import Avatar from "@/components/avatar/Avatar";
 
