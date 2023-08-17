@@ -109,12 +109,14 @@ model Event {
   title            String
   description      String     @db.Text()
   // schedule         String?    @db.Text()
+  shortDescription String?    @db.Text()
+  thumbnail        String?    @db.Text()
   speakers         Speaker[]
-  startDate        DateTime
-  endDate          DateTime
+  startDate        DateTime?
+  endDate          DateTime?
   venue            String
   status           String
-  registrationLink String
+  registrationLink String?
   tags             EventTag[]
   gallery          Gallery[]
 }
@@ -124,8 +126,8 @@ model Speaker {
   name        String
   image       String?
   title       String?
-  description String?
-  profileLink String
+  description String? @db.Text()
+  profileLink String  @db.Text()
   events      Event[]
   speakerId   String?
 
@@ -149,13 +151,10 @@ model Blog {
 }
 
 model BlogTag {
-  id     Int     @id @default(autoincrement())
-  label  String
-  slug   String?
-  blog   Blog[]
-  blogId String?
-
-  @@index([blogId])
+  id    Int     @id @default(autoincrement())
+  label String
+  slug  String?
+  blog  Blog[]
 }
 
 model EventTag {
@@ -176,4 +175,3 @@ model Gallery {
 
   @@index([eventId])
 }
-
