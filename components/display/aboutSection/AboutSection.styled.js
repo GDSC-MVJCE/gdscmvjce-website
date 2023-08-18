@@ -76,7 +76,6 @@ export const HeadingContainer = styled.div`
 export const ClubName = styled(motion.span)`
   display: block;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.brandRed};
 `;
 
 export const Span = styled.span`
