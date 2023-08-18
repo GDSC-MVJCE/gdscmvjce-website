@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+import { useTheme } from "styled-components";
+
 import {
   MainContainer,
   NavbarContainer,
   LeftContainer,
   RightContainer,
   NavbarInnerContainer,
-  NavbarExtendedContainer,
   NavbarLinkContainer,
   MenuContainer,
   MenuLink,
@@ -16,27 +20,19 @@ import {
   BottomContainer,
   LogoContainer
 } from "./Navbar.styled";
-import Logo from "../../public/logo.svg";
 import { devices } from "@/constants/theme";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { useTheme } from "styled-components";
 import { navbarData } from "@/constants/navbarData";
-import Link from "next/link";
 import Typography from "../display/typography/Typography";
-import Image from "next/image";
-import { AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
 
 function Navbar() {
   const router = useRouter();
   const path = router.pathname;
-  const [isMobile, setIsMobile] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isActive, setIsActive] = useState("/home");
   const theme = useTheme();
 
-  console.log(router.pathname);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(devices.lg);
