@@ -114,6 +114,7 @@ model Event {
   speakers         Speaker[]
   startDate        DateTime?
   endDate          DateTime?
+  slug             String?
   venue            String
   status           String
   registrationLink String?

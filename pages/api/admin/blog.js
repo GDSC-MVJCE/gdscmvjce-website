@@ -25,10 +25,13 @@ export default async function handler(req, res) {
       });
       break;
     case "getOne":
-      console.log(req.body.method);
       await getOneHandler(req, res, prisma["blog"], {
-        connect: {
-          tags: "id"
+        include: {
+          tags: true
+        },
+        transform: (blog) => {
+          blog.tags = blog.tags.map((tag) => tag.id);
+          return blog;
         }
       });
 
