@@ -13,24 +13,29 @@ export default function handler(req, res) {
     case "create":
       createHandler(req, res, prisma["blog"], {
         connect: {
-          tags: "id"
+          tags: "id",
+          author: "id"
         }
       });
       break;
     case "update":
       updateHandler(req, res, prisma["blog"], {
         set: {
-          tags: "id"
+          tags: "id",
+          author: "id"
         }
       });
       break;
     case "getOne":
       getOneHandler(req, res, prisma["blog"], {
         include: {
-          tags: true
+          tags: true,
+          author: true
         },
         transform: (blog) => {
           blog.tags = blog.tags.map((tag) => tag.id);
+          blog.author = blog.author.id;
+
           return blog;
         }
       });
