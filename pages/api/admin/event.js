@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       break;
     case "update":
       await updateHandler(req, res, prisma["event"], {
-        connect: {
+        set: {
           tags: "id",
           speakers: "id"
         }

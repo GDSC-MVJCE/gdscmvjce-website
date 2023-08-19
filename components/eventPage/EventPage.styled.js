@@ -198,7 +198,7 @@ export const InfoModalRegistration = styled.div`
 
 export const Button = styled.button`
   width: 100%;
-  padding: 0.7em 1.5em;
+  padding: 0.7em 0.7em;
   font-weight: 500;
   font-size: 1.5rem;
   color: white;
