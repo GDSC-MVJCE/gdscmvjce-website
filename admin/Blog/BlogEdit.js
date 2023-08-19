@@ -17,7 +17,7 @@ const BlogEdit = (props) => {
       <SimpleForm>
         <TextInput source="title" label="Title" />
         <DateTimeInput source="date" label="Date & Time" />
-        <ReferenceInput source="authorId" reference="profile" label="Author" />
+        <ReferenceInput source="author" reference="profile" label="Author" />
         <TextInput
           source="thumbnail"
           type="url"

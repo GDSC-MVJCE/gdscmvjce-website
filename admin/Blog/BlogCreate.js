@@ -8,7 +8,7 @@ import {
   ReferenceArrayInput,
   ReferenceInput,
   SimpleForm,
-  TextInput,
+  TextInput
 } from "react-admin";
 
 const BlogCreate = (props) => {
@@ -21,7 +21,7 @@ const BlogCreate = (props) => {
           label="Date & Time"
           defaultValue={new Date()}
         />
-        <ReferenceInput source="authorId" reference="profile" label="Author" />
+        <ReferenceInput source="author" reference="profile" label="Author" />
         <TextInput
           source="thumbnail"
           type="url"
