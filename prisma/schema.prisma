@@ -114,6 +114,7 @@ model Event {
   speakers         Speaker[]
   startDate        DateTime?
   endDate          DateTime?
+  slug             String?    @unique
   venue            String
   status           String
   registrationLink String?
@@ -144,7 +145,7 @@ model Blog {
   thumbnail   String?
   bannerImage String?
   content     String
-  slug        String?
+  slug        String?   @unique
   tags        BlogTag[]
 
   @@index([authorId])
