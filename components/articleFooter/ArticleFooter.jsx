@@ -4,14 +4,14 @@ import {
   ArticleFooterImg,
   ArticleFooterImgDiv,
   ArticleFooterTextContainer,
-  ArticleFooterTitle,
+  ArticleFooterTitle
 } from "./ArticleFooter.styled";
 import {
   ArticleAuthor,
   ArticleAuthorContainer,
   ArticleDate,
-  ArticleMetaContainer,
-} from "@/pages/blogs/[slug]/blogarticle.styled";
+  ArticleMetaContainer
+} from "@/components/blog/blogarticle.styled";
 import Avatar from "../avatar/Avatar";
 import { article } from "@/constants/blogData";
 import Image from "next/image";
