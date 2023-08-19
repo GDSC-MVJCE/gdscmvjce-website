@@ -11,10 +11,15 @@ const getEvents = async (req, res) => {
       where: {
         tags: {
           some: {
-            label: type,
-          },
-        },
+            label: type
+          }
+        }
       },
+      orderBy: [
+        {
+          startDate: "desc"
+        }
+      ],
       include: {
         speakers: {
           select: {
@@ -23,27 +28,27 @@ const getEvents = async (req, res) => {
             image: true,
             title: true,
             description: true,
-            profileLink: true,
-          },
+            profileLink: true
+          }
         },
         tags: {
           select: {
             id: true,
             label: true,
-            slug: true,
-          },
+            slug: true
+          }
         },
         gallery: {
           select: {
             id: true,
             title: true,
             url: true,
-            date: true,
-          },
-        },
+            date: true
+          }
+        }
       },
       skip: (pageNo - 1) * eventPerPage,
-      take: eventPerPage,
+      take: eventPerPage
     });
     return res.status(StatusCodes.OK).json(events);
   } catch (error) {
