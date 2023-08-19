@@ -145,7 +145,7 @@ model Blog {
   thumbnail   String?
   bannerImage String?
   content     String
-  slug        String?
+  slug        String?   @unique
   tags        BlogTag[]
 
   @@index([authorId])

@@ -1,5 +1,4 @@
 import Navbar from "@/components/navbar/Navbar";
-import { MainContainer } from "@/components/navbar/Navbar.styled";
 import React from "react";
 import {
   Article,
@@ -20,27 +19,32 @@ import Avatar from "@/components/avatar/Avatar";
 
 import ArticleTag from "@/components/articletag/ArticleTag";
 import ArticleFooter from "@/components/articleFooter/ArticleFooter";
-import { article } from "@/constants/blogData";
 import Typography from "@/components/display/typography/Typography";
+import moment from "moment";
 
-const BlogArticle = ({}) => {
+const BlogArticle = ({ article }) => {
   return (
     <>
-      <Navbar />
       <Article>
         <ArticleTitle>{article.title}</ArticleTitle>
         <ArticleMetaContainer>
-          <ArticleDate>{article.publishedDate}</ArticleDate>
+          <ArticleDate>
+            {moment(article.date).format("Do MMM YYYY")}
+          </ArticleDate>
           <ArticleAuthorContainer>
-            <Avatar url="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=2000" />
+            <Avatar url={article.author.image} />
             <ArticleAuthor>
-              <Typography>{article.author}</Typography>
+              <Typography>{article.author.name}</Typography>
             </ArticleAuthor>
           </ArticleAuthorContainer>
         </ArticleMetaContainer>
         <HorizontalLine />
         <ArticleContentContainer>
-          <ArticleImg src="/images/blogimg.png" />
+          <ArticleImg
+            src={
+              article.bannerImage ?? "/images/events/gdsc-event-fallback.png"
+            }
+          />
           <ArticleContent>
             <Typography>{article.content}</Typography>
           </ArticleContent>
@@ -51,12 +55,12 @@ const BlogArticle = ({}) => {
             <ArticleTag tag={tag} key={tag.slug} />
           ))}
         </ArticleTagsContainer>
-        <FooterContainer>
+        {/* <FooterContainer>
           <FooterTitle>
             <Typography variant="h1">Read Next</Typography>
           </FooterTitle>
           <ArticleFooter />
-        </FooterContainer>
+        </FooterContainer> */}
       </Article>
     </>
   );
