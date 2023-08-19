@@ -21,7 +21,6 @@ export default function Event({ eventData }) {
 
 export const getStaticProps = async (ctx) => {
   const { slug } = ctx.params;
-  console.log(slug);
   const event = await prisma.event.findUnique({
     include: {
       speakers: true
@@ -33,7 +32,6 @@ export const getStaticProps = async (ctx) => {
   if (event) {
     event.startDate = String(event.startDate);
     event.endDate = String(event.endDate);
-    console.log(event);
     return {
       props: {
         eventData: event
@@ -53,7 +51,6 @@ export async function getStaticPaths() {
       slug: true
     }
   });
-  console.log("Loaded Slugs: ", events);
   if (events) {
     const eventSlugs = events.filter((event) => event.slug !== null);
     const paths = eventSlugs.map((event) => {
