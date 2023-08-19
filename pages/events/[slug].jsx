@@ -1,10 +1,18 @@
 import EventPage from "@/components/eventPage/EventPage";
 import Navbar from "@/components/navbar/Navbar";
 import prisma from "@/lib/prisma";
+import Head from "next/head";
 
 export default function Event({ eventData }) {
   return (
     <>
+      <Head>
+        <title>{eventData.title}</title>
+        <meta name="description" content={eventData.description} />
+        <meta property="og:title" content={eventData.title} />
+        <meta property="og:description" content={eventData.description} />
+        <meta property="og:image" content={eventData.thumbnail} />
+      </Head>
       <Navbar />
       <EventPage eventData={eventData} />
     </>
