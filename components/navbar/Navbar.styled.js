@@ -1,20 +1,21 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
+import Typography from "../display/typography/Typography";
+import { motion } from "framer-motion";
+import { devices } from "@/constants/theme";
 
-export const MainContainer = styled.div`
+export const MainContainer = styled.header`
   width: 100%;
-  max-width: 100vw;
-  position: relative;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
   z-index: 10;
 `;
 
 export const NavbarContainer = styled.nav`
   width: 90%;
-  height: 80px;
+  height: 100%;
   margin: 20px 20px;
   background-color: inherit;
   display: flex;
@@ -26,11 +27,13 @@ export const NavbarContainer = styled.nav`
 `;
 
 export const LeftContainer = styled.div`
-  flex: 30%;
+  width: 400px;
+  height: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
   padding: 1rem 1rem;
+  margin-left: 1em;
 `;
 
 export const RightContainer = styled.div`
@@ -46,6 +49,13 @@ export const NavbarInnerContainer = styled.div`
   display: flex;
 `;
 
+export const Ul = styled.ul`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
 export const NavbarLinkContainer = styled.div`
   display: flex;
   flex: 70%;
@@ -54,10 +64,117 @@ export const NavbarLinkContainer = styled.div`
   align-items: center;
 `;
 
-export const NavLink = styled(Link)`
+export const NavText = styled(Typography)`
   text-decoration: none;
-  color: #000;
-  margin: 1rem;
+  color: ${({ theme }) => theme.colors.contentPrimary};
+  margin: 1em;
+  opacity: 0.7;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+    color: ${({ theme }) => theme.colors.brandBlue};
+  }
 `;
 
-export const NavbarExtendedContainer = styled.div``;
+export const Li = styled.li`
+  overflow: hidden;
+  position: relative;
+  padding: 0.6em 0em;
+  margin: 0em 0.6em;
+  text-decoration: none;
+  ${({ isActive }) =>
+    isActive === true &&
+    css`
+      --_scale: 1;
+
+      ${NavText} {
+        color: ${({ theme }) => theme.colors.brandBlue};
+        opacity: 1;
+      }
+    `}
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    block-size: 3px;
+    background-color: ${({ theme }) => theme.colors.brandBlue};
+    translate: var(--_translate, 0);
+    scale: var(--_scale, 0) 1;
+    transition: scale 100ms var(--_scale-delay, 0ms), translate 200ms;
+  }
+
+  &:hover {
+    --_scale: 1;
+    --_translate: 0;
+    --_scale-delay: 0ms;
+  }
+
+  &:hover ${NavText} {
+    color: ${({ theme }) => theme.colors.brandBlue};
+    opacity: 1;
+  }
+
+  @media screen and (${devices.xl}) {
+    margin: 0.6em 0.2em;
+  }
+`;
+
+export const MenuContainer = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 3em;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  background-color: ${({ theme }) => theme.colors.bgPrimary};
+  z-index: 20;
+  transition: all 400ms ease-out;
+`;
+
+export const TopContainer = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const BottomContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2em 0.5em;
+  gap: 1.5em;
+`;
+
+export const MenuLink = styled(Link)`
+  margin-bottom: 0.2em;
+  text-decoration: none;
+`;
+
+export const LogoContainer = styled.div`
+  width: 400px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  @media screen and (${devices.xl}) {
+    width: ${({ isMobile }) => !isMobile && "300px"};
+  }
+
+  @media screen and (${devices.sm}) {
+    width: ${({ isMobile }) => (!isMobile ? "200px" : "300px")};
+  }
+`;
