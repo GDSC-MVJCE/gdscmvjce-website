@@ -11,7 +11,7 @@ const getEvents = async (req, res) => {
       where: {
         tags: {
           some: {
-            label: type
+            slug: type
           }
         }
       },
