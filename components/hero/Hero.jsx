@@ -12,7 +12,7 @@ import {
   Fade,
   MoveIn,
   Sticky,
-  Zoom,
+  Zoom
 } from "react-scroll-motion";
 import {
   HeroAvatarWrapper,
@@ -21,6 +21,8 @@ import {
   HeroSectionContainer,
   HeroTextSpan,
   LogoContainer,
+  MouseContainer,
+  MouseScroll
 } from "./Hero.styled.js";
 import GDSCLogo from "@logos/gdsc-logo.svg";
 import Xarrow, { Xwrapper, useXarrow } from "react-xarrows";
@@ -35,7 +37,7 @@ const Hero = () => {
       color: "#FBBC04",
       x: 38,
       y: 79,
-      delay: 0.4,
+      delay: 0.4
     },
     {
       text: "Kotlin",
@@ -43,7 +45,7 @@ const Hero = () => {
       color: "#0F9D58",
       x: 20,
       y: 20,
-      delay: 1.2,
+      delay: 1.2
     },
     {
       text: "Flutter",
@@ -51,8 +53,8 @@ const Hero = () => {
       color: "#4285F4",
       x: 80,
       y: 80,
-      delay: 2.3,
-    },
+      delay: 2.3
+    }
   ];
 
   const heroAvatarElements = [
@@ -61,29 +63,29 @@ const Hero = () => {
       id: "a1",
       x: 35,
       y: 20,
-      delay: 0.9,
+      delay: 0.9
     },
     {
       url: "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_250,q_auto:good,w_250/v1/gcs/platform-data-dsc/avatars/pooja_sriram_DCYbFrK.jpeg",
       id: "a2",
       x: 60,
       y: 65,
-      delay: 1.5,
+      delay: 1.5
     },
     {
       url: "https://avatars.githubusercontent.com/u/102166167?v=4",
       id: "a3",
       x: 18,
       y: 65,
-      delay: 0.3,
+      delay: 0.3
     },
     {
       url: "https://avatars.githubusercontent.com/u/102166167?v=4",
       id: "a4",
       x: 74,
       y: 20,
-      delay: 0.3,
-    },
+      delay: 0.3
+    }
   ];
 
   const [isTextHighlighted, setIsTextHighlighted] = useState(false);
@@ -115,6 +117,18 @@ const Hero = () => {
           <Animator animation={batch(Fade(0, 1), Sticky(), Zoom(8, 1))}>
             <LogoContainer>
               <GDSCLogo className="gdscLogo" />
+              <MouseContainer>
+                <MouseScroll
+                  animate={{
+                    y: [0, 24, 0]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatType: "loop"
+                  }}
+                />
+              </MouseContainer>
             </LogoContainer>
           </Animator>
         </ScrollPage>
