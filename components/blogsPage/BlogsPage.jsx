@@ -25,10 +25,10 @@ import Typography from "../display/typography/Typography.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
 import capitalize from "@/utils/capitalize";
 import fetcher from "@/utils/fetcher";
-import SkeletonLoader from "../loaders/SkeletonLoader/SkeletonLoader";
 import { blogFilters } from "@/constants/filterTags";
 import { devices } from "@/constants/theme";
 import { swrConfig } from "@/constants/swrConfig";
+import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
 
 function BlogsPage() {
   const theme = useTheme();
@@ -155,7 +155,7 @@ function BlogsPage() {
                 dataLength={blogsData.length}
                 next={fetchMoreData}
                 hasMore={hasMore}
-                loader={<SkeletonLoader />}
+                loader={<SpinnerLoader size="40px" />}
                 style={{ padding: "1em" }}
               >
                 {blogsData.map((blog) => {
