@@ -16,6 +16,7 @@ import {
   HorizontalLine
 } from "./blogarticle.styled";
 import Avatar from "@/components/avatar/Avatar";
+import parse from "html-react-parser";
 
 import ArticleTag from "@/components/articletag/ArticleTag";
 import ArticleFooter from "@/components/articleFooter/ArticleFooter";
@@ -46,7 +47,7 @@ const BlogArticle = ({ article }) => {
             }
           />
           <ArticleContent>
-            <Typography>{article.content}</Typography>
+            <Typography>{parse(article.content)}</Typography>
           </ArticleContent>
           <HorizontalLine />
         </ArticleContentContainer>
