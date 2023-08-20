@@ -134,7 +134,7 @@ export const MouseContainer = styled.div`
   justify-content: center;
   padding: 10px;
   position: absolute;
-  top: 100%;
+  top: 110%;
 `;
 
 export const MouseScroll = styled(motion.div)`
