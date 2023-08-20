@@ -5,7 +5,7 @@ import {
   PeopleAlt,
   PeopleAltOutlined,
   Collections,
-  FeedIcon,
+  Feed
 } from "@mui/icons-material";
 import { dataProvider } from "ra-data-simple-prisma";
 import React from "react";
@@ -20,7 +20,6 @@ import EventList from "./Event/EventList";
 import EventTagCreate from "./EventTag/EventTagCreate";
 import EventTagEdit from "./EventTag/EventTagEdit";
 import EventTagList from "./EventTag/EventTagList";
-import { MenuLayout } from "./MenuLayout";
 import SpeakerCreate from "./Speaker/SpeakerCreate";
 import SpeakerEdit from "./Speaker/SpeakerEdit";
 import SpeakerList from "./Speaker/SpeakerList";
@@ -44,7 +43,7 @@ import BlogEdit from "./Blog/BlogEdit";
 
 const App = () => {
   return (
-    <Admin layout={MenuLayout} dataProvider={dataProvider("/api/admin")}>
+    <Admin dataProvider={dataProvider("/api/admin")}>
       <Resource
         name="event"
         icon={Event}
@@ -55,7 +54,7 @@ const App = () => {
       />
       <Resource
         name="blog"
-        icon={FeedIcon}
+        icon={Feed}
         list={BlogList}
         create={BlogCreate}
         edit={BlogEdit}
@@ -91,7 +90,7 @@ const App = () => {
         name="teamMember"
         icon={PeopleAlt}
         options={{
-          label: "Team Members",
+          label: "Team Members"
         }}
         list={TeamMemberList}
         create={TeamMemberCreate}
@@ -101,7 +100,7 @@ const App = () => {
         name="eventTag"
         icon={Label}
         options={{
-          label: "Event Tags",
+          label: "Event Tags"
         }}
         list={EventTagList}
         create={EventTagCreate}
@@ -112,7 +111,7 @@ const App = () => {
         name="blogTag"
         icon={Label}
         options={{
-          label: "Blog Tags",
+          label: "Blog Tags"
         }}
         list={BlogTagList}
         create={BlogTagCreate}
@@ -123,7 +122,7 @@ const App = () => {
         name="gallery"
         icon={Collections}
         options={{
-          label: "Gallery",
+          label: "Gallery"
         }}
         list={GalleryList}
         create={GalleryCreate}
@@ -132,7 +131,7 @@ const App = () => {
       />
       <Resource
         options={{
-          label: "Admin Users",
+          label: "Admin Users"
         }}
         name="user"
         icon={People}

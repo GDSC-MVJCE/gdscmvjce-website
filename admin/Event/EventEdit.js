@@ -4,7 +4,7 @@ import {
   Edit,
   ReferenceArrayInput,
   SimpleForm,
-  TextInput,
+  TextInput
 } from "react-admin";
 import { RichTextInput } from "ra-input-rich-text";
 
@@ -15,6 +15,7 @@ const EventEdit = (props) => {
         <TextInput source="coverPhoto" />
         <TextInput source="title" />
         <RichTextInput source="description" />
+        <TextInput source="slug" />
         {/* <ScheduleInput source="schedule" /> */}
 
         <ReferenceArrayInput source="speakers" reference="speaker" />

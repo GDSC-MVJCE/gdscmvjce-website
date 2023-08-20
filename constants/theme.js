@@ -32,60 +32,72 @@ export const typography = {
   h1: {
     fontWeight: "700",
     fontSize: "40px",
-    lineHeight: "55px"
+    lineHeight: "55px",
+    letterSpacing: "0.4px"
   },
   h2: {
     fontWeight: "600",
     fontSize: "32px",
-    lineHeight: "44px"
+    lineHeight: "44px",
+    letterSpacing: "0.4px"
   },
   h3: {
     fontWeight: "600",
     fontSize: "28px",
-    lineHeight: "38px"
+    lineHeight: "38px",
+    letterSpacing: "0.4px"
   },
   h4: {
     fontWeight: "600",
     fontSize: "24px",
-    lineHeight: "33px"
+    lineHeight: "33px",
+    letterSpacing: "0.4px"
   },
   h5: {
     fontWeight: "500",
     fontSize: "20px",
-    lineHeight: "27px"
+    lineHeight: "27px",
+    letterSpacing: "0.4px"
   },
   h5: {
     fontWeight: "500",
     fontSize: "16px",
-    lineHeight: "22px"
+    lineHeight: "22px",
+    letterSpacing: "0.4px"
   },
   body: {
     fontWeight: "400",
     fontSize: "18px",
-    lineHeight: "25px"
+    lineHeight: "25px",
+    letterSpacing: "0.4px"
   },
   bodyEmphasized: {
     fontWeight: "500",
     fontSize: "18px",
-    lineHeight: "25px"
+    lineHeight: "25px",
+    letterSpacing: "0.4px"
   },
   bodySmall: {
     fontWeight: "400",
     fontSize: "14px",
-    lineHeight: "19px"
+    lineHeight: "19px",
+    letterSpacing: "0.4px"
   },
   bodySmallEmphasized: {
     fontSize: "16px",
-    fontWeight: "600"
+    fontWeight: "600",
+    letterSpacing: "0.4px"
   },
   caption: {
     fontWeight: "400",
     fontSize: "10px",
-    lineHeight: "14px"
+    lineHeight: "14px",
+    letterSpacing: "0.4px"
   },
   displayLarge: {
     fontWeight: "700",
-    fontSize: "56px"
+    fontSize: "56px",
+    letterSpacing: "0.4px"
   }
 };
 
@@ -93,60 +105,72 @@ export const mobileTypography = {
   h1: {
     fontWeight: "700",
     fontSize: "28px",
-    lineHeight: "38px"
+    lineHeight: "38px",
+    letterSpacing: "0.4px"
   },
   h2: {
     fontWeight: "600",
     fontSize: "24px",
-    lineHeight: "33px"
+    lineHeight: "33px",
+    letterSpacing: "0.4px"
   },
   h3: {
     fontWeight: "600",
     fontSize: "20px",
-    lineHeight: "27px"
+    lineHeight: "27px",
+    letterSpacing: "0.4px"
   },
   h4: {
     fontWeight: "600",
     fontSize: "18px",
-    lineHeight: "25px"
+    lineHeight: "25px",
+    letterSpacing: "0.4px"
   },
   h5: {
     fontWeight: "500",
     fontSize: "16px",
-    lineHeight: "22px"
+    lineHeight: "22px",
+    letterSpacing: "0.4px"
   },
   h5: {
     fontWeight: "500",
     fontSize: "14px",
-    lineHeight: "19px"
+    lineHeight: "19px",
+    letterSpacing: "0.4px"
   },
   body: {
     fontWeight: "400",
     fontSize: "16px",
-    lineHeight: "19px"
+    lineHeight: "19px",
+    letterSpacing: "0.4px"
   },
   bodyEmphasized: {
     fontWeight: "500",
     fontSize: "16px",
-    lineHeight: "22px"
+    lineHeight: "22px",
+    letterSpacing: "0.4px"
   },
   bodySmall: {
     fontWeight: "400",
     fontSize: "12px",
-    lineHeight: "16px"
+    lineHeight: "16px",
+    letterSpacing: "0.4px"
   },
   bodySmallEmphasized: {
     fontSize: "14px",
-    fontWeight: "600"
+    fontWeight: "600",
+    letterSpacing: "0.4px"
   },
   caption: {
     fontWeight: "400",
     fontSize: "8px",
-    lineHeight: "12px"
+    lineHeight: "12px",
+    letterSpacing: "0.4px"
   },
   displayLarge: {
     fontWeight: "700",
-    fontSize: "30px"
+    fontSize: "30px",
+    letterSpacing: "0.4px"
   }
 };
 
