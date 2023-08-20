@@ -86,6 +86,7 @@ function Navbar() {
                   src={"../../logo.svg"}
                   alt={"GDSC Logo"}
                   fill="responsive"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </Link>
             </LogoContainer>
@@ -98,7 +99,7 @@ function Navbar() {
                     sx={{
                       color: theme.colors.contentSecondary,
                       cursor: "pointer",
-                      fontSize: "1.5rem"
+                      fontSize: "1.8rem"
                     }}
                     onClick={handleToggle}
                   />
@@ -107,7 +108,7 @@ function Navbar() {
                     sx={{
                       color: theme.colors.contentSecondary,
                       cursor: "pointer",
-                      fontSize: "1.5rem"
+                      fontSize: "1.8rem"
                     }}
                     onClick={handleToggle}
                   />
@@ -127,13 +128,14 @@ function Navbar() {
                 src={"../../logo.svg"}
                 alt={"GDSC Logo"}
                 fill="responsive"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </LogoContainer>
             <CloseIcon
               sx={{
                 color: theme.colors.contentSecondary,
                 cursor: "pointer",
-                fontSize: "1.5rem"
+                fontSize: "1.8rem"
               }}
               onClick={handleToggle}
             />

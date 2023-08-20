@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useLayoutEffect, useState } from "react";
+import { Suspense, useLayoutEffect } from "react";
 import * as THREE from "three";
 import {
   Preload,
@@ -6,7 +6,6 @@ import {
   OrbitControls,
   PerspectiveCamera,
   CubeCamera,
-  RandomizedLight,
   Environment
 } from "@react-three/drei";
 import { useTheme } from "styled-components";
