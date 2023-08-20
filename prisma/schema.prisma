@@ -1,178 +1,178 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+    provider     = "mysql"
+    url          = env("DATABASE_URL")
+    relationMode = "prisma"
 }
 
 model Account {
-  id                String  @id @default(cuid())
-  userId            String  @unique
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String? @db.Text
-  session_state     String?
+    id                String  @id @default(cuid())
+    userId            String  @unique
+    type              String
+    provider          String
+    providerAccountId String
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
+    expires_at        Int?
+    token_type        String?
+    scope             String?
+    id_token          String? @db.Text
+    session_state     String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerAccountId])
+    @@unique([provider, providerAccountId])
 }
 
 model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String   @unique
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    id           String   @id @default(cuid())
+    sessionToken String   @unique
+    userId       String   @unique
+    expires      DateTime
+    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id            String     @id @default(cuid())
-  name          String?
-  email         String?    @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  incidents     Incident[]
-  isAdmin       Boolean    @default(false)
+    id            String     @id @default(cuid())
+    name          String?
+    email         String?    @unique
+    emailVerified DateTime?
+    image         String?
+    accounts      Account[]
+    sessions      Session[]
+    incidents     Incident[]
+    isAdmin       Boolean    @default(false)
 }
 
 model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
+    identifier String
+    token      String   @unique
+    expires    DateTime
 
-  @@unique([identifier, token])
+    @@unique([identifier, token])
 }
 
 model Incident {
-  id        Int      @id @default(autoincrement())
-  event     String   @db.Text()
-  createdAt DateTime @default(now())
-  yearsAgo  Int
-  country   String
-  user      User?    @relation(fields: [authorId], references: [id])
-  authorId  String?
+    id        Int      @id @default(autoincrement())
+    event     String   @db.Text()
+    createdAt DateTime @default(now())
+    yearsAgo  Int
+    country   String
+    user      User?    @relation(fields: [authorId], references: [id])
+    authorId  String?
 
-  @@index([authorId])
+    @@index([authorId])
 }
 
 // Profile Schema
 model Profile {
-  id          Int          @id @default(autoincrement())
-  name        String
-  username    String
-  bio         String?
-  about       String?
-  social      Json?
-  image       String?
-  coverPhoto  String?
-  profileLink String?
-  blog        Blog[]
-  teams       TeamMember[]
+    id          Int          @id @default(autoincrement())
+    name        String
+    username    String
+    bio         String?
+    about       String?
+    social      Json?
+    image       String?
+    coverPhoto  String?
+    profileLink String?
+    blog        Blog[]
+    teams       TeamMember[]
 }
 
 // Teams Schema
 model Team {
-  id      Int          @id @default(autoincrement())
-  name    String
-  members TeamMember[]
+    id      Int          @id @default(autoincrement())
+    name    String
+    members TeamMember[]
 }
 
 model TeamMember {
-  id        String  @id @default(cuid())
-  team      Team    @relation(fields: [teamId], references: [id])
-  teamId    Int
-  profile   Profile @relation(fields: [profileId], references: [id])
-  profileId Int
-  role      String
-  type      String  @default("member")
+    id        String  @id @default(cuid())
+    team      Team    @relation(fields: [teamId], references: [id])
+    teamId    Int
+    profile   Profile @relation(fields: [profileId], references: [id])
+    profileId Int
+    role      String
+    type      String  @default("member")
 
-  @@index([profileId])
-  @@index([teamId])
+    @@index([profileId])
+    @@index([teamId])
 }
 
 // Events Schema
 model Event {
-  id               String     @id @default(cuid())
-  coverPhoto       String?
-  title            String
-  description      String     @db.Text()
-  // schedule         String?    @db.Text()
-  shortDescription String?    @db.Text()
-  thumbnail        String?    @db.Text()
-  speakers         Speaker[]
-  startDate        DateTime?
-  endDate          DateTime?
-  slug             String?    @unique
-  venue            String
-  status           String
-  registrationLink String?
-  tags             EventTag[]
-  gallery          Gallery[]
+    id               String     @id @default(cuid())
+    coverPhoto       String?
+    title            String
+    description      String     @db.Text()
+    // schedule         String?    @db.Text()
+    shortDescription String?    @db.Text()
+    thumbnail        String?    @db.Text()
+    speakers         Speaker[]
+    startDate        DateTime?
+    endDate          DateTime?
+    slug             String?    @unique
+    venue            String
+    status           String
+    registrationLink String?
+    tags             EventTag[]
+    gallery          Gallery[]
 }
 
 model Speaker {
-  id          Int     @id @default(autoincrement())
-  name        String
-  image       String?
-  title       String?
-  description String? @db.Text()
-  profileLink String  @db.Text()
-  events      Event[]
-  speakerId   String?
+    id          Int     @id @default(autoincrement())
+    name        String
+    image       String?
+    title       String?
+    description String? @db.Text()
+    profileLink String  @db.Text()
+    events      Event[]
+    speakerId   String?
 
-  @@index([speakerId])
+    @@index([speakerId])
 }
 
 // Blog Schema
 model Blog {
-  id          String    @id @default(cuid())
-  title       String
-  date        DateTime  @default(now())
-  author      Profile   @relation(references: [id], fields: [authorId])
-  authorId    Int
-  thumbnail   String?
-  bannerImage String?
-  content     String
-  slug        String?   @unique
-  tags        BlogTag[]
+    id          String    @id @default(cuid())
+    title       String
+    date        DateTime  @default(now())
+    author      Profile   @relation(references: [id], fields: [authorId])
+    authorId    Int
+    thumbnail   String?
+    bannerImage String?
+    content     String    @db.Text()
+    slug        String?   @unique
+    tags        BlogTag[]
 
-  @@index([authorId])
+    @@index([authorId])
 }
 
 model BlogTag {
-  id    Int     @id @default(autoincrement())
-  label String
-  slug  String?
-  blog  Blog[]
+    id    Int     @id @default(autoincrement())
+    label String
+    slug  String?
+    blog  Blog[]
 }
 
 model EventTag {
-  label  String
-  slug   String?
-  id     Int     @id @default(autoincrement())
-  events Event[]
+    label  String
+    slug   String?
+    id     Int     @id @default(autoincrement())
+    events Event[]
 }
 
 // Gallery Schema
 model Gallery {
-  id      Int      @id @default(autoincrement())
-  url     String
-  date    DateTime
-  title   String
-  event   Event?   @relation(fields: [eventId], references: [id], onDelete: Cascade)
-  eventId String?
+    id      Int      @id @default(autoincrement())
+    url     String
+    date    DateTime
+    title   String
+    event   Event?   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+    eventId String?
 
-  @@index([eventId])
+    @@index([eventId])
 }
