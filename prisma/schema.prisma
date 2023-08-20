@@ -74,7 +74,7 @@ model Profile {
     username    String
     bio         String?
     about       String?
-    social      Json?
+    social      String?
     image       String?
     coverPhoto  String?
     profileLink String?
@@ -137,16 +137,17 @@ model Speaker {
 
 // Blog Schema
 model Blog {
-    id          String    @id @default(cuid())
-    title       String
-    date        DateTime  @default(now())
-    author      Profile   @relation(references: [id], fields: [authorId])
-    authorId    Int
-    thumbnail   String?
-    bannerImage String?
-    content     String    @db.Text()
-    slug        String?   @unique
-    tags        BlogTag[]
+    id               String    @id @default(cuid())
+    title            String
+    date             DateTime  @default(now())
+    author           Profile   @relation(references: [id], fields: [authorId])
+    authorId         Int
+    shortDescription String?   @db.Text()
+    thumbnail        String?   @db.Text()
+    bannerImage      String?
+    content          String    @db.Text()
+    slug             String?   @unique
+    tags             BlogTag[]
 
     @@index([authorId])
 }
