@@ -5,6 +5,8 @@ import { ThemeProvider } from "styled-components";
 import AuthProvider from "@/components/AuthProvider";
 import localFont from "next/font/local";
 
+import "react-loading-skeleton/dist/skeleton.css";
+
 const myFont = localFont({
   src: [
     {

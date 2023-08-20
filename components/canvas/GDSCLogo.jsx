@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useLayoutEffect, useState } from "react";
+import { Suspense, useLayoutEffect } from "react";
 import * as THREE from "three";
 import {
   Preload,
@@ -6,7 +6,6 @@ import {
   OrbitControls,
   PerspectiveCamera,
   CubeCamera,
-  RandomizedLight,
   Environment
 } from "@react-three/drei";
 import { useTheme } from "styled-components";
@@ -22,7 +21,6 @@ const envPath = "/models/environment/acoustical_shell_1k.hdr";
 function Logo() {
   const { scene, materials } = useGLTF(modelPath);
   const texture = useLoader(RGBELoader, envPath);
-  console.log(materials);
 
   useLayoutEffect(() => {
     for (let i = 0; i < 8; i++) {
@@ -69,17 +67,7 @@ function LogoCanvas() {
     >
       <Suspense fallback={<CanvasLoader />}>
         <color attach="background" args={[theme.colors.bgPrimary]} />
-        <ambientLight intensity={0.5} />
-        <spotLight position={[5, 5, -10]} angle={0.15} penumbra={1} />
         <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={35} />
-        <RandomizedLight
-          amount={8}
-          radius={10}
-          ambient={0.5}
-          intensity={9}
-          position={[5, 5, -10]}
-          bias={0.001}
-        />
         <Environment files={envPath} />
         <OrbitControls
           makeDefault

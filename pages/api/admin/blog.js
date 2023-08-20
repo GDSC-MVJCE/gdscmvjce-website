@@ -8,40 +8,40 @@ import {
   updateHandler
 } from "ra-data-simple-prisma";
 
-export default async function handler(req, res) {
-  console.log(req.body.tags);
+export default function handler(req, res) {
   switch (req.body.method) {
     case "create":
-      await createHandler(req, res, prisma["event"], {
+      createHandler(req, res, prisma["blog"], {
         connect: {
           tags: "id",
-          speakers: "id"
+          author: "id"
         }
       });
       break;
     case "update":
-      await updateHandler(req, res, prisma["event"], {
+      updateHandler(req, res, prisma["blog"], {
         set: {
           tags: "id",
-          speakers: "id"
+          author: "id"
         }
       });
       break;
     case "getOne":
-      await getOneHandler(req, res, prisma["event"], {
+      getOneHandler(req, res, prisma["blog"], {
         include: {
           tags: true,
-          speakers: true
+          author: true
         },
-        transform: (event) => {
-          event.tags = event.tags.map((tag) => tag.id);
-          event.speakers = event.speakers.map((speaker) => speaker.id);
-          return event;
+        transform: (blog) => {
+          blog.tags = blog.tags.map((tag) => tag.id);
+          blog.author = blog.author.id;
+
+          return blog;
         }
       });
-
+      break;
     default: // <= fall back on default handler
-      await defaultHandler(req, res, prisma);
+      defaultHandler(req, res, prisma);
       break;
   }
 }

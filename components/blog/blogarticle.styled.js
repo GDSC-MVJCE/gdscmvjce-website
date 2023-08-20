@@ -16,6 +16,8 @@ export const Article = styled.div`
 export const ArticleTitle = styled.div`
   font-size: 60px;
   font-weight: 700;
+  text-align: left;
+  width: 100%;
 
   @media (max-width: 768px) {
     font-size: 40px;

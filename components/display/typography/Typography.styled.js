@@ -56,7 +56,7 @@ export const TypographyWrapper = styled.span`
     }
   }}
 
-  @media ${devices.md} {
+  @media screen and (${devices.md}) {
     ${({ variant }) => {
       switch (variant) {
         case "h1":
@@ -85,10 +85,10 @@ export const TypographyWrapper = styled.span`
           return mobileTypography.caption;
         default:
           return `
-                      font-weight: 400;
-                      font-size: 14px;
-                      line-height: 25px;
-                      `;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 25px;
+                    `;
       }
     }}
   }

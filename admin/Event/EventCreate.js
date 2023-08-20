@@ -8,7 +8,7 @@ import {
   ReferenceArrayInput,
   SelectArrayInput,
   SimpleForm,
-  TextInput,
+  TextInput
 } from "react-admin";
 import ScheduleInput from "./ScheduleInput";
 import { RichTextInput } from "ra-input-rich-text";
@@ -19,6 +19,7 @@ const EventCreate = (props) => {
       <SimpleForm>
         <TextInput source="coverPhoto" />
         <TextInput source="title" />
+        <TextInput source="slug" />
         <RichTextInput source="description" />
         {/* <ScheduleInput source="schedule" /> */}
         <ReferenceArrayInput source="speakers" reference="speaker" />
