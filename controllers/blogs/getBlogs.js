@@ -11,29 +11,34 @@ const getBlogs = async (req, res) => {
       where: {
         tags: {
           some: {
-            label: type,
-          },
-        },
+            slug: type
+          }
+        }
       },
+      orderBy: [
+        {
+          date: "desc"
+        }
+      ],
       include: {
         author: {
           select: {
             id: true,
             name: true,
             username: true,
-            image: true,
-          },
+            image: true
+          }
         },
         tags: {
           select: {
             id: true,
             label: true,
-            slug: true,
-          },
-        },
+            slug: true
+          }
+        }
       },
       skip: (pageNo - 1) * blogPerPage,
-      take: blogPerPage,
+      take: blogPerPage
     });
     return res.status(StatusCodes.OK).json(blogs);
   } catch (error) {
