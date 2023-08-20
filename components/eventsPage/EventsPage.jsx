@@ -89,9 +89,7 @@ function EventsPage() {
   }, [data]);
 
   const fetchMoreData = () => {
-    setTimeout(() => {
-      setPageNumber((prevPageNumber) => prevPageNumber + 1);
-    }, 1000000);
+    setPageNumber((prevPageNumber) => prevPageNumber + 1);
   };
 
   const arrowMotion = {
