@@ -17,13 +17,14 @@ export const NavbarContainer = styled.nav`
   width: 90%;
   height: 100%;
   margin: 20px 20px;
-  background-color: inherit;
+  background-color: ${({ theme }) => theme.colors.bgPrimary + 60};
   display: flex;
   flex-direction: column;
   -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
+  backdrop-filter: blur(50px);
 `;
 
 export const LeftContainer = styled.div`
