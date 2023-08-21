@@ -6,6 +6,8 @@ import AuthProvider from "@/components/AuthProvider";
 import localFont from "next/font/local";
 import GradientAnimation from "@/components/gradientAnimation/GradientAnimation";
 
+import "react-loading-skeleton/dist/skeleton.css";
+
 const myFont = localFont({
   src: [
     {

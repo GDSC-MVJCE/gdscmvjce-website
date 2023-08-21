@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { styled, keyframes } from "styled-components";
 
 export const HeroSectionContainer = styled.div`
@@ -18,6 +19,7 @@ export const LogoContainer = styled.div`
   width: 400px;
   height: 400px;
   overflow: hidden;
+  position: "relative";
 
   @media (max-width: 768px) {
     width: 200px;
@@ -121,4 +123,24 @@ export const HeroAvatarWrapper = styled.div`
     scale: 1.2;
   `}
   animation: ${move} 5s ${({ delay }) => delay}s ease-in-out infinite;
+`;
+
+export const MouseContainer = styled.div`
+  width: 35px;
+  height: 64px;
+  border-radius: 1.5rem;
+  border: 2px solid ${({ theme }) => theme.colors.contentSecondary};
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  position: absolute;
+  top: 110%;
+`;
+
+export const MouseScroll = styled(motion.div)`
+  width: 10px;
+  height: 10px;
+  display: flex;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.contentSecondary};
 `;

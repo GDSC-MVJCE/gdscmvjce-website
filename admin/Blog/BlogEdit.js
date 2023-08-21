@@ -1,3 +1,4 @@
+import { RichTextInput } from "ra-input-rich-text";
 import React, { useEffect, useState } from "react";
 import {
   DateTimeInput,
@@ -9,7 +10,6 @@ import {
   SimpleForm,
   TextInput
 } from "react-admin";
-import { RichTextInput } from "ra-input-rich-text";
 
 const BlogEdit = (props) => {
   return (
@@ -17,7 +17,7 @@ const BlogEdit = (props) => {
       <SimpleForm>
         <TextInput source="title" label="Title" />
         <DateTimeInput source="date" label="Date & Time" />
-        <ReferenceInput source="authorId" reference="profile" label="Author" />
+        <ReferenceInput source="author" reference="profile" label="Author" />
         <TextInput
           source="thumbnail"
           type="url"
@@ -31,6 +31,7 @@ const BlogEdit = (props) => {
           helperText="Provide Direct Image Address/URL"
         />
         <RichTextInput source="content" label="Content" row />
+        <TextInput source="shortDescription" label="Short Description" />
         <ReferenceArrayInput source="tags" reference="blogTag" label="Tags" />
         <TextInput
           source="slug"

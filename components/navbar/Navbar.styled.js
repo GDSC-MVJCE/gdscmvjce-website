@@ -47,6 +47,10 @@ export const NavbarInnerContainer = styled.div`
   width: 100%;
   height: 80px;
   display: flex;
+
+  @media screen and (${devices.sm}) {
+    height: 56px;
+  }
 `;
 
 export const Ul = styled.ul`
@@ -136,7 +140,11 @@ export const MenuContainer = styled(motion.div)`
   left: 100%;
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   z-index: 20;
-  transition: all 400ms ease-out;
+  transition: all 200ms ease-out;
+
+  @media screen and (${devices.sm}) {
+    padding: 2em 1.5em;
+  }
 `;
 
 export const TopContainer = styled.div`
@@ -145,6 +153,7 @@ export const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1em;
 `;
 
 export const BottomContainer = styled.div`
@@ -154,12 +163,14 @@ export const BottomContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 2em 0.5em;
-  gap: 1.5em;
+  gap: 1em;
 `;
 
 export const MenuLink = styled(Link)`
-  margin-bottom: 0.2em;
+  width: 100%;
   text-decoration: none;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
+  padding-bottom: 0.5em;
 `;
 
 export const LogoContainer = styled.div`
