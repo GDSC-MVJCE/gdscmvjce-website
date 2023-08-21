@@ -17,7 +17,7 @@ import {
   ProfileFooterContent,
   ProfileFooterHeading,
   ProfileName,
-  ProfileSocial,
+  ProfileSocial
 } from "./profilepage.styled";
 import Avatar from "@/components/avatar/Avatar";
 import Typography from "@/components/display/typography/Typography";
@@ -26,7 +26,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ArticleFooter from "@/components/articleFooter/ArticleFooter";
 
-const ProfilePage = () => {
+const ProfilePageComponent = () => {
   return (
     <>
       <Navbar />
@@ -96,4 +96,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default ProfilePageComponent;
