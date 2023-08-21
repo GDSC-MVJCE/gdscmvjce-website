@@ -1,105 +1,122 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import Typography from "../display/typography/Typography";
-import Avatar from "../avatar/Avatar";
+import Link from "next/link";
 import { useTheme } from "styled-components";
+import useSWR from "swr";
+import moment from "moment";
+
 import {
-	MainContainer,
-	CardContainer,
-	BlogCard,
-	TopContainer,
-	BottomContainer,
-	Author,
-	Date
+  Button,
+  Container,
+  BlogInfo,
+  BlogCard,
+  BlogCardContainer,
+  TopContainer,
+  ExploreButton,
+  ImageContainer,
+  TitleContainer,
+  AuthorInfo,
+  BottomContainer
 } from "./BlogSection.styled";
-import Tilt from "react-parallax-tilt";
+import Typography from "../display/typography/Typography";
+import fetcher from "@/utils/fetcher";
+import { swrConfig } from "@/constants/swrConfig";
+import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
+import { devices } from "@/constants/theme";
+import Avatar from "../avatar/Avatar";
+import truncateText from "@/utils/truncate";
 
-const blogs = [
-	{
-		image: "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_3,f_auto,g_center,h_175,q_auto:good,w_175/v1/gcs/platform-data-dsc/event_banners/gdev-eccosystems-bevy-chapters-thumbnail_fMd5BWp.png",
+function BlogsSection() {
+  const limit = 200;
 
-		authorImage: "https://avatars.githubusercontent.com/u/111264028?v=4",
+  const [blogsData, setBlogsData] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
 
-		title: "Getting Started With Android : Roadmap",
+  const { data, isLoading } = useSWR(`/api/blogs?page=1`, fetcher, swrConfig);
 
-		author: {
-			name: "Shivam Sharma",
-			image: "https://avatars.githubusercontent.com/u/111264028?v=4"
-		},
+  useEffect(() => {
+    if (data) {
+      setBlogsData(data);
+    }
+  }, [data]);
 
-		date: "July 26, 2023"
-	},
-	{
-		image: "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_3,f_auto,g_center,h_175,q_auto:good,w_175/v1/gcs/platform-data-dsc/event_banners/gdev-eccosystems-bevy-chapters-thumbnail_fMd5BWp.png",
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(devices.lg);
+    setIsMobile(mediaQuery.matches);
 
-		title: "Getting Started With Android : Roadmap",
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
 
-		author: {
-			name: "Shivam Sharma",
-			image: "https://avatars.githubusercontent.com/u/111264028?v=4"
-		},
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-		date: "July 26, 2023"
-	},
-	{
-		image: "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_3,f_auto,g_center,h_175,q_auto:good,w_175/v1/gcs/platform-data-dsc/event_banners/gdev-eccosystems-bevy-chapters-thumbnail_fMd5BWp.png",
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
-		title: "Getting Started With Android : Roadmap",
+  isLoading && <SpinnerLoader />;
 
-		author: {
-			name: "Shivam Sharma",
-			image: "https://avatars.githubusercontent.com/u/111264028?v=4"
-		},
-		date: "July 26, 2023"
-	}
-];
+  const cardsElement = blogsData.map((blog) => (
+    <BlogCard key={blog.id}>
+      <TopContainer>
+        <ImageContainer>
+          <Image
+            src={blog.thumbnail ?? "/images/gdsc_fallback.png"}
+            fill="responsive"
+            alt={blog.title}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{
+              borderRadius: "8px",
+              objectFit: "cover"
+            }}
+          />
+        </ImageContainer>
+        <Typography variant="h4">{blog.title}</Typography>
+        <Typography variant="body">
+          {truncateText(blog.shortDescription, limit)}
+        </Typography>
+      </TopContainer>
+      <BottomContainer>
+        <BlogInfo>
+          <AuthorInfo>
+            <Link
+              href={`/profile/${blog.author.username}`}
+              style={{ textDecoration: "none" }}
+            >
+              <Avatar url={blog.author.image} size="xs" blur={false} />
+            </Link>
+            <Typography variant="bodySmall">{blog.author.name}</Typography>
+          </AuthorInfo>
+          <Typography variant="bodySmall">
+            {moment(blog.startDate).format("D MMM YYYY")}
+          </Typography>
+        </BlogInfo>
+        <Link href={`/blogs/${blog.slug}`} style={{ textDecoration: "none" }}>
+          <Button>Read more</Button>
+        </Link>
+      </BottomContainer>
+    </BlogCard>
+  ));
 
-function BlogSection() {
-	const theme = useTheme();
-
-	const blogElements = blogs.map((blog, index) => (
-		<Tilt key={index}>
-			<BlogCard>
-				<TopContainer>
-					<Image
-						src={blog.image}
-						width={290}
-						height={290}
-						style={{
-							borderRadius: "6px",
-							margin: "0 auto"
-						}}
-						alt="blog image"
-					/>
-					<Typography variant="h5">{blog.title}</Typography>
-				</TopContainer>
-				<BottomContainer>
-					<Author>
-						<Avatar
-							url={blog.author.image}
-							size="xs"
-							borderColor={theme?.colors.brandBlue}
-							borderWidth={2}
-							blur={false}
-						/>
-						<Typography variant="bodySmall">
-							{blog.author.name}
-						</Typography>
-					</Author>
-					<Date>
-						<Typography variant="bodySmall">{blog.date}</Typography>
-					</Date>
-				</BottomContainer>
-			</BlogCard>
-		</Tilt>
-	));
-
-	return (
-		<MainContainer>
-			<Typography variant="h1">Blogs from GDSC MVJCE</Typography>
-			<CardContainer>{blogElements}</CardContainer>
-		</MainContainer>
-	);
+  return (
+    <Container>
+      <TitleContainer>
+        <Typography variant="h1">Our Blogs</Typography>
+        {!isMobile && (
+          <Link href={`/blogs`} style={{ textDecoration: "none" }}>
+            <ExploreButton>Explore more blogs</ExploreButton>
+          </Link>
+        )}
+      </TitleContainer>
+      <BlogCardContainer>{cardsElement}</BlogCardContainer>
+      {isMobile && (
+        <Link href={`/blogs`} style={{ textDecoration: "none" }}>
+          <ExploreButton>Explore more blogs</ExploreButton>
+        </Link>
+      )}
+    </Container>
+  );
 }
 
-export default BlogSection;
+export default BlogsSection;
