@@ -6,6 +6,7 @@ import useSWR from "swr";
 import moment from "moment";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
   BlogInfo,
@@ -22,7 +23,6 @@ import {
   RightContainer
 } from "./BlogsPage.styled";
 import Typography from "../display/typography/Typography.jsx";
-import InfiniteScroll from "react-infinite-scroll-component";
 import capitalize from "@/utils/capitalize";
 import fetcher from "@/utils/fetcher";
 import { blogFilters } from "@/constants/filterTags";
@@ -158,7 +158,7 @@ function BlogsPage() {
                 loader={<SpinnerLoader size="40px" />}
                 style={{ padding: "1em" }}
               >
-                {blogsData.map((blog) => {
+                {blogsData.map((blog, index) => {
                   const BlogTagsElements = blog.tags.map((tag, index) => (
                     <Typography variant="body" subdued key={index}>
                       {tag.label}
@@ -170,7 +170,7 @@ function BlogsPage() {
                   return (
                     <Link
                       href={pathname + "/" + blog.slug}
-                      key={blog.id}
+                      key={index}
                       style={{ textDecoration: "none" }}
                     >
                       <BlogsCard
