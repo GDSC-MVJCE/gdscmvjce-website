@@ -68,7 +68,7 @@ export const typography = {
   body: {
     fontWeight: "400",
     fontSize: "18px",
-    lineHeight: "25px",
+    lineHeight: "24px",
     letterSpacing: "0.4px"
   },
   bodyEmphasized: {

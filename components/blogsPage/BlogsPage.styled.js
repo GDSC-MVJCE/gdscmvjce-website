@@ -43,9 +43,9 @@ export const LeftContainer = styled.div`
   right: 0;
   overflow-y: auto;
   z-index: 10;
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
 
   @media screen and (${devices.lg}) {
+    background-color: ${({ theme }) => theme.colors.bgPrimary};
     width: 100%;
     top: 0;
     padding: 1em 1em 1em 1em;
