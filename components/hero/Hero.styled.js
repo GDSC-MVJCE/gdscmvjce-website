@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { styled, keyframes } from "styled-components";
 
 export const HeroSectionContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
   width: 100%;
   max-width: 100vw;
   display: flex;
