@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import AuthProvider from "@/components/AuthProvider";
 import localFont from "next/font/local";
+import GradientAnimation from "@/components/gradientAnimation/GradientAnimation";
 
 const myFont = localFont({
   src: [
@@ -33,6 +34,7 @@ export default function App({ Component, pageProps }) {
         <main className={myFont.className}>
           <Component {...pageProps} />
         </main>
+        <GradientAnimation />
       </ThemeProvider>
     </AuthProvider>
   );
