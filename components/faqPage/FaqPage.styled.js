@@ -23,7 +23,6 @@ export const LeftContainer = styled.div`
   position: sticky;
   top: 0;
   left: 0;
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
   z-index: 10;
 
   @media screen and (${devices.lg}) {
@@ -61,9 +60,9 @@ export const OptionContainer = styled.div`
   flex-direction: column;
   margin-top: 2em;
   gap: 1em;
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
 
   @media screen and (${devices.lg}) {
+    background-color: ${({ theme }) => theme.colors.bgPrimary};
     overflow-x: auto;
     z-index: 10;
     height: fit-content;
