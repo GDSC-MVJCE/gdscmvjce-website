@@ -6,6 +6,7 @@ import useSWR from "swr";
 import moment from "moment";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
   EventInfo,
@@ -22,7 +23,6 @@ import {
   RightContainer
 } from "./EventsPage.styled";
 import Typography from "../display/typography/Typography.jsx";
-import InfiniteScroll from "react-infinite-scroll-component";
 import capitalize from "@/utils/capitalize";
 import fetcher from "@/utils/fetcher";
 import { eventFilters } from "@/constants/filterTags";
@@ -154,7 +154,7 @@ function EventsPage() {
                 loader={<SpinnerLoader size="40px" />}
                 style={{ padding: "1em" }}
               >
-                {eventsData.map((event) => {
+                {eventsData.map((event, index) => {
                   const eventTagsElements = event.tags.map((tag, index) => (
                     <Typography variant="body" subdued key={index}>
                       {tag.label}
@@ -166,7 +166,7 @@ function EventsPage() {
                   return (
                     <Link
                       href={pathname + "/" + event.slug}
-                      key={event.id}
+                      key={index}
                       style={{ textDecoration: "none" }}
                     >
                       <EventsCard
