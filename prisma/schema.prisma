@@ -72,11 +72,11 @@ model Profile {
     id          Int          @id @default(autoincrement())
     name        String
     username    String
-    bio         String?
-    about       String?
+    bio         String?      @db.Text()
+    about       String?      @db.Text()
     social      String?
-    image       String?
-    coverPhoto  String?
+    image       String?      @db.Text()
+    coverPhoto  String?      @db.Text()
     profileLink String?
     blog        Blog[]
     teams       TeamMember[]
