@@ -17,7 +17,7 @@ export const NavbarContainer = styled.nav`
   width: 90%;
   height: 100%;
   margin: 20px 20px;
-  background-color: ${({ theme }) => theme.colors.bgPrimary + 60};
+  background-color: ${({ theme }) => theme.colors.bgPrimary + 50};
   display: flex;
   flex-direction: column;
   -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
