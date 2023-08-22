@@ -1,40 +1,70 @@
+import { devices } from "@/constants/theme";
 import styled from "styled-components";
 
 export const EventContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 1em 5em;
+  padding: 3em 5em;
   display: flex;
   flex-direction: column;
   gap: 3em;
+
+  @media screen and (${devices.xl}) {
+    padding: 3em 2em;
+  }
+
+  @media screen and (${devices.sm}) {
+    padding: 3em 1em;
+  }
 `;
 
 export const Banner = styled.div`
+  aspect-ratio: 2560/650;
   width: 100%;
-  height: 400px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
+  position: relative;
 `;
 
 export const EventWrapper = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 3em;
+  justify-content: center;
   display: flex;
+
+  @media screen and (${devices.lg}) {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  @media screen and (${devices.sm}) {
+    padding: 0 0.5em;
+  }
 `;
 
 export const Left = styled.div`
   width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 3.5em;
+
+  @media screen and (${devices.lg}) {
+    width: 100%;
+  }
 `;
 
 export const Right = styled.div`
   width: 40%;
   display: flex;
   justify-content: right;
+
+  @media screen and (${devices.lg}) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const EventInfo = styled.div`
@@ -54,7 +84,6 @@ export const ScheduleCard = styled.div`
   flex-direction: column;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.bgTertiary};
   gap: 0.4em;
   padding: 1em 1em;
   background-color: ${({ theme }) => theme.colors.bgPrimary};
@@ -76,7 +105,7 @@ export const ScheduleCardColorWrapper = styled.div`
   padding-bottom: 0.3em;
   border-radius: 10px;
   background: ${({ theme }) =>
-    `linear-gradient(90deg, ${theme.colors.brandRed}, ${theme.colors.brandYellow}, ${theme.colors.brandGreen}, ${theme.colors.brandBlue})`};
+    `linear-gradient(90deg, ${theme.colors.brandRed},30%,${theme.colors.brandBlue} 25%,65%,${theme.colors.brandGreen} 65%, 80% ${theme.colors.brandYellow} 75%)`};
   background-size: 350% 350%;
   animation: Gradient 5s ease-in-out infinite;
   -webkit-animation: Gradient 5s ease-in-out infinite;
@@ -135,27 +164,38 @@ export const SpeakersCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  width: 100%;
 `;
 
 export const SpeakerCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
   border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.bgTertiary};
-  padding: 1em 1em;
+  padding: 2em;
   gap: 1em;
+  box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(90px);
 
   &:hover {
-    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);
     translate: 2px -2px;
   }
 `;
 
 export const SpeakerInfo = styled.div`
   display: flex;
+  align-items: center;
   gap: 1em;
+  width: 100%;
+
+  @media screen and (${devices.sm}) {
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 
 export const SpeakerRole = styled.div``;
@@ -163,15 +203,19 @@ export const SpeakerRole = styled.div``;
 export const SpeakerName = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1em;
+  width: 80%;
+
+  @media screen and (${devices.sm}) {
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 export const InfoModal = styled.div`
   width: 80%;
-  height: fit-content;
-  min-height: 400px;
+  height: 100%;
   border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.bgTertiary};
+  height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -179,6 +223,15 @@ export const InfoModal = styled.div`
   padding: 3em;
   position: sticky;
   top: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(90px);
+
+  @media screen and (${devices.lg}) {
+    width: 100%;
+    justify-content: center;
+    padding: 2em 3em;
+    position: static;
+  }
 `;
 
 export const InfoModalDate = styled.div`
@@ -203,14 +256,16 @@ export const Button = styled.button`
   font-size: 1.5rem;
   color: white;
   background-color: ${({ theme }) => theme.colors.brandBlue};
-  border-width: 4px;
-  border-style: solid;
-  border-radius: 10px;
   letter-spacing: 1px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 
   &:hover {
-    transition: all 0.2s ease-in-out;
-    translate: 2px -2px;
+    box-shadow: 0 0 0 5px #3b83f65f;
+  }
+
+  @media screen and (${devices.md}) {
+    font-size: 1.2rem;
   }
 `;

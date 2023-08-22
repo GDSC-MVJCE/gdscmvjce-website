@@ -14,7 +14,7 @@ export const GradientBall = styled.div`
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: 1;
   top: 0;
   left: 0;

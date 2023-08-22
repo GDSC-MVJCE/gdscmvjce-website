@@ -4,8 +4,8 @@ import { GradientBall, GradientContainer } from "./GradientAnimation.styled";
 
 const NUM_BALLS = 4;
 const BALL_SIZE = 250;
-const MIN_DISTANCE = 250; // Minimum distance between balls
-const BALL_SPEED = 0.6;
+const MIN_DISTANCE = 280; // Minimum distance between balls
+const BALL_SPEED = 0.7;
 
 const getRandomNumber = (min, max) => Math.random() * (max - min) + min;
 

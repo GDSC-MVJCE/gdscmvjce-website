@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image.js";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import moment from "moment";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
+import dayjs from "dayjs";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
@@ -198,7 +198,7 @@ function BlogsPage() {
                           <BlogTags>{BlogTagsElements}</BlogTags>
                           <BlogTitle variant="h3">{blog.title}</BlogTitle>
                           <Typography variant="body">
-                            {moment(blog.startDate).format("MMM D, YYYY")} -{" "}
+                            {dayjs(blog.startDate).format("MMM D, YYYY")} -{" "}
                             {blog.shortDescription}
                           </Typography>
                         </BlogInfo>
