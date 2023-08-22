@@ -21,7 +21,7 @@ import parse from "html-react-parser";
 import ArticleTag from "@/components/articletag/ArticleTag";
 import ArticleFooter from "@/components/articleFooter/ArticleFooter";
 import Typography from "@/components/display/typography/Typography";
-import moment from "moment";
+import dayjs from "dayjs";
 
 const BlogArticle = ({ article }) => {
   return (
@@ -29,9 +29,7 @@ const BlogArticle = ({ article }) => {
       <Article>
         <ArticleTitle>{article.title}</ArticleTitle>
         <ArticleMetaContainer>
-          <ArticleDate>
-            {moment(article.date).format("Do MMM YYYY")}
-          </ArticleDate>
+          <ArticleDate>{dayjs(article.date).format("D MMM YYYY")}</ArticleDate>
           <ArticleAuthorContainer>
             <Avatar url={article.author.image} />
             <ArticleAuthor>
