@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "styled-components";
+import dayjs from "dayjs";
 import useSWR from "swr";
-import moment from "moment";
 
 import {
   Button,
@@ -72,7 +72,7 @@ function EventsSection() {
         </ImageContainer>
         <DateLine>
           <Typography variant="bodySmall">
-            {moment(event.startDate).format("D MMM YYYY")}
+            {dayjs(event.startDate).format("D MMM YYYY")}
           </Typography>
           {event.status !== "ended" && (
             <Typography variant="bodySmall" color={theme?.colors.brandGreen}>

@@ -2,11 +2,11 @@ import React from "react";
 import {
   GalleryImageContainer,
   GalleryInfoWrapper,
-  GallerySlideContainer,
+  GallerySlideContainer
 } from "./GallerySlide.styled";
 import Image from "next/image";
 import Typography from "@/components/display/typography/Typography";
-import moment from "moment";
+import dayjs from "dayjs";
 
 const GallerySlide = ({ galleryImageData, isFocused }) => {
   return (
@@ -17,7 +17,7 @@ const GallerySlide = ({ galleryImageData, isFocused }) => {
           alt="gallery image"
           fill
           style={{
-            objectFit: "cover",
+            objectFit: "cover"
           }}
         />
       </GalleryImageContainer>
@@ -27,7 +27,7 @@ const GallerySlide = ({ galleryImageData, isFocused }) => {
         </Typography>
         <div className="meta">
           <Typography variant="h6" color="white">
-            {moment(galleryImageData.date).format("MMMM YYYY")}
+            {dayjs(galleryImageData.date).format("MMMM YYYY")}
           </Typography>
           <Typography variant="h6" color="white">
             {"•"}

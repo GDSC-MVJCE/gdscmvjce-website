@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image.js";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import moment from "moment";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
+import dayjs from "dayjs";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
@@ -182,8 +182,8 @@ function EventsPage() {
                           <Image
                             src={event.thumbnail ?? "/images/gdsc_fallback.png"}
                             alt={event.title}
-                            fill="responsive"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            fill="responsive"
                             style={{
                               borderRadius: "inherit",
                               objectFit: "cover"
@@ -194,7 +194,7 @@ function EventsPage() {
                           <EventTags>{eventTagsElements}</EventTags>
                           <EventTitle variant="h3">{event.title}</EventTitle>
                           <Typography variant="body">
-                            {moment(event.startDate).format("MMM D, YYYY")} -{" "}
+                            {dayjs(event.startDate).format("MMM D, YYYY")} -{" "}
                             {event.shortDescription}
                           </Typography>
                         </EventInfo>
