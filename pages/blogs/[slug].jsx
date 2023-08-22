@@ -1,4 +1,5 @@
 import BlogArticle from "@/components/blog/BlogArticle";
+import Footer from "@/components/display/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import prisma from "@/lib/prisma";
 import Head from "next/head";
@@ -16,6 +17,7 @@ const BlogPage = ({ articleData }) => {
       </Head>
       <Navbar />
       <BlogArticle article={articleData} />
+      <Footer />
     </>
   );
 };
