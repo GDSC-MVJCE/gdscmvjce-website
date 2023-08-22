@@ -40,6 +40,8 @@ export const BlogCard = styled.article`
   justify-content: space-between;
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   transition: all 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(90px);
 
   &:hover {
     box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);
