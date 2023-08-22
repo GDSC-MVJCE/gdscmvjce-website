@@ -5,13 +5,15 @@ import { devices } from "@/constants/theme";
 import Typography from "../display/typography/Typography";
 
 export const BlogsPageContainer = styled.main`
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: space-between;
   padding: 1em 5em;
   gap: 1em;
-  height: 100%;
-  width: 100%;
 
   @media screen and (${devices.xl}) {
     padding: 1em 1em;
@@ -85,6 +87,8 @@ export const BlogsCard = styled(motion.article)`
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(90px);
 
   &:hover {
     box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);

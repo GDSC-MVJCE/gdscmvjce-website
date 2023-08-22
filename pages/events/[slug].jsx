@@ -1,3 +1,4 @@
+import Footer from "@/components/display/footer/Footer";
 import EventPage from "@/components/eventPage/EventPage";
 import Navbar from "@/components/navbar/Navbar";
 import prisma from "@/lib/prisma";
@@ -15,6 +16,7 @@ export default function Event({ eventData }) {
       </Head>
       <Navbar />
       <EventPage eventData={eventData} />
+      <Footer />
     </>
   );
 }
