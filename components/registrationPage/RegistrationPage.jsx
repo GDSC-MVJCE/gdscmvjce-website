@@ -79,12 +79,16 @@ const RegistrationPage = () => {
             start={ref1}
             end={ref2}
             headShape={"circle"}
-            arrowHeadProps={{
-              r: "20px"
-            }}
+            headSize={5}
+            startAnchor={"middle"}
           />
-
-          <Xarrow start={ref2} end={ref3} headShape={"circle"} />
+          <Xarrow
+            start={ref2}
+            end={ref3}
+            headShape={"circle"}
+            headSize={5}
+            startAnchor={"middle"}
+          />
         </Xwrapper>
       </ProceduresContainer>
       <TeamImageContainer>
