@@ -1,3 +1,4 @@
+import { devices } from "@/constants/theme";
 import { motion } from "framer-motion";
 import { styled, keyframes } from "styled-components";
 
@@ -5,9 +6,14 @@ export const HeroSectionContainer = styled.div`
   width: 100%;
   max-width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media (${devices.lg}) {
+    margin-top: -10%;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -18,9 +24,8 @@ export const LogoContainer = styled.div`
   width: 400px;
   height: 400px;
   overflow: hidden;
-  position: "relative";
 
-  @media (max-width: 768px) {
+  @media (${devices.lg}) {
     width: 200px;
     height: 200px;
   }
@@ -51,6 +56,15 @@ export const HeroTextSpan = styled.span`
   }
 `;
 
+const gradientAnimation = keyframes`
+    0% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+`;
+
 export const HeroBackgroundContainer = styled.div`
   min-width: 100vw;
   min-height: 100vh;
@@ -66,11 +80,51 @@ export const HeroBackgroundContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
-    @media (max-width: 768px) {
+    @media (${devices.lg}) {
       align-items: flex-start;
       margin-left: 10%;
+      margin-top: -10%;
       flex-direction: column;
     }
+  }
+  .animated-1 {
+    background: rgb(234, 67, 53);
+    background: linear-gradient(
+      45deg,
+      rgba(234, 67, 53, 1) 0%,
+      rgba(234, 65, 53, 1) 100%
+    );
+    background-clip: text;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${gradientAnimation} 2s linear infinite alternate;
+  }
+  .animated-2 {
+    background: rgb(66, 133, 244);
+    background: linear-gradient(
+      45deg,
+      rgba(66, 133, 244, 1) 0%,
+      rgba(66, 108, 244, 1) 100%
+    );
+    background-clip: text;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${gradientAnimation} 2s linear infinite alternate;
+  }
+  .animated-3 {
+    background: rgb(52, 168, 83);
+    background: linear-gradient(
+      45deg,
+      rgba(52, 168, 83, 1) 0%,
+      rgba(52, 168, 96, 1) 100%
+    );
+    background-clip: text;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${gradientAnimation} 2s linear infinite alternate;
   }
 `;
 
@@ -104,7 +158,11 @@ export const HeroBackgroundTextSpan = styled.div`
     `
     scale: 1.2;
   `}
+
   animation: ${move} 5s ${({ delay }) => delay}s ease-in-out infinite;
+  @media screen and (${devices.lg}) {
+    font-size: 20px;
+  }
 `;
 
 export const HeroAvatarWrapper = styled.div`
