@@ -35,10 +35,15 @@ export const AvatarWrapper = styled.div`
   ${({ blur }) =>
     blur
       ? css`
+          border-style: solid;
+          border-width: ${({ borderWidth }) =>
+            borderWidth ? borderWidth : "2px"};
+          border-color: ${({ borderColor, theme }) =>
+            borderColor ? borderColor : theme.colors.bgPrimary};
           box-shadow: ${({ borderColor, theme }) =>
             borderColor
-              ? `0px 0px 15px 5px ${borderColor}`
-              : `0px 0px 15px 5px ${theme.colors.bgPrimary}`};
+              ? `0px 0px 20px 4px ${borderColor + 99}`
+              : `0px 0px 20px 4px ${theme.colors.bgPrimary}`};
         `
       : css`
           border-width: ${({ borderWidth }) =>
