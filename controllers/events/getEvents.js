@@ -4,7 +4,7 @@ import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
 const getEvents = async (req, res) => {
   const { type, page } = req.query;
-  const pageNo = page ? Number(page) : 1;
+  const pageNo = page ? parseInt(page) : 1;
   const eventPerPage = 3;
   try {
     const events = await prisma.event.findMany({
@@ -54,6 +54,7 @@ const getEvents = async (req, res) => {
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError)
       console.error(error);
+    console.log(error);
   } finally {
     await prisma.$disconnect();
   }
