@@ -119,10 +119,6 @@ export const ApplyButton = styled.button`
   overflow: hidden;
   z-index: 1;
 
-  &:active {
-    background-color: "red";
-  }
-
   &:before {
     content: "";
     position: absolute;
@@ -191,10 +187,6 @@ export const FAQButton = styled.button`
   position: relative;
   overflow: hidden;
   z-index: 1;
-
-  &:active {
-    background-color: "red";
-  }
 
   &:before {
     content: "";
