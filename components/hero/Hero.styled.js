@@ -12,7 +12,7 @@ export const HeroSectionContainer = styled.div`
   position: relative;
 
   @media (${devices.lg}) {
-    padding-top: 12px;
+    margin-top: -10%;
   }
 `;
 
