@@ -201,7 +201,7 @@ function EventsPage() {
                           <Image
                             src={event.thumbnail ?? "/images/gdsc_fallback.png"}
                             alt={event.title}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            sizes="100vw"
                             fill="responsive"
                             style={{
                               borderRadius: "inherit",
