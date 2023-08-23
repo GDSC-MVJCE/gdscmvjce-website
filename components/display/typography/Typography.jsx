@@ -2,12 +2,13 @@ import React from "react";
 import { TypographyWrapper } from "./Typography.styled";
 
 function Typography({
-  variant = 'body',
+  variant = "body",
   children,
   color,
   subdued,
   className,
   ref,
+  style
 }) {
   return (
     <TypographyWrapper
@@ -15,6 +16,7 @@ function Typography({
       color={color}
       subdued={subdued}
       className={className}
+      style={style}
       ref={ref}
     >
       {children}

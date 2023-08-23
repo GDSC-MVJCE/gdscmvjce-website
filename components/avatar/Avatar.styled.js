@@ -53,7 +53,8 @@ export const AvatarWrapper = styled.div`
           border-style: solid;
         `}
 
-  background: url(${({ url }) => url}) no-repeat center center;
+  background: ${({ url }) =>
+    `url(${url ? url : "/images/gdsc_fallback.png"})`} no-repeat center center;
   background-size: cover;
   border-radius: 50%;
   cursor: pointer;

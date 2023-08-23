@@ -7,8 +7,10 @@ export const FooterContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  padding: 2em;
   box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+  background-color: ${({ theme }) => theme.colors.bgPrimary};
+  border-radius: 30px 30px 0 0;
 
   @media screen and (${devices.lg}) {
     flex-direction: column;

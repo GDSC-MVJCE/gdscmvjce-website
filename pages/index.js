@@ -1,4 +1,4 @@
-import BlogSection from "@/components/blogSection/BlogSection";
+import BlogsSection from "@/components/blogSection/BlogSection";
 import AboutSection from "@/components/display/aboutSection/AboutSection";
 import EventsSection from "@/components/display/eventsSection/EventsSection";
 import Footer from "@/components/display/footer/Footer";
@@ -26,12 +26,12 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <Intro />
-        <OfferSection />
+        {/* <OfferSection /> */}
         <TeamIntro />
-        <MeetTeam />
+        {/* <MeetTeam /> */}
         <EventsSection />
-        <GalleryCarousel />
-        <BlogSection />
+        {/* <GalleryCarousel /> */}
+        <BlogsSection />
         <Footer />
       </main>
     </>

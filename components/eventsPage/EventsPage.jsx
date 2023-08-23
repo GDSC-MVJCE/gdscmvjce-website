@@ -3,9 +3,10 @@ import Link from "next/link";
 import Image from "next/image.js";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import moment from "moment";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
+import dayjs from "dayjs";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
   EventInfo,
@@ -22,7 +23,6 @@ import {
   RightContainer
 } from "./EventsPage.styled";
 import Typography from "../display/typography/Typography.jsx";
-import InfiniteScroll from "react-infinite-scroll-component";
 import capitalize from "@/utils/capitalize";
 import fetcher from "@/utils/fetcher";
 import { eventFilters } from "@/constants/filterTags";
@@ -154,7 +154,7 @@ function EventsPage() {
                 loader={<SpinnerLoader size="40px" />}
                 style={{ padding: "1em" }}
               >
-                {eventsData.map((event) => {
+                {eventsData.map((event, index) => {
                   const eventTagsElements = event.tags.map((tag, index) => (
                     <Typography variant="body" subdued key={index}>
                       {tag.label}
@@ -166,7 +166,7 @@ function EventsPage() {
                   return (
                     <Link
                       href={pathname + "/" + event.slug}
-                      key={event.id}
+                      key={index}
                       style={{ textDecoration: "none" }}
                     >
                       <EventsCard
@@ -182,8 +182,8 @@ function EventsPage() {
                           <Image
                             src={event.thumbnail ?? "/images/gdsc_fallback.png"}
                             alt={event.title}
-                            fill="responsive"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            fill="responsive"
                             style={{
                               borderRadius: "inherit",
                               objectFit: "cover"
@@ -194,7 +194,7 @@ function EventsPage() {
                           <EventTags>{eventTagsElements}</EventTags>
                           <EventTitle variant="h3">{event.title}</EventTitle>
                           <Typography variant="body">
-                            {moment(event.startDate).format("MMM D, YYYY")} -{" "}
+                            {dayjs(event.startDate).format("MMM D, YYYY")} -{" "}
                             {event.shortDescription}
                           </Typography>
                         </EventInfo>
