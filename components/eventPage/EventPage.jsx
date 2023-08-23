@@ -1,7 +1,10 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import dayjs from "dayjs";
 import useSWR from "swr";
 import parse from "html-react-parser";
 
-import { useRouter } from "next/router";
 import {
   Banner,
   ContentContainer,
@@ -29,11 +32,12 @@ import {
 } from "./EventPage.styled";
 import Typography from "../display/typography/Typography";
 import Avatar from "../avatar/Avatar";
-import moment from "moment";
-import Link from "next/link";
-import Image from "next/image";
+import truncateText from "@/utils/truncate";
+import capitalize from "@/utils/capitalize";
 
 function EventPage({ eventData }) {
+  const limit = 400;
+
   const scheduleElements =
     eventData.schedule != undefined &&
     eventData.schedule.map((schedule, index) => (
@@ -41,11 +45,11 @@ function EventPage({ eventData }) {
         <ScheduleCard>
           <ScheduleDate>
             <Typography variant="bodySmall" subdued>
-              {moment(schedule.time.start).format("LT")} -{" "}
-              {moment(schedule.time.start).format("LT")}
+              {dayjs(schedule.time.start).format("LT")} -{" "}
+              {dayjs(schedule.time.start).format("LT")}
             </Typography>
             <Typography variant="bodySmall" subdued>
-              {moment(schedule.sessionDate).format(" Do MMM YYYY")}
+              {dayjs(schedule.sessionDate).format("D MMM YYYY")}
             </Typography>
           </ScheduleDate>
           <Typography variant="body">{schedule.sessionName}</Typography>
@@ -64,14 +68,16 @@ function EventPage({ eventData }) {
       >
         <SpeakerCard>
           <SpeakerInfo>
-            <Avatar url={speaker.image} size="lg" />
+            <Avatar url={speaker.image} size="lg" borderWidth={"0"} />
             <SpeakerName>
               <Typography variant="h4">{speaker.name}</Typography>
               <Typography variant="bodySmall">{speaker.title}</Typography>
             </SpeakerName>
           </SpeakerInfo>
           <SpeakerRole>
-            <Typography variant="body">{parse(speaker.description)}</Typography>
+            <Typography variant="body">
+              {truncateText(parse(speaker.description), limit)}
+            </Typography>
           </SpeakerRole>
         </SpeakerCard>
       </Link>
@@ -87,8 +93,8 @@ function EventPage({ eventData }) {
                 eventData.coverPhoto ?? "/images/events/gdsc-event-fallback.png"
               }
               alt="bannerImg"
-              width={1300}
-              height={400}
+              fill="responsive"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{
                 objectFit: "cover",
                 borderRadius: "inherit"
@@ -131,11 +137,13 @@ function EventPage({ eventData }) {
                     Mark your calendars for
                   </Typography>
                   <Typography variant="h4">
-                    {(eventData.startDate &&
-                      moment(eventData.startDate).format("Do") +
+                    {eventData.startDate &&
+                    dayjs(eventData.startDate).format("D") !==
+                      dayjs(eventData.endDate).format("D")
+                      ? dayjs(eventData.startDate).format("D") +
                         " - " +
-                        moment(eventData.endDate).format("Do MMM YYYY")) ||
-                      moment(eventData.startDate).format("Do MMM YYYY")}
+                        dayjs(eventData.endDate).format("D MMM YYYY")
+                      : dayjs(eventData.startDate).format("D MMM YYYY")}
                   </Typography>
                 </InfoModalDate>
                 <InfoModalVenue>
@@ -149,7 +157,7 @@ function EventPage({ eventData }) {
                     Registration
                   </Typography>
                   <Typography variant="h4">
-                    {eventData.status.toUpperCase()}
+                    {capitalize(eventData.status)}
                   </Typography>
                 </InfoModalRegistration>
                 <Link
@@ -158,11 +166,9 @@ function EventPage({ eventData }) {
                     textDecoration: "none"
                   }}
                 >
-                  <Button>
-                    {eventData.status === "ended"
-                      ? `Registration ended`
-                      : `Register Now`}
-                  </Button>
+                  {eventData.status !== "ended" && (
+                    <Button>Register Now</Button>
+                  )}
                 </Link>
               </InfoModal>
             </Right>
