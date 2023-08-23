@@ -35,7 +35,7 @@ export const LeftContainer = styled.div`
 
   @media screen and (${devices.sm}) {
     width: 100%;
-    padding: 10px 40px;
+    padding: 1em 0.5em;
   }
 `;
 
@@ -54,12 +54,6 @@ export const HeadingContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-
-  @media screen and (${devices.sm}) {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
 `;
 
 export const RightContainer = styled.div`
