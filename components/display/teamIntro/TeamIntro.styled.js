@@ -1,4 +1,5 @@
-import { styled } from 'styled-components';
+import { devices } from "@/constants/theme";
+import { styled } from "styled-components";
 
 export const TeamIntroContainer = styled.div`
   display: flex;
@@ -6,10 +7,14 @@ export const TeamIntroContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 90vh;
-  max-height: 100vh;
   width: 100%;
   gap: 3rem;
   padding: 2rem 2rem;
+  @media screen and (${devices.lg}) {
+    height: 100vh;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
 `;
 
 export const TeamIntroSectionWrapper = styled.div`
@@ -20,14 +25,27 @@ export const TeamIntroSectionWrapper = styled.div`
   width: 100%;
   height: 100%;
   gap: 2rem;
+  @media screen and (${devices.lg}) {
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;
 
 export const TeamTitlesSection = styled.div`
   display: flex;
   flex-direction: column;
-  self-align: flex-start;
+  align-self: flex-start;
   gap: 1rem;
   flex-basis: 30%;
+  padding: 1rem 0;
+  @media screen and (${devices.lg}) {
+    flex-basis: unset;
+    width: 100%;
+    overflow-x: auto;
+    max-height: 90px;
+    flex-direction: row;
+  }
 `;
 
 export const TeamDescriptionSection = styled.div`
@@ -46,8 +64,10 @@ export const TeamButton = styled.button`
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
   width: 100%;
-  padding: 16px 23px;
+  flex-wrap: nowrap;
+  padding: 0.75em 1em;
   color: ${({ theme }) => theme.colors.contentPrimary};
   cursor: pointer;
   background: #fff;
@@ -61,48 +81,12 @@ export const TeamButton = styled.button`
     `background: #d4e3ff;
     border: 3px solid #4285f4;
     `};
-`;
 
-export const TerminalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 773px;
-  width: 100%;
-  min-width: 300px;
-  min-height: 400px;
-  height: 100%;
-  border-radius: 13px;
-  background: #171717;
-`;
-
-export const TerminalHeader = styled.div`
-  display: flex;
-  height: 35px;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  padding: 0.5rem 1rem;
-  gap: 6px;
-  background: #1e1e1e;
-  border-radius: 13px 13px 0px 0px;
-  background: #363636;
-`;
-
-export const TerminalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 1rem;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  color: #fff;
-`;
-
-export const TerminalButton = styled.button`
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: ${({ color }) => color};
+  @media screen and (${devices.lg}) {
+    flex-grow: 1;
+    font-size: 16px;
+    height: fit-content;
+    width: max-content;
+    flex-direction: row;
+  }
 `;
