@@ -9,8 +9,11 @@ import {
   ArticleDate,
   ArticleImg,
   ArticleMetaContainer,
+  ArticleTag,
   ArticleTagsContainer,
   ArticleTitle,
+  ArticleTitleContainer,
+  BannerImgContainer,
   FooterContainer,
   FooterTitle,
   HorizontalLine
@@ -18,50 +21,65 @@ import {
 import Avatar from "@/components/avatar/Avatar";
 import parse from "html-react-parser";
 
-import ArticleTag from "@/components/articletag/ArticleTag";
 import ArticleFooter from "@/components/articleFooter/ArticleFooter";
 import Typography from "@/components/display/typography/Typography";
 import dayjs from "dayjs";
+import { BannerImageContainer } from "../registrationPage/RegistrationPage.styled";
+import Image from "next/image";
+import Link from "next/link";
 
 const BlogArticle = ({ article }) => {
   return (
-    <>
-      <Article>
-        <ArticleTitle>{article.title}</ArticleTitle>
+    <Article>
+      <ArticleTitleContainer>
+        <Typography variant="displayLarge">{article.title}</Typography>
         <ArticleMetaContainer>
-          <ArticleDate>{dayjs(article.date).format("D MMM YYYY")}</ArticleDate>
+          <ArticleDate>
+            <Typography variant="body" subdued={true}>
+              {dayjs(article.date).format("D MMM YYYY")}
+            </Typography>
+          </ArticleDate>
           <ArticleAuthorContainer>
-            <Avatar url={article.author.image} />
+            <Avatar url={article.author.image} borderWidth={"0px"} />
             <ArticleAuthor>
               <Typography>{article.author.name}</Typography>
             </ArticleAuthor>
           </ArticleAuthorContainer>
         </ArticleMetaContainer>
-        <HorizontalLine />
-        <ArticleContentContainer>
-          <ArticleImg
+      </ArticleTitleContainer>
+      <HorizontalLine />
+      <ArticleContentContainer>
+        <BannerImgContainer>
+          <Image
             src={
               article.bannerImage ?? "/images/events/gdsc-event-fallback.png"
             }
+            alt={article.title}
+            fill="responsive"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{
+              objectFit: "cover",
+              borderRadius: "inherit"
+            }}
           />
-          <ArticleContent>
-            <Typography>{parse(article.content)}</Typography>
-          </ArticleContent>
-          <HorizontalLine />
-        </ArticleContentContainer>
-        <ArticleTagsContainer>
-          {article.tags.map((tag) => (
-            <ArticleTag tag={tag} key={tag.slug} />
-          ))}
-        </ArticleTagsContainer>
-        {/* <FooterContainer>
-          <FooterTitle>
-            <Typography variant="h1">Read Next</Typography>
-          </FooterTitle>
-          <ArticleFooter />
-        </FooterContainer> */}
-      </Article>
-    </>
+        </BannerImgContainer>
+        <Typography>{parse(article.content)}</Typography>
+        <HorizontalLine />
+      </ArticleContentContainer>
+      <ArticleTagsContainer>
+        {article.tags.map((tag) => (
+          <Link
+            key={tag.id}
+            href={`/blogs?type=${tag.slug}`}
+            style={{ textDecoration: "none" }}
+          >
+            <ArticleTag>
+              <Typography variant="body">{tag.label}</Typography>
+            </ArticleTag>
+          </Link>
+        ))}
+      </ArticleTagsContainer>
+    </Article>
   );
 };
 

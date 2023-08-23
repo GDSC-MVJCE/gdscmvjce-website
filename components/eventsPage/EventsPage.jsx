@@ -31,6 +31,8 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
 
 function EventsPage() {
+  const TOP_OFFSET = 66;
+
   const theme = useTheme();
   const router = useRouter();
   const { type } = router.query;
@@ -41,6 +43,23 @@ function EventsPage() {
   const [hasMore, setHasMore] = useState(true);
   const [eventsData, setEventsData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= TOP_OFFSET) {
+        setShowBackground(true);
+      } else {
+        setShowBackground(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     setIsActive(type ? type : "all");
@@ -204,7 +223,7 @@ function EventsPage() {
                 })}
               </InfiniteScroll>
             </LeftContainer>
-            <RightContainer>
+            <RightContainer isVisible={showBackground}>
               {!isMobile && <Typography variant="h2">Tags</Typography>}
               <FilterContainer>{filterElements}</FilterContainer>
             </RightContainer>

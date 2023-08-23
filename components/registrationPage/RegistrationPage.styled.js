@@ -9,7 +9,7 @@ export const RegistrationPageContainer = styled.div`
   align-items: center;
   gap: 90px;
 
-  @media ${devices.md} {
+  @media screen and (${devices.md}) {
     padding: 15px 20px;
     gap: 40px;
   }
@@ -21,35 +21,28 @@ export const TitleContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  text-align: center;
+  gap: 1em;
 
   .descriptionText {
     text-align: center;
     max-width: 600px;
   }
-  @media ${devices.md} {
-    padding: 40px 0px;
+
+  @media screen and (${devices.md}) {
+    padding: 10px 0px;
   }
 `;
 
 export const BannerImageContainer = styled.div`
-  width: 950px;
+  width: 100%;
   margin-top: -30px;
   aspect-ratio: 16/9;
   position: relative;
   object-fit: cover;
   overflow: hidden;
-  &img {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.brandBlue};
-    scale: 1.05;
-  }
-  @media ${devices.md} {
-    margin-top: -50px;
-    width: 340px;
-  }
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
 `;
 
 export const ProceduresContainer = styled.div`
@@ -58,20 +51,19 @@ export const ProceduresContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 3em;
 
   .card-1 {
     align-self: flex-start;
     margin-top: -20px;
   }
+
   .card-2 {
     align-self: center;
   }
+
   .card-3 {
     align-self: flex-end;
-  }
-  @media ${devices.md} {
-    gap: 50px;
   }
 `;
 
@@ -108,11 +100,7 @@ export const ApplyNowContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
-
-  .applyDescription {
-    max-width: 650px;
-    text-align: center;
-  }
+  margin-bottom: 5em;
 `;
 
 export const ApplyButton = styled.button`
@@ -122,19 +110,20 @@ export const ApplyButton = styled.button`
   border-radius: 8px;
   border: none;
   background-color: ${({ theme }) => theme.colors.brandBlue};
-  color: #ffffff;
-  font-size: 20px;
+  color: ${({ theme }) => theme.colors.bgPrimary};
+  font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.brandBlue + 95};
-    color: #ffffff;
     transform: scale(1.05);
   }
-  @media ${devices.md} {
+
+  @media screen and (${devices.md}) {
     width: 100%;
+    font-size: 1rem;
   }
 `;
 
@@ -145,34 +134,31 @@ export const FAQButton = styled.button`
   border-radius: 8px;
   border: none;
   background-color: ${({ theme }) => theme.colors.bgPrimary};
-  color: #363636;
-  border: 1px solid #363636;
-  font-size: 20px;
+  color: ${({ theme }) => theme.colors.contentPrimary};
+  border: 1px solid ${({ theme }) => theme.colors.contentSecondary};
+  font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  @media ${devices.md} {
-    width: 100%;
-  }
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.bgSecondary};
-    color: #363636;
     transform: scale(1.05);
+  }
+
+  @media screen and (${devices.md}) {
+    width: 100%;
+    font-size: 1rem;
   }
 `;
 
 export const TeamImageContainer = styled.div`
-  width: 900px;
-  height: 450px;
+  width: 100%;
+  aspect-ratio: 16/9;
   position: relative;
   object-fit: cover;
   overflow: hidden;
   border-radius: 8px;
-  @media ${devices.md} {
-    width: 340px;
-    height: 170px;
-  }
 `;
 
 export const ActionsContainer = styled.div`
@@ -182,7 +168,8 @@ export const ActionsContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  @media ${devices.md} {
+
+  @media screen and (${devices.md}) {
     flex-direction: column;
     gap: 10px;
   }

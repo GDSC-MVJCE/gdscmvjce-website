@@ -8,7 +8,7 @@ export const BlogsPageContainer = styled.main`
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: space-between;
@@ -47,7 +47,8 @@ export const LeftContainer = styled.div`
   z-index: 10;
 
   @media screen and (${devices.lg}) {
-    background-color: ${({ theme }) => theme.colors.bgPrimary};
+    background-color: ${({ theme, isVisible }) =>
+      isVisible ? theme.colors.bgPrimary : "transparent"};
     width: 100%;
     top: 0;
     padding: 1em 1em 1em 1em;
@@ -108,6 +109,12 @@ export const BlogsCard = styled(motion.article)`
 
 export const BlogsFilterTitle = styled.div`
   width: 100%;
+  margin-left: 1em;
+  z-index: 11;
+
+  @media screen and (${devices.lg}) {
+    margin-bottom: -3em;
+  }
 `;
 
 export const ImageContainer = styled(motion.div)`
@@ -162,7 +169,7 @@ export const FilterContainer = styled.aside`
   width: 100%;
   height: 100%;
   max-height: 100vh;
-  max-height: 100svh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -170,11 +177,14 @@ export const FilterContainer = styled.aside`
 
   @media screen and (${devices.lg}) {
     flex-direction: row;
+    margin-top: 2.2em;
+    align-items: flex-end;
   }
 `;
 
 export const FilterCard = styled(motion.div)`
   width: 100%;
+  height: fit-content;
   padding: 1em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
   cursor: pointer;
