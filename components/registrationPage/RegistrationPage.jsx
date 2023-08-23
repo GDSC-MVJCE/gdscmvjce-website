@@ -1,4 +1,8 @@
 import React, { useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Xarrow, { Xwrapper } from "react-xarrows";
+
 import {
   ActionsContainer,
   ApplyButton,
@@ -12,12 +16,9 @@ import {
   TitleContainer
 } from "./RegistrationPage.styled";
 import Typography from "../display/typography/Typography";
-import Image from "next/image";
-import Xarrow, { useXarrow, Xwrapper } from "react-xarrows";
 import ApplicationIcon from "@public/icons/application.svg";
 import ClipboardIcon from "@public/icons/clipboard.svg";
 import UserIcon from "@public/icons/user.svg";
-import Link from "next/link";
 
 const applicationData = {
   isOpen: true,
@@ -28,6 +29,7 @@ const RegistrationPage = () => {
   const ref1 = useRef();
   const ref2 = useRef();
   const ref3 = useRef();
+
   return (
     <RegistrationPageContainer>
       <TitleContainer>
@@ -40,7 +42,16 @@ const RegistrationPage = () => {
       </TitleContainer>
 
       <BannerImageContainer>
-        <Image src="/images/group-photo.png" fill={true} />
+        <Image
+          src="/images/group-photo.png"
+          alt={"GDSC Team"}
+          sizes="100vw"
+          fill="responsive"
+          style={{
+            borderRadius: "inherit",
+            objectFit: "cover"
+          }}
+        />
       </BannerImageContainer>
 
       <ProceduresContainer>
@@ -77,7 +88,16 @@ const RegistrationPage = () => {
         </Xwrapper>
       </ProceduresContainer>
       <TeamImageContainer>
-        <Image src="/images/gdsc-team.svg" fill={true} />
+        <Image
+          src="/images/gdsc-team.svg"
+          alt={"Illustration"}
+          sizes="100vw"
+          fill="responsive"
+          style={{
+            borderRadius: "inherit",
+            objectFit: "cover"
+          }}
+        />
       </TeamImageContainer>
       <ApplyNowContainer>
         <Typography variant="h2">What are you waiting for?</Typography>

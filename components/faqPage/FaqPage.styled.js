@@ -5,7 +5,7 @@ export const Container = styled.main`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   padding: 0em 5em;
 
@@ -51,6 +51,7 @@ export const Title = styled.h1`
 
   @media screen and (${devices.lg}) {
     font-size: 3rem;
+    margin-bottom: -10px;
   }
 `;
 
@@ -62,11 +63,13 @@ export const OptionContainer = styled.div`
   gap: 1em;
 
   @media screen and (${devices.lg}) {
-    background-color: ${({ theme }) => theme.colors.bgPrimary};
+    background-color: ${({ theme, isVisible }) =>
+      isVisible ? theme.colors.bgPrimary : "transparent"};
     overflow-x: auto;
     z-index: 10;
-    height: fit-content;
+    height: 100px;
     flex-direction: row;
+    align-items: flex-end;
     padding-block: 1em;
     margin-top: 0em;
     gap: 0.3em;
