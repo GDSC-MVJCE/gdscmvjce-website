@@ -1,7 +1,7 @@
 import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
 
-export const RegistrationPageContainer = styled.div`
+export const RegistrationPageContainer = styled.main`
   width: 100%;
   padding: 40px 280px;
   display: flex;
@@ -67,7 +67,7 @@ export const ProceduresContainer = styled.div`
   }
 `;
 
-export const ProcessCard = styled.div`
+export const ProcessCard = styled.section`
   width: fit-content;
   padding: 10px 10px;
   display: flex;
