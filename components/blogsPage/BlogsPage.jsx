@@ -31,7 +31,7 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
 
 function BlogsPage() {
-  const TOP_OFFSET = 66;
+  const TOP_OFFSET = 77;
 
   const theme = useTheme();
   const router = useRouter();
@@ -165,7 +165,7 @@ function BlogsPage() {
             </Typography>
           </BlogsFilterTitle>
           <BlogsContainer>
-            <LeftContainer>
+            <LeftContainer isVisible={showBackground}>
               {!isMobile && <Typography variant="h2">Tags</Typography>}
               <FilterContainer>{filterElements}</FilterContainer>
             </LeftContainer>

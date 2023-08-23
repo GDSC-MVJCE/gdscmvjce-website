@@ -31,7 +31,7 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
 
 function EventsPage() {
-  const TOP_OFFSET = 66;
+  const TOP_OFFSET = 77;
 
   const theme = useTheme();
   const router = useRouter();

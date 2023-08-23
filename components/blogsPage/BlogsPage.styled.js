@@ -19,6 +19,11 @@ export const BlogsPageContainer = styled.main`
     padding: 1em 1em;
     gap: 0.5em;
   }
+
+  @media screen and (${devices.lg}) {
+    padding: 1em 0;
+    gap: 0.5em;
+  }
 `;
 
 export const BlogsContainer = styled.div`
@@ -45,13 +50,14 @@ export const LeftContainer = styled.div`
   right: 0;
   overflow-y: auto;
   z-index: 10;
+  transition: all 0.2s ease-in-out;
 
   @media screen and (${devices.lg}) {
     background-color: ${({ theme, isVisible }) =>
       isVisible ? theme.colors.bgPrimary : "transparent"};
     width: 100%;
     top: 0;
-    padding: 1em 1em 1em 1em;
+    padding: 1em;
   }
 `;
 
@@ -191,7 +197,6 @@ export const FilterCard = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.contentPrimary};
-  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${({ theme }) => theme.colors.brandYellow};
@@ -203,5 +208,7 @@ export const FilterCard = styled(motion.div)`
     padding: 0.5em 1em;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(90px);
   }
 `;
