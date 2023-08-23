@@ -31,68 +31,74 @@ import { devices } from "@/constants/theme.js";
 import MobileHero from "./MobileHero.jsx";
 
 const Hero = () => {
-  const heroTextElements = [
-    { text: "Web", id: "web", color: "#EA4335", x: 55, y: 20, delay: 0.1 },
-    {
-      text: "Tensorflow",
-      id: "tensorflow",
-      color: "#FBBC04",
-      x: 38,
-      y: 79,
-      delay: 0.4
-    },
-    {
-      text: "Kotlin",
-      id: "android",
-      color: "#0F9D58",
-      x: 20,
-      y: 20,
-      delay: 1.2
-    },
-    {
-      text: "Flutter",
-      id: "flutter",
-      color: "#4285F4",
-      x: 80,
-      y: 80,
-      delay: 2.3
-    }
-  ];
+  const heroTextElements = useMemo(
+    () => [
+      { text: "Web", id: "web", color: "#EA4335", x: 55, y: 20, delay: 0.1 },
+      {
+        text: "Tensorflow",
+        id: "tensorflow",
+        color: "#FBBC04",
+        x: 38,
+        y: 79,
+        delay: 0.4
+      },
+      {
+        text: "Kotlin",
+        id: "android",
+        color: "#0F9D58",
+        x: 20,
+        y: 20,
+        delay: 1.2
+      },
+      {
+        text: "Flutter",
+        id: "flutter",
+        color: "#4285F4",
+        x: 80,
+        y: 80,
+        delay: 2.3
+      }
+    ],
+    []
+  );
 
-  const heroAvatarElements = [
-    {
-      url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692787374/website-assets/avatars/imaad_tnyadv.jpg",
-      borderColor: "#EA4335",
-      id: "a1",
-      x: 35,
-      y: 20,
-      delay: 0.9
-    },
-    {
-      url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692787309/website-assets/avatars/sohan_e6wzwq.jpg",
-      borderColor: "#FBBC04",
-      id: "a2",
-      x: 60,
-      y: 65,
-      delay: 1.5
-    },
-    {
-      url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692788392/website-assets/avatars/shivam_nglmyb.jpg",
-      borderColor: "#0F9D58",
-      id: "a3",
-      x: 18,
-      y: 65,
-      delay: 0.3
-    },
-    {
-      url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692788449/website-assets/avatars/sidh-gdsc-enhanced_gswoin.jpg",
-      borderColor: "#4285F4",
-      id: "a4",
-      x: 74,
-      y: 20,
-      delay: 0.3
-    }
-  ];
+  const heroAvatarElements = useMemo(
+    () => [
+      {
+        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692787374/website-assets/avatars/imaad_tnyadv.jpg",
+        borderColor: "#EA4335",
+        id: "a1",
+        x: 35,
+        y: 20,
+        delay: 0.9
+      },
+      {
+        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692787309/website-assets/avatars/sohan_e6wzwq.jpg",
+        borderColor: "#FBBC04",
+        id: "a2",
+        x: 60,
+        y: 65,
+        delay: 1.5
+      },
+      {
+        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692788392/website-assets/avatars/shivam_nglmyb.jpg",
+        borderColor: "#0F9D58",
+        id: "a3",
+        x: 18,
+        y: 65,
+        delay: 0.3
+      },
+      {
+        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692788449/website-assets/avatars/sidh-gdsc-enhanced_gswoin.jpg",
+        borderColor: "#4285F4",
+        id: "a4",
+        x: 74,
+        y: 20,
+        delay: 0.3
+      }
+    ],
+    []
+  );
 
   const [isTextHighlighted, setIsTextHighlighted] = useState(false);
   const [isAvatarHighlighted, setIsAvatarHighlighted] = useState(false);
@@ -115,7 +121,7 @@ const Hero = () => {
     if (refsById != null) {
       handleUpdateXArrows();
     }
-  }, [refsById]);
+  }, [refsById, handleUpdateXArrows]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(devices.lg);
