@@ -1,4 +1,5 @@
-import { styled } from 'styled-components';
+import { devices } from "@/constants/theme";
+import { styled } from "styled-components";
 
 export const MLIntroContainer = styled.div`
   width: 100%;
@@ -35,6 +36,9 @@ export const ScreenContent = styled.div`
   .time {
     font-size: 3.5rem;
     font-weight: 700;
+  }
+  @media screen and (${devices.lg}) {
+    width: 70%;
   }
 `;
 

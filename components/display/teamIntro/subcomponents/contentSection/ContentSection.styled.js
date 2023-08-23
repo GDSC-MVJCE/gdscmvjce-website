@@ -1,4 +1,5 @@
-import { styled } from 'styled-components';
+import { devices } from "@/constants/theme";
+import { styled } from "styled-components";
 
 export const ContentSectionContainer = styled.div`
   width: 100%;
@@ -21,5 +22,13 @@ export const ContentSectionContainer = styled.div`
     justify-content: flex-start;
     font-size: 1.3rem;
     font-weight: 500;
+  }
+
+  @media screen and (${devices.lg}) {
+    .docs-text {
+      width: 85%;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
   }
 `;
