@@ -23,8 +23,8 @@ export const skChaseDotBefore = keyframes`
 
 export const SpinnerContainer = styled.div`
   width: 100%;
-  height: 100px;
-  min-height: 200px;
+  height: 100%;
+  min-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
