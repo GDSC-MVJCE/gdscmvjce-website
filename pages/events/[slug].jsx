@@ -25,7 +25,8 @@ export const getStaticProps = async (ctx) => {
   const { slug } = ctx.params;
   const event = await prisma.event.findUnique({
     include: {
-      speakers: true
+      speakers: true,
+      tags: true
     },
     where: {
       slug: slug
