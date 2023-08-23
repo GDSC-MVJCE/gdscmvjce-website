@@ -172,6 +172,11 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
   padding-bottom: 0.5em;
+  color: ${({ theme, isActive }) => isActive && theme.colors.brandBlue};
+`;
+
+export const MenuItem = styled(Typography)`
+  color: ${({ theme, isActive }) => isActive && theme.colors.brandBlue};
 `;
 
 export const LogoContainer = styled.div`
