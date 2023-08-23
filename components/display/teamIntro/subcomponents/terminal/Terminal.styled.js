@@ -1,4 +1,5 @@
-import { styled } from 'styled-components';
+import { devices } from "@/constants/theme";
+import { styled } from "styled-components";
 
 export const TerminalContainer = styled.div`
   display: flex;
@@ -9,6 +10,9 @@ export const TerminalContainer = styled.div`
   height: 70%;
   border-radius: 13px;
   background: #171717;
+  @media screen and (${devices.lg}) {
+    height: 100%;
+  }
 `;
 
 export const TerminalHeader = styled.div`
