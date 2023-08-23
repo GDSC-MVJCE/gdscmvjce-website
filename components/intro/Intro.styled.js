@@ -6,7 +6,7 @@ export const IntroContainer = styled.section`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding: 0px 80px;
@@ -18,6 +18,7 @@ export const IntroContainer = styled.section`
 
   @media screen and (${devices.sm}) {
     padding: 0px 10px;
+    margin-bottom: 4em;
   }
 `;
 
@@ -93,12 +94,15 @@ export const AvatarContainer = styled.div`
   }
 
   @media screen and (${devices.sm}) {
-    width: 65%;
     height: 60%;
   }
 
   @media screen and (max-width: 400px) {
-    width: 100%;
+    margin-right: 4em;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-right: 5em;
   }
 `;
 
