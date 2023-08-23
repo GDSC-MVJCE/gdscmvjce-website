@@ -18,7 +18,8 @@ import {
   NavText,
   TopContainer,
   BottomContainer,
-  LogoContainer
+  LogoContainer,
+  MenuItem
 } from "./Navbar.styled";
 import { devices } from "@/constants/theme";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -28,7 +29,7 @@ import Typography from "../display/typography/Typography";
 
 function Navbar() {
   const router = useRouter();
-  const path = router.pathname;
+  const path = "/" + router.pathname.split("/")[1];
   const theme = useTheme();
 
   const [isMobile, setIsMobile] = useState(false);
@@ -70,8 +71,17 @@ function Navbar() {
   ));
 
   const menuLinks = navbarData.map((link) => (
-    <MenuLink key={link.title} href={link.path}>
-      <Typography variant="bodyEmphasized">{link.title}</Typography>
+    <MenuLink
+      key={link.title}
+      href={link.path}
+      isActive={path === link.path ? true : false}
+    >
+      <MenuItem
+        variant="bodyEmphasized"
+        isActive={path === link.path ? true : false}
+      >
+        {link.title}
+      </MenuItem>
     </MenuLink>
   ));
 
