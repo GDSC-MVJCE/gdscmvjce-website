@@ -22,15 +22,28 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import { devices } from "@/constants/theme";
 import truncateText from "@/utils/truncate";
+import { hashAPIKey } from "@/lib/createHash";
 
 function EventsSection() {
   const theme = useTheme();
   const limit = 200;
+  const apiKey = hashAPIKey(process.env.API_SECRET);
 
   const [eventsData, setEventsData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
 
-  const { data, isLoading } = useSWR(`/api/events?page=1`, fetcher, swrConfig);
+  const { data, isLoading } = useSWR(
+    [
+      `/api/events?page=1`,
+      {
+        headers: {
+          "X-API-KEY": apiKey
+        }
+      }
+    ],
+    fetcher,
+    swrConfig
+  );
 
   useEffect(() => {
     if (data) {
@@ -63,7 +76,7 @@ function EventsSection() {
             src={event.thumbnail ?? "/images/gdsc_fallback.png"}
             fill="responsive"
             alt={event.title}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="100vw"
             style={{
               borderRadius: "8px",
               objectFit: "cover"

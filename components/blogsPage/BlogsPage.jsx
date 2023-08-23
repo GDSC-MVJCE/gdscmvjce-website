@@ -206,7 +206,7 @@ function BlogsPage() {
                             src={blog.thumbnail ?? "/images/gdsc_fallback.png"}
                             alt={blog.title}
                             fill="responsive"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            sizes="100wh"
                             style={{
                               borderRadius: "inherit",
                               objectFit: "cover"

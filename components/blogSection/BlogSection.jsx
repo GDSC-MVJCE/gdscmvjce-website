@@ -64,7 +64,7 @@ function BlogsSection() {
             src={blog.thumbnail ?? "/images/gdsc_fallback.png"}
             fill="responsive"
             alt={blog.title}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="100vw"
             style={{
               borderRadius: "8px",
               objectFit: "cover"
