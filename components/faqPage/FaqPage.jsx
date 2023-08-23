@@ -20,7 +20,7 @@ import {
 import Typography from "../display/typography/Typography";
 
 function FaqPage() {
-  const TOP_OFFSET = 66;
+  const TOP_OFFSET = 77;
 
   const theme = useTheme();
 
@@ -162,7 +162,11 @@ function FaqPage() {
         <Title>FAQ</Title>
         {!isMobile && <OptionContainer>{buttonElements}</OptionContainer>}
       </LeftContainer>
-      {isMobile && <OptionContainer>{buttonElements}</OptionContainer>}
+      {isMobile && (
+        <OptionContainer isVisible={showBackground}>
+          {buttonElements}
+        </OptionContainer>
+      )}
       <RightContainer>{cardContents}</RightContainer>
     </Container>
   );
