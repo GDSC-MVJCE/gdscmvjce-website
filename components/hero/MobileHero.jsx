@@ -1,30 +1,12 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import debounce from "lodash.debounce";
-import dynamic from "next/dynamic";
-const Animator = dynamic(
-  import("react-scroll-motion").then((it) => it.Animator),
-  { ssr: false }
-);
-import {
-  ScrollContainer,
-  ScrollPage,
-  batch,
-  Fade,
-  MoveIn,
-  Sticky,
-  Zoom
-} from "react-scroll-motion";
 import {
   HeroAvatarWrapper,
   HeroBackgroundContainer,
   HeroBackgroundTextSpan,
   HeroSectionContainer,
-  HeroTextSpan,
-  LogoContainer,
-  MouseContainer,
-  MouseScroll
+  HeroTextSpan
 } from "./Hero.styled.js";
-import GDSCLogo from "@logos/gdsc-logo.svg";
 import Xarrow, { Xwrapper, useXarrow } from "react-xarrows";
 import Avatar from "../avatar/Avatar";
 import { devices } from "@/constants/theme.js";
@@ -101,7 +83,6 @@ const MobileHero = () => {
 
   const [isTextHighlighted, setIsTextHighlighted] = useState(false);
   const [isAvatarHighlighted, setIsAvatarHighlighted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const updatedXArrows = useXarrow();
   const handleUpdateXArrows = debounce(updatedXArrows, 100);
@@ -121,21 +102,6 @@ const MobileHero = () => {
       handleUpdateXArrows();
     }
   }, [refsById, handleUpdateXArrows]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.lg);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   return (
     <HeroSectionContainer>
