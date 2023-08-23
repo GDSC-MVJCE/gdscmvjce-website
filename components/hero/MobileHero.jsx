@@ -38,15 +38,15 @@ const MobileHero = () => {
         id: "tensorflow",
         color: "#FBBC04",
         x: 13,
-        y: 83,
+        y: 78,
         delay: 0.4
       },
       {
         text: "Kotlin",
         id: "android",
         color: "#0F9D58",
-        x: 13,
-        y: 10,
+        x: 10,
+        y: 13,
         delay: 1.2
       },
       {
@@ -84,7 +84,7 @@ const MobileHero = () => {
         borderColor: "#0F9D58",
         id: "a3",
         x: 18,
-        y: 69,
+        y: 65,
         delay: 0.3
       },
       {
