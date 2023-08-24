@@ -15,7 +15,7 @@ import {
   ArticleTitleContainer,
   BannerImgContainer,
   HorizontalLine
-} from "./blogarticle.styled";
+} from "./BlogArticle.styled";
 import Typography from "@/components/display/typography/Typography";
 import Avatar from "@/components/avatar/Avatar";
 
