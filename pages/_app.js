@@ -1,12 +1,11 @@
-import GlobalStyles from "@/constants/globalStyles";
-import { lightTheme } from "@/constants/theme";
+import localFont from "next/font/local";
 import { ThemeProvider } from "styled-components";
 
+import { lightTheme } from "@/constants/theme";
+import GlobalStyles from "@/constants/globalStyles";
 import AuthProvider from "@/components/AuthProvider";
-import localFont from "next/font/local";
 import GradientAnimation from "@/components/gradientAnimation/GradientAnimation";
-
-import "react-loading-skeleton/dist/skeleton.css";
+import Layout from "@/components/layout";
 
 const myFont = localFont({
   src: [
@@ -34,7 +33,9 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider theme={lightTheme}>
         <GlobalStyles />
         <main className={myFont.className}>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </main>
         <GradientAnimation />
       </ThemeProvider>
