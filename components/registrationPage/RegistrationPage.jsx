@@ -45,7 +45,7 @@ const RegistrationPage = () => {
         <Image
           src="/images/group-photo.png"
           alt={"GDSC Team"}
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
           fill="responsive"
           style={{
             borderRadius: "inherit",
@@ -95,7 +95,7 @@ const RegistrationPage = () => {
         <Image
           src="/images/gdsc-team.svg"
           alt={"Illustration"}
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
           fill="responsive"
           style={{
             borderRadius: "inherit",

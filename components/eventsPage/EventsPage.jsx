@@ -29,9 +29,11 @@ import { eventFilters } from "@/constants/filterTags";
 import { devices } from "@/constants/theme";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
+import truncateText from "@/utils/truncate";
 
 function EventsPage() {
   const TOP_OFFSET = 77;
+  const limit = 200;
 
   const theme = useTheme();
   const router = useRouter();
@@ -201,7 +203,7 @@ function EventsPage() {
                           <Image
                             src={event.thumbnail ?? "/images/gdsc_fallback.png"}
                             alt={event.title}
-                            sizes="100vw"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
                             fill="responsive"
                             style={{
                               borderRadius: "inherit",
@@ -214,7 +216,7 @@ function EventsPage() {
                           <EventTitle variant="h3">{event.title}</EventTitle>
                           <Typography variant="body">
                             {dayjs(event.startDate).format("MMM D, YYYY")} -{" "}
-                            {event.shortDescription}
+                            {truncateText(event.shortDescription, limit)}
                           </Typography>
                         </EventInfo>
                       </EventsCard>

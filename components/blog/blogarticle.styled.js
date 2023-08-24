@@ -64,7 +64,7 @@ export const ArticleAuthor = styled.div`
 
 export const HorizontalLine = styled.hr`
   width: 100%;
-  border: 1px solid ${({ theme }) => theme.colors.contentSecondary};
+  border: 1px solid gray;
   margin: 2em 0;
 
   @media screen and (${devices.lg}) {
