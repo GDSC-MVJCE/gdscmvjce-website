@@ -1,3 +1,4 @@
+import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
 
 export const GradientContainer = styled.div`
@@ -8,6 +9,10 @@ export const GradientContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+
+  @media screen and (${devices.lg}) {
+    display: none;
+  }
 `;
 export const GradientBall = styled.div`
   position: absolute;

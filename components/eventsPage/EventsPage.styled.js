@@ -8,7 +8,7 @@ export const EventsPageContainer = styled.main`
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: space-between;
@@ -18,6 +18,10 @@ export const EventsPageContainer = styled.main`
   @media screen and (${devices.xl}) {
     padding: 1em 1em;
     gap: 0.5em;
+  }
+
+  @media screen and (${devices.lg}) {
+    padding: 1em 0;
   }
 `;
 
@@ -55,18 +59,21 @@ export const RightContainer = styled.div`
   flex-direction: column;
   width: 30%;
   height: 100%;
+  max-height: calc(100vh - 220px);
   gap: 1.5em;
   position: sticky;
   top: 20px;
   right: 0;
   overflow-y: auto;
   z-index: 10;
+  transition: all 0.2s ease-in-out;
 
   @media screen and (${devices.lg}) {
-    background-color: ${({ theme }) => theme.colors.bgPrimary};
+    background-color: ${({ theme, isVisible }) =>
+      isVisible ? theme.colors.bgPrimary : "transparent"};
     width: 100%;
     top: 0;
-    padding: 1em 1em 1em 1em;
+    padding: 1em 1em 0 1em;
   }
 `;
 
@@ -108,7 +115,8 @@ export const EventsCard = styled(motion.article)`
 
 export const EventsFilterTitle = styled.div`
   width: 100%;
-  margin-left: 1em;
+  padding-left: 1em;
+  z-index: 11;
 `;
 
 export const ImageContainer = styled(motion.div)`
@@ -163,26 +171,29 @@ export const FilterContainer = styled.aside`
   width: 100%;
   height: 100%;
   max-height: 100vh;
-  max-height: 100svh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   padding-right: 1em;
+  overflow-y: auto;
 
   @media screen and (${devices.lg}) {
     flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 1em;
   }
 `;
 
 export const FilterCard = styled(motion.div)`
   width: 100%;
+  height: fit-content;
   padding: 1em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.contentPrimary};
-  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${({ theme }) => theme.colors.brandYellow};
@@ -194,5 +205,7 @@ export const FilterCard = styled(motion.div)`
     padding: 0.5em 1em;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(90px);
   }
 `;

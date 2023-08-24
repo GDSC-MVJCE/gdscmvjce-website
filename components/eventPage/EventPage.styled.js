@@ -54,6 +54,10 @@ export const Left = styled.div`
   @media screen and (${devices.lg}) {
     width: 100%;
   }
+
+  @media screen and (${devices.lg}) {
+    gap: 1.2em;
+  }
 `;
 
 export const Right = styled.div`
@@ -268,4 +272,17 @@ export const Button = styled.button`
   @media screen and (${devices.md}) {
     font-size: 1.2rem;
   }
+`;
+
+export const EventTagsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+`;
+
+export const EventTag = styled.div`
+  border: 1px solid ${({ theme }) => theme.colors.contentSecondary};
+  border-radius: 5px;
+  padding: 0.5em 1em;
 `;

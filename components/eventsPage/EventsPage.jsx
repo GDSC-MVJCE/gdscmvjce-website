@@ -29,8 +29,12 @@ import { eventFilters } from "@/constants/filterTags";
 import { devices } from "@/constants/theme";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
+import truncateText from "@/utils/truncate";
 
 function EventsPage() {
+  const TOP_OFFSET = 77;
+  const limit = 200;
+
   const theme = useTheme();
   const router = useRouter();
   const { type } = router.query;
@@ -41,6 +45,23 @@ function EventsPage() {
   const [hasMore, setHasMore] = useState(true);
   const [eventsData, setEventsData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= TOP_OFFSET) {
+        setShowBackground(true);
+      } else {
+        setShowBackground(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     setIsActive(type ? type : "all");
@@ -182,7 +203,7 @@ function EventsPage() {
                           <Image
                             src={event.thumbnail ?? "/images/gdsc_fallback.png"}
                             alt={event.title}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
                             fill="responsive"
                             style={{
                               borderRadius: "inherit",
@@ -195,7 +216,7 @@ function EventsPage() {
                           <EventTitle variant="h3">{event.title}</EventTitle>
                           <Typography variant="body">
                             {dayjs(event.startDate).format("MMM D, YYYY")} -{" "}
-                            {event.shortDescription}
+                            {truncateText(event.shortDescription, limit)}
                           </Typography>
                         </EventInfo>
                       </EventsCard>
@@ -204,8 +225,12 @@ function EventsPage() {
                 })}
               </InfiniteScroll>
             </LeftContainer>
-            <RightContainer>
-              {!isMobile && <Typography variant="h2">Tags</Typography>}
+            <RightContainer isVisible={showBackground}>
+              {!isMobile && (
+                <Typography variant="h3" style={{ paddingLeft: "0.5em" }}>
+                  Tags
+                </Typography>
+              )}
               <FilterContainer>{filterElements}</FilterContainer>
             </RightContainer>
           </EventsContainer>

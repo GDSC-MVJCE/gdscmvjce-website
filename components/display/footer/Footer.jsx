@@ -1,37 +1,47 @@
-import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
 import {
   FooterContainer,
   FooterGithub,
-  FooterLogo,
   FooterMeta,
   FooterSocialIcons,
   FooterSocials,
-  LogoContainer
+  LogoContainer,
+  LogoWrapper
 } from "./Footer.styled";
-import Logo from "../../../public/logo.svg";
 import Typography from "../typography/Typography";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import Link from "next/link";
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <LogoContainer>
-        <FooterLogo>
-          <Logo />
-        </FooterLogo>
-
-        <Typography variant="bodySmall" subdued>
+      <LogoWrapper>
+        <LogoContainer>
+          <Link href="/">
+            <Image
+              src={"/logos/gdscmvjce-logo.svg"}
+              alt={"GDSC Logo"}
+              fill="responsive"
+              sizes="500px"
+            />
+          </Link>
+        </LogoContainer>
+        <Typography
+          variant="bodySmall"
+          subdued
+          style={{ paddingLeft: "0.5em" }}
+        >
           Near ITPB, Channasandra, Bangalore - 560067
           <br />
           Email : gdscmvjce@gmail.com
         </Typography>
-      </LogoContainer>
+      </LogoWrapper>
       <FooterSocials>
-        <Typography variant="body" subdued>
+        <Typography variant="body" subdued style={{ textAlign: "center" }}>
           Follow us on Social Media
         </Typography>
         <FooterSocialIcons>
@@ -40,33 +50,49 @@ const Footer = () => {
             target="_blank"
             style={{ color: "gray" }}
           >
-            <LinkedInIcon />
+            <LinkedInIcon
+              style={{ marginBottom: "-5px" }}
+              sx={{ fontSize: 25 }}
+            />
           </Link>
           <Link
             href="https://www.instagram.com/gdscmvjce/"
             target="_blank"
             style={{ color: "gray" }}
           >
-            <InstagramIcon />
+            <InstagramIcon
+              style={{ marginBottom: "-5px" }}
+              sx={{ fontSize: 25 }}
+            />
           </Link>
-          <Link href="" target="_blank" style={{ color: "gray" }}>
-            <TwitterIcon />
+          <Link
+            href="https://twitter.com/gdscmvjce"
+            target="_blank"
+            style={{ color: "gray" }}
+          >
+            <TwitterIcon
+              style={{ marginBottom: "-5px" }}
+              sx={{ fontSize: 25 }}
+            />
           </Link>
         </FooterSocialIcons>
       </FooterSocials>
       <FooterMeta>
-        <Typography variant="bodySmall" subdued>
-          Made with &lt;3 by GDSC Tech and ML Team 2023
+        <Typography
+          variant="bodySmall"
+          subdued
+          style={{ whiteSpace: "normal", width: "90%" }}
+        >
+          Made with ❤️ by GDSC Tech and ML Team 2023
         </Typography>
-        <FooterGithub>
-          <Link
-            href="https://github.com/GDSC-MVJCE/gdscmvjce-website"
-            target="_blank"
-            style={{ color: "gray" }}
-          >
-            <GitHubIcon />
-          </Link>
-          <Typography variant="bodySmall">View source code</Typography>
+        <FooterGithub
+          href="https://github.com/GDSC-MVJCE/gdscmvjce-website"
+          target="_blank"
+        >
+          <GitHubIcon sx={{ fontSize: 25 }} />
+          <Typography variant="bodySmall" style={{ color: "inherit" }}>
+            View source code
+          </Typography>
         </FooterGithub>
       </FooterMeta>
     </FooterContainer>

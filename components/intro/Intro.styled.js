@@ -5,8 +5,8 @@ import { devices } from "@/constants/theme";
 export const IntroContainer = styled.section`
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 80vh;
+  min-height: 80dvh;
   display: flex;
   align-items: center;
   padding: 0px 80px;
@@ -18,6 +18,7 @@ export const IntroContainer = styled.section`
 
   @media screen and (${devices.sm}) {
     padding: 0px 10px;
+    margin-bottom: 1em;
   }
 `;
 
@@ -34,7 +35,7 @@ export const LeftContainer = styled.div`
 
   @media screen and (${devices.sm}) {
     width: 100%;
-    padding: 10px 40px;
+    padding: 1em 0.5em;
   }
 `;
 
@@ -53,12 +54,6 @@ export const HeadingContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-
-  @media screen and (${devices.sm}) {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
 `;
 
 export const RightContainer = styled.div`
@@ -93,12 +88,15 @@ export const AvatarContainer = styled.div`
   }
 
   @media screen and (${devices.sm}) {
-    width: 65%;
     height: 60%;
   }
 
   @media screen and (max-width: 400px) {
-    width: 100%;
+    margin-right: 4em;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-right: 5em;
   }
 `;
 

@@ -20,8 +20,12 @@ import {
 import Typography from "../display/typography/Typography";
 
 function FaqPage() {
+  const TOP_OFFSET = 77;
+
   const theme = useTheme();
+
   const [isMobile, setIsMobile] = useState(false);
+  const [showBackground, setShowBackground] = useState(false);
 
   const { ref: ref0, inView: inView0 } = useInView({
     threshold: isMobile ? 0.3 : 0.4
@@ -38,6 +42,22 @@ function FaqPage() {
   const { ref: ref4, inView: inView4 } = useInView({
     threshold: isMobile ? 0.3 : 0.4
   });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= TOP_OFFSET) {
+        setShowBackground(true);
+      } else {
+        setShowBackground(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(devices.lg);
@@ -142,7 +162,11 @@ function FaqPage() {
         <Title>FAQ</Title>
         {!isMobile && <OptionContainer>{buttonElements}</OptionContainer>}
       </LeftContainer>
-      {isMobile && <OptionContainer>{buttonElements}</OptionContainer>}
+      {isMobile && (
+        <OptionContainer isVisible={showBackground}>
+          {buttonElements}
+        </OptionContainer>
+      )}
       <RightContainer>{cardContents}</RightContainer>
     </Container>
   );

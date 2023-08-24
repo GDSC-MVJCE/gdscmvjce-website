@@ -1,9 +1,6 @@
-import BlogArticle from "@/components/blog/BlogArticle";
-import Footer from "@/components/display/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
-import prisma from "@/lib/prisma";
 import Head from "next/head";
-import React from "react";
+import prisma from "@/lib/prisma";
+import BlogArticle from "@/components/blog/BlogArticle";
 
 const BlogPage = ({ articleData }) => {
   return (
@@ -15,9 +12,7 @@ const BlogPage = ({ articleData }) => {
         <meta property="og:description" content={articleData.content} />
         <meta property="og:image" content={articleData.thumbnail} />
       </Head>
-      <Navbar />
       <BlogArticle article={articleData} />
-      <Footer />
     </>
   );
 };
