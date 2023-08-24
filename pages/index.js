@@ -1,14 +1,12 @@
 import BlogsSection from "@/components/blogSection/BlogSection";
 import AboutSection from "@/components/display/aboutSection/AboutSection";
 import EventsSection from "@/components/display/eventsSection/EventsSection";
-import Footer from "@/components/display/footer/Footer";
 import OfferSection from "@/components/display/offerSection/OfferSection";
 import TeamIntro from "@/components/display/teamIntro/TeamIntro";
 import GalleryCarousel from "@/components/galleryCarousel/GalleryCarousel";
 import Hero from "@/components/hero/Hero";
 import Intro from "@/components/intro/Intro";
 import MeetTeam from "@/components/meetTeam/MeetTeam";
-import Navbar from "@/components/navbar/Navbar";
 import Head from "next/head";
 
 export default function Home() {
@@ -22,7 +20,6 @@ export default function Home() {
       </Head>
 
       <main>
-        <Navbar />
         <Hero />
         <AboutSection />
         <Intro />
@@ -32,7 +29,6 @@ export default function Home() {
         <EventsSection />
         {/* <GalleryCarousel /> */}
         <BlogsSection />
-        <Footer />
       </main>
     </>
   );
