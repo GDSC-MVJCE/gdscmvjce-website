@@ -1,32 +1,23 @@
-import Navbar from "@/components/navbar/Navbar";
-import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import parse from "html-react-parser";
+import dayjs from "dayjs";
+
 import {
   Article,
   ArticleAuthor,
   ArticleAuthorContainer,
-  ArticleContent,
   ArticleContentContainer,
   ArticleDate,
-  ArticleImg,
   ArticleMetaContainer,
   ArticleTag,
   ArticleTagsContainer,
-  ArticleTitle,
   ArticleTitleContainer,
   BannerImgContainer,
-  FooterContainer,
-  FooterTitle,
   HorizontalLine
 } from "./blogarticle.styled";
-import Avatar from "@/components/avatar/Avatar";
-import parse from "html-react-parser";
-
-import ArticleFooter from "@/components/articleFooter/ArticleFooter";
 import Typography from "@/components/display/typography/Typography";
-import dayjs from "dayjs";
-import { BannerImageContainer } from "../registrationPage/RegistrationPage.styled";
-import Image from "next/image";
-import Link from "next/link";
+import Avatar from "@/components/avatar/Avatar";
 
 const BlogArticle = ({ article }) => {
   return (
