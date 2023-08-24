@@ -24,7 +24,6 @@ import Typography from "@/components/display/typography/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import ArticleFooter from "@/components/articleFooter/ArticleFooter";
 
 const ProfilePageComponent = () => {
   return (
@@ -85,10 +84,7 @@ const ProfilePageComponent = () => {
             <ProfileFooterHeading>
               <Typography variant="h3">My Blog Articles</Typography>
             </ProfileFooterHeading>
-            <ProfileFooterContent>
-              <ArticleFooter />
-              <ArticleFooter />
-            </ProfileFooterContent>
+            <ProfileFooterContent></ProfileFooterContent>
           </ProfileFooter>
         </ProfileDiv>
       </Profile>
