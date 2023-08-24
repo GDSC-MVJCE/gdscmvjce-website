@@ -10,8 +10,6 @@ export const MainContainer = styled.header`
   justify-content: center;
   align-items: center;
   z-index: 12;
-  position: absolute;
-  top: 0;
 `;
 
 export const NavbarContainer = styled.nav`
@@ -181,7 +179,7 @@ export const MenuItem = styled(Typography)`
 
 export const LogoContainer = styled.div`
   width: 400px;
-  height: 100%;
+  aspect-ratio: 380/42;
   position: relative;
   display: flex;
   justify-content: start;
