@@ -34,7 +34,7 @@ export const BlogsContainer = styled.div`
   gap: 1em;
 
   @media screen and (${devices.lg}) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
   }
 `;
@@ -74,7 +74,7 @@ export const RightContainer = styled.div`
       isVisible ? theme.colors.bgPrimary : "transparent"};
     width: 100%;
     top: 0;
-    padding: 1em;
+    padding: 1em 1em 0 1em;
   }
 `;
 
@@ -187,6 +187,7 @@ export const FilterContainer = styled.aside`
     flex-direction: row;
     margin-top: 2.2em;
     align-items: flex-end;
+    padding-bottom: 1em;
   }
 `;
 

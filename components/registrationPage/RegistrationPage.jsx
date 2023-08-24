@@ -104,7 +104,9 @@ const RegistrationPage = () => {
         />
       </TeamImageContainer>
       <ApplyNowContainer>
-        <Typography variant="h2">What are you waiting for?</Typography>
+        <Typography variant="h2" style={{ textAlign: "center" }}>
+          What are you waiting for?
+        </Typography>
         <Typography variant="body" className="applyDescription">
           {`If you're excited to learn, collaborate, and push boundaries, don't wait.
           Apply now and embark on a journey of growth and possibilities!`}

@@ -9,6 +9,10 @@ export const RegistrationPageContainer = styled.main`
   align-items: center;
   gap: 90px;
 
+  @media screen and (${devices.lg}) {
+    padding: 15px 50px;
+  }
+
   @media screen and (${devices.md}) {
     padding: 15px 20px;
     gap: 40px;
@@ -101,6 +105,10 @@ export const ApplyNowContainer = styled.div`
   justify-content: flex-start;
   gap: 20px;
   margin-bottom: 5em;
+
+  .applyDescription {
+    width: 80%;
+  }
 `;
 
 export const ApplyButton = styled.button`
