@@ -1,0 +1,19 @@
+name: (main) push to external repo
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  push-dev-to-external-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+      - name: push to external repository
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
+          publish_dir: .
+          external_repository: gdscmvj/gdscmvj-website
+          publish_branch: dev
+          allow_empty_commit: true
