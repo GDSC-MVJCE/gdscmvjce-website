@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   } else {
     res.status(StatusCodes.METHOD_NOT_ALLOWED).json({
       status: StatusCodes.METHOD_NOT_ALLOWED,
-      error: ReasonPhrases.METHOD_NOT_ALLOWED,
+      error: ReasonPhrases.METHOD_NOT_ALLOWED
     });
   }
 }
