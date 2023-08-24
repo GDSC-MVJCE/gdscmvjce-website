@@ -18,17 +18,17 @@ import {
   NavText,
   TopContainer,
   BottomContainer,
-  LogoContainer
+  LogoContainer,
+  MenuItem
 } from "./Navbar.styled";
 import { devices } from "@/constants/theme";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { navbarData } from "@/constants/navbarData";
-import Typography from "../display/typography/Typography";
 
 function Navbar() {
   const router = useRouter();
-  const path = router.pathname;
+  const path = "/" + router.pathname.split("/")[1];
   const theme = useTheme();
 
   const [isMobile, setIsMobile] = useState(false);
@@ -48,6 +48,10 @@ function Navbar() {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [path]);
 
   useEffect(() => {
     if (isOpen) {
@@ -70,8 +74,17 @@ function Navbar() {
   ));
 
   const menuLinks = navbarData.map((link) => (
-    <MenuLink key={link.title} href={link.path}>
-      <Typography variant="bodyEmphasized">{link.title}</Typography>
+    <MenuLink
+      key={link.title}
+      href={link.path}
+      isActive={path === link.path ? true : false}
+    >
+      <MenuItem
+        variant="bodyEmphasized"
+        isActive={path === link.path ? true : false}
+      >
+        {link.title}
+      </MenuItem>
     </MenuLink>
   ));
 
@@ -83,10 +96,10 @@ function Navbar() {
             <LogoContainer>
               <Link href="/">
                 <Image
-                  src={"../../logo.svg"}
+                  src={"/logos/gdscmvjce-logo.svg"}
                   alt={"GDSC Logo"}
                   fill="responsive"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="500px"
                 />
               </Link>
             </LogoContainer>
@@ -125,10 +138,10 @@ function Navbar() {
           <TopContainer>
             <LogoContainer isMobile={isMobile}>
               <Image
-                src={"../../logo.svg"}
+                src={"/logos/gdscmvjce-logo.svg"}
                 alt={"GDSC Logo"}
                 fill="responsive"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="500px"
               />
             </LogoContainer>
             <CloseIcon

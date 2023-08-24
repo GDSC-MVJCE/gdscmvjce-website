@@ -1,6 +1,4 @@
-import Navbar from "@/components/navbar/Navbar";
 import BlogsPage from "@/components/blogsPage/BlogsPage";
-import Footer from "@/components/display/footer/Footer";
 import Head from "next/head";
 
 function Blogs() {
@@ -16,9 +14,7 @@ function Blogs() {
           content={"/images/events/gdsc-event-fallback.png"}
         />
       </Head>
-      <Navbar />
       <BlogsPage />
-      <Footer />
     </>
   );
 }

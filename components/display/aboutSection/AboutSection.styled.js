@@ -5,8 +5,8 @@ import styled from "styled-components";
 export const AboutSectionWrapper = styled.section`
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 40vh;
+  min-height: 40dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +56,7 @@ export const RightContainer = styled.div`
 
   @media screen and (${devices.sm}) {
     width: 100%;
+    padding: 1em 0;
   }
 `;
 
@@ -65,12 +66,6 @@ export const HeadingContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-
-  @media screen and (${devices.sm}) {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
 `;
 
 export const ClubName = styled(motion.span)`

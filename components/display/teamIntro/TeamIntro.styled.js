@@ -2,16 +2,20 @@ import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
 
 export const TeamIntroContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  height: 90vh;
+  height: 90dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  width: 100%;
   gap: 3rem;
   padding: 2rem 2rem;
+
   @media screen and (${devices.lg}) {
     height: 100vh;
+    padding-bottom: 5em;
     justify-content: flex-start;
     gap: 1rem;
   }

@@ -8,7 +8,7 @@ export const BlogsPageContainer = styled.main`
   height: 100%;
   width: 100%;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: space-between;
@@ -17,6 +17,11 @@ export const BlogsPageContainer = styled.main`
 
   @media screen and (${devices.xl}) {
     padding: 1em 1em;
+    gap: 0.5em;
+  }
+
+  @media screen and (${devices.lg}) {
+    padding: 1em 0;
     gap: 0.5em;
   }
 `;
@@ -29,32 +34,12 @@ export const BlogsContainer = styled.div`
   gap: 1em;
 
   @media screen and (${devices.lg}) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
   }
 `;
 
 export const LeftContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  height: 100%;
-  gap: 1.5em;
-  position: sticky;
-  top: 20px;
-  right: 0;
-  overflow-y: auto;
-  z-index: 10;
-
-  @media screen and (${devices.lg}) {
-    background-color: ${({ theme }) => theme.colors.bgPrimary};
-    width: 100%;
-    top: 0;
-    padding: 1em 1em 1em 1em;
-  }
-`;
-
-export const RightContainer = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -67,6 +52,29 @@ export const RightContainer = styled.div`
 
   @media screen and (${devices.sm}) {
     width: 100%;
+  }
+`;
+
+export const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+  max-height: calc(100vh - 220px);
+  gap: 1.5em;
+  position: sticky;
+  top: 20px;
+  right: 0;
+  overflow-y: auto;
+  z-index: 10;
+  transition: all 0.2s ease-in-out;
+
+  @media screen and (${devices.lg}) {
+    background-color: ${({ theme, isVisible }) =>
+      isVisible ? theme.colors.bgPrimary : "transparent"};
+    width: 100%;
+    top: 0;
+    padding: 1em 1em 0 1em;
   }
 `;
 
@@ -108,6 +116,8 @@ export const BlogsCard = styled(motion.article)`
 
 export const BlogsFilterTitle = styled.div`
   width: 100%;
+  padding-left: 1em;
+  z-index: 11;
 `;
 
 export const ImageContainer = styled(motion.div)`
@@ -136,7 +146,7 @@ export const BlogInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1em;
+  gap: 0.2em;
   margin: 2.3em 1.3em;
   padding: 0;
   overflow: hidden;
@@ -162,26 +172,29 @@ export const FilterContainer = styled.aside`
   width: 100%;
   height: 100%;
   max-height: 100vh;
-  max-height: 100svh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   padding-right: 1em;
+  overflow-y: auto;
 
   @media screen and (${devices.lg}) {
     flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 1em;
   }
 `;
 
 export const FilterCard = styled(motion.div)`
   width: 100%;
+  height: fit-content;
   padding: 1em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.contentPrimary};
-  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${({ theme }) => theme.colors.brandYellow};
@@ -193,5 +206,21 @@ export const FilterCard = styled(motion.div)`
     padding: 0.5em 1em;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(90px);
   }
+`;
+
+export const AuthorInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+`;
+
+export const CardFooter = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: space-between;
+  padding-top: 0.2em;
 `;
