@@ -1,8 +1,6 @@
-import Footer from "@/components/display/footer/Footer";
-import EventPage from "@/components/eventPage/EventPage";
-import Navbar from "@/components/navbar/Navbar";
 import prisma from "@/lib/prisma";
 import Head from "next/head";
+import EventPage from "@/components/eventPage/EventPage";
 
 export default function Event({ eventData }) {
   return (
@@ -14,9 +12,7 @@ export default function Event({ eventData }) {
         <meta property="og:description" content={eventData.description} />
         <meta property="og:image" content={eventData.thumbnail} />
       </Head>
-      <Navbar />
       <EventPage eventData={eventData} />
-      <Footer />
     </>
   );
 }
