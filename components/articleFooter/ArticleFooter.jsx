@@ -6,16 +6,17 @@ import {
   ArticleFooterTextContainer,
   ArticleFooterTitle
 } from "./ArticleFooter.styled";
+
+import Avatar from "../avatar/Avatar";
+import { article } from "@/constants/blogData";
+import Image from "next/image";
+import Typography from "../display/typography/Typography";
 import {
   ArticleAuthor,
   ArticleAuthorContainer,
   ArticleDate,
   ArticleMetaContainer
-} from "@/components/blog/blogarticle.styled";
-import Avatar from "../avatar/Avatar";
-import { article } from "@/constants/blogData";
-import Image from "next/image";
-import Typography from "../display/typography/Typography";
+} from "../blog/BlogArticle.styled";
 
 const ArticleFooter = () => {
   return (
