@@ -6,11 +6,12 @@ import { devices } from "@/constants/theme";
 
 export const MainContainer = styled.header`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 12;
+  position: absolute;
+  top: 0;
 `;
 
 export const NavbarContainer = styled.nav`
@@ -34,7 +35,6 @@ export const LeftContainer = styled.div`
   justify-content: start;
   align-items: center;
   padding: 1rem 1rem;
-  margin-left: 1em;
 `;
 
 export const RightContainer = styled.div`
@@ -65,7 +65,7 @@ export const NavbarLinkContainer = styled.div`
   display: flex;
   flex: 70%;
   justify-content: end;
-  margin-right: 2rem;
+  margin-right: 1em;
   align-items: center;
 `;
 

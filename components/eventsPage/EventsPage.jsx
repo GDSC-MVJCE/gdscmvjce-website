@@ -224,7 +224,11 @@ function EventsPage() {
               </InfiniteScroll>
             </LeftContainer>
             <RightContainer isVisible={showBackground}>
-              {!isMobile && <Typography variant="h2">Tags</Typography>}
+              {!isMobile && (
+                <Typography variant="h3" style={{ paddingLeft: "0.5em" }}>
+                  Tags
+                </Typography>
+              )}
               <FilterContainer>{filterElements}</FilterContainer>
             </RightContainer>
           </EventsContainer>

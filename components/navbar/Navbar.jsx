@@ -25,7 +25,6 @@ import { devices } from "@/constants/theme";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { navbarData } from "@/constants/navbarData";
-import Typography from "../display/typography/Typography";
 
 function Navbar() {
   const router = useRouter();
@@ -93,10 +92,10 @@ function Navbar() {
             <LogoContainer>
               <Link href="/">
                 <Image
-                  src={"../../logo.svg"}
+                  src={"/logos/gdscmvjce-logo.svg"}
                   alt={"GDSC Logo"}
                   fill="responsive"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="500px"
                 />
               </Link>
             </LogoContainer>
@@ -135,10 +134,10 @@ function Navbar() {
           <TopContainer>
             <LogoContainer isMobile={isMobile}>
               <Image
-                src={"../../logo.svg"}
+                src={"/logos/gdscmvjce-logo.svg"}
                 alt={"GDSC Logo"}
                 fill="responsive"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="500px"
               />
             </LogoContainer>
             <CloseIcon

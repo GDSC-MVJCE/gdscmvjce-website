@@ -141,7 +141,7 @@ export const ApplyButton = styled.button`
     top: 180%;
     width: 160%;
     height: 190%;
-    background-color: ${({ theme }) => theme.colors.brandGreen};
+    background-color: #0a5ce4;
     border-radius: 50%;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
@@ -149,19 +149,19 @@ export const ApplyButton = styled.button`
 
   &:hover {
     color: #ffffff;
-    border: 1px solid ${({ theme }) => theme.colors.brandGreen};
+    border: 1px solid #0a5ce4;
     transform: scale(1.05);
   }
 
   &:hover:before {
     top: -35%;
-    background-color: ${({ theme }) => theme.colors.brandGreen};
+    background-color: #0a5ce4;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
   &:hover:after {
     top: -45%;
-    background-color: ${({ theme }) => theme.colors.brandGreen};
+    background-color: #0a5ce4;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
@@ -210,27 +210,26 @@ export const FAQButton = styled.button`
     top: 180%;
     width: 160%;
     height: 190%;
-    background-color: ${({ theme }) => theme.colors.brandRed};
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
     border-radius: 50%;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
 
   &:hover {
-    color: #ffffff;
-    border: 1px solid ${({ theme }) => theme.colors.brandRed};
+    border: 1px solid ${({ theme }) => theme.colors.bgSecondary};
     transform: scale(1.05);
   }
 
   &:hover:before {
     top: -35%;
-    background-color: ${({ theme }) => theme.colors.brandRed};
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
   &:hover:after {
     top: -45%;
-    background-color: ${({ theme }) => theme.colors.brandRed};
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 

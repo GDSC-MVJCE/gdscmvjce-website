@@ -22,28 +22,15 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import { devices } from "@/constants/theme";
 import truncateText from "@/utils/truncate";
-import { hashAPIKey } from "@/lib/createHash";
 
 function EventsSection() {
   const theme = useTheme();
   const limit = 200;
-  const apiKey = hashAPIKey(process.env.API_SECRET);
 
   const [eventsData, setEventsData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
 
-  const { data, isLoading } = useSWR(
-    [
-      `/api/events?page=1`,
-      {
-        headers: {
-          "X-API-KEY": apiKey
-        }
-      }
-    ],
-    fetcher,
-    swrConfig
-  );
+  const { data, isLoading } = useSWR(`/api/events?page=1`, fetcher, swrConfig);
 
   useEffect(() => {
     if (data) {

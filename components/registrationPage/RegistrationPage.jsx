@@ -79,14 +79,14 @@ const RegistrationPage = () => {
             start={ref1}
             end={ref2}
             headShape={"circle"}
-            headSize={5}
+            headSize={3}
             startAnchor={"middle"}
           />
           <Xarrow
             start={ref2}
             end={ref3}
             headShape={"circle"}
-            headSize={5}
+            headSize={3}
             startAnchor={"middle"}
           />
         </Xwrapper>
