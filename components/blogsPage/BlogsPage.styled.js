@@ -40,10 +40,27 @@ export const BlogsContainer = styled.div`
 `;
 
 export const LeftContainer = styled.div`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  overflow: hidden;
+
+  @media screen and (${devices.lg}) {
+    width: 70%;
+  }
+
+  @media screen and (${devices.sm}) {
+    width: 100%;
+  }
+`;
+
+export const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 30%;
   height: 100%;
+  max-height: calc(100vh - 220px);
   gap: 1.5em;
   position: sticky;
   top: 20px;
@@ -58,22 +75,6 @@ export const LeftContainer = styled.div`
     width: 100%;
     top: 0;
     padding: 1em;
-  }
-`;
-
-export const RightContainer = styled.div`
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  overflow: hidden;
-
-  @media screen and (${devices.lg}) {
-    width: 70%;
-  }
-
-  @media screen and (${devices.sm}) {
-    width: 100%;
   }
 `;
 
@@ -180,6 +181,7 @@ export const FilterContainer = styled.aside`
   flex-direction: column;
   gap: 0.5em;
   padding-right: 1em;
+  overflow-y: auto;
 
   @media screen and (${devices.lg}) {
     flex-direction: row;

@@ -165,11 +165,7 @@ function BlogsPage() {
             </Typography>
           </BlogsFilterTitle>
           <BlogsContainer>
-            <LeftContainer isVisible={showBackground}>
-              {!isMobile && <Typography variant="h2">Tags</Typography>}
-              <FilterContainer>{filterElements}</FilterContainer>
-            </LeftContainer>
-            <RightContainer>
+            <LeftContainer>
               <InfiniteScroll
                 dataLength={blogsData.length}
                 next={fetchMoreData}
@@ -226,6 +222,14 @@ function BlogsPage() {
                   );
                 })}
               </InfiniteScroll>
+            </LeftContainer>
+            <RightContainer isVisible={showBackground}>
+              {!isMobile && (
+                <Typography variant="h3" style={{ paddingLeft: "0.5em" }}>
+                  Tags
+                </Typography>
+              )}
+              <FilterContainer>{filterElements}</FilterContainer>
             </RightContainer>
           </BlogsContainer>
         </BlogsPageContainer>

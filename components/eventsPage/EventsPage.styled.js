@@ -59,6 +59,7 @@ export const RightContainer = styled.div`
   flex-direction: column;
   width: 30%;
   height: 100%;
+  max-height: calc(100vh - 220px);
   gap: 1.5em;
   position: sticky;
   top: 20px;
@@ -179,6 +180,7 @@ export const FilterContainer = styled.aside`
   flex-direction: column;
   gap: 0.5em;
   padding-right: 1em;
+  overflow-y: auto;
 
   @media screen and (${devices.lg}) {
     margin-top: 2.2em;
