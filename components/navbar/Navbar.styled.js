@@ -6,11 +6,10 @@ import { devices } from "@/constants/theme";
 
 export const MainContainer = styled.header`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 12;
 `;
 
 export const NavbarContainer = styled.nav`
@@ -34,7 +33,6 @@ export const LeftContainer = styled.div`
   justify-content: start;
   align-items: center;
   padding: 1rem 1rem;
-  margin-left: 1em;
 `;
 
 export const RightContainer = styled.div`
@@ -65,7 +63,7 @@ export const NavbarLinkContainer = styled.div`
   display: flex;
   flex: 70%;
   justify-content: end;
-  margin-right: 2rem;
+  margin-right: 1em;
   align-items: center;
 `;
 
@@ -172,11 +170,16 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
   padding-bottom: 0.5em;
+  color: ${({ theme, isActive }) => isActive && theme.colors.brandBlue};
+`;
+
+export const MenuItem = styled(Typography)`
+  color: ${({ theme, isActive }) => isActive && theme.colors.brandBlue};
 `;
 
 export const LogoContainer = styled.div`
   width: 400px;
-  height: 100%;
+  aspect-ratio: 380/42;
   position: relative;
   display: flex;
   justify-content: start;

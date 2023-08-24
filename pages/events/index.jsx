@@ -1,7 +1,5 @@
-import Navbar from "@/components/navbar/Navbar";
-import EventsPage from "@/components/eventsPage/EventsPage";
 import Head from "next/head";
-import Footer from "@/components/display/footer/Footer";
+import EventsPage from "@/components/eventsPage/EventsPage";
 
 function Events() {
   return (
@@ -16,9 +14,7 @@ function Events() {
         />
         <meta property="og:image" content={"/images/gdsc_fallback.png"} />
       </Head>
-      <Navbar />
       <EventsPage />
-      <Footer />
     </>
   );
 }

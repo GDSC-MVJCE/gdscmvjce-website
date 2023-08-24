@@ -63,7 +63,7 @@ function EventsSection() {
             src={event.thumbnail ?? "/images/gdsc_fallback.png"}
             fill="responsive"
             alt={event.title}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
             style={{
               borderRadius: "8px",
               objectFit: "cover"

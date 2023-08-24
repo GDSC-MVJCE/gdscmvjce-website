@@ -3,11 +3,13 @@ import { NextResponse } from "next/server";
 
 const { hashAPIKey } = require("./lib/createHash");
 
-const apikey = process.env.APIKEY;
+const apikey = process.env.NEXT_PUBLIC_APIKEY;
 
 export default async function middleware(req) {
   const expectedAPIKey = await hashAPIKey(apikey);
-  if (expectedAPIKey !== req.headers.get("x-api-key")) {
+  const receivedAPIKey = await hashAPIKey(req.headers.get("x-api-key"));
+
+  if (expectedAPIKey !== receivedAPIKey) {
     return new NextResponse(
       JSON.stringify({
         status: StatusCodes.UNAUTHORIZED,

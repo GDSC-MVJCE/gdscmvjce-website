@@ -28,7 +28,9 @@ import {
   SpeakersCardContainer,
   SpeakersContainer,
   Button,
-  ScheduleCardColorWrapper
+  ScheduleCardColorWrapper,
+  EventTagsContainer,
+  EventTag
 } from "./EventPage.styled";
 import Typography from "../display/typography/Typography";
 import Avatar from "../avatar/Avatar";
@@ -94,7 +96,7 @@ function EventPage({ eventData }) {
               }
               alt="bannerImg"
               fill="responsive"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
               style={{
                 objectFit: "cover",
                 borderRadius: "inherit"
@@ -104,7 +106,9 @@ function EventPage({ eventData }) {
           <EventWrapper>
             <Left>
               <ContentContainer>
-                <Typography variant="h1">{eventData.title}</Typography>
+                <Typography variant="displayLarge">
+                  {eventData.title}
+                </Typography>
                 <EventInfo>
                   <Typography variant="body">
                     {eventData.description}
@@ -120,6 +124,19 @@ function EventPage({ eventData }) {
                   </ScheduleCardsContainer>
                 </ScheduleContainer>
               )}
+              <EventTagsContainer>
+                {eventData.tags.map((tag) => (
+                  <Link
+                    key={tag.id}
+                    href={`/events?type=${tag.slug}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <EventTag>
+                      <Typography variant="body">{tag.label}</Typography>
+                    </EventTag>
+                  </Link>
+                ))}
+              </EventTagsContainer>
               {eventData.speakers != undefined &&
                 eventData.speakers.length > 0 && (
                   <SpeakersContainer>

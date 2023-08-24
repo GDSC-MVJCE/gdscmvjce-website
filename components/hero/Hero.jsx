@@ -142,7 +142,7 @@ const Hero = () => {
     <HeroSectionContainer>
       {!isMobile ? (
         <ScrollContainer snap="none">
-          <ScrollPage debugBorder>
+          <ScrollPage>
             <Animator animation={batch(Fade(0, 1), Sticky(), Zoom(8, 1))}>
               <LogoContainer>
                 <GDSCLogo className="gdscLogo" />
@@ -161,7 +161,7 @@ const Hero = () => {
               </LogoContainer>
             </Animator>
           </ScrollPage>
-          <ScrollPage debugBorder>
+          <ScrollPage>
             <Animator animation={batch(Fade(), Sticky(), MoveIn())}>
               <HeroBackgroundContainer>
                 <div className="mainText">
