@@ -1,23 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import {
   FooterContainer,
   FooterGithub,
-  FooterLogo,
   FooterMeta,
   FooterSocialIcons,
   FooterSocials,
-  HeartIcon,
   LogoContainer,
   LogoWrapper
 } from "./Footer.styled";
-import Logo from "../../../public/logo.svg";
 import Typography from "../typography/Typography";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import Image from "next/image";
 
 const Footer = () => {
   return (
