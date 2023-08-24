@@ -2,6 +2,7 @@ import React from "react";
 import {
   FooterContainer,
   FooterGithub,
+  FooterLogo,
   FooterMeta,
   FooterSocialIcons,
   FooterSocials,
@@ -19,7 +20,9 @@ const Footer = () => {
   return (
     <FooterContainer>
       <LogoContainer>
-        <Logo />
+        <FooterLogo>
+          <Logo />
+        </FooterLogo>
 
         <Typography variant="bodySmall" subdued>
           Near ITPB, Channasandra, Bangalore - 560067
