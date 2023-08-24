@@ -50,6 +50,10 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
+    setIsOpen(false);
+  }, [path]);
+
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflowY = "hidden";
     } else {
