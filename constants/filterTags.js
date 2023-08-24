@@ -97,13 +97,13 @@ export const blogFilters = [
   {
     label: "ML",
     slug: "ml"
-  },
-  {
-    label: "Roadmap",
-    slug: "roadmap"
-  },
-  {
-    label: "Web",
-    slug: "web"
   }
+  //   {
+  //     label: "Roadmap",
+  //     slug: "roadmap"
+  //   },
+  //   {
+  //     label: "Web",
+  //     slug: "web"
+  //   }
 ];
