@@ -24,6 +24,10 @@ export const LogoContainer = styled.div`
   gap: 10px;
 `;
 
+export const FooterLogo = styled.div`
+  padding-right: 20px;
+`;
+
 export const FooterSocials = styled.div`
   display: flex;
   gap: 20px;
