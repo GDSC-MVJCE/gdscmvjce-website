@@ -96,7 +96,7 @@ function EventPage({ eventData }) {
               }
               alt="bannerImg"
               fill="responsive"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 80vw"
               style={{
                 objectFit: "cover",
                 borderRadius: "inherit"

@@ -5,8 +5,8 @@ import { devices } from "@/constants/theme";
 export const IntroContainer = styled.section`
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 80vh;
+  min-height: 80dvh;
   display: flex;
   align-items: center;
   padding: 0px 80px;
@@ -18,7 +18,7 @@ export const IntroContainer = styled.section`
 
   @media screen and (${devices.sm}) {
     padding: 0px 10px;
-    margin-bottom: 4em;
+    margin-bottom: 1em;
   }
 `;
 

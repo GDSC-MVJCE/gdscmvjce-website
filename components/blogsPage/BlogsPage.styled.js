@@ -116,12 +116,8 @@ export const BlogsCard = styled(motion.article)`
 
 export const BlogsFilterTitle = styled.div`
   width: 100%;
-  margin-left: 1em;
+  padding-left: 1em;
   z-index: 11;
-
-  @media screen and (${devices.lg}) {
-    margin-bottom: -3em;
-  }
 `;
 
 export const ImageContainer = styled(motion.div)`
@@ -150,7 +146,7 @@ export const BlogInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1em;
+  gap: 0.2em;
   margin: 2.3em 1.3em;
   padding: 0;
   overflow: hidden;
@@ -185,7 +181,6 @@ export const FilterContainer = styled.aside`
 
   @media screen and (${devices.lg}) {
     flex-direction: row;
-    margin-top: 2.2em;
     align-items: flex-end;
     padding-bottom: 1em;
   }
@@ -214,4 +209,18 @@ export const FilterCard = styled(motion.div)`
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(90px);
   }
+`;
+
+export const AuthorInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+`;
+
+export const CardFooter = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: space-between;
+  padding-top: 0.2em;
 `;

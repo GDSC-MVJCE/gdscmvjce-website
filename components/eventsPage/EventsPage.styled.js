@@ -115,12 +115,8 @@ export const EventsCard = styled(motion.article)`
 
 export const EventsFilterTitle = styled.div`
   width: 100%;
-  margin-left: 1em;
+  padding-left: 1em;
   z-index: 11;
-
-  @media screen and (${devices.lg}) {
-    margin-bottom: -3em;
-  }
 `;
 
 export const ImageContainer = styled(motion.div)`
@@ -183,7 +179,6 @@ export const FilterContainer = styled.aside`
   overflow-y: auto;
 
   @media screen and (${devices.lg}) {
-    margin-top: 2.2em;
     flex-direction: row;
     align-items: flex-end;
     padding-bottom: 1em;
