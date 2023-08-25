@@ -19,13 +19,13 @@ export const GradientBall = styled.div`
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  opacity: 0.4;
+  opacity: 0.2;
   z-index: 1;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  filter: blur(90px);
+  filter: blur(50px);
   ${({ ballNo, theme }) => {
     switch (ballNo) {
       case 1:
