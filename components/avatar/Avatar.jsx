@@ -20,7 +20,12 @@ const Avatar = ({
       borderColor={borderColor}
       ref={ref}
     >
-      <Image src={url} alt="Avatar" fill={true} priority={priority} />
+      <Image
+        src={url ?? "/images/gdsc_fallback.png"}
+        alt="Avatar"
+        fill={true}
+        priority={priority}
+      />
     </AvatarWrapper>
   );
 };
