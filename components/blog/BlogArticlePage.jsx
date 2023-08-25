@@ -15,11 +15,11 @@ import {
   ArticleTitleContainer,
   BannerImgContainer,
   HorizontalLine
-} from "./BlogArticle.styled";
+} from "./BlogArticlePage.styled.js";
 import Typography from "@/components/display/typography/Typography";
 import Avatar from "@/components/avatar/Avatar";
 
-const BlogArticle = ({ article }) => {
+const BlogArticlePage = ({ article }) => {
   return (
     <Article>
       <ArticleTitleContainer>
@@ -74,4 +74,4 @@ const BlogArticle = ({ article }) => {
   );
 };
 
-export default BlogArticle;
+export default BlogArticlePage;
