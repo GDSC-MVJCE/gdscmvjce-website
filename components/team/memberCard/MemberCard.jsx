@@ -10,7 +10,8 @@ import Link from "next/link";
 const MemberCard = ({ member, avatarBorderColor, avatarSize = "lg" }) => {
   return (
     <Link
-      href={`/profile/${member.profile.username}`}
+      href={`${member.profile.profileLink}`}
+      target="_blank"
       style={{
         textDecoration: "none"
       }}

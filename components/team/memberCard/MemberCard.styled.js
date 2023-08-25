@@ -2,16 +2,15 @@ import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
 
 export const MemberCardContainer = styled.div`
-  min-width: 150px;
   min-height: 230px;
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
-  max-width: 200px;
+  width: 200px;
   @media screen and (${devices.xl}) {
-    max-width: 150px;
+    width: 150px;
   }
   &:hover {
     cursor: pointer;
