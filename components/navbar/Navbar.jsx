@@ -100,6 +100,7 @@ function Navbar() {
                   alt={"GDSC Logo"}
                   fill="responsive"
                   sizes="500px"
+                  priority={true}
                 />
               </Link>
             </LogoContainer>
