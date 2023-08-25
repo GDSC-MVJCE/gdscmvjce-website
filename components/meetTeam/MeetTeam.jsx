@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import {
   MainContainer,
@@ -66,7 +67,9 @@ function MeetTeam() {
         <Typography variant="h1">
           Discover the great minds behind GDSC.
         </Typography>
-        <MeetButton>Meet our team</MeetButton>
+        <Link href="/team" style={{ textDecoration: "none" }}>
+          <MeetButton>Meet our team</MeetButton>
+        </Link>
       </RightContainer>
     </MainContainer>
   );
