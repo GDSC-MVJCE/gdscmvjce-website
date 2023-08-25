@@ -86,18 +86,18 @@ export const blogFilters = [
     label: "All",
     slug: "all"
   },
-  {
-    label: "Android",
-    slug: "android"
-  },
+  // {
+  //   label: "Android",
+  //   slug: "android"
+  // },
   {
     label: "Events",
     slug: "events"
-  },
-  {
-    label: "ML",
-    slug: "ml"
   }
+  // {
+  //   label: "ML",
+  //   slug: "ml"
+  // }
   //   {
   //     label: "Roadmap",
   //     slug: "roadmap"

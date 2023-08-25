@@ -24,11 +24,11 @@ import {
   MouseContainer,
   MouseScroll
 } from "./Hero.styled.js";
-import GDSCLogo from "@logos/gdsc-logo.svg";
 import Xarrow, { Xwrapper, useXarrow } from "react-xarrows";
 import Avatar from "../avatar/Avatar";
 import { devices } from "@/constants/theme.js";
 import MobileHero from "./MobileHero.jsx";
+import Image from "next/image.js";
 
 const Hero = () => {
   const heroTextElements = useMemo(
@@ -145,7 +145,12 @@ const Hero = () => {
           <ScrollPage>
             <Animator animation={batch(Fade(0, 1), Sticky(), Zoom(8, 1))}>
               <LogoContainer>
-                <GDSCLogo className="gdscLogo" />
+                <Image
+                  src="/logos/gdsc-logo.svg"
+                  alt="GDSC Logo"
+                  priority
+                  fill
+                />
                 <MouseContainer>
                   <MouseScroll
                     animate={{
@@ -211,6 +216,7 @@ const Hero = () => {
                         url={element.url}
                         borderColor={element.borderColor}
                         blur={true}
+                        priority={true}
                       />
                     </HeroAvatarWrapper>
                   ))}

@@ -141,7 +141,7 @@ export const ExploreButton = styled.div`
 
   &:hover {
     color: #ffffff;
-    border: 1px solid ${({ theme }) => theme.colors.brandBlue};
+    border: 2px solid ${({ theme }) => theme.colors.brandBlue};
   }
 
   &:hover:before {

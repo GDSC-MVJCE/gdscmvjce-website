@@ -24,6 +24,7 @@ export const LogoContainer = styled.div`
   width: 400px;
   height: 400px;
   overflow: hidden;
+  position: relative;
 
   @media (${devices.lg}) {
     width: 200px;

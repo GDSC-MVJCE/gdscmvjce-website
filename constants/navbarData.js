@@ -9,7 +9,7 @@ export const navbarData = [
   },
   {
     title: "Team",
-    path: "/teams"
+    path: "/team"
   },
   {
     title: "Blogs",
