@@ -157,7 +157,7 @@ export const ApplyButton = styled.button`
 
   &:hover {
     color: #ffffff;
-    border: 1px solid #0a5ce4;
+    border: 2px solid #0a5ce4;
     transform: scale(1.05);
   }
 
@@ -225,7 +225,7 @@ export const FAQButton = styled.button`
   }
 
   &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.bgSecondary};
+    border: 2px solid ${({ theme }) => theme.colors.bgSecondary};
     transform: scale(1.05);
   }
 

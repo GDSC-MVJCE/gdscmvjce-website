@@ -25,7 +25,7 @@ export default function Home() {
         <Intro />
         {/* <OfferSection /> */}
         <TeamIntro />
-        {/* <MeetTeam /> */}
+        <MeetTeam />
         <EventsSection />
         {/* <GalleryCarousel /> */}
         <BlogsSection />
