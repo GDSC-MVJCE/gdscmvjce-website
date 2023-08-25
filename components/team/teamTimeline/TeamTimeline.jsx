@@ -139,7 +139,7 @@ const TeamTimeline = () => {
             <Typography variant="h4">Team 2021</Typography>
             <ul>
               <li>
-                Pioneered GDSC MVJCE's inception, bringing the club to the
+                Pioneered GDSC MVJCE&apos;s inception, bringing the club to the
                 college community.
               </li>
               <li>
