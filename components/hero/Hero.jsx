@@ -211,6 +211,7 @@ const Hero = () => {
                         url={element.url}
                         borderColor={element.borderColor}
                         blur={true}
+                        priority={true}
                       />
                     </HeroAvatarWrapper>
                   ))}
