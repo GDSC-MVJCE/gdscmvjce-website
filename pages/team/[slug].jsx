@@ -21,7 +21,7 @@ const Team = ({ teamData }) => {
             "The amazing team behind GDSC MVJCE working dilligently towards empowering the student developer community in our college."
           }
         />
-        <meta property="og:image" content={"/logos/gdsc-logo.svg"} />
+        <meta property="og:image" content={"/images/gdsc_fallback.png"} />
       </Head>
       <TeamPage teamData={teamData} />
     </>
