@@ -89,8 +89,7 @@ export const typography = {
   },
   displayLarge: {
     fontWeight: "700",
-    fontSize: "56px",
-    letterSpacing: "0.4px"
+    fontSize: "56px"
   }
 };
 
