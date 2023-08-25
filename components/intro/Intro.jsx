@@ -55,21 +55,21 @@ function Intro() {
 
   const avatarData = [
     {
-      url: "../../images/events/Event1.jpg",
+      url: "/images/events/Event1.jpg",
       alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandBlue,
       x: 0,
       y: 30
     },
     {
-      url: "../../images/events/Event2.png",
+      url: "/images/events/Event2.png",
       alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandGreen,
       x: isMobile ? 190 : 250,
       y: 100
     },
     {
-      url: "../../images/events/Event3.jpg",
+      url: "/images/events/Event3.jpg",
       alt: "Web Development Workshop Image",
       borderColor: theme.colors.brandYellow,
       x: 50,

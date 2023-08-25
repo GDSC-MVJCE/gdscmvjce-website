@@ -87,6 +87,7 @@ model Team {
     id      Int          @id @default(autoincrement())
     name    String
     members TeamMember[]
+    slug    String?      @unique
 }
 
 model TeamMember {
@@ -96,6 +97,7 @@ model TeamMember {
     profile   Profile @relation(fields: [profileId], references: [id])
     profileId Int
     role      String
+    priority  Int?
     type      String  @default("member")
 
     @@index([profileId])

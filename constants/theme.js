@@ -48,22 +48,15 @@ export const typography = {
     letterSpacing: "0.4px"
   },
   h4: {
-    fontWeight: "600",
+    fontWeight: "500",
     fontSize: "24px",
     lineHeight: "33px",
-    letterSpacing: "0.4px"
+    letterSpacing: "0.2px"
   },
   h5: {
     fontWeight: "500",
     fontSize: "20px",
-    lineHeight: "27px",
-    letterSpacing: "0.4px"
-  },
-  h5: {
-    fontWeight: "500",
-    fontSize: "16px",
-    lineHeight: "22px",
-    letterSpacing: "0.4px"
+    lineHeight: "27px"
   },
   body: {
     fontWeight: "400",
@@ -96,8 +89,7 @@ export const typography = {
   },
   displayLarge: {
     fontWeight: "700",
-    fontSize: "56px",
-    letterSpacing: "0.4px"
+    fontSize: "56px"
   }
 };
 

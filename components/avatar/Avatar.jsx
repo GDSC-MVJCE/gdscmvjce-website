@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AvatarWrapper } from "./Avatar.styled";
 
 const Avatar = ({
@@ -8,17 +9,19 @@ const Avatar = ({
   borderColor,
   className,
   ref,
+  priority = false
 }) => {
   return (
     <AvatarWrapper
       size={size}
-      url={url}
       blur={blur}
       className={className}
       borderWidth={borderWidth}
       borderColor={borderColor}
       ref={ref}
-    />
+    >
+      <Image src={url} alt="Avatar" fill={true} priority={priority} />
+    </AvatarWrapper>
   );
 };
 
