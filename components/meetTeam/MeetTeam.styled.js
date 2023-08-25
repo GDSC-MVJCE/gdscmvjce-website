@@ -65,10 +65,10 @@ export const RightContainer = styled.div`
   }
 `;
 
-export const MeetButton = styled.button`
-  background: ${({ theme }) => theme.colors.bgPrimary};
+export const MeetButton = styled.div`
+  background: ${({ theme }) => theme.colors.brandYellow + 90};
   border: 2px solid ${({ theme }) => theme.colors.brandYellow};
-  color: ${({ theme }) => theme.colors.contentPrimary};
+  color: white;
   padding: 0.8em 2.5em;
   cursor: pointer;
   font-size: 1.2em;
@@ -120,7 +120,7 @@ export const MeetButton = styled.button`
 
   &:hover:after {
     top: -45%;
-    background-color: ${({ theme }) => theme.colors.brandYelow};
+    background-color: ${({ theme }) => theme.colors.brandYellow};
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
 
