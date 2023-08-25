@@ -11,10 +11,12 @@ export const AboutSectionWrapper = styled.section`
   justify-content: center;
   align-items: center;
   padding: 40px 80px 0px 80px;
+  margin-top: 8em;
 
   @media screen and (${devices.lg}) {
     flex-direction: column;
     padding: 10px 20px;
+    margin-top: 0em;
   }
 
   @media screen and (${devices.sm}) {
