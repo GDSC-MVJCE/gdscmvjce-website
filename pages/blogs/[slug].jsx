@@ -1,6 +1,6 @@
 import Head from "next/head";
 import prisma from "@/lib/prisma";
-import BlogArticle from "@/components/blog/BlogArticle";
+import BlogArticlePage from "@/components/blog/BlogArticlePage";
 
 const BlogPage = ({ articleData }) => {
   return (
@@ -12,7 +12,7 @@ const BlogPage = ({ articleData }) => {
         <meta property="og:description" content={articleData.content} />
         <meta property="og:image" content={articleData.thumbnail} />
       </Head>
-      <BlogArticle article={articleData} />
+      <BlogArticlePage article={articleData} />
     </>
   );
 };
