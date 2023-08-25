@@ -155,6 +155,7 @@ const MobileHero = () => {
                 size="md"
                 url={element.url}
                 borderColor={element.borderColor}
+                priority={true}
                 blur={true}
               />
             </HeroAvatarWrapper>
