@@ -27,8 +27,9 @@ function Logo() {
       materials[`mat${i}`].blending = THREE.MultiplyBlending;
       materials[`mat${i}`].side = THREE.FrontSide;
       materials[`mat${i}`].emissiveIntensity = 0;
-      materials[`mat${i}`].roughness = 0;
-      materials[`mat${i}`].metalness = 1;
+      materials[`mat${i}`].roughness = 0.1;
+      materials[`mat${i}`].metalness = 0.5;
+      materials[`mat${i}`].transparent = false;
     }
   }, [materials]);
 
@@ -80,22 +81,12 @@ function LogoCanvas() {
           enablePan={false}
         />
         <gridHelper
-          args={[
-            18,
-            5,
-            theme.colors.contentSecondary,
-            theme.colors.contentSecondary
-          ]}
-          position={[0, 3.4, 0]}
+          args={[18, 5, "#D9D9D9", "#D9D9D9"]}
+          position={[0, 2.8, 0]}
         />
         <gridHelper
-          args={[
-            18,
-            5,
-            theme.colors.contentSecondary,
-            theme.colors.contentSecondary
-          ]}
-          position={[0, -3.4, 0]}
+          args={[18, 5, "#D9D9D9", "#D9D9D9"]}
+          position={[0, -2.8, 0]}
         />
         <Logo />
       </Suspense>
