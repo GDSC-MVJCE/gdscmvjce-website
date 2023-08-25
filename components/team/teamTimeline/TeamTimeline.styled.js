@@ -3,6 +3,8 @@ import { styled } from "styled-components";
 
 export const TeamTimelineContainer = styled.div`
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
