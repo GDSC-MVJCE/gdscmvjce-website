@@ -7,6 +7,9 @@ import AuthProvider from "@/components/AuthProvider";
 import GradientAnimation from "@/components/gradientAnimation/GradientAnimation";
 import Layout from "@/components/layout";
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import Loader from "@/components/display/loader/Loader";
+import { useRouter } from "next/router";
 
 const myFont = localFont({
   src: [
@@ -29,6 +32,38 @@ const myFont = localFont({
 });
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2800);
+  }, []);
+
+  useEffect(() => {
+    let loadingTimeout;
+    const handleRouteChange = (url) => {
+      setLoading(true);
+    };
+
+    const handleRouteChangeComplete = () => {
+      clearTimeout(loadingTimeout);
+
+      loadingTimeout = setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+      clearTimeout(loadingTimeout);
+    };
+  }, [router.events]);
+
   return (
     <>
       <Head>
@@ -54,6 +89,7 @@ export default function App({ Component, pageProps }) {
       <AuthProvider>
         <ThemeProvider theme={lightTheme}>
           <GlobalStyles />
+          {loading && <Loader />}
           <main className={myFont.className}>
             <Layout>
               <Component {...pageProps} />
