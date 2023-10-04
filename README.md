@@ -1,39 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GDSC MVJCE Website
 
-## Getting Started
+Welcome to the official repository for the GDSC MVJCE Website, built with Next.js, Styled Components, and Prisma! This website serves as the central hub for all things tech-related at GDSC MVJCE. From insightful blog posts to incredible community projects, and from exciting tech events to getting to know our team, you'll find it all here.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Home
+A warm welcome to the hub of all things tech! The home page provides a glimpse into the vibrant tech community of GDSC MVJCE.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Blog
+Dive into our blog section to read insightful articles and tech talks. Stay updated with the latest trends, technologies, and opinions from our community members.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Projects
+Discover the incredible projects our community is working on. From innovative apps to impactful solutions, explore the diverse range of projects developed by GDSC MVJCE members.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Events
+Stay updated on our workshops, webinars, and hackathons. Find information about upcoming events, participate, and enhance your skills alongside fellow tech enthusiasts.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### About Us
+Get to know the faces behind GDSC MVJCE and our mission. Learn about our team members, their expertise, and the passion that drives us to create a thriving tech community.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Connect
+Follow us on social media and join the conversation. Stay connected with GDSC MVJCE through various social platforms and engage with us on tech-related discussions.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js:** A popular React framework for building modern web applications.
+- **Styled Components:** Utilized for styling components with a focus on simplicity and reusability.
+- **Prisma:** A modern database toolkit and ORM for Node.js and TypeScript, used for efficient database operations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+We welcome contributions from the community! If you have ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is licensed under the [MIT License](LICENSE).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-## Readme Test for Deployment Dev push
+
+Thank you for visiting the GDSC MVJCE Website repository! We hope you find the content here inspiring and engaging. If you have any questions or feedback, don't hesitate to reach out. Happy coding! 🚀
+
+**GDSC MVJCE Team**
+*Connect. Learn. Grow.*
