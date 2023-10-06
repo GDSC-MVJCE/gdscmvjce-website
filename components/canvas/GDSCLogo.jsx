@@ -5,7 +5,6 @@ import {
   useGLTF,
   OrbitControls,
   PerspectiveCamera,
-  CubeCamera,
   Environment
 } from "@react-three/drei";
 
