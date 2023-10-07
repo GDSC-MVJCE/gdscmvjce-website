@@ -10,11 +10,12 @@ import {
 
 import CanvasLoader from "../loaders/CanvasLoader";
 import { StyledCanvas } from "./GDSCLogo.styled";
+import GDSCModel from "./models/GDSCModel";
 
 const modelPath = "/models/gdsc_model.gltf";
 
 function Logo() {
-  const { scene, materials } = useGLTF(modelPath);
+  const { nodes, materials } = useGLTF(modelPath);
 
   useLayoutEffect(() => {
     for (let i = 0; i < 8; i++) {
@@ -27,7 +28,12 @@ function Logo() {
 
   return (
     <mesh>
-      <primitive object={scene} scale={0.4} position={[0, 0, 0]} />
+      <GDSCModel
+        nodes={nodes}
+        materials={materials}
+        scale={0.115}
+        position={[0, 0, 0]}
+      />
     </mesh>
   );
 }
