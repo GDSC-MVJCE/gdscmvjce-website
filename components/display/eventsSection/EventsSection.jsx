@@ -21,7 +21,6 @@ import fetcher from "@/utils/fetcher";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import { devices } from "@/constants/theme";
-import truncateText from "@/utils/truncate";
 
 function EventsSection() {
   const theme = useTheme();

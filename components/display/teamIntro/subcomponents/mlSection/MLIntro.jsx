@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   LogosWrapper,
   MLIntroContainer,
   PhoneContainer,
-  ScreenContent,
-} from './MLIntro.styled';
+  ScreenContent
+} from "./MLIntro.styled";
 
-import PhoneImg from '@public/images/phone.svg';
-import Typography from '@/components/display/typography/Typography';
-import { TypingEffect } from '@/components/display/typography/typingEffect/TypingEffect';
-import TensorFlowLogo from '../tensorflowlogo/TensorFlowLogo';
+import PhoneImg from "@public/images/phone.svg";
+import { TypingEffect } from "@/components/display/typography/typingEffect/TypingEffect";
+import TensorFlowLogo from "../tensorflowlogo/TensorFlowLogo";
 
 const MLIntro = () => {
   const [showTyping, setShowTyping] = React.useState(false);

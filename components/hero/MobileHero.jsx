@@ -9,7 +9,6 @@ import {
 } from "./Hero.styled.js";
 import Xarrow, { Xwrapper, useXarrow } from "react-xarrows";
 import Avatar from "../avatar/Avatar";
-import { devices } from "@/constants/theme.js";
 
 const MobileHero = () => {
   const heroTextElements = useMemo(

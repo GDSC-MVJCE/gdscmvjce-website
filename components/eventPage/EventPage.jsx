@@ -1,8 +1,6 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import dayjs from "dayjs";
-import useSWR from "swr";
 import parse from "html-react-parser";
 
 import {
