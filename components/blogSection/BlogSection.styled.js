@@ -1,5 +1,6 @@
 import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
+import Tilt from "react-parallax-tilt";
 
 export const Container = styled.div`
   width: 100%;
@@ -27,10 +28,10 @@ export const BlogCardContainer = styled.div`
   gap: 1em;
 `;
 
-export const BlogCard = styled.article`
-  width: 30%;
+export const BlogCard = styled(Tilt)`
+  width: 420px;
   height: 100%;
-  min-height: 710px;
+  min-height: 520px;
   display: flex;
   flex-direction: column;
   border: 2px solid ${({ theme }) => theme.colors.bgTertiary};
@@ -40,7 +41,7 @@ export const BlogCard = styled.article`
   justify-content: space-between;
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   transition: all 0.3s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 1);
   backdrop-filter: blur(90px);
 
   &:hover {
@@ -48,13 +49,9 @@ export const BlogCard = styled.article`
     transform: scale(1.01);
   }
 
-  @media screen and (${devices.lg}) {
-    width: 300px;
-    min-height: 610px;
-  }
-
-  @media screen and (${devices.md}) {
-    min-height: 550px;
+  @media screen and (${devices.sm}) {
+    width: 100%;
+    min-height: auto;
   }
 `;
 
@@ -66,13 +63,12 @@ export const BlogInfo = styled.div`
   margin-top: 1em;
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   background: ${({ theme }) => theme.colors.brandBlue};
   width: 100%;
   height: 100%;
   padding: 0.8em;
   color: white;
-  cursor: pointer;
   text-align: center;
   border-radius: 8px;
   position: relative;
@@ -97,13 +93,12 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const ExploreButton = styled.div`
+export const ExploreButton = styled.button`
   background: ${({ theme }) => theme.colors.bgPrimary};
   border: 2px solid ${({ theme }) => theme.colors.brandBlue};
   color: ${({ theme }) => theme.colors.contentPrimary};
   width: 300px;
   padding: 0.8em;
-  cursor: pointer;
   text-align: center;
   border-radius: 8px;
   transition: all 0.4s ease;
@@ -158,10 +153,11 @@ export const ExploreButton = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  aspect-ratio: 1/1;
+  aspect-ratio: 16/9;
   width: 100%;
   position: relative;
   margin-bottom: 1em;
+  object-fit: cover;
 `;
 
 export const TopContainer = styled.div`
@@ -178,7 +174,7 @@ export const BottomContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
-  gap: 0.5em;
+  gap: 0.8em;
 `;
 
 export const AuthorInfo = styled.div`

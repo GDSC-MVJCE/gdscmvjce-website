@@ -72,7 +72,7 @@ function BlogsSection() {
           />
         </ImageContainer>
         <Typography variant="h4">{blog.title}</Typography>
-        <Typography variant="body">
+        <Typography variant="bodySmall">
           {truncateText(blog.shortDescription, limit)}
         </Typography>
       </TopContainer>

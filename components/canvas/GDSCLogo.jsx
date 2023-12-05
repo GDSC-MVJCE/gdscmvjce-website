@@ -60,14 +60,14 @@ function LogoCanvas() {
         enablePan={false}
       />
       <Suspense fallback={<CanvasLoader />}>
-        <gridHelper
+        {/* <gridHelper
           args={[18, 5, "#D9D9D9", "#D9D9D9"]}
           position={[0, 2.8, 0]}
         />
         <gridHelper
           args={[18, 5, "#D9D9D9", "#D9D9D9"]}
           position={[0, -2.8, 0]}
-        />
+        /> */}
         <Logo />
       </Suspense>
       <Preload all />
