@@ -95,10 +95,10 @@ export const EventsCard = styled(motion.article)`
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(90px);
+  backdrop-filter: blur(10px);
 
   &:hover {
-    box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.16);
     transform: scale(1.01);
   }
 
