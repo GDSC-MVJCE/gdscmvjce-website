@@ -179,7 +179,7 @@ export const SpeakerCard = styled.div`
   padding: 2em;
   gap: 1em;
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg"), auto;
   transition: all 0.2s ease-in-out;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(90px);
@@ -262,7 +262,6 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.brandBlue};
   letter-spacing: 1px;
   border-radius: 10px;
-  cursor: pointer;
   transition: all 0.5s ease-in-out;
 
   &:hover {

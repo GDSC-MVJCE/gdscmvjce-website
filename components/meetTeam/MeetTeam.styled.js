@@ -65,12 +65,11 @@ export const RightContainer = styled.div`
   }
 `;
 
-export const MeetButton = styled.div`
+export const MeetButton = styled.button`
   background: ${({ theme }) => theme.colors.brandYellow + 90};
   border: 2px solid ${({ theme }) => theme.colors.brandYellow};
   color: white;
   padding: 0.8em 2.5em;
-  cursor: pointer;
   font-size: 1.2em;
   text-align: center;
   border-radius: 8px;

@@ -87,7 +87,6 @@ export const Button = styled.button`
   border-radius: 50px;
   border: 2px solid ${({ theme }) => theme.colors.contentPrimary};
   width: fit-content;
-  cursor: pointer;
   background: ${({ inView, bgcolor, theme }) =>
     inView ? bgcolor : "transparent"};
   font-weight: 500;

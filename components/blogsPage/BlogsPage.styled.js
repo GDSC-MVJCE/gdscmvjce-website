@@ -89,7 +89,7 @@ export const BlogsCard = styled(motion.article)`
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   border-radius: 10px;
   margin-bottom: 1.5em;
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg"), auto;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out,
     transform 0.3s ease-in-out;
   overflow: hidden;
@@ -191,7 +191,7 @@ export const FilterCard = styled(motion.div)`
   height: fit-content;
   padding: 1em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg"), auto;
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.contentPrimary};

@@ -73,7 +73,6 @@ export const TeamButton = styled.button`
   flex-wrap: nowrap;
   padding: 0.75em 1em;
   color: ${({ theme }) => theme.colors.contentPrimary};
-  cursor: pointer;
   background: #fff;
   transition: all 0.2s ease-in-out;
   border: 3px solid #f0f0f0;

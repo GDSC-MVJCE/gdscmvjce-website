@@ -67,13 +67,12 @@ export const BlogInfo = styled.div`
   margin-top: 1em;
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   background: ${({ theme }) => theme.colors.brandBlue};
   width: 100%;
   height: 100%;
   padding: 0.8em;
   color: white;
-  cursor: pointer;
   text-align: center;
   border-radius: 8px;
   position: relative;
@@ -98,13 +97,12 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const ExploreButton = styled.div`
+export const ExploreButton = styled.button`
   background: ${({ theme }) => theme.colors.bgPrimary};
   border: 2px solid ${({ theme }) => theme.colors.brandBlue};
   color: ${({ theme }) => theme.colors.contentPrimary};
   width: 300px;
   padding: 0.8em;
-  cursor: pointer;
   text-align: center;
   border-radius: 8px;
   transition: all 0.4s ease;
