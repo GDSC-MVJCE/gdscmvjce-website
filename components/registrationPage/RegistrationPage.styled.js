@@ -108,6 +108,7 @@ export const ApplyNowContainer = styled.div`
 
   .applyDescription {
     width: 80%;
+    text-align: center;
   }
 `;
 
@@ -121,7 +122,6 @@ export const ApplyButton = styled.button`
   color: ${({ theme }) => theme.colors.bgPrimary};
   font-size: 1.2rem;
   font-weight: 600;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
@@ -190,7 +190,6 @@ export const FAQButton = styled.button`
   border: 1px solid ${({ theme }) => theme.colors.contentSecondary};
   font-size: 1.2rem;
   font-weight: 600;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
@@ -263,6 +262,8 @@ export const ActionsContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  height: fit-content;
+  min-height: 60px;
 
   @media screen and (${devices.md}) {
     flex-direction: column;
