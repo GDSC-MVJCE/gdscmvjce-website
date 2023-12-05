@@ -1,5 +1,6 @@
 import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
+import Tilt from "react-parallax-tilt";
 
 export const Container = styled.div`
   width: 100%;
@@ -27,10 +28,10 @@ export const EventCardContainer = styled.div`
   gap: 1em;
 `;
 
-export const EventCard = styled.article`
-  width: 30%;
+export const EventCard = styled(Tilt)`
+  width: 380px;
   height: 100%;
-  min-height: 670px;
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   border: 2px solid ${({ theme }) => theme.colors.bgTertiary};
@@ -40,7 +41,7 @@ export const EventCard = styled.article`
   justify-content: space-between;
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   transition: all 0.3s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 1);
   backdrop-filter: blur(90px);
 
   &:hover {
