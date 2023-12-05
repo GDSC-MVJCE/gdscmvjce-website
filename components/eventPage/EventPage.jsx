@@ -28,7 +28,8 @@ import {
   Button,
   ScheduleCardColorWrapper,
   EventTagsContainer,
-  EventTag
+  EventTag,
+  HorizontalLine
 } from "./EventPage.styled";
 import Typography from "../display/typography/Typography";
 import Avatar from "../avatar/Avatar";
@@ -74,6 +75,7 @@ function EventPage({ eventData }) {
               <Typography variant="bodySmall">{speaker.title}</Typography>
             </SpeakerName>
           </SpeakerInfo>
+          <HorizontalLine />
           <SpeakerRole>
             <Typography variant="body">
               {truncateText(parse(speaker.description), limit)}

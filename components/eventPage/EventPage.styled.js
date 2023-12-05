@@ -284,4 +284,16 @@ export const EventTag = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.contentSecondary};
   border-radius: 5px;
   padding: 0.5em 1em;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.bgPrimary};
+    box-shadow: 0 0 0 2px #3b83f65f;
+    border-color: #3b83f65f;
+  }
+`;
+
+export const HorizontalLine = styled.hr`
+  width: 100%;
+  border: 1px solid #cdcdcd5f;
 `;
