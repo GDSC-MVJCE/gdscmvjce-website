@@ -2,7 +2,7 @@ import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
 
 export const MainContainer = styled.section`
-  height: 70vh;
+  height: 400px;
   padding: 0 12em;
   display: flex;
   justify-content: center;
@@ -19,7 +19,6 @@ export const MainContainer = styled.section`
 
   @media screen and (${devices.md}) {
     padding: 0 1em;
-    height: 50vh;
     margin-top: 3em;
   }
 `;

@@ -49,13 +49,9 @@ export const BlogCard = styled(Tilt)`
     transform: scale(1.01);
   }
 
-  @media screen and (${devices.lg}) {
-    width: 300px;
-    min-height: 610px;
-  }
-
-  @media screen and (${devices.md}) {
-    min-height: 550px;
+  @media screen and (${devices.sm}) {
+    width: 100%;
+    min-height: auto;
   }
 `;
 
