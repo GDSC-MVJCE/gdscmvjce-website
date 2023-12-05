@@ -81,9 +81,9 @@ function EventsSection() {
           )}
         </DateLine>
         <Typography variant="h4">{event.title}</Typography>
-        <Typography variant="body">
+        {/* <Typography variant="body">
           {truncateText(event.shortDescription, limit)}
-        </Typography>
+        </Typography> */}
       </TopContainer>
       <Link href={`/events/${event.slug}`} style={{ textDecoration: "none" }}>
         <Button>
