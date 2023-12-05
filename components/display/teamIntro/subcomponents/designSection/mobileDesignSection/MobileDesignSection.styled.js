@@ -19,6 +19,8 @@ export const MobileDesignSectionContainer = styled.div`
   align-items: flex-start;
   width: 100%;
   max-width: 500px;
+  height: 100%;
+  min-height: 380px;
   object-fit: cover;
   gap: 2rem;
 
