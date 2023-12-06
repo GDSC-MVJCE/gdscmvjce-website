@@ -12,6 +12,7 @@ const Loader = () => {
         style={{
           width: "50vw"
         }}
+        className="loader"
       />
     </LoaderContainer>
   );

@@ -1,3 +1,4 @@
+import { devices } from "@/constants/theme";
 import { keyframes, styled } from "styled-components";
 
 const fadeOut = keyframes`
@@ -24,4 +25,14 @@ export const LoaderContainer = styled.div`
   left: 0;
   translate: translate(-50%, -50%);
   animation: ${fadeOut} 0.7s ease-in-out 2.4s forwards;
+
+  .loader {
+    margin-left: -65px;
+  }
+
+  @media ${devices.md} {
+    .loader {
+      margin-left: 0;
+    }
+  }
 `;
