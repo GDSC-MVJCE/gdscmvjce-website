@@ -7,9 +7,9 @@ export default function Event({ eventData }) {
     <>
       <Head>
         <title>{eventData.title}</title>
-        <meta name="description" content={eventData.description} />
+        <meta name="description" content={eventData.shortDescription} />
         <meta property="og:title" content={eventData.title} />
-        <meta property="og:description" content={eventData.description} />
+        <meta property="og:description" content={eventData.shortDescription} />
         <meta property="og:image" content={eventData.thumbnail} />
       </Head>
       <EventPage eventData={eventData} />
