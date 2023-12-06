@@ -12,6 +12,7 @@ export const TypographyWrapper = styled.span`
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
+  list-style-position: inside;
 
   color: ${({ color, theme, subdued }) =>
     subdued
