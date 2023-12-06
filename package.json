@@ -37,6 +37,7 @@
     "next": "13.4.7",
     "next-auth": "^4.22.1",
     "next-superjson-plugin": "^0.5.9",
+    "nextjs-toploader": "^1.6.4",
     "prisma": "^5.1.1",
     "prisma-json-schema-generator": "^3.1.5",
     "ra-data-simple-prisma": "^2.3.2",
