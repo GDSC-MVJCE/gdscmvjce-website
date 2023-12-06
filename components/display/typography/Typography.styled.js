@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { devices, mobileTypography, typography } from "@/constants/theme";
 
-export const TypographyWrapper = styled.span`
+export const TypographyWrapper = styled.div`
   font-style: normal;
   background-color: inherit;
   transform-style: preserve-3d;
@@ -13,6 +13,15 @@ export const TypographyWrapper = styled.span`
   -webkit-backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
   list-style-position: inside;
+
+  p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-justify: inter-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    width: inherit;
+  }
 
   color: ${({ color, theme, subdued }) =>
     subdued
@@ -46,6 +55,8 @@ export const TypographyWrapper = styled.span`
         return typography.bodySmallEmphasized;
       case "displayLarge":
         return typography.displayLarge;
+      case "bodyLarge":
+        return typography.bodyLarge;
       case "caption":
         return typography.caption;
       default:

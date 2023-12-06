@@ -8,7 +8,7 @@ export const lightTheme = {
     bgPrimary: "#FFFFFF",
     bgSecondary: "#E9E9E9",
     bgTertiary: "#e9e9e9",
-    contentPrimary: "#131313",
+    contentPrimary: "#000000",
     contentSecondary: "#6e6e6e"
   }
 };
@@ -80,6 +80,12 @@ export const typography = {
     fontSize: "16px",
     fontWeight: "600",
     letterSpacing: "0.4px"
+  },
+  bodyLarge: {
+    fontWeight: "400",
+    fontFamily: "Inter, sans-serif",
+    fontSize: "18px",
+    lineHeight: "32px"
   },
   caption: {
     fontWeight: "400",

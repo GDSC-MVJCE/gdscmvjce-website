@@ -8,7 +8,7 @@ export const Article = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2em 8em;
+  padding: 2em 20em;
 
   @media screen and (${devices.lg}) {
     padding: 2em 4em;
@@ -19,7 +19,7 @@ export const Article = styled.div`
   }
 
   @media screen and (${devices.sm}) {
-    padding: 2em 1em;
+    padding: 2em 2em;
   }
 `;
 
@@ -78,10 +78,17 @@ export const ArticleContentContainer = styled.div`
   align-items: center;
   gap: 2rem;
   width: 100%;
+  overflow-wrap: break-word;
+
+  .blogContent {
+    width: inherit;
+    overflow-wrap: break-word;
+    overflow: hidden;
+  }
 `;
 
 export const BannerImgContainer = styled.div`
-  aspect-ratio: 2560/650;
+  aspect-ratio: 4209/1253;
   width: 100%;
   border-radius: 8px;
   display: flex;

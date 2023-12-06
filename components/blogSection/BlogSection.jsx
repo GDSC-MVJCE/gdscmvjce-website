@@ -93,7 +93,7 @@ function BlogsSection() {
             <Typography variant="bodySmall">{blog.author.name}</Typography>
           </AuthorInfo>
           <Typography variant="bodySmall">
-            {dayjs(blog.startDate).format("D MMM YYYY")}
+            {dayjs(blog.date).format("D MMM YYYY")}
           </Typography>
         </BlogInfo>
         <Link href={`/blogs/${blog.slug}`} style={{ textDecoration: "none" }}>
