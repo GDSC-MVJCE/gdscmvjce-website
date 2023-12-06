@@ -7,10 +7,15 @@ import {
   PerspectiveCamera,
   Environment
 } from "@react-three/drei";
+import { suspend } from "suspend-react";
 
 import CanvasLoader from "../loaders/CanvasLoader";
 import { StyledCanvas } from "./GDSCLogo.styled";
 import GDSCModel from "./models/GDSCModel";
+
+const warehouse = import("@pmndrs/assets/hdri/warehouse.exr").then(
+  (module) => module.default
+);
 
 const modelPath = "/models/gdsc_model.gltf";
 
@@ -48,7 +53,7 @@ function LogoCanvas() {
       }}
     >
       <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={35} />
-      <Environment preset="warehouse" />
+      <Environment files={suspend(warehouse)} />
       <OrbitControls
         makeDefault
         autoRotate
