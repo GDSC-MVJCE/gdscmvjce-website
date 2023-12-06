@@ -80,6 +80,12 @@ export const ArticleContentContainer = styled.div`
   width: 100%;
   overflow-wrap: break-word;
 
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
   .blogContent {
     width: inherit;
     overflow-wrap: break-word;
