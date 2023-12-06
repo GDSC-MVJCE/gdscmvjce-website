@@ -2,7 +2,7 @@ import { devices } from "@/constants/theme";
 import { styled } from "styled-components";
 
 export const MainContainer = styled.section`
-  height: 70vh;
+  height: 400px;
   padding: 0 12em;
   display: flex;
   justify-content: center;
@@ -19,7 +19,6 @@ export const MainContainer = styled.section`
 
   @media screen and (${devices.md}) {
     padding: 0 1em;
-    height: 50vh;
     margin-top: 3em;
   }
 `;
@@ -65,12 +64,11 @@ export const RightContainer = styled.div`
   }
 `;
 
-export const MeetButton = styled.div`
+export const MeetButton = styled.button`
   background: ${({ theme }) => theme.colors.brandYellow + 90};
   border: 2px solid ${({ theme }) => theme.colors.brandYellow};
   color: white;
   padding: 0.8em 2.5em;
-  cursor: pointer;
   font-size: 1.2em;
   text-align: center;
   border-radius: 8px;

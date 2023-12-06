@@ -88,17 +88,17 @@ export const EventsCard = styled(motion.article)`
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   border-radius: 10px;
   margin-bottom: 1.5em;
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg"), auto;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out,
     transform 0.3s ease-in-out;
   overflow: hidden;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(90px);
+  backdrop-filter: blur(10px);
 
   &:hover {
-    box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.16);
     transform: scale(1.01);
   }
 
@@ -190,7 +190,7 @@ export const FilterCard = styled(motion.div)`
   height: fit-content;
   padding: 1em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg"), auto;
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.contentPrimary};

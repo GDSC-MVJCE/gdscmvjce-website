@@ -17,6 +17,10 @@ export const PhoneContainer = styled.div`
   object-fit: cover;
   height: 100%;
   position: relative;
+
+  @media screen and (${devices.lg}) {
+    width: 60%;
+  }
 `;
 
 export const ScreenContent = styled.div`

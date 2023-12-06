@@ -52,7 +52,15 @@ const Footer = () => {
           >
             <LinkedInIcon
               style={{ marginBottom: "-5px" }}
-              sx={{ fontSize: 25 }}
+              sx={{
+                fontSize: 25,
+                transition: "all 0.2s ease-in-out",
+
+                "&:hover": {
+                  transform: "translate(0, -1px)",
+                  color: "#0A66C2"
+                }
+              }}
             />
           </Link>
           <Link
@@ -62,7 +70,15 @@ const Footer = () => {
           >
             <InstagramIcon
               style={{ marginBottom: "-5px" }}
-              sx={{ fontSize: 25 }}
+              sx={{
+                fontSize: 25,
+                transition: "all 0.2s ease-in-out",
+
+                "&:hover": {
+                  transform: "translate(0, -1px)",
+                  color: "#E1306C"
+                }
+              }}
             />
           </Link>
           <Link
@@ -72,7 +88,15 @@ const Footer = () => {
           >
             <TwitterIcon
               style={{ marginBottom: "-5px" }}
-              sx={{ fontSize: 25 }}
+              sx={{
+                fontSize: 25,
+                transition: "all 0.2s ease-in-out",
+
+                "&:hover": {
+                  transform: "translate(0, -1px)",
+                  color: "#1DA1F2"
+                }
+              }}
             />
           </Link>
         </FooterSocialIcons>
@@ -89,7 +113,17 @@ const Footer = () => {
           href="https://github.com/GDSC-MVJCE/gdscmvjce-website"
           target="_blank"
         >
-          <GitHubIcon sx={{ fontSize: 25 }} />
+          <GitHubIcon
+            sx={{
+              fontSize: 25,
+              transition: "all 0.2s ease-in-out",
+
+              "&:hover": {
+                transform: "translate(0, -1px)",
+                color: "#211F1F"
+              }
+            }}
+          />
           <Typography variant="bodySmall" style={{ color: "inherit" }}>
             View source code
           </Typography>

@@ -22,7 +22,7 @@ import UserIcon from "@public/icons/user.svg";
 
 const applicationData = {
   isOpen: false,
-  link: "https://forms.gle/tFG8cDgtThaa3H4p8"
+  link: ""
 };
 
 const RegistrationPage = () => {
