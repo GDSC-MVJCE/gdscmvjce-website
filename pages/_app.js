@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "styled-components";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import NextTopLoader from "nextjs-toploader";
 
 import { lightTheme } from "@/constants/theme";
 import GlobalStyles from "@/constants/globalStyles";
@@ -66,6 +67,21 @@ export default function App({ Component, pageProps }) {
           <GlobalStyles />
           {loading && <Loader />}
           <main className={myFont.className}>
+            <NextTopLoader
+              color="#4285F4"
+              initialPosition={0.05}
+              crawlSpeed={200}
+              height={5}
+              crawl={true}
+              showSpinner={false}
+              easing="ease"
+              speed={200}
+              shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+              template='<div class="bar" role="bar"><div class="peg"></div></div> 
+  <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+              zIndex={1600}
+              showAtBottom={false}
+            />
             <Layout>
               <Component {...pageProps} />
             </Layout>
