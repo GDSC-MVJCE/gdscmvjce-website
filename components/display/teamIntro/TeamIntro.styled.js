@@ -12,10 +12,11 @@ export const TeamIntroContainer = styled.div`
   align-items: center;
   gap: 3rem;
   padding: 2rem 2rem;
+  transition: all 0.2s ease-in-out;
 
   @media screen and (${devices.lg}) {
-    height: 100vh;
-    padding-bottom: 5em;
+    height: 100%;
+    min-height: 430px;
     justify-content: flex-start;
     gap: 1rem;
   }
@@ -29,6 +30,7 @@ export const TeamIntroSectionWrapper = styled.div`
   width: 100%;
   height: 100%;
   gap: 2rem;
+
   @media screen and (${devices.lg}) {
     gap: 2rem;
     flex-direction: column;
@@ -73,7 +75,6 @@ export const TeamButton = styled.button`
   flex-wrap: nowrap;
   padding: 0.75em 1em;
   color: ${({ theme }) => theme.colors.contentPrimary};
-  cursor: pointer;
   background: #fff;
   transition: all 0.2s ease-in-out;
   border: 3px solid #f0f0f0;

@@ -11,10 +11,10 @@ export const eventFilters = [
     label: "Blockchain",
     slug: "blockchain"
   },
-  //   {
-  //     label: "Cloud",
-  //     slug: "cloud"
-  //   },
+  {
+    label: "Cloud",
+    slug: "cloud"
+  },
   {
     label: "Compose",
     slug: "compose"

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import debounce from "lodash.debounce";
 import dynamic from "next/dynamic";
 const Animator = dynamic(

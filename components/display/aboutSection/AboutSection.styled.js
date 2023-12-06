@@ -72,7 +72,7 @@ export const HeadingContainer = styled.div`
 
 export const ClubName = styled(motion.span)`
   display: block;
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg"), auto;
 `;
 
 export const Span = styled.span`

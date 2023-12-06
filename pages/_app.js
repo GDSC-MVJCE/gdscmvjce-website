@@ -1,13 +1,14 @@
+import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import { ThemeProvider } from "styled-components";
+import Head from "next/head";
+import { useEffect, useState } from "react";
 
 import { lightTheme } from "@/constants/theme";
 import GlobalStyles from "@/constants/globalStyles";
 import AuthProvider from "@/components/AuthProvider";
 import GradientAnimation from "@/components/gradientAnimation/GradientAnimation";
 import Layout from "@/components/layout";
-import Head from "next/head";
-import { useEffect, useState } from "react";
 import Loader from "@/components/display/loader/Loader";
 
 const myFont = localFont({
@@ -71,6 +72,7 @@ export default function App({ Component, pageProps }) {
           </main>
           <GradientAnimation />
         </ThemeProvider>
+        <Analytics />
       </AuthProvider>
     </>
   );
