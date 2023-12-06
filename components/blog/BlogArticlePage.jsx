@@ -22,24 +22,9 @@ import Avatar from "@/components/avatar/Avatar";
 const BlogArticlePage = ({ article }) => {
   return (
     <Article>
+      {console.log(article)}
+
       <ArticleTitleContainer>
-        <Typography variant="displayLarge">{article.title}</Typography>
-        <ArticleMetaContainer>
-          <ArticleDate>
-            <Typography variant="body" subdued={true}>
-              {dayjs(article.date).format("D MMM YYYY")}
-            </Typography>
-          </ArticleDate>
-          <ArticleAuthorContainer>
-            <Avatar url={article.author.image} borderWidth={"0px"} />
-            <ArticleAuthor>
-              <Typography>{article.author.name}</Typography>
-            </ArticleAuthor>
-          </ArticleAuthorContainer>
-        </ArticleMetaContainer>
-      </ArticleTitleContainer>
-      <HorizontalLine />
-      <ArticleContentContainer>
         <BannerImgContainer>
           <Image
             src={
@@ -54,7 +39,26 @@ const BlogArticlePage = ({ article }) => {
             }}
           />
         </BannerImgContainer>
-        <Typography>{parse(article.content)}</Typography>
+        <Typography variant="h1">{article.title}</Typography>
+        <ArticleMetaContainer>
+          <ArticleAuthorContainer>
+            <Avatar url={article.author.image} borderWidth={"0px"} />
+            <ArticleAuthor>
+              <Typography>{article.author.name}</Typography>
+            </ArticleAuthor>
+          </ArticleAuthorContainer>
+          <ArticleDate>
+            <Typography variant="body" subdued={true}>
+              {dayjs(article.date).format("D MMM YYYY")}
+            </Typography>
+          </ArticleDate>
+        </ArticleMetaContainer>
+      </ArticleTitleContainer>
+      <HorizontalLine />
+      <ArticleContentContainer>
+        <Typography variant="bodyLarge" className="blogContent">
+          {parse(article.content)}
+        </Typography>
         <HorizontalLine />
       </ArticleContentContainer>
       <ArticleTagsContainer>

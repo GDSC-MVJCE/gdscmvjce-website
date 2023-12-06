@@ -238,7 +238,7 @@ function BlogsPage() {
                               </Typography>
                             </AuthorInfo>
                             <Typography variant="bodySmall">
-                              {dayjs(blog.startDate).format("D MMM YYYY")}
+                              {dayjs(blog.date).format("D MMM YYYY")}
                             </Typography>
                           </CardFooter>
                         </BlogInfo>
