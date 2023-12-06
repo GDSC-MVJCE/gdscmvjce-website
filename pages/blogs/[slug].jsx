@@ -7,9 +7,12 @@ const BlogPage = ({ articleData }) => {
     <>
       <Head>
         <title>{articleData.title}</title>
-        <meta name="description" content={articleData.content} />
+        <meta name="description" content={articleData.shortDescription} />
         <meta property="og:title" content={articleData.title} />
-        <meta property="og:description" content={articleData.content} />
+        <meta
+          property="og:description"
+          content={articleData.shortDescription}
+        />
         <meta property="og:image" content={articleData.thumbnail} />
       </Head>
       <BlogArticlePage article={articleData} />
