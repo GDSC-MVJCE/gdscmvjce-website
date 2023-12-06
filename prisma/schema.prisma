@@ -107,7 +107,7 @@ model TeamMember {
 // Events Schema
 model Event {
     id               String     @id @default(cuid())
-    coverPhoto       String?
+    coverPhoto       String?    @db.Text()
     title            String
     description      String     @db.Text()
     // schedule         String?    @db.Text()

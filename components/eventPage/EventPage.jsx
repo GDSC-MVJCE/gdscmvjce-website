@@ -106,12 +106,10 @@ function EventPage({ eventData }) {
           <EventWrapper>
             <Left>
               <ContentContainer>
-                <Typography variant="displayLarge">
-                  {eventData.title}
-                </Typography>
+                <Typography variant="h1">{eventData.title}</Typography>
                 <EventInfo>
                   <Typography variant="body">
-                    {eventData.description}
+                    {parse(eventData.description)}
                   </Typography>
                 </EventInfo>
               </ContentContainer>
