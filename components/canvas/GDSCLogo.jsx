@@ -1,5 +1,3 @@
-"use client";
-
 import { Suspense, useLayoutEffect } from "react";
 import * as THREE from "three";
 import {
