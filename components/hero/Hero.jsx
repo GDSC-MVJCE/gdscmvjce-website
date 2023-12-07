@@ -106,6 +106,7 @@ const Hero = () => {
 
   const [isTextHighlighted, setIsTextHighlighted] = useState(false);
   const [isAvatarHighlighted, setIsAvatarHighlighted] = useState(false);
+  const [isGrowHightlighted, setIsGrowHighlighted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const updatedXArrows = useXarrow();
@@ -142,7 +143,7 @@ const Hero = () => {
     };
   }, []);
 
-  return  (
+  return (
     <HeroSectionContainer>
       {!isMobile ? (
         <ScrollContainer snap="none">
@@ -188,7 +189,13 @@ const Hero = () => {
                   >
                     Connect.
                   </HeroTextSpan>
-                  <HeroTextSpan color="#0F9D58">Grow.</HeroTextSpan>
+                  <HeroTextSpan
+                    color="#0F9D58"
+                    onMouseEnter={() => setIsGrowHighlighted(true)}
+                    onMouseLeave={() => setIsGrowHighlighted(false)}
+                  >
+                    Grow.
+                  </HeroTextSpan>
                 </div>
                 <Xwrapper>
                   {heroTextElements.map((element, index) => (
@@ -207,7 +214,7 @@ const Hero = () => {
                   ))}
                   {heroAvatarElements.map((element, index) => (
                     <HeroAvatarWrapper
-                      isHighlighted={isAvatarHighlighted}
+                      isHighlighted={isAvatarHighlighted || isGrowHightlighted}
                       top={element.y}
                       left={element.x}
                       key={index}
@@ -238,9 +245,27 @@ const Hero = () => {
                     curveness={0}
                     strokeWidth={2}
                     zIndex={-2}
-                    headColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    lineColor={isAvatarHighlighted ? "#4285F4" : "#F1F1F1"}
+                    headColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    tailColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    lineColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isAvatarHighlighted
+                        ? "#4285F4"
+                        : "#F1F1F1"
+                    }
                   />
                   <Xarrow
                     start={refsById["a2"]}
@@ -256,9 +281,27 @@ const Hero = () => {
                     curveness={0}
                     strokeWidth={2}
                     zIndex={-2}
-                    headColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    lineColor={isAvatarHighlighted ? "#4285F4" : "#F1F1F1"}
+                    headColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    tailColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    lineColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isAvatarHighlighted
+                        ? "#4285F4"
+                        : "#F1F1F1"
+                    }
                   />
                   <Xarrow
                     start={refsById["a1"]}
@@ -274,9 +317,27 @@ const Hero = () => {
                     curveness={0}
                     strokeWidth={2}
                     zIndex={-2}
-                    headColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    lineColor={isAvatarHighlighted ? "#4285F4" : "#F1F1F1"}
+                    headColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    tailColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    lineColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isAvatarHighlighted
+                        ? "#4285F4"
+                        : "#F1F1F1"
+                    }
                   />
 
                   <Xarrow
@@ -293,9 +354,27 @@ const Hero = () => {
                     curveness={0}
                     zIndex={-2}
                     strokeWidth={2}
-                    headColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    lineColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
+                    headColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    tailColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    lineColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
                   />
 
                   <Xarrow
@@ -312,9 +391,27 @@ const Hero = () => {
                     curveness={0}
                     zIndex={-2}
                     strokeWidth={2}
-                    headColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    lineColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
+                    headColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    tailColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    lineColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
                   />
 
                   <Xarrow
@@ -331,9 +428,27 @@ const Hero = () => {
                     curveness={0}
                     zIndex={-2}
                     strokeWidth={2}
-                    headColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    tailColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
-                    lineColor={isTextHighlighted ? "#EA4335" : "#F1F1F1"}
+                    headColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    tailColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
+                    lineColor={
+                      isGrowHightlighted
+                        ? "#0F9D58"
+                        : isTextHighlighted
+                        ? "#EA4335"
+                        : "#F1F1F1"
+                    }
                   />
                 </Xwrapper>
               </HeroBackgroundContainer>

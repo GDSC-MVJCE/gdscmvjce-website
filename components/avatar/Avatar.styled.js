@@ -54,7 +54,6 @@ export const AvatarWrapper = styled.div`
         `}
 
   border-radius: 50%;
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
   position: relative;
   overflow: hidden;
   object-fit: cover;

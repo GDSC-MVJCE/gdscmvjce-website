@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 import dayjs from "dayjs";
+import { useTheme } from "styled-components";
 
 import {
   Button,
@@ -30,6 +31,8 @@ function BlogsSection() {
 
   const [blogsData, setBlogsData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
+
+  const theme = useTheme();
 
   const { data, isLoading } = useSWR(`/api/blogs?page=1`, fetcher, swrConfig);
 
@@ -79,17 +82,13 @@ function BlogsSection() {
       <BottomContainer>
         <BlogInfo>
           <AuthorInfo>
-            <Link
-              href={`/profile/${blog.author.username}`}
-              style={{ textDecoration: "none" }}
-            >
-              <Avatar
-                url={blog.author.image}
-                size="xs"
-                blur={false}
-                borderWidth={"0px"}
-              />
-            </Link>
+            <Avatar
+              url={blog.author.image}
+              size="xs"
+              blur={false}
+              borderWidth={"2px"}
+              borderColor={theme.colors.brandBlue}
+            />
             <Typography variant="bodySmall">{blog.author.name}</Typography>
           </AuthorInfo>
           <Typography variant="bodySmall">
