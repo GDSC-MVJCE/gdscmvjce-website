@@ -85,7 +85,6 @@ export const NavText = styled(Typography)`
 export const Li = styled.li`
   overflow: hidden;
   position: relative;
-  padding: 0.6em 0em;
   margin: 0em 0.6em;
   text-decoration: none;
   ${({ isActive }) =>
