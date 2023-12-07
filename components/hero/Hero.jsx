@@ -142,7 +142,7 @@ const Hero = () => {
     };
   }, []);
 
-  return isClient ? (
+  return  (
     <HeroSectionContainer>
       {!isMobile ? (
         <ScrollContainer snap="none">
@@ -344,8 +344,6 @@ const Hero = () => {
         <MobileHero />
       )}
     </HeroSectionContainer>
-  ) : (
-    <></>
   );
 };
 
