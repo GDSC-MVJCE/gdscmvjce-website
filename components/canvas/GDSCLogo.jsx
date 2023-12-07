@@ -1,3 +1,5 @@
+"use client";
+
 import { Suspense, useLayoutEffect } from "react";
 import * as THREE from "three";
 import {
@@ -63,8 +65,8 @@ function LogoCanvas() {
         dampingFactor={0.05}
         enablePan={false}
       />
-      <Environment preset="warehouse" />
       <Suspense fallback={<CanvasLoader />}>
+        <Environment files={suspend(warehouse)} />
         {/* <gridHelper
           args={[18, 5, "#D9D9D9", "#D9D9D9"]}
           position={[0, 2.8, 0]}
