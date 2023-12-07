@@ -16,7 +16,7 @@ export const Container = styled.div`
   gap: 20px;
 
   @media screen and (${devices.lg}) {
-    padding: 2em 4em;
+    padding: 2em 1em;
   }
 `;
 
