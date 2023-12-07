@@ -66,7 +66,7 @@ function LogoCanvas() {
         enablePan={false}
       />
       <Suspense fallback={<CanvasLoader />}>
-        <Environment files={suspend(warehouse)} />
+        <Environment preset="warehouse" files={suspend(warehouse)} />
         {/* <gridHelper
           args={[18, 5, "#D9D9D9", "#D9D9D9"]}
           position={[0, 2.8, 0]}
