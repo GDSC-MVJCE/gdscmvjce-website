@@ -9,17 +9,13 @@ import {
   PerspectiveCamera,
   Environment
 } from "@react-three/drei";
-import { suspend } from "suspend-react";
 
 import CanvasLoader from "../loaders/CanvasLoader";
 import { StyledCanvas } from "./GDSCLogo.styled";
 import GDSCModel from "./models/GDSCModel";
 
-const warehouse = import("@pmndrs/assets/hdri/warehouse.hdr").then(
-  (module) => module.default
-);
-
 const modelPath = "/models/gdsc_model.gltf";
+const envPath = "/models/warehouse.hdr";
 
 function Logo() {
   const { nodes, materials } = useGLTF(modelPath);
@@ -66,7 +62,7 @@ function LogoCanvas() {
         enablePan={false}
       />
       <Suspense fallback={<CanvasLoader />}>
-        <Environment preset="warehouse" files={suspend(warehouse)} />
+        <Environment files={envPath} />
         {/* <gridHelper
           args={[18, 5, "#D9D9D9", "#D9D9D9"]}
           position={[0, 2.8, 0]}
