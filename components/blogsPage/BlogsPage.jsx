@@ -71,6 +71,7 @@ function BlogsPage() {
     setPageNumber(1);
     setHasMore(true);
     blogsData.length = 0;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
 
   useEffect(() => {
