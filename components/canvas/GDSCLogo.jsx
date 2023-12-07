@@ -15,7 +15,7 @@ import CanvasLoader from "../loaders/CanvasLoader";
 import { StyledCanvas } from "./GDSCLogo.styled";
 import GDSCModel from "./models/GDSCModel";
 
-const warehouse = import("@pmndrs/assets/hdri/warehouse.exr").then(
+const warehouse = import("@pmndrs/assets/hdri/warehouse.hdr").then(
   (module) => module.default
 );
 
