@@ -33,7 +33,20 @@ const nextConfig = {
     styledComponents: true
   },
   images: {
-    domains: ["res.cloudinary.com", "images.unsplash.com", "media.licdn.com"]
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com"
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com"
+      },
+      {
+        protocol: "https",
+        hostname: "media.licdn.com"
+      }
+    ]
   }
 };
 

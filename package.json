@@ -34,7 +34,7 @@
     "html-react-parser": "^4.2.10",
     "http-status-codes": "^2.2.0",
     "lottie-react": "^2.4.0",
-    "next": "13.4.7",
+    "next": "^14.0",
     "next-auth": "^4.22.1",
     "next-superjson-plugin": "^0.5.9",
     "nextjs-toploader": "^1.6.4",
