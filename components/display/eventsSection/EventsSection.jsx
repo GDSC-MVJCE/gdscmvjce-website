@@ -21,10 +21,11 @@ import fetcher from "@/utils/fetcher";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import { devices } from "@/constants/theme";
+import truncateText from "@/utils/truncate";
 
 function EventsSection() {
   const theme = useTheme();
-  const limit = 200;
+  const limit = 140;
 
   const [eventsData, setEventsData] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
@@ -80,9 +81,9 @@ function EventsSection() {
           )}
         </DateLine>
         <Typography variant="h4">{event.title}</Typography>
-        {/* <Typography variant="body">
+        <Typography variant="bodySmall">
           {truncateText(event.shortDescription, limit)}
-        </Typography> */}
+        </Typography>
       </TopContainer>
       <Link href={`/events/${event.slug}`} style={{ textDecoration: "none" }}>
         <Button>
