@@ -23,9 +23,10 @@ export const LogoContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 400px;
-  height: 100dvh;
+  height: 70dvh;
   overflow: hidden;
   position: relative;
+  z-index: 20;
 
   @media (${devices.lg}) {
     width: 200px;
@@ -193,7 +194,7 @@ export const MouseContainer = styled.div`
   justify-content: center;
   padding: 10px;
   position: absolute;
-  top: 80%;
+  top: 85%;
 `;
 
 export const MouseScroll = styled(motion.div)`
