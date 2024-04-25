@@ -37,7 +37,7 @@ const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         -webkit-text-size-adjust: 100%;
-        cursor: url("/cursors/cursor-svg.svg"), auto;
+        cursor: url("/cursors/cursor-svg.svg") 10 0, auto;
     }
 
     body {
@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     a, button{
-      cursor: url("/cursors/cursor-pointer.svg"), auto;
+      cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;    
     }
 `;
 
