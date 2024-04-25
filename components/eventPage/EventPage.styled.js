@@ -7,6 +7,8 @@ export const EventContainer = styled.div`
   padding: 3em 5em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 3em;
 
   @media screen and (${devices.xl}) {
@@ -228,7 +230,13 @@ export const InfoModal = styled.div`
   position: sticky;
   top: 40px;
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(90px);
+  border-left: 4px solid
+    ${({ theme, status }) =>
+      status === "ended"
+        ? theme.colors.brandRed
+        : status === "upcoming"
+        ? theme.colors.brandGreen
+        : theme.colors.brandBlue};
 
   @media screen and (${devices.lg}) {
     width: 100%;
