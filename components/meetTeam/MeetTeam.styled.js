@@ -72,7 +72,7 @@ export const MeetButton = styled.button`
   font-size: 1.2em;
   text-align: center;
   border-radius: 8px;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -87,7 +87,7 @@ export const MeetButton = styled.button`
     height: 180%;
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.4s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
 
@@ -101,7 +101,7 @@ export const MeetButton = styled.button`
     height: 190%;
     background-color: ${({ theme }) => theme.colors.brandYellow};
     border-radius: 50%;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.4s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
 
