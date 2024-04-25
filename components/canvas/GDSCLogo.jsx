@@ -52,6 +52,7 @@ function LogoCanvas() {
       <OrbitControls
         makeDefault
         autoRotate
+        autoRotateSpeed={20}
         minPolarAngle={Math.PI / 2}
         maxPolarAngle={Math.PI / 2}
         enableZoom={false}
