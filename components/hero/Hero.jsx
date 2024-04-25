@@ -24,19 +24,18 @@ import {
   MouseContainer,
   MouseScroll
 } from "./Hero.styled.js";
-import { Xwrapper, useXarrow } from "react-xarrows";
+import Xarrow, { Xwrapper, useXarrow } from "react-xarrows";
 import Avatar from "../avatar/Avatar";
 import { devices } from "@/constants/theme.js";
 import MobileHero from "./MobileHero.jsx";
 import Image from "next/image.js";
-
-const Xarrow = dynamic(() => import("react-xarrows"), { ssr: false });
 
 const Hero = () => {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);
   }, []);
+
   const heroTextElements = useMemo(
     () => [
       { text: "Web", id: "web", color: "#EA4335", x: 55, y: 20, delay: 0.1 },
@@ -147,6 +146,8 @@ const Hero = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  if (!isClient) return null;
 
   return (
     <HeroSectionContainer>
