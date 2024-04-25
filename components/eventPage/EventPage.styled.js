@@ -179,7 +179,7 @@ export const SpeakerCard = styled.div`
   padding: 2em;
   gap: 1em;
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   transition: all 0.2s ease-in-out;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(90px);

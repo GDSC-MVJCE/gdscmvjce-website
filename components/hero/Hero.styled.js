@@ -48,7 +48,7 @@ export const HeroTextSpan = styled.span`
   font-weight: 700;
   color: ${({ theme }) => theme.colors.contentPrimary};
   transition: font-size 0.5s ease-in-out, color 0.2s ease-in-out;
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   &:hover {
     font-size: 100px;
     color: ${({ color }) => (color ? color : "#FFF06C")};
