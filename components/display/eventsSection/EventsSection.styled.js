@@ -28,10 +28,13 @@ export const EventCardContainer = styled.div`
   gap: 1em;
 `;
 
-export const EventCard = styled(Tilt)`
+export const EventCard = styled(Tilt).attrs(() => ({
+  tiltMaxAngleX: 8,
+  tiltMaxAngleY: 8
+}))`
   width: 380px;
   height: 100%;
-  min-height: 550px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   border: 2px solid ${({ theme }) => theme.colors.bgTertiary};
@@ -42,7 +45,6 @@ export const EventCard = styled(Tilt)`
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   transition: all 0.3s ease-in-out;
   background-color: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(90px);
 
   &:hover {
     box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);
@@ -103,7 +105,7 @@ export const ExploreButton = styled.button`
   padding: 0.8em;
   text-align: center;
   border-radius: 8px;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease-in;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -118,7 +120,7 @@ export const ExploreButton = styled.button`
     height: 180%;
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.4s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
 
@@ -132,7 +134,7 @@ export const ExploreButton = styled.button`
     height: 190%;
     background-color: ${({ theme }) => theme.colors.brandBlue};
     border-radius: 50%;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.4s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
 
@@ -151,6 +153,10 @@ export const ExploreButton = styled.button`
     top: -45%;
     background-color: ${({ theme }) => theme.colors.brandBlue};
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+
+  @media screen and (${devices.md}) {
+    width: 100%;
   }
 `;
 
