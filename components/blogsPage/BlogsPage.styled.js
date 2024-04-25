@@ -96,7 +96,6 @@ export const BlogsCard = styled(motion.article)`
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
 
   &:hover {
     box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.16);
@@ -146,7 +145,7 @@ export const BlogInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2em;
+  gap: 0.6em;
   margin: 2.3em 1.3em;
   padding: 0;
   overflow: hidden;
@@ -207,7 +206,6 @@ export const FilterCard = styled(motion.div)`
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(90px);
   }
 `;
 
