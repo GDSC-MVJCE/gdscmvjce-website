@@ -24,11 +24,13 @@ import {
   MouseContainer,
   MouseScroll
 } from "./Hero.styled.js";
-import Xarrow, { Xwrapper, useXarrow } from "react-xarrows";
+import { Xwrapper, useXarrow } from "react-xarrows";
 import Avatar from "../avatar/Avatar";
 import { devices } from "@/constants/theme.js";
 import MobileHero from "./MobileHero.jsx";
 import Image from "next/image.js";
+
+const Xarrow = dynamic(() => import("react-xarrows"), { ssr: false });
 
 const Hero = () => {
   const [isClient, setIsClient] = useState(false);
@@ -85,7 +87,7 @@ const Hero = () => {
         delay: 1.5
       },
       {
-        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692788392/website-assets/avatars/shivam_nglmyb.jpg",
+        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1714048040/website-assets/avatars/shivam_nglmyb.png",
         borderColor: "#0F9D58",
         id: "a3",
         x: 18,
@@ -111,6 +113,9 @@ const Hero = () => {
 
   const updatedXArrows = useXarrow();
   const handleUpdateXArrows = debounce(updatedXArrows, 100);
+  useEffect(() => {
+    handleUpdateXArrows.cancel(); // Cancel any pending debounce on unmount
+  }, []);
   const refsById = useMemo(() => {
     const refs = {};
     heroTextElements.forEach((item) => {
