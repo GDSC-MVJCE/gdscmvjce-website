@@ -23,7 +23,7 @@ export const LogoContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 400px;
-  height: 400px;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
 
@@ -100,7 +100,7 @@ export const HeroBackgroundContainer = styled.div`
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: ${gradientAnimation} 2s linear infinite alternate;
+    animation: ${gradientAnimation} 0.5s linear infinite alternate;
   }
   .animated-2 {
     background: rgb(66, 133, 244);
@@ -113,7 +113,7 @@ export const HeroBackgroundContainer = styled.div`
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: ${gradientAnimation} 2s linear infinite alternate;
+    animation: ${gradientAnimation} 0.5s linear infinite alternate;
   }
   .animated-3 {
     background: rgb(52, 168, 83);
@@ -126,7 +126,7 @@ export const HeroBackgroundContainer = styled.div`
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: ${gradientAnimation} 2s linear infinite alternate;
+    animation: ${gradientAnimation} 0.5s linear infinite alternate;
   }
 `;
 
@@ -193,7 +193,7 @@ export const MouseContainer = styled.div`
   justify-content: center;
   padding: 10px;
   position: absolute;
-  top: 110%;
+  top: 80%;
 `;
 
 export const MouseScroll = styled(motion.div)`
