@@ -114,7 +114,7 @@ function BlogsSection() {
       </TitleContainer>
       <BlogCardContainer>{cardsElement}</BlogCardContainer>
       {isMobile && (
-        <Link href={`/blogs`} style={{ textDecoration: "none" }}>
+        <Link href={`/blogs`} style={{ textDecoration: "none", width: "100%" }}>
           <ExploreButton>Explore more blogs</ExploreButton>
         </Link>
       )}
