@@ -32,7 +32,7 @@ export const OfferLogo = styled.div`
 export const OfferCard = styled.div`
   display: flex;
   width: 80%;
-  gap: 2em;
+  gap: 4em;
   align-items: center;
   margin-block: 2.5em;
 `;
@@ -40,6 +40,6 @@ export const OfferCard = styled.div`
 export const OfferInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 50%;
   gap: 0.5em;
 `;
