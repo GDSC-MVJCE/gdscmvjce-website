@@ -15,7 +15,7 @@ import {
 import Typography from "../typography/Typography";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import XIcon from "@mui/icons-material/X";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Avatar from "@/components/avatar/Avatar";
 import { useEffect, useState } from "react";
@@ -114,7 +114,7 @@ function Footer() {
             target="_blank"
             style={{ color: "gray" }}
           >
-            <TwitterIcon
+            <XIcon
               style={{ marginBottom: "-5px" }}
               sx={{
                 fontSize: 25,
@@ -122,7 +122,7 @@ function Footer() {
 
                 "&:hover": {
                   transform: "translate(0, -1px)",
-                  color: "#1DA1F2"
+                  color: "#000000"
                 }
               }}
             />
