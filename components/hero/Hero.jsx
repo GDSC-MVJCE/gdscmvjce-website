@@ -30,7 +30,7 @@ import { devices } from "@/constants/theme.js";
 import MobileHero from "./MobileHero.jsx";
 import Image from "next/image.js";
 
-const Hero = () => {
+const Hero = ({ isMobile }) => {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);
@@ -108,7 +108,6 @@ const Hero = () => {
   const [isTextHighlighted, setIsTextHighlighted] = useState(false);
   const [isAvatarHighlighted, setIsAvatarHighlighted] = useState(false);
   const [isGrowHightlighted, setIsGrowHighlighted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const updatedXArrows = useXarrow();
   const handleUpdateXArrows = debounce(updatedXArrows, 100);
@@ -131,21 +130,6 @@ const Hero = () => {
       handleUpdateXArrows();
     }
   }, [refsById, handleUpdateXArrows]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.lg);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   if (!isClient) return null;
 

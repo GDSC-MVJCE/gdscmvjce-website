@@ -20,15 +20,13 @@ import Typography from "../typography/Typography";
 import fetcher from "@/utils/fetcher";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
-import { devices } from "@/constants/theme";
 import truncateText from "@/utils/truncate";
 
-function EventsSection() {
+function EventsSection({ isMobile }) {
   const theme = useTheme();
   const limit = 140;
 
   const [eventsData, setEventsData] = useState([]);
-  const [isMobile, setIsMobile] = useState(false);
 
   const { data, isLoading } = useSWR(`/api/events?page=1`, fetcher, swrConfig);
 
@@ -37,21 +35,6 @@ function EventsSection() {
       setEventsData(data);
     }
   }, [data]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.lg);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   isLoading && <SpinnerLoader />;
 

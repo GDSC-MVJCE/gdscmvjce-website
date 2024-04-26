@@ -1,4 +1,7 @@
-import { devices } from "@/constants/theme";
+import { useRef } from "react";
+import Xarrow from "react-xarrows";
+import { useTheme } from "styled-components";
+
 import Typography from "../typography/Typography";
 import {
   Container,
@@ -12,33 +15,13 @@ import BookSvg from "@icons/book1.svg";
 import CubeSvg from "@icons/i3dcubescan.svg";
 import MessageSvg from "@icons/messageprogramming.svg";
 import PersonSvg from "@icons/profilecircle.svg";
-import { useEffect, useRef, useState } from "react";
-import Xarrow from "react-xarrows";
-import { useTheme } from "styled-components";
 
-function OfferSection() {
+function OfferSection({ isMobile }) {
   const theme = useTheme();
   const Logo1ref = useRef();
   const Logo2ref = useRef();
   const Logo3ref = useRef();
   const Logo4ref = useRef();
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.md);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   return (
     <Container>
