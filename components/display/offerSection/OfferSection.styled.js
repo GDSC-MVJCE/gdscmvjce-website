@@ -121,7 +121,7 @@ export const OfferLogo = styled.div`
 export const OfferCard = styled.div`
   display: flex;
   width: 80%;
-  gap: 3em;
+  gap: 4em;
   align-items: center;
   margin-block: 2.5em;
 
