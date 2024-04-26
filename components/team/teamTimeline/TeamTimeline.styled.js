@@ -40,11 +40,9 @@ export const TeamImageContainer = styled.div`
 
 export const ViewTeamButton = styled.div`
   width: 100%;
-  min-width: 200px;
-  padding: 15px 20px;
+  padding: 1em;
   border-radius: 8px;
   text-align: center;
-  border: none;
   background-color: ${({ theme }) => theme.colors.brandBlue};
   color: ${({ theme }) => theme.colors.bgPrimary};
   font-size: 1.2rem;
@@ -65,7 +63,7 @@ export const ViewTeamButton = styled.div`
     height: 180%;
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.4s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
 
@@ -79,14 +77,13 @@ export const ViewTeamButton = styled.div`
     height: 190%;
     background-color: #0a5ce4;
     border-radius: 50%;
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.4s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
   }
 
   &:hover {
     color: #ffffff;
     border: 1px solid #0a5ce4;
-    transform: scale(1.05);
   }
 
   &:hover:before {
@@ -103,6 +100,6 @@ export const ViewTeamButton = styled.div`
 
   @media screen and (${devices.md}) {
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;

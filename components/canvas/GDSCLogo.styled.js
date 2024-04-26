@@ -5,5 +5,5 @@ export const StyledCanvas = styled(Canvas)`
   height: 100%;
   width: 100%;
   border-radius: 10px;
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
 `;

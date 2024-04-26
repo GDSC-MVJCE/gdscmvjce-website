@@ -30,11 +30,12 @@ import { devices } from "@/constants/theme.js";
 import MobileHero from "./MobileHero.jsx";
 import Image from "next/image.js";
 
-const Hero = () => {
+const Hero = ({ isMobile }) => {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);
   }, []);
+
   const heroTextElements = useMemo(
     () => [
       { text: "Web", id: "web", color: "#EA4335", x: 55, y: 20, delay: 0.1 },
@@ -85,7 +86,7 @@ const Hero = () => {
         delay: 1.5
       },
       {
-        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1692788392/website-assets/avatars/shivam_nglmyb.jpg",
+        url: "https://res.cloudinary.com/dp9ikb8xo/image/upload/v1714048040/website-assets/avatars/shivam_nglmyb.png",
         borderColor: "#0F9D58",
         id: "a3",
         x: 18,
@@ -107,10 +108,12 @@ const Hero = () => {
   const [isTextHighlighted, setIsTextHighlighted] = useState(false);
   const [isAvatarHighlighted, setIsAvatarHighlighted] = useState(false);
   const [isGrowHightlighted, setIsGrowHighlighted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const updatedXArrows = useXarrow();
   const handleUpdateXArrows = debounce(updatedXArrows, 100);
+  useEffect(() => {
+    handleUpdateXArrows.cancel(); // Cancel any pending debounce on unmount
+  }, []);
   const refsById = useMemo(() => {
     const refs = {};
     heroTextElements.forEach((item) => {
@@ -128,20 +131,7 @@ const Hero = () => {
     }
   }, [refsById, handleUpdateXArrows]);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.lg);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
+  if (!isClient) return null;
 
   return (
     <HeroSectionContainer>

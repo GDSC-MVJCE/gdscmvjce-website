@@ -22,15 +22,13 @@ import Typography from "../display/typography/Typography";
 import fetcher from "@/utils/fetcher";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
-import { devices } from "@/constants/theme";
 import Avatar from "../avatar/Avatar";
 import truncateText from "@/utils/truncate";
 
-function BlogsSection() {
+function BlogsSection({ isMobile }) {
   const limit = 200;
 
   const [blogsData, setBlogsData] = useState([]);
-  const [isMobile, setIsMobile] = useState(false);
 
   const theme = useTheme();
 
@@ -41,21 +39,6 @@ function BlogsSection() {
       setBlogsData(data);
     }
   }, [data]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.lg);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   isLoading && <SpinnerLoader />;
 
@@ -114,7 +97,7 @@ function BlogsSection() {
       </TitleContainer>
       <BlogCardContainer>{cardsElement}</BlogCardContainer>
       {isMobile && (
-        <Link href={`/blogs`} style={{ textDecoration: "none" }}>
+        <Link href={`/blogs`} style={{ textDecoration: "none", width: "100%" }}>
           <ExploreButton>Explore more blogs</ExploreButton>
         </Link>
       )}

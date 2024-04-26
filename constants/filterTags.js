@@ -85,7 +85,7 @@ export const blogFilters = [
   {
     label: "All",
     slug: "all"
-  }
+  },
   // {
   //   label: "Android",
   //   slug: "android"
@@ -94,10 +94,10 @@ export const blogFilters = [
   //   label: "Events",
   //   slug: "events"
   // }
-  // {
-  //   label: "ML",
-  //   slug: "ml"
-  // }
+  {
+    label: "ML",
+    slug: "ml"
+  }
   //   {
   //     label: "Roadmap",
   //     slug: "roadmap"

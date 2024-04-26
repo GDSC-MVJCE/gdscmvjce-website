@@ -51,6 +51,13 @@ function BlogsPage() {
   const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia(devices.lg);
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
     const handleScroll = () => {
       if (window.scrollY >= TOP_OFFSET) {
         setShowBackground(true);
@@ -60,9 +67,11 @@ function BlogsPage() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
 
@@ -73,21 +82,6 @@ function BlogsPage() {
     blogsData.length = 0;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.lg);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   function handleFilterChange(filter) {
     if (filter === "all") {

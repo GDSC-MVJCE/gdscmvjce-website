@@ -17,6 +17,10 @@ export const MemberCardContainer = styled.div`
     transform: scale(1.1);
     transition: all 0.3s;
   }
+
+  .cursor-pointer {
+    cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
+  }
 `;
 
 export const MemberDetailsContainer = styled.div`

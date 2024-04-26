@@ -89,14 +89,13 @@ export const BlogsCard = styled(motion.article)`
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
   border-radius: 10px;
   margin-bottom: 1.5em;
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out,
     transform 0.3s ease-in-out;
   overflow: hidden;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
 
   &:hover {
     box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.16);
@@ -146,7 +145,7 @@ export const BlogInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2em;
+  gap: 0.6em;
   margin: 2.3em 1.3em;
   padding: 0;
   overflow: hidden;
@@ -191,7 +190,7 @@ export const FilterCard = styled(motion.div)`
   height: fit-content;
   padding: 1em;
   border-bottom: 1px solid ${({ theme }) => theme.colors.bgTertiary};
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   display: flex;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.contentPrimary};
@@ -207,7 +206,6 @@ export const FilterCard = styled(motion.div)`
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(90px);
   }
 `;
 

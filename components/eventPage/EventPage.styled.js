@@ -7,6 +7,8 @@ export const EventContainer = styled.div`
   padding: 3em 5em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 3em;
 
   @media screen and (${devices.xl}) {
@@ -179,7 +181,7 @@ export const SpeakerCard = styled.div`
   padding: 2em;
   gap: 1em;
   box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.16);
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   transition: all 0.2s ease-in-out;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(90px);
@@ -228,7 +230,13 @@ export const InfoModal = styled.div`
   position: sticky;
   top: 40px;
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(90px);
+  border-left: 4px solid
+    ${({ theme, status }) =>
+      status === "ended"
+        ? theme.colors.brandRed
+        : status === "upcoming"
+        ? theme.colors.brandGreen
+        : theme.colors.brandBlue};
 
   @media screen and (${devices.lg}) {
     width: 100%;

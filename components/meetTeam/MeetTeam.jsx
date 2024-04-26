@@ -11,24 +11,7 @@ import Avatar from "../avatar/Avatar";
 import Typography from "../display/typography/Typography";
 import { devices } from "@/constants/theme";
 
-function MeetTeam() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.sm);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
+function MeetTeam({ isMobile }) {
   return (
     <MainContainer>
       <LeftContainer>

@@ -48,18 +48,19 @@ function LogoCanvas() {
         alpha: true
       }}
     >
-      <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={35} />
-      <OrbitControls
-        makeDefault
-        autoRotate
-        minPolarAngle={Math.PI / 2}
-        maxPolarAngle={Math.PI / 2}
-        enableZoom={false}
-        enableDamping={true}
-        dampingFactor={0.05}
-        enablePan={false}
-      />
       <Suspense fallback={<CanvasLoader />}>
+        <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={35} />
+        <OrbitControls
+          makeDefault
+          autoRotate
+          autoRotateSpeed={20}
+          minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2}
+          enableZoom={false}
+          enableDamping={true}
+          dampingFactor={0.05}
+          enablePan={false}
+        />
         <Environment files={envPath} />
         {/* <gridHelper
           args={[18, 5, "#D9D9D9", "#D9D9D9"]}
