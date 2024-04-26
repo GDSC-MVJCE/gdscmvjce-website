@@ -29,6 +29,7 @@ export const OffersContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 2em;
+  justify-content: center;
 
   @media screen and (${devices.md}) {
     align-items: center;
@@ -120,13 +121,13 @@ export const OfferLogo = styled.div`
 export const OfferCard = styled.div`
   display: flex;
   width: 80%;
-  gap: 4em;
+  gap: 3em;
   align-items: center;
   margin-block: 2.5em;
-  justify-content: center;
 
   @media screen and (${devices.md}) {
     gap: 2em;
+    justify-content: center;
   }
 `;
 
