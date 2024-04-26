@@ -1,3 +1,4 @@
+import { devices } from "@/constants/theme";
 import Typography from "../typography/Typography";
 import {
   Container,
@@ -11,7 +12,7 @@ import BookSvg from "@icons/book1.svg";
 import CubeSvg from "@icons/i3dcubescan.svg";
 import MessageSvg from "@icons/messageprogramming.svg";
 import PersonSvg from "@icons/profilecircle.svg";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Xarrow from "react-xarrows";
 import { useTheme } from "styled-components";
 
@@ -22,6 +23,23 @@ function OfferSection() {
   const Logo3ref = useRef();
   const Logo4ref = useRef();
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(devices.md);
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <Container>
       <Title>
@@ -29,7 +47,12 @@ function OfferSection() {
       </Title>
       <OffersContainer>
         <OfferCard>
-          <OfferLogo bgcolor={theme?.colors.brandBlue} ref={Logo1ref}>
+          <OfferLogo
+            bgcolor={["#EA4335", "#FF6B6B"]}
+            rgb="255, 107, 107"
+            delay={0}
+            ref={Logo1ref}
+          >
             <BookSvg />
           </OfferLogo>
           <OfferInfo>
@@ -41,8 +64,17 @@ function OfferSection() {
             </Typography>
           </OfferInfo>
         </OfferCard>
-        <OfferCard style={{ alignSelf: "flex-end", justifyContent: "right" }}>
-          <OfferLogo bgcolor={theme?.colors.brandGreen} ref={Logo2ref}>
+        <OfferCard
+          style={
+            !isMobile ? { alignSelf: "flex-end", justifyContent: "right" } : {}
+          }
+        >
+          <OfferLogo
+            bgcolor={["#FBBC04", "#FFD54F"]}
+            rgb="255, 213, 79"
+            delay={1000}
+            ref={Logo2ref}
+          >
             <CubeSvg />
           </OfferLogo>
           <OfferInfo>
@@ -55,7 +87,12 @@ function OfferSection() {
           </OfferInfo>
         </OfferCard>
         <OfferCard>
-          <OfferLogo bgcolor={theme?.colors.brandRed} ref={Logo3ref}>
+          <OfferLogo
+            bgcolor={["#0F9D58", "#64D8CB"]}
+            rgb="100, 216, 203"
+            delay={1500}
+            ref={Logo3ref}
+          >
             <MessageSvg />
           </OfferLogo>
           <OfferInfo>
@@ -68,8 +105,17 @@ function OfferSection() {
             </Typography>
           </OfferInfo>
         </OfferCard>
-        <OfferCard style={{ alignSelf: "flex-end", justifyContent: "right" }}>
-          <OfferLogo bgcolor={theme?.colors.brandYellow} ref={Logo4ref}>
+        <OfferCard
+          style={
+            !isMobile ? { alignSelf: "flex-end", justifyContent: "right" } : {}
+          }
+        >
+          <OfferLogo
+            bgcolor={["#4285F4", "#6FA1FF"]}
+            rgb="111, 168, 255"
+            delay={2000}
+            ref={Logo4ref}
+          >
             <PersonSvg />
           </OfferLogo>
           <OfferInfo>
