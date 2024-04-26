@@ -36,7 +36,7 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <Intro />
-        {/* <OfferSection /> */}
+        <OfferSection />
         <TeamIntro />
         <MeetTeam />
         <EventsSection />
