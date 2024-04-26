@@ -2,6 +2,39 @@ import styled from "styled-components";
 import { devices } from "@/constants/theme";
 import Link from "next/link";
 
+export const AvatarStack = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .first {
+    z-index: 3;
+    margin-right: -16px;
+  }
+  .second {
+    z-index: 2;
+  }
+  .third {
+    z-index: 1;
+    margin-left: -16px;
+  }
+
+  .hover-effect {
+    transition: transform 0.1s ease-in;
+
+    &:hover {
+      transform: translateY(-4px);
+      z-index: 5;
+    }
+  }
+
+  @media screen and (${devices.md}) {
+    width: 100%;
+  }
+`;
+
 export const FooterContainer = styled.div`
   width: 100%;
   display: flex;
@@ -78,7 +111,7 @@ export const FooterMeta = styled.div`
   justify-content: center;
   align-items: flex-end;
   color: ${({ theme }) => theme.colors.contentSecondary};
-  gap: 0.4em;
+  gap: 0.8em;
   text-align: right;
 
   @media screen and (${devices.md}) {
@@ -94,4 +127,11 @@ export const FooterGithub = styled(Link)`
   gap: 10px;
   text-decoration: none;
   color: gray;
+`;
+
+export const Authors = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 `;

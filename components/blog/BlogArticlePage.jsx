@@ -22,8 +22,6 @@ import Avatar from "@/components/avatar/Avatar";
 const BlogArticlePage = ({ article }) => {
   return (
     <Article>
-      {console.log(article)}
-
       <ArticleTitleContainer>
         <BannerImgContainer>
           <Image

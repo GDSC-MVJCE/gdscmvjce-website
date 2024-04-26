@@ -143,5 +143,5 @@ export const Span = styled.span`
 
 export const ClubName = styled(motion.span)`
   display: block;
-  cursor: url("/cursors/cursor-pointer.svg"), auto;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
 `;

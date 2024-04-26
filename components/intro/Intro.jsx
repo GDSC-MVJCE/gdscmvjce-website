@@ -20,29 +20,13 @@ import FloatingLabel from "../display/typography/floatingLabel/FloatingLabel";
 import FloatingAvatar from "../avatar/floatingAvatar/FloatingAvatar";
 import { devices } from "@/constants/theme";
 
-function Intro() {
+function Intro({ isMobile }) {
   const theme = useTheme();
   const updateXarrow = useXarrow();
   const handleXarrowUpdate = debounce(updateXarrow, 0.1);
   const ref0 = useRef();
   const ref1 = useRef();
   const ref2 = useRef();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.sm);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   useEffect(() => {
     if (

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
+
 import {
   TeamButton,
   TeamDescriptionSection,
@@ -13,25 +14,9 @@ import DesignSection from "./subcomponents/designSection/DesignSection";
 import ContentSection from "./subcomponents/contentSection/ContentSection";
 import CommunitySection from "./subcomponents/communitySection/CommunitySection";
 import MobileDesignSection from "./subcomponents/designSection/mobileDesignSection/MobileDesignSection";
-import { devices } from "@/constants/theme";
 
-const TeamIntro = () => {
+const TeamIntro = ({ isMobile }) => {
   const [activeTeam, setActiveTeam] = useState("tech");
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(devices.lg);
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
 
   return (
     <TeamIntroContainer>

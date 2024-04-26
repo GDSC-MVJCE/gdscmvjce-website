@@ -23,6 +23,7 @@ const MemberCard = ({ member, avatarBorderColor, avatarSize = "lg" }) => {
           borderColor={avatarBorderColor}
           url={member.profile.image}
           borderWidth={4}
+          className="cursor-pointer"
         />
         <MemberDetailsContainer>
           <Typography variant="h5">{member.profile.name}</Typography>

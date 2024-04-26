@@ -81,7 +81,7 @@ export const ProcessCard = styled.section`
   gap: 10px;
   border-radius: 8px;
   border: 1.5px solid #bdbdbd;
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   transition: all 0.2s ease-in-out;
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   z-index: 5;

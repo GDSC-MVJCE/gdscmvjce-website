@@ -146,7 +146,7 @@ function EventPage({ eventData }) {
                 )}
             </Left>
             <Right>
-              <InfoModal>
+              <InfoModal status={eventData.status}>
                 <InfoModalDate>
                   <Typography variant="body" subdued>
                     Mark your calendars for
@@ -181,7 +181,7 @@ function EventPage({ eventData }) {
                     textDecoration: "none"
                   }}
                 >
-                  {eventData.status !== "ended" && (
+                  {eventData.status === "upcoming" && (
                     <Button>Register Now</Button>
                   )}
                 </Link>
