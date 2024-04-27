@@ -26,6 +26,7 @@ const Avatar = ({
         fill={true}
         priority={priority}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+        style={{ objectFit: "cover" }}
       />
     </AvatarWrapper>
   );

@@ -143,6 +143,7 @@ const Hero = ({ isMobile }) => {
                 <Image
                   src="/logos/gdsc-logo.svg"
                   alt="GDSC Logo"
+                  style={{ objectFit: "cover" }}
                   priority
                   fill
                 />
