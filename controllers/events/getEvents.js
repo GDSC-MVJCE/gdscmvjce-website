@@ -50,7 +50,8 @@ const getEvents = async (req, res) => {
       skip: (pageNo - 1) * eventPerPage,
       take: eventPerPage
     });
-    return res.status(StatusCodes.OK).json(events);
+    const tags = await prisma.eventTag.findMany();
+    return res.status(StatusCodes.OK).json({ events, tags });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError)
       console.error(error);
