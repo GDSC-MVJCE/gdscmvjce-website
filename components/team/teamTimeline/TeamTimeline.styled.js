@@ -38,7 +38,7 @@ export const TeamImageContainer = styled.div`
   border-radius: 10px;
 `;
 
-export const ViewTeamButton = styled.div`
+export const ViewTeamButton = styled.button`
   width: 100%;
   padding: 1em;
   border-radius: 8px;
@@ -47,7 +47,7 @@ export const ViewTeamButton = styled.div`
   color: ${({ theme }) => theme.colors.bgPrimary};
   font-size: 1.2rem;
   font-weight: 600;
-  cursor: pointer;
+  cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   transition: all 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
