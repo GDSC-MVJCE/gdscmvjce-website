@@ -13,7 +13,6 @@ export const MemberCardContainer = styled.div`
     width: 150px;
   }
   &:hover {
-    cursor: pointer;
     transform: scale(1.1);
     transition: all 0.3s;
   }

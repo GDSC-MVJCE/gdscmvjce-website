@@ -16,14 +16,13 @@ const MemberCard = ({ member, avatarBorderColor, avatarSize = "lg" }) => {
         textDecoration: "none"
       }}
     >
-      <MemberCardContainer>
+      <MemberCardContainer className="cursor-pointer">
         <Avatar
           size={avatarSize}
           blur
           borderColor={avatarBorderColor}
           url={member.profile.image}
           borderWidth={4}
-          className="cursor-pointer"
         />
         <MemberDetailsContainer>
           <Typography variant="h5">{member.profile.name}</Typography>
