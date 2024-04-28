@@ -28,7 +28,6 @@ const TeamTimeline = () => {
           className="vertical-timeline-element--work"
           contentStyle={{
             background: "rgba(255,255,255,0.6)",
-            backdropFilter: "blur(10px)",
             boxShadow: "0px 0px 20px -2px rgba(0, 0, 0, 0.16)"
           }}
           contentArrowStyle={{ borderRight: "7px solid  #4285F4" }}
@@ -77,7 +76,6 @@ const TeamTimeline = () => {
           className="vertical-timeline-element--work"
           contentStyle={{
             background: "rgba(255,255,255,0.6)",
-            backdropFilter: "blur(10px)",
             boxShadow: "0px 0px 20px -2px rgba(0, 0, 0, 0.16)"
           }}
           contentArrowStyle={{ borderRight: "7px solid  #4285F4" }}
@@ -121,7 +119,6 @@ const TeamTimeline = () => {
           className="vertical-timeline-element--work"
           contentStyle={{
             background: "rgba(255,255,255,0.6)",
-            backdropFilter: "blur(10px)",
             boxShadow: "0px 0px 20px -2px rgba(0, 0, 0, 0.16)"
           }}
           contentArrowStyle={{ borderRight: "7px solid  #4285F4" }}

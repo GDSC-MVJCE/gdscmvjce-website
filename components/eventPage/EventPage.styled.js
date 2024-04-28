@@ -184,7 +184,6 @@ export const SpeakerCard = styled.div`
   cursor: url("/cursors/cursor-pointer.svg") 10 0, auto;
   transition: all 0.2s ease-in-out;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(90px);
 
   &:hover {
     box-shadow: 0px 0px 44px -2px rgba(0, 0, 0, 0.16);
