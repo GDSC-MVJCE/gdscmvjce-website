@@ -143,14 +143,9 @@ To run the application locally, use the following commands:
 
 ```bash
 npm install       # Install dependencies
+npx prisma generate  # Generate Prisma client
+npx prisma db push  # Push database changes
 npm run dev       # Start the development server
-```
-
-In another terminal window, run the following command to start the Prisma server:
-
-```bash
-npx prisma generate
-npx prisma db push
 ```
 
 ## Authors
