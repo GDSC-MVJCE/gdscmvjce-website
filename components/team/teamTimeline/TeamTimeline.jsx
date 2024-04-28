@@ -43,6 +43,7 @@ const TeamTimeline = () => {
                 src="/images/team-2023.png"
                 fill={"responsive"}
                 alt="Team 2023"
+                style={{ objectFit: "cover" }}
               />
             </TeamImageContainer>
             <Typography variant="h4">Team 2023</Typography>
@@ -91,6 +92,7 @@ const TeamTimeline = () => {
                 src="/images/team-2022.jpg"
                 fill={"responsive"}
                 alt="Team 2023"
+                style={{ objectFit: "cover" }}
               />
             </TeamImageContainer>
             <Typography variant="h4">Team 2022</Typography>
@@ -134,6 +136,7 @@ const TeamTimeline = () => {
                 src="/images/team-2021.jpg"
                 fill={"responsive"}
                 alt="Team 2023"
+                style={{ objectFit: "cover" }}
               />
             </TeamImageContainer>
             <Typography variant="h4">Team 2021</Typography>

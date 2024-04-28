@@ -143,6 +143,7 @@ function Navbar() {
                 alt={"GDSC Logo"}
                 fill="responsive"
                 sizes="500px"
+                style={{ objectFit: "cover" }}
               />
             </LogoContainer>
             <CloseIcon

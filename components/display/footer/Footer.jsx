@@ -49,6 +49,7 @@ function Footer() {
               alt={"GDSC Logo"}
               fill="responsive"
               sizes="500px"
+              style={{ objectFit: "cover" }}
             />
           </Link>
         </LogoContainer>

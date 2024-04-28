@@ -52,6 +52,10 @@ export const eventFilters = [
     slug: "html"
   },
   {
+    label: "Info",
+    slug: "info"
+  },
+  {
     label: "Javascript",
     slug: "javascript"
   },
@@ -66,6 +70,10 @@ export const eventFilters = [
   {
     label: "ML",
     slug: "ml"
+  },
+  {
+    label: "Solution Challenge",
+    slug: "solution-challenge"
   },
   {
     label: "TailwindCSS",
