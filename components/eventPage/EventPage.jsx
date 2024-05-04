@@ -175,16 +175,18 @@ function EventPage({ eventData }) {
                     {capitalize(eventData.status)}
                   </Typography>
                 </InfoModalRegistration>
-                <Link
-                  href={eventData.registrationLink ?? "#"}
-                  style={{
-                    textDecoration: "none"
-                  }}
-                >
-                  {eventData.status === "upcoming" && (
-                    <Button>Register Now</Button>
-                  )}
-                </Link>
+                {eventData.registrationLink && (
+                  <Link
+                    href={eventData.registrationLink ?? "#"}
+                    style={{
+                      textDecoration: "none"
+                    }}
+                  >
+                    {eventData.status === "open" && (
+                      <Button>Register Now</Button>
+                    )}
+                  </Link>
+                )}
               </InfoModal>
             </Right>
           </EventWrapper>
