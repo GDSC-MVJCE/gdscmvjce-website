@@ -233,7 +233,7 @@ export const InfoModal = styled.div`
     ${({ theme, status }) =>
       status === "ended"
         ? theme.colors.brandRed
-        : status === "upcoming"
+        : status === "upcoming" || status === "open"
         ? theme.colors.brandGreen
         : theme.colors.brandBlue};
 
