@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useTheme } from "styled-components";
 import dayjs from "dayjs";
 import useSWR from "swr";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
 import {
   Button,
@@ -21,10 +23,15 @@ import fetcher from "@/utils/fetcher";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import truncateText from "@/utils/truncate";
+import capitalize from "@/utils/capitalize";
 
 function EventsSection({ isMobile }) {
   const theme = useTheme();
   const limit = 140;
+
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
+  dayjs.tz.setDefault("Asia/Kolkata");
 
   const [eventsData, setEventsData] = useState([]);
 
@@ -55,12 +62,18 @@ function EventsSection({ isMobile }) {
         </ImageContainer>
         <DateLine>
           <Typography variant="bodySmall">
-            {dayjs(event.startDate).format("D MMM YYYY")}
+            {dayjs.tz(event.startDate).format("D MMM YYYY")}
           </Typography>
-          {event.status !== "ended" && (
+          {event.status === "upcoming" || event.status === "open" ? (
             <Typography variant="bodySmall" color={theme?.colors.brandGreen}>
-              Upcoming
+              {capitalize(event.status)}
             </Typography>
+          ) : event.status === "ongoing" ? (
+            <Typography variant="bodySmall" color={theme?.colors.brandBlue}>
+              {capitalize(event.status)}
+            </Typography>
+          ) : (
+            ""
           )}
         </DateLine>
         <Typography variant="h4">{event.title}</Typography>
