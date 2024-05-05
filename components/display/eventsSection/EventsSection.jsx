@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "styled-components";
-import dayjs from "dayjs";
 import useSWR from "swr";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
 
 import {
   Button,
@@ -24,14 +21,11 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import truncateText from "@/utils/truncate";
 import capitalize from "@/utils/capitalize";
+import isoToDate from "@/utils/isoToDate";
 
 function EventsSection({ isMobile }) {
   const theme = useTheme();
   const limit = 140;
-
-  dayjs.extend(utc);
-  dayjs.extend(timezone);
-  dayjs.tz.setDefault("Asia/Kolkata");
 
   const [eventsData, setEventsData] = useState([]);
 
@@ -62,7 +56,7 @@ function EventsSection({ isMobile }) {
         </ImageContainer>
         <DateLine>
           <Typography variant="bodySmall">
-            {dayjs.tz(event.startDate).format("D MMM YYYY")}
+            {isoToDate(event.startDate)}
           </Typography>
           {event.status === "upcoming" || event.status === "open" ? (
             <Typography variant="bodySmall" color={theme?.colors.brandGreen}>

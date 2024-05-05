@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
-import dayjs from "dayjs";
 import { useTheme } from "styled-components";
 
 import {
@@ -24,6 +23,7 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import Avatar from "../avatar/Avatar";
 import truncateText from "@/utils/truncate";
+import isoToDate from "@/utils/isoToDate";
 
 function BlogsSection({ isMobile }) {
   const limit = 200;
@@ -74,9 +74,7 @@ function BlogsSection({ isMobile }) {
             />
             <Typography variant="bodySmall">{blog.author.name}</Typography>
           </AuthorInfo>
-          <Typography variant="bodySmall">
-            {dayjs(blog.date).format("D MMM YYYY")}
-          </Typography>
+          <Typography variant="bodySmall">{isoToDate(blog.date)}</Typography>
         </BlogInfo>
         <Link href={`/blogs/${blog.slug}`} style={{ textDecoration: "none" }}>
           <Button>Read more</Button>

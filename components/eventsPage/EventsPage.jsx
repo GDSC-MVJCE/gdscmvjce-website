@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
-import dayjs from "dayjs";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
@@ -30,6 +29,7 @@ import { devices } from "@/constants/theme";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
 import truncateText from "@/utils/truncate";
+import isoToDate from "@/utils/isoToDate";
 
 function EventsPage() {
   const TOP_OFFSET = 77;
@@ -216,7 +216,7 @@ function EventsPage() {
                           <EventTags>{eventTagsElements}</EventTags>
                           <EventTitle variant="h3">{event.title}</EventTitle>
                           <Typography variant="body">
-                            {dayjs(event.startDate).format("MMM D, YYYY")} -{" "}
+                            {isoToDate(event.startDate)} -{" "}
                             {truncateText(event.shortDescription, limit)}
                           </Typography>
                         </EventInfo>

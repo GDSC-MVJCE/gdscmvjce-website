@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import parse from "html-react-parser";
-import dayjs from "dayjs";
 
 import {
   Article,
@@ -18,6 +17,7 @@ import {
 } from "./BlogArticlePage.styled.js";
 import Typography from "@/components/display/typography/Typography";
 import Avatar from "@/components/avatar/Avatar";
+import isoToDate from "@/utils/isoToDate.js";
 
 const BlogArticlePage = ({ article }) => {
   return (
@@ -47,7 +47,7 @@ const BlogArticlePage = ({ article }) => {
           </ArticleAuthorContainer>
           <ArticleDate>
             <Typography variant="body" subdued={true}>
-              {dayjs(article.date).format("D MMM YYYY")}
+              {isoToDate(article.date)}
             </Typography>
           </ArticleDate>
         </ArticleMetaContainer>

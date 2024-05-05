@@ -7,8 +7,14 @@ import {
 import Image from "next/image";
 import Typography from "@/components/display/typography/Typography";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
 const GallerySlide = ({ galleryImageData, isFocused }) => {
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
+  dayjs.tz.setDefault("Asia/Kolkata");
+
   return (
     <GallerySlideContainer>
       <GalleryImageContainer>

@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useTheme } from "styled-components";
 import { motion } from "framer-motion";
-import dayjs from "dayjs";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import {
@@ -33,6 +32,7 @@ import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "../loaders/spinnerLoader/SpinnerLoader";
 import Avatar from "../avatar/Avatar";
 import truncateText from "@/utils/truncate";
+import isoToDate from "@/utils/isoToDate";
 
 function BlogsPage() {
   const TOP_OFFSET = 77;
@@ -233,7 +233,7 @@ function BlogsPage() {
                               </Typography>
                             </AuthorInfo>
                             <Typography variant="bodySmall">
-                              {dayjs(blog.date).format("D MMM YYYY")}
+                              {isoToDate(blog.date)}
                             </Typography>
                           </CardFooter>
                         </BlogInfo>
