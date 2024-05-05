@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "styled-components";
-import dayjs from "dayjs";
 import useSWR from "swr";
 
 import {
@@ -21,6 +20,8 @@ import fetcher from "@/utils/fetcher";
 import { swrConfig } from "@/constants/swrConfig";
 import SpinnerLoader from "@/components/loaders/spinnerLoader/SpinnerLoader";
 import truncateText from "@/utils/truncate";
+import capitalize from "@/utils/capitalize";
+import isoToDate from "@/utils/isoToDate";
 
 function EventsSection({ isMobile }) {
   const theme = useTheme();
@@ -55,12 +56,18 @@ function EventsSection({ isMobile }) {
         </ImageContainer>
         <DateLine>
           <Typography variant="bodySmall">
-            {dayjs(event.startDate).format("D MMM YYYY")}
+            {isoToDate(event.startDate)}
           </Typography>
-          {event.status !== "ended" && (
+          {event.status === "upcoming" || event.status === "open" ? (
             <Typography variant="bodySmall" color={theme?.colors.brandGreen}>
-              Upcoming
+              {capitalize(event.status)}
             </Typography>
+          ) : event.status === "ongoing" ? (
+            <Typography variant="bodySmall" color={theme?.colors.brandBlue}>
+              {capitalize(event.status)}
+            </Typography>
+          ) : (
+            ""
           )}
         </DateLine>
         <Typography variant="h4">{event.title}</Typography>

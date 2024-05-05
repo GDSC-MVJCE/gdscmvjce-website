@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import dayjs from "dayjs";
 import parse from "html-react-parser";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
 import {
   Banner,
@@ -35,9 +37,14 @@ import Typography from "../display/typography/Typography";
 import Avatar from "../avatar/Avatar";
 import truncateText from "@/utils/truncate";
 import capitalize from "@/utils/capitalize";
+import isoToDate from "@/utils/isoToDate";
 
 function EventPage({ eventData }) {
   const limit = 400;
+
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
+  dayjs.tz.setDefault("Asia/Kolkata");
 
   const scheduleElements =
     eventData.schedule != undefined &&
@@ -50,7 +57,7 @@ function EventPage({ eventData }) {
               {dayjs(schedule.time.start).format("LT")}
             </Typography>
             <Typography variant="bodySmall" subdued>
-              {dayjs(schedule.sessionDate).format("D MMM YYYY")}
+              {isoToDate(schedule.sessionDate)}
             </Typography>
           </ScheduleDate>
           <Typography variant="body">{schedule.sessionName}</Typography>
@@ -153,12 +160,12 @@ function EventPage({ eventData }) {
                   </Typography>
                   <Typography variant="h4">
                     {eventData.startDate &&
-                    dayjs(eventData.startDate).format("D") !==
-                      dayjs(eventData.endDate).format("D")
-                      ? dayjs(eventData.startDate).format("D") +
+                    dayjs.tz(eventData.startDate).format("D") !==
+                      dayjs.tz(eventData.endDate).format("D")
+                      ? dayjs.tz(eventData.startDate).format("D") +
                         " - " +
-                        dayjs(eventData.endDate).format("D MMM YYYY")
-                      : dayjs(eventData.startDate).format("D MMM YYYY")}
+                        isoToDate(eventData.endDate)
+                      : isoToDate(eventData.startDate)}
                   </Typography>
                 </InfoModalDate>
                 <InfoModalVenue>

@@ -8,6 +8,10 @@ export const eventFilters = [
     slug: "android"
   },
   {
+    label: "AI",
+    slug: "ai"
+  },
+  {
     label: "Blockchain",
     slug: "blockchain"
   },
