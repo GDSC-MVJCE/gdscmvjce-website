@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import dayjs from "dayjs";
 import parse from "html-react-parser";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
 import {
   Banner,
@@ -38,6 +40,10 @@ import capitalize from "@/utils/capitalize";
 
 function EventPage({ eventData }) {
   const limit = 400;
+
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
+  dayjs.tz.setDefault("Asia/Kolkata");
 
   const scheduleElements =
     eventData.schedule != undefined &&
@@ -153,12 +159,12 @@ function EventPage({ eventData }) {
                   </Typography>
                   <Typography variant="h4">
                     {eventData.startDate &&
-                    dayjs(eventData.startDate).format("D") !==
-                      dayjs(eventData.endDate).format("D")
-                      ? dayjs(eventData.startDate).format("D") +
+                    dayjs.tz(eventData.startDate).format("D") !==
+                      dayjs.tz(eventData.endDate).format("D")
+                      ? dayjs.tz(eventData.startDate).format("D") +
                         " - " +
-                        dayjs(eventData.endDate).format("D MMM YYYY")
-                      : dayjs(eventData.startDate).format("D MMM YYYY")}
+                        dayjs.tz(eventData.endDate).format("D MMM YYYY")
+                      : dayjs.tz(eventData.startDate).format("D MMM YYYY")}
                   </Typography>
                 </InfoModalDate>
                 <InfoModalVenue>
