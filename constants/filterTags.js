@@ -40,6 +40,10 @@ export const eventFilters = [
     slug: "firebase"
   },
   {
+    label: "Figma",
+    slug: "figma"
+  },
+  {
     label: "Flutter",
     slug: "flutter"
   },
@@ -86,6 +90,10 @@ export const eventFilters = [
   {
     label: "TensorFlow",
     slug: "tensorflow"
+  },
+  {
+    label: "UI/UX",
+    slug: "uiux"
   },
   {
     label: "Web",
