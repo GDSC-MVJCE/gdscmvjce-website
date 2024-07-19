@@ -106,6 +106,10 @@ export const blogFilters = [
     label: "All",
     slug: "all"
   },
+  {
+    label: "AI",
+    slug: "ai"
+  },
   // {
   //   label: "Android",
   //   slug: "android"
@@ -117,6 +121,10 @@ export const blogFilters = [
   {
     label: "ML",
     slug: "ml"
+  },
+  {
+    label: "SEO",
+    slug: "seo"
   }
   //   {
   //     label: "Roadmap",
